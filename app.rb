@@ -2,6 +2,9 @@ require 'rubygems'
 require 'sinatra'
 require 'active_record'
 
+set :bind, "0.0.0.0"
+set :port, 4888
+
 ActiveRecord::Base.establish_connection(
   :adapter  => "sqlserver",
   :host     => "websql.vitos.com",
