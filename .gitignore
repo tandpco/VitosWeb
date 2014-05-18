@@ -1,6 +1,7 @@
 ## User defined
 run.pid
 run.log
+Gemfile.lock
 ## End
 *.rbc
 capybara-*.html
