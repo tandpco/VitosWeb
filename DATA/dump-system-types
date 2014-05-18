@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+
+data = `sqsh -S VitosDevServer -C "SELECT name, system_type_id from sys.types"`
+puts data

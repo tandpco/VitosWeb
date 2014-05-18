@@ -1,0 +1,2382 @@
+entity_name:    tblAddresses
+column_name:    AddressID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblAddresses
+column_name:    AddressLine1
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    AddressLine2
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    AddressNotes
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    City
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    IsManual
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblAddresses
+column_name:    PostalCode
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblAddresses
+column_name:    State
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblAddresses
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCASSAddresses
+column_name:    CASSAddressID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCASSAddresses
+column_name:    City
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCASSAddresses
+column_name:    DeliveryCharge
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCASSAddresses
+column_name:    DriverMoney
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCASSAddresses
+column_name:    EOCode
+system_type_id: 231
+max_length:     2
+precision:      0
+ 
+entity_name:    tblCASSAddresses
+column_name:    HighNumber
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCASSAddresses
+column_name:    LowNumber
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCASSAddresses
+column_name:    PostalCode
+system_type_id: 231
+max_length:     20
+precision:      0
+ 
+entity_name:    tblCASSAddresses
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCASSAddresses
+column_name:    State
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCASSAddresses
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCASSAddresses
+column_name:    Street
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    AddForSpecialty
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    ComboChoice
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    ComboQuantity
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    CouponAppliesToID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    DollarOff
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    FixedPrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    MinimumPrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponAppliesTo
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponDateRange
+column_name:    CouponDateRangeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponDateRange
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponDateRange
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCouponDateRange
+column_name:    ValidFrom
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCouponDateRange
+column_name:    ValidTo
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCouponPromoCodeDateRange
+column_name:    PromoCode
+system_type_id: 231
+max_length:     100
+precision:      0
+ 
+entity_name:    tblCouponPromoCodeDateRange
+column_name:    PromoCodeDateRangeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponPromoCodeDateRange
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCouponPromoCodeDateRange
+column_name:    ValidFrom
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCouponPromoCodeDateRange
+column_name:    ValidTo
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCoupons
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    CouponTypeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    Description
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCoupons
+column_name:    DollarOff
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCoupons
+column_name:    IsFree
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblCoupons
+column_name:    MinimumPurchase
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCoupons
+column_name:    PercentageOff
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblCoupons
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCoupons
+column_name:    ShortDescription
+system_type_id: 231
+max_length:     200
+precision:      0
+ 
+entity_name:    tblCoupons
+column_name:    ShowOnWeb
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForDelivery
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForDineIn
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForInternetOrder
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForPickup
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForTelephoneOrder
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCoupons
+column_name:    ValidForWalkInOrder
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    IsMassMailer
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    MaxUses
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    PromoCode
+system_type_id: 231
+max_length:     100
+precision:      0
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblCouponsPromoCodes
+column_name:    Uses
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCustomers
+column_name:    Birthdate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCustomers
+column_name:    CellPhone
+system_type_id: 231
+max_length:     20
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    CustomerID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCustomers
+column_name:    EMail
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    FAXPhone
+system_type_id: 231
+max_length:     20
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    FirstName
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    HomePhone
+system_type_id: 231
+max_length:     20
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    IsEMailList
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblCustomers
+column_name:    IsTextList
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblCustomers
+column_name:    LastName
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    NoChecks
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblCustomers
+column_name:    Password
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblCustomers
+column_name:    PrimaryAddressID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblCustomers
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblCustomers
+column_name:    WorkPhone
+system_type_id: 231
+max_length:     20
+precision:      0
+ 
+entity_name:    tblItems
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblItems
+column_name:    IsInternet
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblItems
+column_name:    ItemDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblItems
+column_name:    ItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblItems
+column_name:    ItemShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblItems
+column_name:    ItemSortOrder
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    tblItems
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblMarquee
+column_name:    EndDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblMarquee
+column_name:    MarqueeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblMarquee
+column_name:    MarqueeMain
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblMarquee
+column_name:    MarqueeSub
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblMarquee
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblMarquee
+column_name:    StartDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLineItems
+column_name:    HalfID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineItems
+column_name:    IdealItemCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineItems
+column_name:    IdealItemWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineItems
+column_name:    ItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineItems
+column_name:    OrderLineID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineItems
+column_name:    OrderLineItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineItems
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLines
+column_name:    Cost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    Discount
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    Half1SauceID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    Half1SauceModifierID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    Half2SauceID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    Half2SauceModifierID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    IdealCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealHalf1SauceCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealHalf1SauceWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealHalf2SauceCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealHalf2SauceWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealStandardCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealStyleCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    IdealStyleWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLines
+column_name:    InternetDescription
+system_type_id: 231
+max_length:     2000
+precision:      0
+ 
+entity_name:    tblOrderLines
+column_name:    MPOReason
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrderLines
+column_name:    OrderID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    OrderLineID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    OrderLineNotes
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrderLines
+column_name:    Quantity
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLines
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLines
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLinesIdealCost
+column_name:    IdealCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLinesIdealCost
+column_name:    IdealWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLinesIdealCost
+column_name:    InventoryID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLinesIdealCost
+column_name:    OrderLineID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLinesIdealCost
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLineSides
+column_name:    IdealSideCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineSides
+column_name:    IdealSideWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineSides
+column_name:    IsFreeSide
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblOrderLineSides
+column_name:    OrderLineID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineSides
+column_name:    OrderLineSideID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineSides
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLineSides
+column_name:    SideID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineToppers
+column_name:    IdealTopperCost
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineToppers
+column_name:    IdealTopperWeight
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrderLineToppers
+column_name:    OrderLineID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineToppers
+column_name:    OrderLineTopperID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineToppers
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrderLineToppers
+column_name:    TopperHalfID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrderLineToppers
+column_name:    TopperID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    AccountID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    AddressID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    CustomerID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    CustomerName
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    CustomerPhone
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    DailySequence
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    DeliveryCharge
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrders
+column_name:    DriverMoney
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrders
+column_name:    EditEmpID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    EditReason
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    EmpID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    ExpectedDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    IPAddress
+system_type_id: 231
+max_length:     30
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    IsPaid
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblOrders
+column_name:    OrderID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    OrderNotes
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    OrderStatusID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    OrderTypeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    PaidDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    PaymentAuthorization
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    PaymentEmpID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    PaymentReference
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    PaymentTypeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    RefID
+system_type_id: 231
+max_length:     30
+precision:      0
+ 
+entity_name:    tblOrders
+column_name:    ReleaseDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    SessionID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    SubmitDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    Tax
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrders
+column_name:    Tax2
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrders
+column_name:    Tip
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblOrders
+column_name:    TransactionDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    VoidDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblOrders
+column_name:    VoidEmpID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblOrders
+column_name:    VoidReason
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSauce
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSauce
+column_name:    IsInternet
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSauce
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblSauce
+column_name:    SauceDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSauce
+column_name:    SauceID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSauce
+column_name:    SauceShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSauceModifier
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSauceModifier
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblSauceModifier
+column_name:    SauceModifierDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSauceModifier
+column_name:    SauceModifierID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSauceModifier
+column_name:    SauceModifierShortDescription
+system_type_id: 231
+max_length:     200
+precision:      0
+ 
+entity_name:    tblSideGroup
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSideGroup
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblSideGroup
+column_name:    SideGroupDescription
+system_type_id: 231
+max_length:     100
+precision:      0
+ 
+entity_name:    tblSideGroup
+column_name:    SideGroupID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSideGroup
+column_name:    SideGroupShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSides
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSides
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblSides
+column_name:    SideDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSides
+column_name:    SideID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSides
+column_name:    SideShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSizes
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSizes
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblSizes
+column_name:    SizeDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSizes
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSizes
+column_name:    SizeShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSpecialty
+column_name:    InternetDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSpecialty
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSpecialty
+column_name:    IsInternet
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSpecialty
+column_name:    NoBaseCheese
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblSpecialty
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblSpecialty
+column_name:    SauceID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSpecialty
+column_name:    SpecialtyDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSpecialty
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSpecialty
+column_name:    SpecialtyShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblSpecialty
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblSpecialty
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStoreReportDate
+column_name:    BatchCount
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStoreReportDate
+column_name:    BatchRefNumber
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStoreReportDate
+column_name:    BatchTotal
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStoreReportDate
+column_name:    CurrentStatus
+system_type_id: 231
+max_length:     100
+precision:      0
+ 
+entity_name:    tblStoreReportDate
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblStoreReportDate
+column_name:    ReportDate
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblStoreReportDate
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStoreReportDate
+column_name:    StoreReportID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    Address1
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    Address2
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    CheckOK
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblStores
+column_name:    City
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    CloseFri
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseMon
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseSat
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseSun
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseThu
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseTue
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    CloseWed
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    DefaultDeliveryCharge
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    DefaultDriverMoney
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    DeliveryMin
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    DistrictID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    DMAID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    Fax
+system_type_id: 127
+max_length:     8
+precision:      19
+ 
+entity_name:    tblStores
+column_name:    FriendlyLocation
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    Hours
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblStores
+column_name:    IsDeliveryTaxable
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblStores
+column_name:    LaborTax
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    Latitude
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    Longitude
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    MetaDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    NetworkIP
+system_type_id: 231
+max_length:     36
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    OpenFri
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenMon
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenSat
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenSun
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenThu
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenTue
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    OpenWed
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    PayrollPeriodStartDate
+system_type_id: 40
+max_length:     3
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    PayrollPeriodTypeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    PayrollReportEmail
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    PGWID
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    PGWWebID
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    PGWWebID2
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    Phone
+system_type_id: 127
+max_length:     8
+precision:      19
+ 
+entity_name:    tblStores
+column_name:    PostalCode
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblStores
+column_name:    RequireDriverSwipe
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblStores
+column_name:    Serving
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    State
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    StoreName
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStores
+column_name:    TaxRate
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    TaxRate2
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStores
+column_name:    TZOffset
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStores
+column_name:    UnemploymentVariable
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    tblStyles
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblStyles
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblStyles
+column_name:    StyleDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStyles
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblStyles
+column_name:    StyleShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblStyles
+column_name:    StyleSpecialMessage
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblTopper
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblTopper
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblTopper
+column_name:    TopperDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblTopper
+column_name:    TopperID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblTopper
+column_name:    TopperShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblUnit
+column_name:    AllowHalfItems
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblUnit
+column_name:    CustomDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblUnit
+column_name:    InternetDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblUnit
+column_name:    IsActive
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblUnit
+column_name:    IsInternet
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    tblUnit
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    tblUnit
+column_name:    UnitDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblUnit
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblUnit
+column_name:    UnitMenuSortOrder
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    tblUnit
+column_name:    UnitShortDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    Address1
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    Address2
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    City
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    Created
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblWebActivity
+column_name:    EMail
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    IPAddress
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    OrderID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblWebActivity
+column_name:    OrderTypeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblWebActivity
+column_name:    PostalCode
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    tblWebActivity
+column_name:    RefID
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    SessionID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblWebActivity
+column_name:    State
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    tblWebActivity
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    tblWebActivity
+column_name:    WebActivityID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelCouponStore
+column_name:    CouponID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelCouponStore
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelCouponStore
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelCustomerAddresses
+column_name:    AddressID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelCustomerAddresses
+column_name:    CustomerAddressDescription
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    trelCustomerAddresses
+column_name:    CustomerAddressNotes
+system_type_id: 231
+max_length:     510
+precision:      0
+ 
+entity_name:    trelCustomerAddresses
+column_name:    CustomerID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelCustomerAddresses
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    trelCustomerAddresses
+column_name:    WasExtraDeliveryNotified
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelSideGroupSides
+column_name:    IsDefault
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelSideGroupSides
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelSideGroupSides
+column_name:    SideGroupID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSideGroupSides
+column_name:    SidesID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSizeStyle
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelSizeStyle
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSizeStyle
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtyItem
+column_name:    ItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtyItem
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelSpecialtyItem
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtyItem
+column_name:    SpecialtyItemQuantity
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    trelSpecialtySizeSideGroup
+column_name:    Quantity
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtySizeSideGroup
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    trelSpecialtySizeSideGroup
+column_name:    SideGroupID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtySizeSideGroup
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelSpecialtySizeSideGroup
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreItem
+column_name:    ItemCount
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    trelStoreItem
+column_name:    ItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreItem
+column_name:    OnSidePrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreItem
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelStoreItem
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSides
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    trelStoreSides
+column_name:    SideID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSides
+column_name:    SidePrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreSides
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSizeStyle
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelStoreSizeStyle
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSizeStyle
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSizeStyle
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSizeStyle
+column_name:    StyleSurcharge
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreSpecialty
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelStoreSpecialty
+column_name:    SpecialtyID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreSpecialty
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreUnitSize
+column_name:    IsTaxable
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelStoreUnitSize
+column_name:    PerAdditionalItemPrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreUnitSize
+column_name:    PercentSpecialtyItemVariance
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreUnitSize
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelStoreUnitSize
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreUnitSize
+column_name:    SpecialtyBasePrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreUnitSize
+column_name:    SpecialtyNumberIncludedItems
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    trelStoreUnitSize
+column_name:    StandardBasePrice
+system_type_id: 62
+max_length:     8
+precision:      53
+ 
+entity_name:    trelStoreUnitSize
+column_name:    StandardNumberIncludedItems
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    trelStoreUnitSize
+column_name:    StoreID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelStoreUnitSize
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitItems
+column_name:    FreeItemFlag
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelUnitItems
+column_name:    IsBaseCheese
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelUnitItems
+column_name:    IsCheese
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelUnitItems
+column_name:    IsExtraCheese
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelUnitItems
+column_name:    ItemID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitItems
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitItems
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitItems
+column_name:    UnitItemPrintOrder
+system_type_id: 52
+max_length:     2
+precision:      5
+ 
+entity_name:    trelUnitSauce
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitSauce
+column_name:    SauceID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSauce
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSides
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitSides
+column_name:    SideID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSides
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSize
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitSize
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSize
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSizeSideGroup
+column_name:    Quantity
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSizeSideGroup
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitSizeSideGroup
+column_name:    SideGroupID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSizeSideGroup
+column_name:    SizeID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitSizeSideGroup
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitStyles
+column_name:    RADRAT
+system_type_id: 42
+max_length:     8
+precision:      27
+ 
+entity_name:    trelUnitStyles
+column_name:    StyleID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitStyles
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitTopper
+column_name:    IsBeforeItems
+system_type_id: 104
+max_length:     1
+precision:      1
+ 
+entity_name:    trelUnitTopper
+column_name:    RADRAT
+system_type_id: 42
+max_length:     6
+precision:      19
+ 
+entity_name:    trelUnitTopper
+column_name:    TopperID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 
+entity_name:    trelUnitTopper
+column_name:    UnitID
+system_type_id: 56
+max_length:     4
+precision:      10
+ 

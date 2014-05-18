@@ -1,0 +1,3 @@
+#!/usr/bin/ruby
+
+system("sqsh -S VitosDevServer -C \"select name from sys.tables where type_desc = 'USER_TABLE' order by name\" | grep name")

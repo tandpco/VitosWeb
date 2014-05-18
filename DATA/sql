@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+if(ARGV.length < 1) 
+    puts("Usage: #{$0} <SQL statement>")
+    exit(-1)
+end
+sql = ARGV[0]
+
+system("sqsh -S VitosDevServer -C '#{sql}'")

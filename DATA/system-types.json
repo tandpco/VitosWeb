@@ -1,0 +1,139 @@
+[
+    {
+        "name": "image",
+        "system_type_id": "34"
+    },
+    {
+        "name": "text",
+        "system_type_id": "35"
+    },
+    {
+        "name": "uniqueidentifier",
+        "system_type_id": "36"
+    },
+    {
+        "name": "date",
+        "system_type_id": "40"
+    },
+    {
+        "name": "time",
+        "system_type_id": "41"
+    },
+    {
+        "name": "datetime2",
+        "system_type_id": "42"
+    },
+    {
+        "name": "datetimeoffset",
+        "system_type_id": "43"
+    },
+    {
+        "name": "tinyint",
+        "system_type_id": "48"
+    },
+    {
+        "name": "smallint",
+        "system_type_id": "52"
+    },
+    {
+        "name": "int",
+        "system_type_id": "56"
+    },
+    {
+        "name": "smalldatetime",
+        "system_type_id": "58"
+    },
+    {
+        "name": "real",
+        "system_type_id": "59"
+    },
+    {
+        "name": "money",
+        "system_type_id": "60"
+    },
+    {
+        "name": "datetime",
+        "system_type_id": "61"
+    },
+    {
+        "name": "float",
+        "system_type_id": "62"
+    },
+    {
+        "name": "sql_variant",
+        "system_type_id": "98"
+    },
+    {
+        "name": "ntext",
+        "system_type_id": "99"
+    },
+    {
+        "name": "bit",
+        "system_type_id": "104"
+    },
+    {
+        "name": "decimal",
+        "system_type_id": "106"
+    },
+    {
+        "name": "numeric",
+        "system_type_id": "108"
+    },
+    {
+        "name": "smallmoney",
+        "system_type_id": "122"
+    },
+    {
+        "name": "bigint",
+        "system_type_id": "127"
+    },
+    {
+        "name": "hierarchyid",
+        "system_type_id": "240"
+    },
+    {
+        "name": "geometry",
+        "system_type_id": "240"
+    },
+    {
+        "name": "geography",
+        "system_type_id": "240"
+    },
+    {
+        "name": "varbinary",
+        "system_type_id": "165"
+    },
+    {
+        "name": "varchar",
+        "system_type_id": "167"
+    },
+    {
+        "name": "binary",
+        "system_type_id": "173"
+    },
+    {
+        "name": "char",
+        "system_type_id": "175"
+    },
+    {
+        "name": "timestamp",
+        "system_type_id": "189"
+    },
+    {
+        "name": "nvarchar",
+        "system_type_id": "231"
+    },
+    {
+        "name": "nchar",
+        "system_type_id": "239"
+    },
+    {
+        "name": "xml",
+        "system_type_id": "241"
+    },
+    {
+        "name": "sysname",
+        "system_type_id": "231"
+    },
+    {}
+]

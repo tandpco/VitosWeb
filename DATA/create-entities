@@ -1,0 +1,87 @@
+#!/usr/bin/ruby
+require 'json'
+
+class CreateEntities
+    def initialize()
+        @systemColumns = getSystemColumns()
+        @systemTypes   = getSystemTypes()
+        @entities      = Array.new()
+
+        createEntities()
+    end
+
+    def createEntities
+        # Create entities json
+        i = 0
+        previousEntityName = ""
+        entities = Array.new()
+        members  = Array.new()
+        member   = Hash.new()
+        @systemColumns.each do |column|
+            currentEntityName = column['entity_name']
+            memberName        = column['name']
+            memberType        = getMemberType(column['system_type_id'])
+        
+            member['name'] = memberName
+            member['type'] = memberType
+        
+            members.push(member)
+        
+            if(i > 0 && currentEntityName != previousEntityName)
+                entity = Hash.new()
+                entity['name']        = previousEntityName
+                entity['members']     = members
+                entity['connections'] = Array.new()
+        
+                entities.push(entity)
+                members = []
+                member  = {}
+            end 
+            previousEntityName = currentEntityName
+            i += 1
+        end
+
+        puts(JSON.generate(entities))
+    end
+
+    def getSystemTypes
+        # Get System Types.json
+        data = `sqsh -S VitosDevServer -C "SELECT name, system_type_id from sys.types"`
+        types = data.split("\n")
+        
+        return linesToArray(types)
+    end
+
+    def getSystemColumns
+        # Get Schema
+        data = `sqsh -S VitosDevServer -C "SELECT t.name as entity_name, c.name as column_name, c.system_type_id, c.max_length, c.precision FROM sys.tables t inner join sys.columns c on t.object_id = c.object_id where t.type = 'U' Order by t.name, c.name"`
+        columns = data.split("\n")
+        
+        return linesToArray(columns)
+    end
+
+    def linesToArray(lines)
+    
+        items = Array.new()
+        item  = Hash.new()
+        lines.each do |line|
+            line.chomp!
+            if(line =~ /:/) 
+                (key, value) = line.split(/:\s+/)
+                item[key] = value
+            else
+                items.push(item)
+                item = {}
+            end
+        end
+    
+        return items
+    end
+    
+    def getMemberType(systemTypeId)
+        type = @systemTypes.select { |systemType| systemType['system_type_id'] == systemTypeId }
+        return type
+    end
+end
+
+CreateEntities.new()

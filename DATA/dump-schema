@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+
+data = `sqsh -S VitosDevServer -C "SELECT t.name as entity_name, c.name as column_name, c.system_type_id, c.max_length, c.precision FROM sys.tables t inner join sys.columns c on t.object_id = c.object_id where t.type = 'U' Order by t.name, c.name"`
+puts data

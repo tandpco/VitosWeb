@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+if(ARGV.length < 1) 
+    puts("Usage: #{$0} <sproc>")
+    exit(-1)
+end
+sproc = ARGV[0]
+
+system("sqsh -S VitosDevServer -C \"sp_helptext #{sproc}\"");

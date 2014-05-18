@@ -1,0 +1,2782 @@
+[
+    {
+        "column_name": "AddressID",
+        "entity_name": "tblAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "AddressLine1",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "AddressLine2",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "AddressNotes",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "City",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsManual",
+        "entity_name": "tblAddresses",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "PostalCode",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblAddresses",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "State",
+        "entity_name": "tblAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CASSAddressID",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "City",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "DeliveryCharge",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "DriverMoney",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "EOCode",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "2",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "HighNumber",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "LowNumber",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PostalCode",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "20",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "State",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Street",
+        "entity_name": "tblCASSAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "AddForSpecialty",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "ComboChoice",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ComboQuantity",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponAppliesToID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "DollarOff",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "FixedPrice",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "MinimumPrice",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "tblCouponAppliesTo",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponDateRangeID",
+        "entity_name": "tblCouponDateRange",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "tblCouponDateRange",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCouponDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ValidFrom",
+        "entity_name": "tblCouponDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ValidTo",
+        "entity_name": "tblCouponDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "PromoCode",
+        "entity_name": "tblCouponPromoCodeDateRange",
+        "max_length": "100",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PromoCodeDateRangeID",
+        "entity_name": "tblCouponPromoCodeDateRange",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCouponPromoCodeDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ValidFrom",
+        "entity_name": "tblCouponPromoCodeDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ValidTo",
+        "entity_name": "tblCouponPromoCodeDateRange",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponTypeID",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Description",
+        "entity_name": "tblCoupons",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "DollarOff",
+        "entity_name": "tblCoupons",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IsFree",
+        "entity_name": "tblCoupons",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "MinimumPurchase",
+        "entity_name": "tblCoupons",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "PercentageOff",
+        "entity_name": "tblCoupons",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCoupons",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ShortDescription",
+        "entity_name": "tblCoupons",
+        "max_length": "200",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "ShowOnWeb",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForDelivery",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForDineIn",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForInternetOrder",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForPickup",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForTelephoneOrder",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ValidForWalkInOrder",
+        "entity_name": "tblCoupons",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IsMassMailer",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "MaxUses",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PromoCode",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "100",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "Uses",
+        "entity_name": "tblCouponsPromoCodes",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Birthdate",
+        "entity_name": "tblCustomers",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "CellPhone",
+        "entity_name": "tblCustomers",
+        "max_length": "20",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CustomerID",
+        "entity_name": "tblCustomers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "EMail",
+        "entity_name": "tblCustomers",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "FAXPhone",
+        "entity_name": "tblCustomers",
+        "max_length": "20",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "FirstName",
+        "entity_name": "tblCustomers",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "HomePhone",
+        "entity_name": "tblCustomers",
+        "max_length": "20",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsEMailList",
+        "entity_name": "tblCustomers",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsTextList",
+        "entity_name": "tblCustomers",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "LastName",
+        "entity_name": "tblCustomers",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "NoChecks",
+        "entity_name": "tblCustomers",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "Password",
+        "entity_name": "tblCustomers",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PrimaryAddressID",
+        "entity_name": "tblCustomers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblCustomers",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "WorkPhone",
+        "entity_name": "tblCustomers",
+        "max_length": "20",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsInternet",
+        "entity_name": "tblItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "ItemDescription",
+        "entity_name": "tblItems",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "ItemID",
+        "entity_name": "tblItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ItemShortDescription",
+        "entity_name": "tblItems",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "ItemSortOrder",
+        "entity_name": "tblItems",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblItems",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "EndDate",
+        "entity_name": "tblMarquee",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "MarqueeID",
+        "entity_name": "tblMarquee",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "MarqueeMain",
+        "entity_name": "tblMarquee",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "MarqueeSub",
+        "entity_name": "tblMarquee",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblMarquee",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StartDate",
+        "entity_name": "tblMarquee",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "HalfID",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IdealItemCost",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealItemWeight",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "ItemID",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineID",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineItemID",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrderLineItems",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "Cost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Discount",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "Half1SauceID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Half1SauceModifierID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Half2SauceID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Half2SauceModifierID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IdealCost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealHalf1SauceCost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealHalf1SauceWeight",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealHalf2SauceCost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealHalf2SauceWeight",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealStandardCost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealStyleCost",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealStyleWeight",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "InternetDescription",
+        "entity_name": "tblOrderLines",
+        "max_length": "2000",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "MPOReason",
+        "entity_name": "tblOrderLines",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "OrderID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineNotes",
+        "entity_name": "tblOrderLines",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Quantity",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrderLines",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "tblOrderLines",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IdealCost",
+        "entity_name": "tblOrderLinesIdealCost",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealWeight",
+        "entity_name": "tblOrderLinesIdealCost",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "InventoryID",
+        "entity_name": "tblOrderLinesIdealCost",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineID",
+        "entity_name": "tblOrderLinesIdealCost",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrderLinesIdealCost",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "IdealSideCost",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealSideWeight",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IsFreeSide",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "OrderLineID",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineSideID",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideID",
+        "entity_name": "tblOrderLineSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IdealTopperCost",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IdealTopperWeight",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "OrderLineID",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderLineTopperID",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "TopperHalfID",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "TopperID",
+        "entity_name": "tblOrderLineToppers",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "AccountID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "AddressID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CustomerID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CustomerName",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CustomerPhone",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "DailySequence",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "DeliveryCharge",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "DriverMoney",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "EditEmpID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "EditReason",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "EmpID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ExpectedDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "IPAddress",
+        "entity_name": "tblOrders",
+        "max_length": "30",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsPaid",
+        "entity_name": "tblOrders",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "OrderID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderNotes",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "OrderStatusID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderTypeID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PaidDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "PaymentAuthorization",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PaymentEmpID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PaymentReference",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PaymentTypeID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "RefID",
+        "entity_name": "tblOrders",
+        "max_length": "30",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "ReleaseDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SessionID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SubmitDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "Tax",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "Tax2",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "Tip",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "TransactionDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "VoidDate",
+        "entity_name": "tblOrders",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "VoidEmpID",
+        "entity_name": "tblOrders",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "VoidReason",
+        "entity_name": "tblOrders",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSauce",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsInternet",
+        "entity_name": "tblSauce",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSauce",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SauceDescription",
+        "entity_name": "tblSauce",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SauceID",
+        "entity_name": "tblSauce",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SauceShortDescription",
+        "entity_name": "tblSauce",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSauceModifier",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSauceModifier",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SauceModifierDescription",
+        "entity_name": "tblSauceModifier",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SauceModifierID",
+        "entity_name": "tblSauceModifier",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SauceModifierShortDescription",
+        "entity_name": "tblSauceModifier",
+        "max_length": "200",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSideGroup",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSideGroup",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideGroupDescription",
+        "entity_name": "tblSideGroup",
+        "max_length": "100",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SideGroupID",
+        "entity_name": "tblSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SideGroupShortDescription",
+        "entity_name": "tblSideGroup",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSides",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSides",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideDescription",
+        "entity_name": "tblSides",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SideID",
+        "entity_name": "tblSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SideShortDescription",
+        "entity_name": "tblSides",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSizes",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSizes",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeDescription",
+        "entity_name": "tblSizes",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "tblSizes",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SizeShortDescription",
+        "entity_name": "tblSizes",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "InternetDescription",
+        "entity_name": "tblSpecialty",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblSpecialty",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsInternet",
+        "entity_name": "tblSpecialty",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "NoBaseCheese",
+        "entity_name": "tblSpecialty",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblSpecialty",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SauceID",
+        "entity_name": "tblSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyDescription",
+        "entity_name": "tblSpecialty",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "tblSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyShortDescription",
+        "entity_name": "tblSpecialty",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "tblSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "tblSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "BatchCount",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "BatchRefNumber",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "BatchTotal",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "CurrentStatus",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "100",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "ReportDate",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StoreReportID",
+        "entity_name": "tblStoreReportDate",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Address1",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Address2",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CheckOK",
+        "entity_name": "tblStores",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "City",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CloseFri",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseMon",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseSat",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseSun",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseThu",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseTue",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CloseWed",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "DefaultDeliveryCharge",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "DefaultDriverMoney",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "DeliveryMin",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "DistrictID",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "DMAID",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Fax",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "19",
+        "system_type_id": "127"
+    },
+    {
+        "column_name": "FriendlyLocation",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Hours",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblStores",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsDeliveryTaxable",
+        "entity_name": "tblStores",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "LaborTax",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "Latitude",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "Longitude",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "MetaDescription",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "NetworkIP",
+        "entity_name": "tblStores",
+        "max_length": "36",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "OpenFri",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenMon",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenSat",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenSun",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenThu",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenTue",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OpenWed",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PayrollPeriodStartDate",
+        "entity_name": "tblStores",
+        "max_length": "3",
+        "precision": "10",
+        "system_type_id": "40"
+    },
+    {
+        "column_name": "PayrollPeriodTypeID",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PayrollReportEmail",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PGWID",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PGWWebID",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "PGWWebID2",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Phone",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "19",
+        "system_type_id": "127"
+    },
+    {
+        "column_name": "PostalCode",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblStores",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "RequireDriverSwipe",
+        "entity_name": "tblStores",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "Serving",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "State",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StoreName",
+        "entity_name": "tblStores",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "TaxRate",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "TaxRate2",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "TZOffset",
+        "entity_name": "tblStores",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnemploymentVariable",
+        "entity_name": "tblStores",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblStyles",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblStyles",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StyleDescription",
+        "entity_name": "tblStyles",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "tblStyles",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleShortDescription",
+        "entity_name": "tblStyles",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StyleSpecialMessage",
+        "entity_name": "tblStyles",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblTopper",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblTopper",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "TopperDescription",
+        "entity_name": "tblTopper",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "TopperID",
+        "entity_name": "tblTopper",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "TopperShortDescription",
+        "entity_name": "tblTopper",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "AllowHalfItems",
+        "entity_name": "tblUnit",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "CustomDescription",
+        "entity_name": "tblUnit",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "InternetDescription",
+        "entity_name": "tblUnit",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IsActive",
+        "entity_name": "tblUnit",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsInternet",
+        "entity_name": "tblUnit",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblUnit",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "UnitDescription",
+        "entity_name": "tblUnit",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "tblUnit",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitMenuSortOrder",
+        "entity_name": "tblUnit",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "UnitShortDescription",
+        "entity_name": "tblUnit",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Address1",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Address2",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "City",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "Created",
+        "entity_name": "tblWebActivity",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "EMail",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "IPAddress",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "OrderID",
+        "entity_name": "tblWebActivity",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OrderTypeID",
+        "entity_name": "tblWebActivity",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "PostalCode",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "tblWebActivity",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "RefID",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "SessionID",
+        "entity_name": "tblWebActivity",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "State",
+        "entity_name": "tblWebActivity",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "tblWebActivity",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "WebActivityID",
+        "entity_name": "tblWebActivity",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CouponID",
+        "entity_name": "trelCouponStore",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelCouponStore",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelCouponStore",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "AddressID",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "CustomerAddressDescription",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CustomerAddressNotes",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "510",
+        "precision": "0",
+        "system_type_id": "231"
+    },
+    {
+        "column_name": "CustomerID",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "WasExtraDeliveryNotified",
+        "entity_name": "trelCustomerAddresses",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsDefault",
+        "entity_name": "trelSideGroupSides",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelSideGroupSides",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideGroupID",
+        "entity_name": "trelSideGroupSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SidesID",
+        "entity_name": "trelSideGroupSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelSizeStyle",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelSizeStyle",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "trelSizeStyle",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ItemID",
+        "entity_name": "trelSpecialtyItem",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelSpecialtyItem",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "trelSpecialtyItem",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyItemQuantity",
+        "entity_name": "trelSpecialtyItem",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "Quantity",
+        "entity_name": "trelSpecialtySizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelSpecialtySizeSideGroup",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideGroupID",
+        "entity_name": "trelSpecialtySizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelSpecialtySizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "trelSpecialtySizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "ItemCount",
+        "entity_name": "trelStoreItem",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "ItemID",
+        "entity_name": "trelStoreItem",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "OnSidePrice",
+        "entity_name": "trelStoreItem",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelStoreItem",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelStoreItem",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelStoreSides",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideID",
+        "entity_name": "trelStoreSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SidePrice",
+        "entity_name": "trelStoreSides",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelStoreSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelStoreSizeStyle",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelStoreSizeStyle",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelStoreSizeStyle",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "trelStoreSizeStyle",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StyleSurcharge",
+        "entity_name": "trelStoreSizeStyle",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelStoreSpecialty",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SpecialtyID",
+        "entity_name": "trelStoreSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelStoreSpecialty",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IsTaxable",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "PerAdditionalItemPrice",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "PercentSpecialtyItemVariance",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SpecialtyBasePrice",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "SpecialtyNumberIncludedItems",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "StandardBasePrice",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "8",
+        "precision": "53",
+        "system_type_id": "62"
+    },
+    {
+        "column_name": "StandardNumberIncludedItems",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "StoreID",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelStoreUnitSize",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "FreeItemFlag",
+        "entity_name": "trelUnitItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsBaseCheese",
+        "entity_name": "trelUnitItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsCheese",
+        "entity_name": "trelUnitItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "IsExtraCheese",
+        "entity_name": "trelUnitItems",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "ItemID",
+        "entity_name": "trelUnitItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitItems",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitItems",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitItemPrintOrder",
+        "entity_name": "trelUnitItems",
+        "max_length": "2",
+        "precision": "5",
+        "system_type_id": "52"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitSauce",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SauceID",
+        "entity_name": "trelUnitSauce",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitSauce",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitSides",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideID",
+        "entity_name": "trelUnitSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitSides",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitSize",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelUnitSize",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitSize",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "Quantity",
+        "entity_name": "trelUnitSizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitSizeSideGroup",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "SideGroupID",
+        "entity_name": "trelUnitSizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "SizeID",
+        "entity_name": "trelUnitSizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitSizeSideGroup",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitStyles",
+        "max_length": "8",
+        "precision": "27",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "StyleID",
+        "entity_name": "trelUnitStyles",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitStyles",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "IsBeforeItems",
+        "entity_name": "trelUnitTopper",
+        "max_length": "1",
+        "precision": "1",
+        "system_type_id": "104"
+    },
+    {
+        "column_name": "RADRAT",
+        "entity_name": "trelUnitTopper",
+        "max_length": "6",
+        "precision": "19",
+        "system_type_id": "42"
+    },
+    {
+        "column_name": "TopperID",
+        "entity_name": "trelUnitTopper",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {
+        "column_name": "UnitID",
+        "entity_name": "trelUnitTopper",
+        "max_length": "4",
+        "precision": "10",
+        "system_type_id": "56"
+    },
+    {}
+]

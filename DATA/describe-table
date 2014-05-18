@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+if(ARGV.length < 1) 
+    puts("Usage: #{$0} <table>")
+    exit(-1)
+end
+table = ARGV[0]
+
+system("sqsh -S VitosDevServer -C 'exec sp_columns #{table}' | grep COLUMN_NAME")

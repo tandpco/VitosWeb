@@ -1,0 +1,17 @@
+#!/usr/local/bin/ruby
+require 'json'
+
+items = Array.new()
+item  = Hash.new()
+ARGF.each do |line|
+    line.chomp!
+    if(line =~ /:/) 
+        (key, value) = line.split(/:\s+/)
+        item[key] = value
+    else
+        items.push(item)
+        item = {}
+    end
+end
+
+puts(JSON.generate(items))
