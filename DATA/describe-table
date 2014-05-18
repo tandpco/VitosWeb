@@ -5,4 +5,4 @@ if(ARGV.length < 1)
 end
 table = ARGV[0]
 
-system("sqsh -S VitosDevServer -C 'exec sp_columns #{table}' | grep COLUMN_NAME")
+system("sqsh -S VitosDevServer -C 'exec sp_columns #{table}' ")
