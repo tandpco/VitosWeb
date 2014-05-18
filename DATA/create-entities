@@ -16,10 +16,11 @@ class CreateEntities
         previousEntityName = ""
         entities = Array.new()
         members  = Array.new()
-        member   = Hash.new()
         @systemColumns.each do |column|
+            member   = Hash.new()
+
             currentEntityName = column['entity_name']
-            memberName        = column['name']
+            memberName        = column['column_name']
             memberType        = getMemberType(column['system_type_id'])
         
             member['name'] = memberName
@@ -35,7 +36,6 @@ class CreateEntities
         
                 entities.push(entity)
                 members = []
-                member  = {}
             end 
             previousEntityName = currentEntityName
             i += 1
@@ -79,8 +79,8 @@ class CreateEntities
     end
     
     def getMemberType(systemTypeId)
-        type = @systemTypes.select { |systemType| systemType['system_type_id'] == systemTypeId }
-        return type
+        type = @systemTypes.select { |systemType| systemType['system_type_id'] == systemTypeId }.first
+        return type['name']
     end
 end
 
