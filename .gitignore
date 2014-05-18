@@ -1,3 +1,7 @@
+## User defined
+run.pid
+run.log
+## End
 *.rbc
 capybara-*.html
 .rspec

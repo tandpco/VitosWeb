@@ -1,4 +1,0 @@
-== Sinatra/1.4.5 has taken the stage on 4111 for development with backup from Thin
-127.0.0.1 - - [18/May/2014 12:53:18] "GET / HTTP/1.1" 200 571 4.6476
-127.0.0.1 - - [18/May/2014 12:53:18] "GET /favicon.ico HTTP/1.1" 404 448 0.0011
-127.0.0.1 - - [18/May/2014 12:53:18] "GET /favicon.ico HTTP/1.1" 404 448 0.0007
