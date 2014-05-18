@@ -524,7 +524,9 @@ class Migrate
 
         begin
             ActiveRecord::Migration.create_table :tblstores do |table|
+                table.string :Address1
                 table.string :Address2
+                table.int :Phone
                 table.Boolean :CheckOK
                 table.string :City
                 table.integer :CloseFri

@@ -1079,8 +1079,16 @@
                 "connections": [],
                 "members": [
                     {
+                        "name": "Address1",
+                        "type": "string"
+                    },
+                    {
                         "name": "Address2",
                         "type": "string"
+                    },
+                    {
+                        "name": "Phone",
+                        "type": "int"
                     },
                     {
                         "name": "CheckOK",
