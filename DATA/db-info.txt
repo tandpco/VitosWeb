@@ -2379,4 +2379,3 @@ column_name:    UnitID
 system_type_id: 56
 max_length:     4
 precision:      10
- 

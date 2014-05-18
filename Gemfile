@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-gem "sinatra"
-gem "tiny_tds"
-gem "activerecord"
-gem 'activerecord-sqlserver-adapter'
+gem 'sinatra'
+gem 'thin'
+gem 'json'
+gem 'data_mapper'
+gem 'dm--adapter'
+gem 'data_mapped'

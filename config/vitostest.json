@@ -1,0 +1,8 @@
+{
+  "database": "vitostest",
+  "username": "webtest",
+  "password": "T3st4Th3W3b",
+  "host": "websql.vitos.com",
+  "port": "1433",
+  "adapter": "sqlserver"
+}

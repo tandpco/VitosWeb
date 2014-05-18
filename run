@@ -1,0 +1,38 @@
+#!/usr/bin/ruby
+path = File.dirname($0)
+logFileName = "#{path}/run.log"
+pidFileName = "#{path}/run.pid"
+
+puts
+if(ARGV.length != 1)
+    puts "Usage: #{$0} <config.json>"
+    exit -1
+end
+
+config = ARGV[0]
+
+
+# Find out if already running
+if(File.exists?(pidFileName))
+    pid = File.read(pidFileName)
+    pid.chomp!
+    isRunning = `ps -aux | grep '#{pid}.*rub[y]'`
+    isRunning.chomp!
+
+    if(isRunning.length > 0)
+        puts("Found another solution running...")
+
+        puts("Stopping process: #{pid}")
+        Process.kill("KILL", pid.to_i)
+
+        puts
+    end
+end
+
+
+command = "/usr/bin/ruby Router.rb #{config}"
+puts("Starting solution: #{command}")
+pid = spawn(command, :out=>logFileName, :err=>logFileName)
+puts("    New process: #{pid}")
+
+File.write(pidFileName, pid)

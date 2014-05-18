@@ -1,11 +1,13 @@
 #!/usr/bin/ruby
 require 'json'
+require 'active_record'
 
 class CreateEntities
     def initialize()
-        @systemColumns = getSystemColumns()
-        @systemTypes   = getSystemTypes()
-        @entities      = Array.new()
+        @systemColumns       = getSystemColumns()
+        @systemTypes         = getSystemTypes()
+        @activeRecordTypeMap = getActiveRecordTypeMap()
+        @entities            = Array.new()
 
         createEntities()
     end
@@ -19,9 +21,14 @@ class CreateEntities
         @systemColumns.each do |column|
             member   = Hash.new()
 
+
             currentEntityName = column['entity_name']
             memberName        = column['column_name']
-            memberType        = getMemberType(column['system_type_id'])
+            systemTypeId      = column['system_type_id']
+
+            break unless currentEntityName
+
+            memberType        = getMemberType(systemTypeId)
         
             member['name'] = memberName
             member['type'] = memberType
@@ -30,7 +37,9 @@ class CreateEntities
         
             if(i > 0 && currentEntityName != previousEntityName)
                 entity = Hash.new()
-                entity['name']        = previousEntityName
+                entityName            = String.new(previousEntityName).downcase
+                entityName            = ActiveSupport::Inflector.camelize(entityName)
+                entity['name']        = entityName
                 entity['members']     = members
                 entity['connections'] = Array.new()
         
@@ -59,6 +68,22 @@ class CreateEntities
         
         return linesToArray(columns)
     end
+    def getActiveRecordTypeMap
+        typeMap = Hash.new()
+        typeMap['image']     = 'binary'
+        typeMap['bit']       = 'Boolean'
+        typeMap['datetime']  = 'timestamp'
+        typeMap['datetime2'] = 'timestamp'
+        typeMap['decimal']   = 'decimal'
+        typeMap['float']     = 'float'
+        typeMap['int']       = 'integer'
+        typeMap['smallint']  = 'integer'
+        typeMap['varchar']   = 'string'
+        typeMap['nvarchar']  = 'string'
+        typeMap['text']      = 'text'
+
+        return typeMap
+    end
 
     def linesToArray(lines)
     
@@ -79,8 +104,11 @@ class CreateEntities
     end
     
     def getMemberType(systemTypeId)
-        type = @systemTypes.select { |systemType| systemType['system_type_id'] == systemTypeId }.first
-        return type['name']
+        type = ""
+        sqlServerType = @systemTypes.select { |systemType| systemType['system_type_id'] == systemTypeId }.first
+
+        type = @activeRecordTypeMap[sqlServerType['name']]
+        return type
     end
 end
 
