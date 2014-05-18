@@ -27,7 +27,7 @@ class TrelstoresidesController
     def self.update(data)
         trelstoresides = Trelstoresides.update( data['id'], :SideID => data['SideID'], :SidePrice => data['SidePrice'], :StoreID => data['StoreID'], :RADRAT => data['RADRAT'] )
 
-        trelstoresidesJson = { :status => status, :id => trelstoresides.id, :SideID => trelstoresides.SideID, :SidePrice => trelstoresides.SidePrice, :StoreID => trelstoresides.StoreID, :RADRAT => trelstoresides.RADRAT }
+        trelstoresidesJson = { :id => trelstoresides.id, :SideID => trelstoresides.SideID, :SidePrice => trelstoresides.SidePrice, :StoreID => trelstoresides.StoreID, :RADRAT => trelstoresides.RADRAT }
 
         return trelstoresidesJson.to_json
 

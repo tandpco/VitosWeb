@@ -27,7 +27,7 @@ class TblstorereportdateController
     def self.update(data)
         tblstorereportdate = Tblstorereportdate.update( data['id'], :BatchRefNumber => data['BatchRefNumber'], :BatchTotal => data['BatchTotal'], :CurrentStatus => data['CurrentStatus'], :RADRAT => data['RADRAT'], :ReportDate => data['ReportDate'], :StoreID => data['StoreID'], :StoreReportID => data['StoreReportID'], :Address1 => data['Address1'] )
 
-        tblstorereportdateJson = { :status => status, :id => tblstorereportdate.id, :BatchRefNumber => tblstorereportdate.BatchRefNumber, :BatchTotal => tblstorereportdate.BatchTotal, :CurrentStatus => tblstorereportdate.CurrentStatus, :RADRAT => tblstorereportdate.RADRAT, :ReportDate => tblstorereportdate.ReportDate, :StoreID => tblstorereportdate.StoreID, :StoreReportID => tblstorereportdate.StoreReportID, :Address1 => tblstorereportdate.Address1 }
+        tblstorereportdateJson = { :id => tblstorereportdate.id, :BatchRefNumber => tblstorereportdate.BatchRefNumber, :BatchTotal => tblstorereportdate.BatchTotal, :CurrentStatus => tblstorereportdate.CurrentStatus, :RADRAT => tblstorereportdate.RADRAT, :ReportDate => tblstorereportdate.ReportDate, :StoreID => tblstorereportdate.StoreID, :StoreReportID => tblstorereportdate.StoreReportID, :Address1 => tblstorereportdate.Address1 }
 
         return tblstorereportdateJson.to_json
 

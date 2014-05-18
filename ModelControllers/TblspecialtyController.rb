@@ -27,7 +27,7 @@ class TblspecialtyController
     def self.update(data)
         tblspecialty = Tblspecialty.update( data['id'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :NoBaseCheese => data['NoBaseCheese'], :RADRAT => data['RADRAT'], :SauceID => data['SauceID'], :SpecialtyDescription => data['SpecialtyDescription'], :SpecialtyID => data['SpecialtyID'], :SpecialtyShortDescription => data['SpecialtyShortDescription'], :StyleID => data['StyleID'], :UnitID => data['UnitID'], :BatchCount => data['BatchCount'] )
 
-        tblspecialtyJson = { :status => status, :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID, :BatchCount => tblspecialty.BatchCount }
+        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID, :BatchCount => tblspecialty.BatchCount }
 
         return tblspecialtyJson.to_json
 

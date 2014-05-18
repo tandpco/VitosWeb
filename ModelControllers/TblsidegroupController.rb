@@ -27,7 +27,7 @@ class TblsidegroupController
     def self.update(data)
         tblsidegroup = Tblsidegroup.update( data['id'], :RADRAT => data['RADRAT'], :SideGroupDescription => data['SideGroupDescription'], :SideGroupID => data['SideGroupID'], :SideGroupShortDescription => data['SideGroupShortDescription'], :IsActive => data['IsActive'] )
 
-        tblsidegroupJson = { :status => status, :id => tblsidegroup.id, :RADRAT => tblsidegroup.RADRAT, :SideGroupDescription => tblsidegroup.SideGroupDescription, :SideGroupID => tblsidegroup.SideGroupID, :SideGroupShortDescription => tblsidegroup.SideGroupShortDescription, :IsActive => tblsidegroup.IsActive }
+        tblsidegroupJson = { :id => tblsidegroup.id, :RADRAT => tblsidegroup.RADRAT, :SideGroupDescription => tblsidegroup.SideGroupDescription, :SideGroupID => tblsidegroup.SideGroupID, :SideGroupShortDescription => tblsidegroup.SideGroupShortDescription, :IsActive => tblsidegroup.IsActive }
 
         return tblsidegroupJson.to_json
 

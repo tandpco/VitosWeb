@@ -27,7 +27,7 @@ class TblmarqueeController
     def self.update(data)
         tblmarquee = Tblmarquee.update( data['id'], :MarqueeID => data['MarqueeID'], :MarqueeMain => data['MarqueeMain'], :MarqueeSub => data['MarqueeSub'], :RADRAT => data['RADRAT'], :StartDate => data['StartDate'], :HalfID => data['HalfID'] )
 
-        tblmarqueeJson = { :status => status, :id => tblmarquee.id, :MarqueeID => tblmarquee.MarqueeID, :MarqueeMain => tblmarquee.MarqueeMain, :MarqueeSub => tblmarquee.MarqueeSub, :RADRAT => tblmarquee.RADRAT, :StartDate => tblmarquee.StartDate, :HalfID => tblmarquee.HalfID }
+        tblmarqueeJson = { :id => tblmarquee.id, :MarqueeID => tblmarquee.MarqueeID, :MarqueeMain => tblmarquee.MarqueeMain, :MarqueeSub => tblmarquee.MarqueeSub, :RADRAT => tblmarquee.RADRAT, :StartDate => tblmarquee.StartDate, :HalfID => tblmarquee.HalfID }
 
         return tblmarqueeJson.to_json
 

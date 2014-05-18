@@ -27,7 +27,7 @@ class TrelunititemsController
     def self.update(data)
         trelunititems = Trelunititems.update( data['id'], :IsBaseCheese => data['IsBaseCheese'], :IsCheese => data['IsCheese'], :IsExtraCheese => data['IsExtraCheese'], :ItemID => data['ItemID'], :RADRAT => data['RADRAT'], :UnitID => data['UnitID'], :UnitItemPrintOrder => data['UnitItemPrintOrder'], :RADRAT => data['RADRAT'] )
 
-        trelunititemsJson = { :status => status, :id => trelunititems.id, :IsBaseCheese => trelunititems.IsBaseCheese, :IsCheese => trelunititems.IsCheese, :IsExtraCheese => trelunititems.IsExtraCheese, :ItemID => trelunititems.ItemID, :RADRAT => trelunititems.RADRAT, :UnitID => trelunititems.UnitID, :UnitItemPrintOrder => trelunititems.UnitItemPrintOrder, :RADRAT => trelunititems.RADRAT }
+        trelunititemsJson = { :id => trelunititems.id, :IsBaseCheese => trelunititems.IsBaseCheese, :IsCheese => trelunititems.IsCheese, :IsExtraCheese => trelunititems.IsExtraCheese, :ItemID => trelunititems.ItemID, :RADRAT => trelunititems.RADRAT, :UnitID => trelunititems.UnitID, :UnitItemPrintOrder => trelunititems.UnitItemPrintOrder, :RADRAT => trelunititems.RADRAT }
 
         return trelunititemsJson.to_json
 

@@ -27,7 +27,7 @@ class TrelcouponstoreController
     def self.update(data)
         trelcouponstore = Trelcouponstore.update( data['id'], :RADRAT => data['RADRAT'], :StoreID => data['StoreID'], :AddressID => data['AddressID'] )
 
-        trelcouponstoreJson = { :status => status, :id => trelcouponstore.id, :RADRAT => trelcouponstore.RADRAT, :StoreID => trelcouponstore.StoreID, :AddressID => trelcouponstore.AddressID }
+        trelcouponstoreJson = { :id => trelcouponstore.id, :RADRAT => trelcouponstore.RADRAT, :StoreID => trelcouponstore.StoreID, :AddressID => trelcouponstore.AddressID }
 
         return trelcouponstoreJson.to_json
 

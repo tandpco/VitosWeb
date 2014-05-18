@@ -27,7 +27,7 @@ class TblorderlinesidealcostController
     def self.update(data)
         tblorderlinesidealcost = Tblorderlinesidealcost.update( data['id'], :IdealWeight => data['IdealWeight'], :InventoryID => data['InventoryID'], :OrderLineID => data['OrderLineID'], :RADRAT => data['RADRAT'], :IdealSideCost => data['IdealSideCost'] )
 
-        tblorderlinesidealcostJson = { :status => status, :id => tblorderlinesidealcost.id, :IdealWeight => tblorderlinesidealcost.IdealWeight, :InventoryID => tblorderlinesidealcost.InventoryID, :OrderLineID => tblorderlinesidealcost.OrderLineID, :RADRAT => tblorderlinesidealcost.RADRAT, :IdealSideCost => tblorderlinesidealcost.IdealSideCost }
+        tblorderlinesidealcostJson = { :id => tblorderlinesidealcost.id, :IdealWeight => tblorderlinesidealcost.IdealWeight, :InventoryID => tblorderlinesidealcost.InventoryID, :OrderLineID => tblorderlinesidealcost.OrderLineID, :RADRAT => tblorderlinesidealcost.RADRAT, :IdealSideCost => tblorderlinesidealcost.IdealSideCost }
 
         return tblorderlinesidealcostJson.to_json
 

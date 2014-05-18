@@ -27,7 +27,7 @@ class TrelsizestyleController
     def self.update(data)
         trelsizestyle = Trelsizestyle.update( data['id'], :SizeID => data['SizeID'], :StyleID => data['StyleID'], :ItemID => data['ItemID'] )
 
-        trelsizestyleJson = { :status => status, :id => trelsizestyle.id, :SizeID => trelsizestyle.SizeID, :StyleID => trelsizestyle.StyleID, :ItemID => trelsizestyle.ItemID }
+        trelsizestyleJson = { :id => trelsizestyle.id, :SizeID => trelsizestyle.SizeID, :StyleID => trelsizestyle.StyleID, :ItemID => trelsizestyle.ItemID }
 
         return trelsizestyleJson.to_json
 

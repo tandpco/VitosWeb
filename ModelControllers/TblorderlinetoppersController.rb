@@ -27,7 +27,7 @@ class TblorderlinetoppersController
     def self.update(data)
         tblorderlinetoppers = Tblorderlinetoppers.update( data['id'], :IdealTopperWeight => data['IdealTopperWeight'], :OrderLineID => data['OrderLineID'], :OrderLineTopperID => data['OrderLineTopperID'], :RADRAT => data['RADRAT'], :TopperHalfID => data['TopperHalfID'], :TopperID => data['TopperID'], :AccountID => data['AccountID'] )
 
-        tblorderlinetoppersJson = { :status => status, :id => tblorderlinetoppers.id, :IdealTopperWeight => tblorderlinetoppers.IdealTopperWeight, :OrderLineID => tblorderlinetoppers.OrderLineID, :OrderLineTopperID => tblorderlinetoppers.OrderLineTopperID, :RADRAT => tblorderlinetoppers.RADRAT, :TopperHalfID => tblorderlinetoppers.TopperHalfID, :TopperID => tblorderlinetoppers.TopperID, :AccountID => tblorderlinetoppers.AccountID }
+        tblorderlinetoppersJson = { :id => tblorderlinetoppers.id, :IdealTopperWeight => tblorderlinetoppers.IdealTopperWeight, :OrderLineID => tblorderlinetoppers.OrderLineID, :OrderLineTopperID => tblorderlinetoppers.OrderLineTopperID, :RADRAT => tblorderlinetoppers.RADRAT, :TopperHalfID => tblorderlinetoppers.TopperHalfID, :TopperID => tblorderlinetoppers.TopperID, :AccountID => tblorderlinetoppers.AccountID }
 
         return tblorderlinetoppersJson.to_json
 

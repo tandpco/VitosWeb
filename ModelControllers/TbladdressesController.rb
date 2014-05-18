@@ -27,7 +27,7 @@ class TbladdressesController
     def self.update(data)
         tbladdresses = Tbladdresses.update( data['id'], :AddressID => data['AddressID'], :AddressLine1 => data['AddressLine1'], :AddressLine2 => data['AddressLine2'], :AddressNotes => data['AddressNotes'], :City => data['City'], :IsManual => data['IsManual'], :PostalCode => data['PostalCode'], :RADRAT => data['RADRAT'], :State => data['State'], :StoreID => data['StoreID'], :CASSAddressID => data['CASSAddressID'] )
 
-        tbladdressesJson = { :status => status, :id => tbladdresses.id, :AddressID => tbladdresses.AddressID, :AddressLine1 => tbladdresses.AddressLine1, :AddressLine2 => tbladdresses.AddressLine2, :AddressNotes => tbladdresses.AddressNotes, :City => tbladdresses.City, :IsManual => tbladdresses.IsManual, :PostalCode => tbladdresses.PostalCode, :RADRAT => tbladdresses.RADRAT, :State => tbladdresses.State, :StoreID => tbladdresses.StoreID, :CASSAddressID => tbladdresses.CASSAddressID }
+        tbladdressesJson = { :id => tbladdresses.id, :AddressID => tbladdresses.AddressID, :AddressLine1 => tbladdresses.AddressLine1, :AddressLine2 => tbladdresses.AddressLine2, :AddressNotes => tbladdresses.AddressNotes, :City => tbladdresses.City, :IsManual => tbladdresses.IsManual, :PostalCode => tbladdresses.PostalCode, :RADRAT => tbladdresses.RADRAT, :State => tbladdresses.State, :StoreID => tbladdresses.StoreID, :CASSAddressID => tbladdresses.CASSAddressID }
 
         return tbladdressesJson.to_json
 

@@ -27,7 +27,7 @@ class TblsauceController
     def self.update(data)
         tblsauce = Tblsauce.update( data['id'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :SauceDescription => data['SauceDescription'], :SauceID => data['SauceID'], :SauceShortDescription => data['SauceShortDescription'], :IsActive => data['IsActive'] )
 
-        tblsauceJson = { :status => status, :id => tblsauce.id, :IsInternet => tblsauce.IsInternet, :RADRAT => tblsauce.RADRAT, :SauceDescription => tblsauce.SauceDescription, :SauceID => tblsauce.SauceID, :SauceShortDescription => tblsauce.SauceShortDescription, :IsActive => tblsauce.IsActive }
+        tblsauceJson = { :id => tblsauce.id, :IsInternet => tblsauce.IsInternet, :RADRAT => tblsauce.RADRAT, :SauceDescription => tblsauce.SauceDescription, :SauceID => tblsauce.SauceID, :SauceShortDescription => tblsauce.SauceShortDescription, :IsActive => tblsauce.IsActive }
 
         return tblsauceJson.to_json
 

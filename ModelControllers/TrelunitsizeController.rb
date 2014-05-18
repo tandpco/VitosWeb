@@ -27,7 +27,7 @@ class TrelunitsizeController
     def self.update(data)
         trelunitsize = Trelunitsize.update( data['id'], :SizeID => data['SizeID'], :UnitID => data['UnitID'], :Quantity => data['Quantity'] )
 
-        trelunitsizeJson = { :status => status, :id => trelunitsize.id, :SizeID => trelunitsize.SizeID, :UnitID => trelunitsize.UnitID, :Quantity => trelunitsize.Quantity }
+        trelunitsizeJson = { :id => trelunitsize.id, :SizeID => trelunitsize.SizeID, :UnitID => trelunitsize.UnitID, :Quantity => trelunitsize.Quantity }
 
         return trelunitsizeJson.to_json
 

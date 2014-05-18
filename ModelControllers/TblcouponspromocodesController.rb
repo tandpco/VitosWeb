@@ -27,7 +27,7 @@ class TblcouponspromocodesController
     def self.update(data)
         tblcouponspromocodes = Tblcouponspromocodes.update( data['id'], :IsMassMailer => data['IsMassMailer'], :MaxUses => data['MaxUses'], :PromoCode => data['PromoCode'], :RADRAT => data['RADRAT'], :Uses => data['Uses'], :Birthdate => data['Birthdate'] )
 
-        tblcouponspromocodesJson = { :status => status, :id => tblcouponspromocodes.id, :IsMassMailer => tblcouponspromocodes.IsMassMailer, :MaxUses => tblcouponspromocodes.MaxUses, :PromoCode => tblcouponspromocodes.PromoCode, :RADRAT => tblcouponspromocodes.RADRAT, :Uses => tblcouponspromocodes.Uses, :Birthdate => tblcouponspromocodes.Birthdate }
+        tblcouponspromocodesJson = { :id => tblcouponspromocodes.id, :IsMassMailer => tblcouponspromocodes.IsMassMailer, :MaxUses => tblcouponspromocodes.MaxUses, :PromoCode => tblcouponspromocodes.PromoCode, :RADRAT => tblcouponspromocodes.RADRAT, :Uses => tblcouponspromocodes.Uses, :Birthdate => tblcouponspromocodes.Birthdate }
 
         return tblcouponspromocodesJson.to_json
 

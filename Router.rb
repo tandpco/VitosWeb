@@ -22,17 +22,6 @@ set :port, 4111
 
 config = JSON::load(File.open(ARGV.shift))
 # HTML static routes (GET)
-get '/' do
-    stores = Tblstores.all
-    html  = "<html>"
-    html  += "<head><title>Stores</title></head>"
-    stores.each do |store|
-        html += "<p>#{store.Address1}</p>"
-    end
-    html += "</html>"
-    html
-end
-
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],

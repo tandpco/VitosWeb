@@ -27,7 +27,7 @@ class TrelcustomeraddressesController
     def self.update(data)
         trelcustomeraddresses = Trelcustomeraddresses.update( data['id'], :CustomerAddressDescription => data['CustomerAddressDescription'], :CustomerAddressNotes => data['CustomerAddressNotes'], :CustomerID => data['CustomerID'], :RADRAT => data['RADRAT'], :WasExtraDeliveryNotified => data['WasExtraDeliveryNotified'], :IsDefault => data['IsDefault'] )
 
-        trelcustomeraddressesJson = { :status => status, :id => trelcustomeraddresses.id, :CustomerAddressDescription => trelcustomeraddresses.CustomerAddressDescription, :CustomerAddressNotes => trelcustomeraddresses.CustomerAddressNotes, :CustomerID => trelcustomeraddresses.CustomerID, :RADRAT => trelcustomeraddresses.RADRAT, :WasExtraDeliveryNotified => trelcustomeraddresses.WasExtraDeliveryNotified, :IsDefault => trelcustomeraddresses.IsDefault }
+        trelcustomeraddressesJson = { :id => trelcustomeraddresses.id, :CustomerAddressDescription => trelcustomeraddresses.CustomerAddressDescription, :CustomerAddressNotes => trelcustomeraddresses.CustomerAddressNotes, :CustomerID => trelcustomeraddresses.CustomerID, :RADRAT => trelcustomeraddresses.RADRAT, :WasExtraDeliveryNotified => trelcustomeraddresses.WasExtraDeliveryNotified, :IsDefault => trelcustomeraddresses.IsDefault }
 
         return trelcustomeraddressesJson.to_json
 

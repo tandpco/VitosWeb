@@ -27,7 +27,7 @@ class TblsizesController
     def self.update(data)
         tblsizes = Tblsizes.update( data['id'], :RADRAT => data['RADRAT'], :SizeDescription => data['SizeDescription'], :SizeID => data['SizeID'], :SizeShortDescription => data['SizeShortDescription'], :InternetDescription => data['InternetDescription'] )
 
-        tblsizesJson = { :status => status, :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
+        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
 
         return tblsizesJson.to_json
 

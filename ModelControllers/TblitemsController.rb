@@ -27,7 +27,7 @@ class TblitemsController
     def self.update(data)
         tblitems = Tblitems.update( data['id'], :IsInternet => data['IsInternet'], :ItemDescription => data['ItemDescription'], :ItemID => data['ItemID'], :ItemShortDescription => data['ItemShortDescription'], :ItemSortOrder => data['ItemSortOrder'], :RADRAT => data['RADRAT'], :EndDate => data['EndDate'] )
 
-        tblitemsJson = { :status => status, :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
+        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
 
         return tblitemsJson.to_json
 

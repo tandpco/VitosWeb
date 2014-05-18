@@ -27,7 +27,7 @@ class TrelunitstylesController
     def self.update(data)
         trelunitstyles = Trelunitstyles.update( data['id'], :StyleID => data['StyleID'], :UnitID => data['UnitID'], :IsBeforeItems => data['IsBeforeItems'] )
 
-        trelunitstylesJson = { :status => status, :id => trelunitstyles.id, :StyleID => trelunitstyles.StyleID, :UnitID => trelunitstyles.UnitID, :IsBeforeItems => trelunitstyles.IsBeforeItems }
+        trelunitstylesJson = { :id => trelunitstyles.id, :StyleID => trelunitstyles.StyleID, :UnitID => trelunitstyles.UnitID, :IsBeforeItems => trelunitstyles.IsBeforeItems }
 
         return trelunitstylesJson.to_json
 

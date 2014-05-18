@@ -27,7 +27,7 @@ class TrelspecialtyitemController
     def self.update(data)
         trelspecialtyitem = Trelspecialtyitem.update( data['id'], :RADRAT => data['RADRAT'], :SpecialtyID => data['SpecialtyID'], :SpecialtyItemQuantity => data['SpecialtyItemQuantity'], :Quantity => data['Quantity'] )
 
-        trelspecialtyitemJson = { :status => status, :id => trelspecialtyitem.id, :RADRAT => trelspecialtyitem.RADRAT, :SpecialtyID => trelspecialtyitem.SpecialtyID, :SpecialtyItemQuantity => trelspecialtyitem.SpecialtyItemQuantity, :Quantity => trelspecialtyitem.Quantity }
+        trelspecialtyitemJson = { :id => trelspecialtyitem.id, :RADRAT => trelspecialtyitem.RADRAT, :SpecialtyID => trelspecialtyitem.SpecialtyID, :SpecialtyItemQuantity => trelspecialtyitem.SpecialtyItemQuantity, :Quantity => trelspecialtyitem.Quantity }
 
         return trelspecialtyitemJson.to_json
 

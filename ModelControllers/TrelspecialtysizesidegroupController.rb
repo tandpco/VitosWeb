@@ -27,7 +27,7 @@ class TrelspecialtysizesidegroupController
     def self.update(data)
         trelspecialtysizesidegroup = Trelspecialtysizesidegroup.update( data['id'], :RADRAT => data['RADRAT'], :SideGroupID => data['SideGroupID'], :SizeID => data['SizeID'], :SpecialtyID => data['SpecialtyID'], :ItemCount => data['ItemCount'] )
 
-        trelspecialtysizesidegroupJson = { :status => status, :id => trelspecialtysizesidegroup.id, :RADRAT => trelspecialtysizesidegroup.RADRAT, :SideGroupID => trelspecialtysizesidegroup.SideGroupID, :SizeID => trelspecialtysizesidegroup.SizeID, :SpecialtyID => trelspecialtysizesidegroup.SpecialtyID, :ItemCount => trelspecialtysizesidegroup.ItemCount }
+        trelspecialtysizesidegroupJson = { :id => trelspecialtysizesidegroup.id, :RADRAT => trelspecialtysizesidegroup.RADRAT, :SideGroupID => trelspecialtysizesidegroup.SideGroupID, :SizeID => trelspecialtysizesidegroup.SizeID, :SpecialtyID => trelspecialtysizesidegroup.SpecialtyID, :ItemCount => trelspecialtysizesidegroup.ItemCount }
 
         return trelspecialtysizesidegroupJson.to_json
 

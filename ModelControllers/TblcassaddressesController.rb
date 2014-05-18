@@ -27,7 +27,7 @@ class TblcassaddressesController
     def self.update(data)
         tblcassaddresses = Tblcassaddresses.update( data['id'], :City => data['City'], :DeliveryCharge => data['DeliveryCharge'], :DriverMoney => data['DriverMoney'], :EOCode => data['EOCode'], :HighNumber => data['HighNumber'], :LowNumber => data['LowNumber'], :PostalCode => data['PostalCode'], :RADRAT => data['RADRAT'], :State => data['State'], :StoreID => data['StoreID'], :Street => data['Street'], :AddForSpecialty => data['AddForSpecialty'] )
 
-        tblcassaddressesJson = { :status => status, :id => tblcassaddresses.id, :City => tblcassaddresses.City, :DeliveryCharge => tblcassaddresses.DeliveryCharge, :DriverMoney => tblcassaddresses.DriverMoney, :EOCode => tblcassaddresses.EOCode, :HighNumber => tblcassaddresses.HighNumber, :LowNumber => tblcassaddresses.LowNumber, :PostalCode => tblcassaddresses.PostalCode, :RADRAT => tblcassaddresses.RADRAT, :State => tblcassaddresses.State, :StoreID => tblcassaddresses.StoreID, :Street => tblcassaddresses.Street, :AddForSpecialty => tblcassaddresses.AddForSpecialty }
+        tblcassaddressesJson = { :id => tblcassaddresses.id, :City => tblcassaddresses.City, :DeliveryCharge => tblcassaddresses.DeliveryCharge, :DriverMoney => tblcassaddresses.DriverMoney, :EOCode => tblcassaddresses.EOCode, :HighNumber => tblcassaddresses.HighNumber, :LowNumber => tblcassaddresses.LowNumber, :PostalCode => tblcassaddresses.PostalCode, :RADRAT => tblcassaddresses.RADRAT, :State => tblcassaddresses.State, :StoreID => tblcassaddresses.StoreID, :Street => tblcassaddresses.Street, :AddForSpecialty => tblcassaddresses.AddForSpecialty }
 
         return tblcassaddressesJson.to_json
 

@@ -27,7 +27,7 @@ class TrelstorespecialtyController
     def self.update(data)
         trelstorespecialty = Trelstorespecialty.update( data['id'], :SpecialtyID => data['SpecialtyID'], :StoreID => data['StoreID'], :IsTaxable => data['IsTaxable'] )
 
-        trelstorespecialtyJson = { :status => status, :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
+        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
 
         return trelstorespecialtyJson.to_json
 

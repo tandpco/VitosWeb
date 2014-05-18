@@ -27,7 +27,7 @@ class TblcoupondaterangeController
     def self.update(data)
         tblcoupondaterange = Tblcoupondaterange.update( data['id'], :CouponID => data['CouponID'], :RADRAT => data['RADRAT'], :ValidFrom => data['ValidFrom'], :ValidTo => data['ValidTo'], :PromoCode => data['PromoCode'] )
 
-        tblcoupondaterangeJson = { :status => status, :id => tblcoupondaterange.id, :CouponID => tblcoupondaterange.CouponID, :RADRAT => tblcoupondaterange.RADRAT, :ValidFrom => tblcoupondaterange.ValidFrom, :ValidTo => tblcoupondaterange.ValidTo, :PromoCode => tblcoupondaterange.PromoCode }
+        tblcoupondaterangeJson = { :id => tblcoupondaterange.id, :CouponID => tblcoupondaterange.CouponID, :RADRAT => tblcoupondaterange.RADRAT, :ValidFrom => tblcoupondaterange.ValidFrom, :ValidTo => tblcoupondaterange.ValidTo, :PromoCode => tblcoupondaterange.PromoCode }
 
         return tblcoupondaterangeJson.to_json
 

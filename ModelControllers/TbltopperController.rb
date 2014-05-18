@@ -27,7 +27,7 @@ class TbltopperController
     def self.update(data)
         tbltopper = Tbltopper.update( data['id'], :RADRAT => data['RADRAT'], :TopperDescription => data['TopperDescription'], :TopperID => data['TopperID'], :TopperShortDescription => data['TopperShortDescription'], :AllowHalfItems => data['AllowHalfItems'] )
 
-        tbltopperJson = { :status => status, :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
+        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
 
         return tbltopperJson.to_json
 

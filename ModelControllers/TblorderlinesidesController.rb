@@ -27,7 +27,7 @@ class TblorderlinesidesController
     def self.update(data)
         tblorderlinesides = Tblorderlinesides.update( data['id'], :IdealSideWeight => data['IdealSideWeight'], :IsFreeSide => data['IsFreeSide'], :OrderLineID => data['OrderLineID'], :OrderLineSideID => data['OrderLineSideID'], :RADRAT => data['RADRAT'], :SideID => data['SideID'], :IdealTopperCost => data['IdealTopperCost'] )
 
-        tblorderlinesidesJson = { :status => status, :id => tblorderlinesides.id, :IdealSideWeight => tblorderlinesides.IdealSideWeight, :IsFreeSide => tblorderlinesides.IsFreeSide, :OrderLineID => tblorderlinesides.OrderLineID, :OrderLineSideID => tblorderlinesides.OrderLineSideID, :RADRAT => tblorderlinesides.RADRAT, :SideID => tblorderlinesides.SideID, :IdealTopperCost => tblorderlinesides.IdealTopperCost }
+        tblorderlinesidesJson = { :id => tblorderlinesides.id, :IdealSideWeight => tblorderlinesides.IdealSideWeight, :IsFreeSide => tblorderlinesides.IsFreeSide, :OrderLineID => tblorderlinesides.OrderLineID, :OrderLineSideID => tblorderlinesides.OrderLineSideID, :RADRAT => tblorderlinesides.RADRAT, :SideID => tblorderlinesides.SideID, :IdealTopperCost => tblorderlinesides.IdealTopperCost }
 
         return tblorderlinesidesJson.to_json
 

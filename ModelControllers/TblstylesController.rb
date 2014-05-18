@@ -27,7 +27,7 @@ class TblstylesController
     def self.update(data)
         tblstyles = Tblstyles.update( data['id'], :RADRAT => data['RADRAT'], :StyleDescription => data['StyleDescription'], :StyleID => data['StyleID'], :StyleShortDescription => data['StyleShortDescription'], :StyleSpecialMessage => data['StyleSpecialMessage'], :IsActive => data['IsActive'] )
 
-        tblstylesJson = { :status => status, :id => tblstyles.id, :RADRAT => tblstyles.RADRAT, :StyleDescription => tblstyles.StyleDescription, :StyleID => tblstyles.StyleID, :StyleShortDescription => tblstyles.StyleShortDescription, :StyleSpecialMessage => tblstyles.StyleSpecialMessage, :IsActive => tblstyles.IsActive }
+        tblstylesJson = { :id => tblstyles.id, :RADRAT => tblstyles.RADRAT, :StyleDescription => tblstyles.StyleDescription, :StyleID => tblstyles.StyleID, :StyleShortDescription => tblstyles.StyleShortDescription, :StyleSpecialMessage => tblstyles.StyleSpecialMessage, :IsActive => tblstyles.IsActive }
 
         return tblstylesJson.to_json
 

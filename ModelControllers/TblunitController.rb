@@ -27,7 +27,7 @@ class TblunitController
     def self.update(data)
         tblunit = Tblunit.update( data['id'], :CustomDescription => data['CustomDescription'], :InternetDescription => data['InternetDescription'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :UnitDescription => data['UnitDescription'], :UnitID => data['UnitID'], :UnitMenuSortOrder => data['UnitMenuSortOrder'], :UnitShortDescription => data['UnitShortDescription'], :Address1 => data['Address1'] )
 
-        tblunitJson = { :status => status, :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
+        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
 
         return tblunitJson.to_json
 

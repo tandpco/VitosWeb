@@ -27,7 +27,7 @@ class TrelunitsizesidegroupController
     def self.update(data)
         trelunitsizesidegroup = Trelunitsizesidegroup.update( data['id'], :RADRAT => data['RADRAT'], :SideGroupID => data['SideGroupID'], :SizeID => data['SizeID'], :UnitID => data['UnitID'], :RADRAT => data['RADRAT'] )
 
-        trelunitsizesidegroupJson = { :status => status, :id => trelunitsizesidegroup.id, :RADRAT => trelunitsizesidegroup.RADRAT, :SideGroupID => trelunitsizesidegroup.SideGroupID, :SizeID => trelunitsizesidegroup.SizeID, :UnitID => trelunitsizesidegroup.UnitID, :RADRAT => trelunitsizesidegroup.RADRAT }
+        trelunitsizesidegroupJson = { :id => trelunitsizesidegroup.id, :RADRAT => trelunitsizesidegroup.RADRAT, :SideGroupID => trelunitsizesidegroup.SideGroupID, :SizeID => trelunitsizesidegroup.SizeID, :UnitID => trelunitsizesidegroup.UnitID, :RADRAT => trelunitsizesidegroup.RADRAT }
 
         return trelunitsizesidegroupJson.to_json
 
