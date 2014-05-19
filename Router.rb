@@ -21,7 +21,6 @@ set :bind, '0.0.0.0'
 set :port, 4111
 
 config = JSON::load(File.open(ARGV.shift))
-# HTML static routes (GET)
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],
@@ -1924,3 +1923,17 @@ post '/rest/model/trelunitstyles/filter' do
 end
 
 # View REST routes (POST)
+post '/rest/view/tblunit/get-tblunits' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblunitViewController.getTblunits(data)
+end
+
+post '/rest/view/tblspecialty/get-tblspecialties' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblspecialtyViewController.getTblspecialties(data)
+end
+

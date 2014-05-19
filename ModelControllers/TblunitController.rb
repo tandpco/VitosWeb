@@ -8,9 +8,9 @@ end
 class TblunitController
     public
     def self.create(data)
-        tblunit = Tblunit.create( :CustomDescription => data['CustomDescription'], :InternetDescription => data['InternetDescription'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :UnitDescription => data['UnitDescription'], :UnitID => data['UnitID'], :UnitMenuSortOrder => data['UnitMenuSortOrder'], :UnitShortDescription => data['UnitShortDescription'], :Address1 => data['Address1'] )
+        tblunit = Tblunit.create( :CustomDescription => data['CustomDescription'], :InternetDescription => data['InternetDescription'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :UnitDescription => data['UnitDescription'], :UnitID => data['UnitID'], :UnitMenuSortOrder => data['UnitMenuSortOrder'], :UnitShortDescription => data['UnitShortDescription'] )
 
-        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
+        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription }
 
         return tblunitJson.to_json
     end
@@ -18,16 +18,16 @@ class TblunitController
     def self.read(data)
         tblunit = Tblunit.find(data['id'])
 
-        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
+        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription }
 
         return tblunitJson.to_json
 
     end
 
     def self.update(data)
-        tblunit = Tblunit.update( data['id'], :CustomDescription => data['CustomDescription'], :InternetDescription => data['InternetDescription'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :UnitDescription => data['UnitDescription'], :UnitID => data['UnitID'], :UnitMenuSortOrder => data['UnitMenuSortOrder'], :UnitShortDescription => data['UnitShortDescription'], :Address1 => data['Address1'] )
+        tblunit = Tblunit.update( data['id'], :CustomDescription => data['CustomDescription'], :InternetDescription => data['InternetDescription'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :RADRAT => data['RADRAT'], :UnitDescription => data['UnitDescription'], :UnitID => data['UnitID'], :UnitMenuSortOrder => data['UnitMenuSortOrder'], :UnitShortDescription => data['UnitShortDescription'] )
 
-        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
+        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription }
 
         return tblunitJson.to_json
 
@@ -37,7 +37,7 @@ class TblunitController
         tblunit = Tblunit.find(data['id'])
         tblunit.destroy
 
-        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 }
+        tblunitJson = { :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription }
 
         return tblunitJson.to_json
 
@@ -48,7 +48,7 @@ class TblunitController
 
         Array tblunitJson = Array.new
         tblunits.each do |tblunit|
-            tblunitJson.push({ :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 })
+            tblunitJson.push({ :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription })
         end
 
         return tblunitJson.to_json
@@ -80,7 +80,7 @@ class TblunitController
 
         Array tblunitJson = Array.new
         tblunits.each do |tblunit|
-            tblunitJson.push({ :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription, :Address1 => tblunit.Address1 })
+            tblunitJson.push({ :id => tblunit.id, :CustomDescription => tblunit.CustomDescription, :InternetDescription => tblunit.InternetDescription, :IsActive => tblunit.IsActive, :IsInternet => tblunit.IsInternet, :RADRAT => tblunit.RADRAT, :UnitDescription => tblunit.UnitDescription, :UnitID => tblunit.UnitID, :UnitMenuSortOrder => tblunit.UnitMenuSortOrder, :UnitShortDescription => tblunit.UnitShortDescription })
         end
 
         tblunitContainer = { :total => count, :tblunits => tblunitJson }

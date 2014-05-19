@@ -7,7 +7,7 @@
         "location"  : "dev/vortex",
         "databases" : [
             {
-                "configName" : "vitostest",
+                "configName" : "vitos-pizza-legacy-local",
                 "database"   : "vitostest",
                 "username"   : "webtest",
                 "password"   : "T3st4Th3W3b",
@@ -17,6 +17,27 @@
             }
         ],
         "views"     : [
+            {
+                "name": "Tblunit",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblunit",
+                        "modelMethod" : "get"
+                    }
+                ]
+            },
+            {
+                "name": "Tblspecialty",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblspecialty",
+                        "modelMethod" : "get"
+                    }
+                ]
+            }
+
         ],
         "lists"     : [
         ],
@@ -1015,6 +1036,10 @@
                         "type": "string"
                     },
                     {
+                        "name": "InternetDescription",
+                        "type": "string"
+                    },
+                    {
                         "name": "SpecialtyID",
                         "type": "integer"
                     },
@@ -1370,10 +1395,6 @@
                     },
                     {
                         "name": "UnitShortDescription",
-                        "type": "string"
-                    },
-                    {
-                        "name": "Address1",
                         "type": "string"
                     }
                 ],
@@ -1867,9 +1888,6 @@
         },
         {
             "type"     : "Bootstrap"
-        },
-        {
-            "type"     : "RubyHtmlRoute"
         },
         {
             "type"     : "RubyActiveRecordLiteralModel"

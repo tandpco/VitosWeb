@@ -8,9 +8,9 @@ end
 class TblspecialtyController
     public
     def self.create(data)
-        tblspecialty = Tblspecialty.create( :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :NoBaseCheese => data['NoBaseCheese'], :RADRAT => data['RADRAT'], :SauceID => data['SauceID'], :SpecialtyDescription => data['SpecialtyDescription'], :SpecialtyID => data['SpecialtyID'], :SpecialtyShortDescription => data['SpecialtyShortDescription'], :StyleID => data['StyleID'], :UnitID => data['UnitID'] )
+        tblspecialty = Tblspecialty.create( :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :NoBaseCheese => data['NoBaseCheese'], :RADRAT => data['RADRAT'], :SauceID => data['SauceID'], :SpecialtyDescription => data['SpecialtyDescription'], :InternetDescription => data['InternetDescription'], :SpecialtyID => data['SpecialtyID'], :SpecialtyShortDescription => data['SpecialtyShortDescription'], :StyleID => data['StyleID'], :UnitID => data['UnitID'] )
 
-        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
+        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
 
         return tblspecialtyJson.to_json
     end
@@ -18,16 +18,16 @@ class TblspecialtyController
     def self.read(data)
         tblspecialty = Tblspecialty.find(data['id'])
 
-        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
+        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
 
         return tblspecialtyJson.to_json
 
     end
 
     def self.update(data)
-        tblspecialty = Tblspecialty.update( data['id'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :NoBaseCheese => data['NoBaseCheese'], :RADRAT => data['RADRAT'], :SauceID => data['SauceID'], :SpecialtyDescription => data['SpecialtyDescription'], :SpecialtyID => data['SpecialtyID'], :SpecialtyShortDescription => data['SpecialtyShortDescription'], :StyleID => data['StyleID'], :UnitID => data['UnitID'] )
+        tblspecialty = Tblspecialty.update( data['id'], :IsActive => data['IsActive'], :IsInternet => data['IsInternet'], :NoBaseCheese => data['NoBaseCheese'], :RADRAT => data['RADRAT'], :SauceID => data['SauceID'], :SpecialtyDescription => data['SpecialtyDescription'], :InternetDescription => data['InternetDescription'], :SpecialtyID => data['SpecialtyID'], :SpecialtyShortDescription => data['SpecialtyShortDescription'], :StyleID => data['StyleID'], :UnitID => data['UnitID'] )
 
-        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
+        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
 
         return tblspecialtyJson.to_json
 
@@ -37,7 +37,7 @@ class TblspecialtyController
         tblspecialty = Tblspecialty.find(data['id'])
         tblspecialty.destroy
 
-        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
+        tblspecialtyJson = { :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID }
 
         return tblspecialtyJson.to_json
 
@@ -48,7 +48,7 @@ class TblspecialtyController
 
         Array tblspecialtyJson = Array.new
         tblspecialties.each do |tblspecialty|
-            tblspecialtyJson.push({ :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID })
+            tblspecialtyJson.push({ :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID })
         end
 
         return tblspecialtyJson.to_json
@@ -80,7 +80,7 @@ class TblspecialtyController
 
         Array tblspecialtyJson = Array.new
         tblspecialties.each do |tblspecialty|
-            tblspecialtyJson.push({ :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID })
+            tblspecialtyJson.push({ :id => tblspecialty.id, :IsActive => tblspecialty.IsActive, :IsInternet => tblspecialty.IsInternet, :NoBaseCheese => tblspecialty.NoBaseCheese, :RADRAT => tblspecialty.RADRAT, :SauceID => tblspecialty.SauceID, :SpecialtyDescription => tblspecialty.SpecialtyDescription, :InternetDescription => tblspecialty.InternetDescription, :SpecialtyID => tblspecialty.SpecialtyID, :SpecialtyShortDescription => tblspecialty.SpecialtyShortDescription, :StyleID => tblspecialty.StyleID, :UnitID => tblspecialty.UnitID })
         end
 
         tblspecialtyContainer = { :total => count, :tblspecialties => tblspecialtyJson }
