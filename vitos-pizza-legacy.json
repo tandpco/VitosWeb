@@ -1876,7 +1876,7 @@
             "type"     : "RubyHtmlRoute"
         },
         {
-            "type"     : "RubyActiveRecordModel"
+            "type"     : "RubyActiveRecordLiteralModel"
         },
         {
             "type"     : "RubyActiveRecordMigrate"
