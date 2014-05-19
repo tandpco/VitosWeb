@@ -1029,10 +1029,6 @@
                     {
                         "name": "UnitID",
                         "type": "integer"
-                    },
-                    {
-                        "name": "BatchCount",
-                        "type": "integer"
                     }
                 ],
                 "name": "Tblspecialty"

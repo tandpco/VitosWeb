@@ -491,7 +491,6 @@ class Migrate
                 table.string :SpecialtyShortDescription
                 table.integer :StyleID
                 table.integer :UnitID
-                table.integer :BatchCount
             end
             puts 'tblspecialties : Created'
         rescue => exception
