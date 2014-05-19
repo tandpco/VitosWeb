@@ -1875,13 +1875,7 @@
             "type"     : "RubyActiveRecordLiteralModel"
         },
         {
-            "type"     : "RubyActiveRecordMigrate"
-        },
-        {
             "type"     : "RubyView"
-        },
-        {
-            "type"     : "RestDataImport"
         }
     ]
 }
