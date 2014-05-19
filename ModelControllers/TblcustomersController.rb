@@ -8,9 +8,9 @@ end
 class TblcustomersController
     public
     def self.create(data)
-        tblcustomers = Tblcustomers.create( :CellPhone => data['CellPhone'], :CustomerID => data['CustomerID'], :EMail => data['EMail'], :FAXPhone => data['FAXPhone'], :FirstName => data['FirstName'], :HomePhone => data['HomePhone'], :IsEMailList => data['IsEMailList'], :IsTextList => data['IsTextList'], :LastName => data['LastName'], :NoChecks => data['NoChecks'], :Password => data['Password'], :PrimaryAddressID => data['PrimaryAddressID'], :RADRAT => data['RADRAT'], :WorkPhone => data['WorkPhone'], :IsActive => data['IsActive'] )
+        tblcustomers = Tblcustomers.create( :CellPhone => data['CellPhone'], :CustomerID => data['CustomerID'], :EMail => data['EMail'], :FAXPhone => data['FAXPhone'], :FirstName => data['FirstName'], :HomePhone => data['HomePhone'], :IsEMailList => data['IsEMailList'], :IsTextList => data['IsTextList'], :LastName => data['LastName'], :NoChecks => data['NoChecks'], :Password => data['Password'], :PrimaryAddressID => data['PrimaryAddressID'], :RADRAT => data['RADRAT'], :WorkPhone => data['WorkPhone'] )
 
-        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive }
+        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone }
 
         return tblcustomersJson.to_json
     end
@@ -18,16 +18,16 @@ class TblcustomersController
     def self.read(data)
         tblcustomers = Tblcustomers.find(data['id'])
 
-        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive }
+        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone }
 
         return tblcustomersJson.to_json
 
     end
 
     def self.update(data)
-        tblcustomers = Tblcustomers.update( data['id'], :CellPhone => data['CellPhone'], :CustomerID => data['CustomerID'], :EMail => data['EMail'], :FAXPhone => data['FAXPhone'], :FirstName => data['FirstName'], :HomePhone => data['HomePhone'], :IsEMailList => data['IsEMailList'], :IsTextList => data['IsTextList'], :LastName => data['LastName'], :NoChecks => data['NoChecks'], :Password => data['Password'], :PrimaryAddressID => data['PrimaryAddressID'], :RADRAT => data['RADRAT'], :WorkPhone => data['WorkPhone'], :IsActive => data['IsActive'] )
+        tblcustomers = Tblcustomers.update( data['id'], :CellPhone => data['CellPhone'], :CustomerID => data['CustomerID'], :EMail => data['EMail'], :FAXPhone => data['FAXPhone'], :FirstName => data['FirstName'], :HomePhone => data['HomePhone'], :IsEMailList => data['IsEMailList'], :IsTextList => data['IsTextList'], :LastName => data['LastName'], :NoChecks => data['NoChecks'], :Password => data['Password'], :PrimaryAddressID => data['PrimaryAddressID'], :RADRAT => data['RADRAT'], :WorkPhone => data['WorkPhone'] )
 
-        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive }
+        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone }
 
         return tblcustomersJson.to_json
 
@@ -37,7 +37,7 @@ class TblcustomersController
         tblcustomers = Tblcustomers.find(data['id'])
         tblcustomers.destroy
 
-        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive }
+        tblcustomersJson = { :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone }
 
         return tblcustomersJson.to_json
 
@@ -48,7 +48,7 @@ class TblcustomersController
 
         Array tblcustomersJson = Array.new
         tblcustomers.each do |tblcustomers|
-            tblcustomersJson.push({ :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive })
+            tblcustomersJson.push({ :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone })
         end
 
         return tblcustomersJson.to_json
@@ -80,7 +80,7 @@ class TblcustomersController
 
         Array tblcustomersJson = Array.new
         tblcustomers.each do |tblcustomers|
-            tblcustomersJson.push({ :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone, :IsActive => tblcustomers.IsActive })
+            tblcustomersJson.push({ :id => tblcustomers.id, :CellPhone => tblcustomers.CellPhone, :CustomerID => tblcustomers.CustomerID, :EMail => tblcustomers.EMail, :FAXPhone => tblcustomers.FAXPhone, :FirstName => tblcustomers.FirstName, :HomePhone => tblcustomers.HomePhone, :IsEMailList => tblcustomers.IsEMailList, :IsTextList => tblcustomers.IsTextList, :LastName => tblcustomers.LastName, :NoChecks => tblcustomers.NoChecks, :Password => tblcustomers.Password, :PrimaryAddressID => tblcustomers.PrimaryAddressID, :RADRAT => tblcustomers.RADRAT, :WorkPhone => tblcustomers.WorkPhone })
         end
 
         tblcustomersContainer = { :total => count, :tblcustomers => tblcustomersJson }

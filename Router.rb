@@ -1937,3 +1937,10 @@ post '/rest/view/tblspecialty/get-tblspecialties' do
     TblspecialtyViewController.getTblspecialties(data)
 end
 
+post '/rest/view/tblcustomers/get-tblcustomers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblcustomersViewController.getTblcustomers(data)
+end
+

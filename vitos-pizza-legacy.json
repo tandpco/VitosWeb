@@ -36,8 +36,17 @@
                         "modelMethod" : "get"
                     }
                 ]
+            },
+            {
+                "name": "Tblcustomers",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblcustomers",
+                        "modelMethod" : "get"
+                    }
+                ]
             }
-
         ],
         "lists"     : [
         ],
@@ -414,10 +423,6 @@
                     {
                         "name": "WorkPhone",
                         "type": "string"
-                    },
-                    {
-                        "name": "IsActive",
-                        "type": "Boolean"
                     }
                 ],
                 "name": "Tblcustomers"
