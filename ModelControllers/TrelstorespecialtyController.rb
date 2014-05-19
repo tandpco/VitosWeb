@@ -8,9 +8,9 @@ end
 class TrelstorespecialtyController
     public
     def self.create(data)
-        trelstorespecialty = Trelstorespecialty.create( :SpecialtyID => data['SpecialtyID'], :StoreID => data['StoreID'], :IsTaxable => data['IsTaxable'] )
+        trelstorespecialty = Trelstorespecialty.create( :SpecialtyID => data['SpecialtyID'], :StoreID => data['StoreID'] )
 
-        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
+        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID }
 
         return trelstorespecialtyJson.to_json
     end
@@ -18,16 +18,16 @@ class TrelstorespecialtyController
     def self.read(data)
         trelstorespecialty = Trelstorespecialty.find(data['id'])
 
-        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
+        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID }
 
         return trelstorespecialtyJson.to_json
 
     end
 
     def self.update(data)
-        trelstorespecialty = Trelstorespecialty.update( data['id'], :SpecialtyID => data['SpecialtyID'], :StoreID => data['StoreID'], :IsTaxable => data['IsTaxable'] )
+        trelstorespecialty = Trelstorespecialty.update( data['id'], :SpecialtyID => data['SpecialtyID'], :StoreID => data['StoreID'] )
 
-        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
+        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID }
 
         return trelstorespecialtyJson.to_json
 
@@ -37,7 +37,7 @@ class TrelstorespecialtyController
         trelstorespecialty = Trelstorespecialty.find(data['id'])
         trelstorespecialty.destroy
 
-        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable }
+        trelstorespecialtyJson = { :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID }
 
         return trelstorespecialtyJson.to_json
 
@@ -48,7 +48,7 @@ class TrelstorespecialtyController
 
         Array trelstorespecialtyJson = Array.new
         trelstorespecialties.each do |trelstorespecialty|
-            trelstorespecialtyJson.push({ :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable })
+            trelstorespecialtyJson.push({ :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID })
         end
 
         return trelstorespecialtyJson.to_json
@@ -80,7 +80,7 @@ class TrelstorespecialtyController
 
         Array trelstorespecialtyJson = Array.new
         trelstorespecialties.each do |trelstorespecialty|
-            trelstorespecialtyJson.push({ :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID, :IsTaxable => trelstorespecialty.IsTaxable })
+            trelstorespecialtyJson.push({ :id => trelstorespecialty.id, :SpecialtyID => trelstorespecialty.SpecialtyID, :StoreID => trelstorespecialty.StoreID })
         end
 
         trelstorespecialtyContainer = { :total => count, :trelstorespecialties => trelstorespecialtyJson }

@@ -46,6 +46,16 @@
                         "modelMethod" : "get"
                     }
                 ]
+            },
+            {
+                "name": "Trelstorespecialty",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Trelstorespecialty",
+                        "modelMethod" : "get"
+                    }
+                ]
             }
         ],
         "lists"     : [
@@ -1691,10 +1701,6 @@
                     {
                         "name": "StoreID",
                         "type": "integer"
-                    },
-                    {
-                        "name": "IsTaxable",
-                        "type": "Boolean"
                     }
                 ],
                 "name": "Trelstorespecialty"
