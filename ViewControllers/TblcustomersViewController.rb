@@ -18,7 +18,7 @@ class TblcustomersViewController
 
     def self.getTblcustomers(data)
         customerId = data['CustomerID']
-        whereClause = "CustomerID = " + customerId
+        whereClause = "CustomerID >= " + customerId + " AND EMail IS NOT NULL"
         tblcustomers = Tblcustomers.where(whereClause)        
 
         Array tblcustomersJson = Array.new
