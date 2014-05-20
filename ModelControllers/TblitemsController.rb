@@ -8,9 +8,9 @@ end
 class TblitemsController
     public
     def self.create(data)
-        tblitems = Tblitems.create( :IsInternet => data['IsInternet'], :ItemDescription => data['ItemDescription'], :ItemID => data['ItemID'], :ItemShortDescription => data['ItemShortDescription'], :ItemSortOrder => data['ItemSortOrder'], :RADRAT => data['RADRAT'], :EndDate => data['EndDate'] )
+        tblitems = Tblitems.create( :IsInternet => data['IsInternet'], :ItemDescription => data['ItemDescription'], :ItemID => data['ItemID'], :ItemShortDescription => data['ItemShortDescription'], :ItemSortOrder => data['ItemSortOrder'], :RADRAT => data['RADRAT'] )
 
-        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
+        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT }
 
         return tblitemsJson.to_json
     end
@@ -18,16 +18,16 @@ class TblitemsController
     def self.read(data)
         tblitems = Tblitems.find(data['id'])
 
-        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
+        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT }
 
         return tblitemsJson.to_json
 
     end
 
     def self.update(data)
-        tblitems = Tblitems.update( data['id'], :IsInternet => data['IsInternet'], :ItemDescription => data['ItemDescription'], :ItemID => data['ItemID'], :ItemShortDescription => data['ItemShortDescription'], :ItemSortOrder => data['ItemSortOrder'], :RADRAT => data['RADRAT'], :EndDate => data['EndDate'] )
+        tblitems = Tblitems.update( data['id'], :IsInternet => data['IsInternet'], :ItemDescription => data['ItemDescription'], :ItemID => data['ItemID'], :ItemShortDescription => data['ItemShortDescription'], :ItemSortOrder => data['ItemSortOrder'], :RADRAT => data['RADRAT'] )
 
-        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
+        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT }
 
         return tblitemsJson.to_json
 
@@ -37,7 +37,7 @@ class TblitemsController
         tblitems = Tblitems.find(data['id'])
         tblitems.destroy
 
-        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate }
+        tblitemsJson = { :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT }
 
         return tblitemsJson.to_json
 
@@ -48,7 +48,7 @@ class TblitemsController
 
         Array tblitemsJson = Array.new
         tblitems.each do |tblitems|
-            tblitemsJson.push({ :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate })
+            tblitemsJson.push({ :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT })
         end
 
         return tblitemsJson.to_json
@@ -80,7 +80,7 @@ class TblitemsController
 
         Array tblitemsJson = Array.new
         tblitems.each do |tblitems|
-            tblitemsJson.push({ :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT, :EndDate => tblitems.EndDate })
+            tblitemsJson.push({ :id => tblitems.id, :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT })
         end
 
         tblitemsContainer = { :total => count, :tblitems => tblitemsJson }

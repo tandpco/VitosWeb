@@ -18,7 +18,7 @@ function OrderInformationController () {
 
     buildItemForGridPanel = function(name,detail) {
         html = "<div id=\"grid-block\" class=\"col-md-5\">";
-        html += "<table id=\"grid-table\"><tr><td><img src=\"/Content/img/pizza-background.jpg\" width=\"100\" height=\"100\"></td>";
+        html += "<table id=\"grid-table\"><tr><td><img src=\"/img/pizza-background.jpg\" width=\"100\" height=\"100\"></td>";
         html += "<td><table><tr><td colspan=2>";
         html += "<p class=\"header\">" + name + "</p>";
         html += "</td></tr><tr><td colspan=2>";

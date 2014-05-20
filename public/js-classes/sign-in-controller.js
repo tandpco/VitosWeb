@@ -39,17 +39,16 @@ function SignInController () {
         $('#modal-please-wait').modal('show');
 
         $.ajax({
-            url: "rest/model/tblcustomers/filter",
+            url: "/rest/view/tblcustomers/get-tblcustomers",
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
                 if(data != '') {
                     console.log(data);
-                    var customer = data['customers'][0]
+                    var customer     = data[0]
                     var email        = customer['EMail'];
-                    var address      = customer['addresses'][0];
-                    var addressLine1 = address['addressLine1'];
-                    var postalCode   = address['postalCode'];
+                    var addressLine1 = customer['AddressLine1'];
+                    var postalCode   = customer['PostalCode'];
 
                     Session.set('email', email);
 
@@ -151,6 +150,13 @@ function SignInController () {
                 stores[10] = { storeId: "11", lat: "41.64471", lng: "-83.51976200000001" };
                 stores[11] = { storeId: "12", lat: "41.696273", lng: "-83.604289" };
                 stores[12] = { storeId: "13", lat: "41.684755", lng: "-83.54274399999997" };
+                stores[13] = { storeId: "14", lat: "41.059306", lng: "-83.65056600000003" };
+                stores[14] = { storeId: "15", lat: "41.7155184", lng: "-83.47915039999998" };
+                stores[15] = { storeId: "16", lat: "41.6776187", lng: "-83.62064929999997" };
+                stores[16] = { storeId: "17", lat: "41.7501802", lng: "-83.5677637" };
+                stores[17] = { storeId: "18", lat: "41.1023733", lng: "-85.05734899999999" };
+                stores[18] = { storeId: "19", lat: "41.9256341", lng: "-83.4133933" };
+                stores[19] = { storeId: "20", lat: "41.374559", lng: "-83.64959899999997" };
     
                 var minDistance = 1000;
                 var closeestStoreId = -1;
@@ -207,26 +213,37 @@ function SignInController () {
 
     this.chooseLocation = function(storeId) {
         var json = {
-            "id" : Number(storeId)
+            Tblstores: {
+                filters: [
+                    {
+                        name: "StoreID",
+                        value: storeId
+                    }
+                ],
+                pagination: {
+                    page: "1",
+                    limit: "1"
+                }
+            }
         }
 
         $.ajax({
-            url: "/rest/model/stores/read",
+            url: "/rest/model/tblstores/filter",
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
                 // Yay! It worked!
                 if(data != '') {
-                    var store = data
-                    storeId          = store['id'];
-                    storeName        = store['storeName'];
-                    addressLine1     = store['addressLine1'];
-                    addressLine2     = store['addressLine2'];
-                    city             = store['city'];
-                    state            = store['state'];
-                    postalCode       = store['postalCode'];
-                    phone            = store['phone']
-                    hours            = store['hours'];
+                    var store = data['tblstores'][0]
+                    storeId          = store['StoreID'];
+                    storeName        = store['StoreName'];
+                    addressLine1     = store['Address1'];
+                    addressLine2     = store['ADdress2'];
+                    city             = store['City'];
+                    state            = store['State'];
+                    postalCode       = store['PostalCode'];
+                    phone            = store['Phone']
+                    hours            = store['Hours'];
 
                     Session.set('storeId', storeId);
 

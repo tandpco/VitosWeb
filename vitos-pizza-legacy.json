@@ -114,11 +114,11 @@
                 ]
             },
             {
-                "name": "Trelstorespecialty",
+                "name": "Tblitems",
                 "methods" : [
                     {
                         "type"        : "model",
-                        "model"       : "Trelstorespecialty",
+                        "model"       : "Tblitems",
                         "modelMethod" : "get"
                     }
                 ]
@@ -528,10 +528,6 @@
                     },
                     {
                         "name": "RADRAT",
-                        "type": "timestamp"
-                    },
-                    {
-                        "name": "EndDate",
                         "type": "timestamp"
                     }
                 ],

@@ -6,7 +6,6 @@ function OrderItemsController () {
     this.styles          = new Array();
     this.sauceModifiers  = new Array();
     this.toppings        = new Array();
-    this.buttonType = '';
     
     this.init = function() {
         var customerId = $.session.get("customerId");
@@ -24,14 +23,13 @@ function OrderItemsController () {
         $('#main').append(ModalDelivery.createMarkup('modal-delivery', 'HOW WOULD YOU LIKE YOUR ORDER?','NO'));
 
         $('#modal-modify-item').append(ModalModifyPizzaItem.createMarkup());
-        $('#modal-modify-item1').append(FakeModalModifyPizzaItem.createMarkup());
+        $('#modal-modify-item1').append(ModalModifyOrderItem.createMarkup());
         
         $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
         $('#order-items-panel').append(PanelOrderItems.createMarkup());
         
         $.when(
             //OrderItems.buildYourOrder(),
-            this.listSpecialties()
             //this.listSpecialties(),
             //this.listToppers(),
             //this.listSizes(),
@@ -39,6 +37,7 @@ function OrderItemsController () {
             //this.listStyles(),
             //this.listSauceModifiers(),
             //this.listToppings()
+            this.listSpecialties()
             
         ).then(function() {
             $('#modal-please-wait').modal('hide');
@@ -122,7 +121,15 @@ function OrderItemsController () {
                     toppings.push(item);
                     $("#topping-" + itemId + '-whole').attr('src', '/img/checkbox_checked.jpeg' );
                 });
-
+                
+                if(pageController.toppers!=undefined && pageController.toppers){
+                  
+                for(var i = 0; i < pageController.toppers.length; i++) {
+                    var currentTopperItemId = pageController.toppers[i]['id'];
+                    $("#topper-" + currentTopperItemId).attr('checked', false);
+     
+                }
+                }
                 $.session.set('toppings', toppings);
                 
                 $("#quantity").val(1);    
@@ -371,35 +378,30 @@ function OrderItemsController () {
 
     this.listSpecialties = function() {
         var json = {
-            Specialty: {
-                filters: [
-                    {
-                        name: "product_type_id",
-                        value: "1"
-                    }
-                ],
-                pagination: {
-                    page: "1",
-                    limit: "1000"
-                }
-            }
+            "StoreID": $.session.get("storeId"),
+            "UnitID": UNIT_ID
         }
 
+        firstName  = $.session.get("firstName");
+        lastName   = $.session.get("lastName");
+         
+        var URL = "/rest/view/tblspecialty/get-tblspecialties";
+        
         $.ajax({
-            url:  "/rest/model/specialties/filter",
+            url:  URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
                 // Yay! It worked!
                 j = 0;
                 html = "";
-                var specialties = data['specialties'];
               
-                for(var i = 0; i < specialties.length; i++) {
+                var items = data
+                for(var i = 0; i < items.length; i++) {
                     if(j == 0) {
                         html += "<div class=\"row\">";
                     }
-                    html += pageController.buildSpecialtyList(specialties[i]["name"], specialties[i]["description"], specialties[i]["id"]);
+                    html += pageController.buildItemList(items[i]["SpecialtyDescription"], items[i]["InternetDescription"],items[i]["SpecialtyID"],items[i]["StyleID"],items[i]["SauceID"]);
                     j++;
                     if(j == 2) {
                         html += "</div>";
@@ -412,7 +414,38 @@ function OrderItemsController () {
         });
     }
     
-    this.buildSpecialtyList = function(name,detail,specialtyId) {
+    this.buildItemList = function(name,detail,specialtyId,styleId,sauceId) {
+        var specialtyImages = {
+            "5"  : "Supreme300x300.jpg",
+            "6"  : "TheWorks300x300.jpg",
+            "7"  : "PepperoniPleas300x300.jpg",
+            "8"  : "CHEESEBURGER3000x300.jpg",
+            "9"  : "Hawaiian3000x300.jpg",
+            "10" : "Taco3000x300.jpg",
+            "11" : "Veggie300x300.jpg",
+            "12" : "BLT3000x300.jpg",
+            "13" : "BBQ3000x300.jpg",
+            "14" : "Mediterranean3000x300.jpg",
+            "16" : "ChickenBaconRanch3000x300.jpg",
+            "19" : "ChickenChipotle3000x300.jpg",
+            "22" : "TheWorks300x300.jpg",
+            "94" : "TonyPackos300x300.jpg",
+            "59" : "ItalianFoldoverSub300x300.jpg",
+            "60" : "ItalianFoldoverSub300x300.jpg",
+            "61" : "ItalianFoldoverSub300x300.jpg",
+            "62" : "BBQChickenSub300x300.jpg",
+            "64" : "ItalianFoldoverSub300x300.jpg",
+            "65" : "ItalianFoldoverSub300x300.jpg",
+            "68" : "ItalianFoldoverSub300x300.jpg",
+            "69" : "ItalianFoldoverSub300x300.jpg",
+            "88" : "ItalianFoldoverSub300x300.jpg",
+            "91" : "ItalianFoldoverSub300x300.jpg",
+            "38" : "ChickenSalad3000x300.jpg",
+            "39" : "ItalianSalad3000x300.jpg",
+            "40" : "ItalianSalad3000x300.jpg",
+            "41" : "ItalianSalad3000x300.jpg",
+            "42" : "ItalianSalad3000x300.jpg"
+        };
     
        var html="";
        var imgUrl="";
@@ -422,7 +455,7 @@ function OrderItemsController () {
         item['detail'] = detail;
         pageController.items.push(item);
         
-        imgUrl =  (CURRENT_ORDER_LOC=="PIZZA")?"pizza-background.jpg":((CURRENT_ORDER_LOC=="SUBS")?"subs-background.jpg":"salads-background.jpg");
+        imgUrl =  specialtyImages[specialtyId];
       
       
         html  = "<div class=\"col-md-5\">";
@@ -442,10 +475,10 @@ function OrderItemsController () {
         html += "                        </td>";
         html += "                    <tr>";
         html += "                        <td>";
-        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ')">ORDER NOW</button>';
+        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
         html += '                        </td>';
         html += '                        <td>';
-        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ')">SEE DETAILS</button>';
+        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
         html += "                        </td>";
         html += "                    </tr>";
         html += "                </table>";
@@ -457,13 +490,15 @@ function OrderItemsController () {
       
     }
 
-    this.getURL = function(pathname) { 
-     var URL=$.session.get('baseurl');        
-        if(CURRENT_ORDER_LOC=="PIZZA") {
+    this.getURL = function(pathname){ 
+     var URL=$.session.get('baseurl'); 
+        if(CURRENT_ORDER_LOC == undefined )
+          var CURRENT_ORDER_LOC="PIZZA";       
+        if(CURRENT_ORDER_LOC=="PIZZA"){
            URL+="/rest/order-pizza/"+pathname;
-        }else if(CURRENT_ORDER_LOC=="SUBS") {
+        }else if(CURRENT_ORDER_LOC=="SUBS"){
            URL+="/rest/order-subs/"+pathname;
-        }else if(CURRENT_ORDER_LOC=="SALADS") {
+        }else if(CURRENT_ORDER_LOC=="SALADS"){
           URL+="/rest/order-salads/"+pathname;
         }      
       return URL;    
@@ -544,7 +579,7 @@ function OrderItemsController () {
 
         var toppingsArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPINGS'));
         
-        if(toppingsArr.length < contentLength) {
+        if(toppingsArr.length < contentLength){
            toppingsArr.push(topping);
            Session.set(CURRENT_ORDER_LOC+'_TOPPINGS',JSON.stringify(toppingsArr));
         }
@@ -634,8 +669,8 @@ function OrderItemsController () {
                 
                 for(var i = 0; i < data.length; i++) {
                     html = "";
-                    if(i == 0) {
-                        html += "<li class=\"header\">Crust Flavors:</li>";
+                    if(i == 0){
+                        html += "<li class=\"header\">Type Flavors:</li>";
                     } 
                     html += pageController.buildTopperRadioItem(data[i]['TopperID'],data[i]['TopperDescription'],data.length);
                     $("#size-and-crust .right-column").append(html);
@@ -651,7 +686,7 @@ function OrderItemsController () {
         topper['id']          = id;
         topper['description'] = description;
         var topprs = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPERS')); 
-        if(topprs.length < contentLength) {
+        if(topprs.length < contentLength){
         topprs.push(topper);
         Session.set(CURRENT_ORDER_LOC+'_TOPPERS',JSON.stringify(topprs));
         }
@@ -669,7 +704,8 @@ function OrderItemsController () {
         var sessionToppers  = JSON.parse($.session.get(sessionKey));
         var selectedToppers = new Array();
         var topperDeleted = false;
-
+          console.log("before--"+topperId + " "+ sessionKey+" "+Session.get(sessionKey));
+        
         for(var i = 0; i < sessionToppers.length; i++) {
             var sessionTopperId = sessionToppers[i];
             if(sessionTopperId == topperId) {
@@ -684,7 +720,7 @@ function OrderItemsController () {
         }
 
         $.session.set(sessionKey, JSON.stringify(selectedToppers));
-        
+        console.log("after.."+topperId+" "+sessionKey+" "+Session.get(sessionKey));
     }
 
     this.listSizes = function() {
@@ -702,7 +738,7 @@ function OrderItemsController () {
                 
                 for(var i = 0; i < data.length; i++) {
                     html = "";
-                    if(i == 0) {
+                    if(i == 0){
                         html += "<li class=\"header\">Sizes:</li>";
                     } 
                     html += pageController.buildSizeRadioItem(data[i]['SizeID'],data[i]['SizeDescription'],data.length);
@@ -720,7 +756,7 @@ function OrderItemsController () {
         pageController.sizes.push(size);
        
         var sizesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SIZES'));
-        if(sizesArr.length < contentLength) {
+        if(sizesArr.length < contentLength){
            sizesArr.push(size);
            Session.set(CURRENT_ORDER_LOC+'_SIZES',JSON.stringify(sizesArr));
         }
@@ -763,7 +799,7 @@ function OrderItemsController () {
                 // Yay! It worked!
                  
                 html  = "<div id='styles'>";
-                html += "<li class=\"header\">Crust Options:</li>";
+                html += "<li class=\"header\">Type Options:</li>";
                 for(var i = 0; i < data.length; i++) {
                     html += pageController.buildStyleRadioItem(data[i]['StyleID'],data[i]['StyleDescription'],data.length);
                 }
@@ -781,7 +817,7 @@ function OrderItemsController () {
         pageController.styles.push(style);
         
         var styleArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_STYLES'));
-        if(styleArr.length < contentLength) {
+        if(styleArr.length < contentLength){
            styleArr.push(style);
            Session.set(CURRENT_ORDER_LOC+'_STYLES',JSON.stringify(styleArr));
         }
@@ -909,7 +945,7 @@ function OrderItemsController () {
         pageController.sauces.push(sauce);
         
         var saucesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCES'));
-        if(saucesArr.length < contentLength) {
+        if(saucesArr.length < contentLength){
            saucesArr.push(sauce);
            Session.set(CURRENT_ORDER_LOC+'_SAUCES', JSON.stringify(saucesArr));
         }
@@ -940,7 +976,7 @@ function OrderItemsController () {
                 
                 for(var i = 0; i < data.length; i++) {
                     html = "";
-                    if(i == 0) {
+                    if(i == 0){
                         html += "<li class=\"header\">Sauce Options:</li>";
                     } 
                     html += pageController.buildSauceModifierRadioItem(data[i]['SauceModifierID'],data[i]['SauceModifierDescription'],data.length);
@@ -951,7 +987,7 @@ function OrderItemsController () {
     }
     
    // this method helps to update the order. It updates one order at a time.
-    this.updateOrder = function(id) {
+    this.updateOrder = function(id){
        
         var orderItems        = JSON.parse($.session.get('orderItems'));
         var selectedOrderItem;
@@ -969,7 +1005,7 @@ function OrderItemsController () {
         $('#modal-modify-item1').modal();
    }
 
-  this.prePopulateSelectedValues = function(orderItemToUpdate) {
+  this.prePopulateSelectedValues = function(orderItemToUpdate){
    console.log("orderItemToUpdate  ",orderItemToUpdate);
    
    var size = orderItemToUpdate['size'];
@@ -983,18 +1019,20 @@ function OrderItemsController () {
    }
    
    var sauce = orderItemToUpdate['sauce'];
-   if(sauce) {
+   if(sauce){
       $('#sauce--'+sauce['id']).attr('checked', true).trigger('click');
    }
    
    var sauceModifier = orderItemToUpdate['sauceModifier'];
-   if(sauceModifier && sauceModifier['id']!="NULL") {
+   if(sauceModifier && sauceModifier['id']!="NULL"){
       $('#sauce-modifier--'+sauceModifier['id']).attr('checked', true).trigger('click');
    } 
 
    var toppers = orderItemToUpdate['toppers'];
-   if(toppers) {
-     for(var i=0; i<toppers.length;i++) {
+   if(toppers){
+    Session.set('ToppersInEdit', JSON.stringify(new Array()));
+       
+     for(var i=0; i<toppers.length;i++){
         $('#topper--'+toppers[i]['id']).trigger('click');
         $('#topper--'+toppers[i]['id']).attr('checked', true);
      }
@@ -1015,14 +1053,16 @@ function OrderItemsController () {
    $("#quantity1").val(Number(orderItemToUpdate['quantity']));
    
   }  
-this.buildModifyModalItem = function(orderType) {
+this.buildModifyModalItem = function(orderType){
 
   var data = JSON.parse(Session.get(orderType+'_TOPPERS'));
 
   var html = "";
  
-  if(data.length >0) {  
-    html += "<li class=\"header\">Crust Flavors:</li>";
+  $("#qntyHolder").html(orderType=="PIZZA"? "Quantity of Pizzas :":(orderType=="SUBS")?"Quantity of Subs :":"Quantity of Salads :");
+        
+  if(data.length >0){  
+    html += "<li class=\"header\">Type Flavors:</li>";
   }    
    for(var i = 0; i < data.length; i++) {
     
@@ -1040,7 +1080,7 @@ this.buildModifyModalItem = function(orderType) {
    var data = JSON.parse(Session.get(orderType+'_SIZES'));
    
    html = "";
-   if(data.length >0) { 
+   if(data.length >0){ 
      html += "<li class=\"header\">Sizes:</li>";
    }                  
    for(var i = 0; i < data.length; i++) {
@@ -1080,7 +1120,7 @@ this.buildModifyModalItem = function(orderType) {
    
    var data = JSON.parse(Session.get(orderType+'_STYLES'));
    html  = "<div id='styles1'>";
-   html += "<li class=\"header\">Crust Options:</li>";
+   html += "<li class=\"header\">Type Options:</li>";
    for(var i = 0; i < data.length; i++) {
         var id = data[i]['id'];
         var description = data[i]['description'];
@@ -1174,7 +1214,7 @@ this.buildModifyModalItem = function(orderType) {
         sauceModifier['description'] = description;
         pageController.sauceModifiers.push(sauceModifier);
         var sauceModfrArr =  JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS'));
-        if(sauceModfrArr.length < contentLength) {
+        if(sauceModfrArr.length < contentLength){
          sauceModfrArr.push(sauceModifier);
          Session.set(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS',JSON.stringify(sauceModfrArr));
         }
@@ -1228,325 +1268,3 @@ this.buildModifyModalItem = function(orderType) {
         return html;
     }
 }
-function OrderItems () {}
-OrderItems.buildYourOrder = function() {
-    var orderDivArray = new Array();
-    orderDivArray.push('right', 'sm');
-
-    // Process all divs that need order data
-    for(var orderDivIndex = 0; orderDivIndex < orderDivArray.length; orderDivIndex++) {
-
-        var divName = orderDivArray[orderDivIndex];
-
-        // Totals
-        var orderSubTotal = Number(0.00);
-
-        var html  = "";
-        html  = "<tr>";
-        html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">'+ $.session.get('mode') +"</a>)</td>";
-        html += "</tr>";
-
-        // Process all order items
-        var orderItems       = JSON.parse($.session.get('orderItems'));
-        var curr_loc= window.location.pathname;
-        var userPromos = JSON.parse($.session.get('userPromoCodes'));
-        var promoCost = 0.0;
-    
-        for(var j = 0; j < userPromos.length; j++) {
-            promoCost+=Number(userPromos[j]['cost']);
-        }
-        
-        for(var i = 0; i < orderItems.length; i++) {
-            var orderItem = orderItems[i];
-              
-            var cost =  Number(orderItem['cost']);
-            orderSubTotal += (cost*Number(orderItem['quantity']));
-            var orderCost = (cost*Number(orderItem['quantity']));
-
-            html += '<tr>';
-            html += '    <td>';
-            html += '        <div class="panel-group" id="accordion-' + divName + '-' + orderItem['id'] + '">'
-            html += '            <div class="panel panel-default">'
-            html += '                <div style="height: 38px; background-color:#A49685;">'
-            html += '                    <h3 class="panel-title">'
-            html += '                       <div class="col-xs-9"> '
-            html += '                         <a class="accordion-toggle" data-toggle="collapse" style="color:#fff;font-size:14px" data-parent="#accordion-' + divName + '-' + orderItem['id'] + '" href="#order-item-detail-' + divName + '-' + orderItem['id'] + '">'
-            if(orderItem['orderType']=="PIZZA") {
-                html += '       <span class="itemSize">' + orderItem['size']['description'] + '</span> '
-            }   
-            html +=                           '<span class="itemDescription">' + orderItem['items']['name'] +'('+orderItem['quantity'] +')';
-            if(curr_loc.indexOf("confirmation")==-1) {
-                html +=                           '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder('+orderItem['id']+');">Edit</a></span>&nbsp;&nbsp;'; 
-                html +=                           '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder('+orderItem['id']+');">Remove</a>';
-            }
-            html +=                           '</div></span><div style="height:38px;font-size:15px;float:right;" class="col-sm-2"> <div class="row" style="float:right"><br>$ ' + orderCost.toFixed(2) +'</div></div>'
-            html += '                         </a>'
-            html += '                    </div></h3>'
-            html += '                </div>'
-            html += '                <div id="order-item-detail-' + divName + '-' + orderItem['id'] + '" class="panel-collapse collapse">'
-            html += '                    <div class="panel-body">'
-            if(orderItem['orderType']=="PIZZA") {
-                html += '                        <p>Sauce: ' + orderItem['sauce']['description'] + '</p>'
-            }
-            html += '                        <p>Sauce Options: ' + orderItem['sauceModifier']['description'] + '</p>'
-            html += '                        <p>Toppings: <br>'
-            // Toppings
-            var toppings = orderItem['toppings']
-            for(var toppingIndex = 0; toppingIndex < toppings.length; toppingIndex++) {
-                var topping = toppings[toppingIndex];
-                html += topping['description'] + ' - ' + topping['portion'] + "<br>";
-            }
-            html += '                        </p>'
-            html += '                    </div>'
-            html += '                </div>'
-            html += '            </div>'
-            html += '        </div>'
-            html += '    </td>';
-            html += "</tr>";
-        }
-
-        html += OrderItems.buildPromoAccordion(promoCost,userPromos,divName);
-        $('#order-table-' + divName + ' > tbody').html(html);
-
-        // Order Totals
-        var orderTaxes          = 0;
-        var orderTip            = 0;
-        var orderDeliveryCharge = 0;
-        var orderDriverMoney    = 0;
-        var orderTotal          = 0;
-       
-        
-        if($.session.get('orderTax')) {
-            orderTaxes          = Number($.session.get('orderTax') + $.session.get('orderTax2'));
-            orderTip            = Number($.session.get('orderTip'));
-            orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
-            orderDriverMoney    = Number($.session.get('orderDriverMoney'));
-            orderTotal          = orderSubTotal + orderTaxes + orderTip - promoCost; //Subtracting promocode price    
-        }
-
-        html = "";
-
-        html += '<tr>';
-        html += '    <td>SUB TOTAL</td>';
-        html += '    <td align="right">$ ' + orderSubTotal.toFixed(2) + '</th>';
-        html += '</tr>';
-        html += '<tr>';
-        html += '    <td>TAXES</td>';
-        html += '    <td align="right">$ ' + orderTaxes.toFixed(2) + '</span></th>';
-        html += '</tr>';
-        html += '<tr>';
-        html += '    <td>TIP</td>';
-        html += '    <td align="right"> $ ';
-        if(curr_loc.indexOf("confirmation")!=-1) {
-            html +=  orderTip.toFixed(2) ;
-        }
-        else{
-            html += '<input type="text" class="ordrTip" value="'+orderTip + '" maxlength="4" size="4" style="text-align:right" onchange="OrderItems.clearField(this.value)"/>';
-        }
-        html += '</td>';
-        html += '</tr>';
-        if(curr_loc.indexOf("confirmation")==-1) {
-            html +=' <tr><td align="right" colspan="2"> <a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onclick="OrderItems.UpdateTip()">Apply</a></td>'; 
-            html += '</tr>';
-        }
-        
-        html += '<tr>';
-        html += '    <th colspan="2"><hr></th>';
-        html += '</tr>';
-        html += '<tr>';
-        html += '    <td>TOTAL</td>';
-        html += '    <td align="right" id="total">$ ' + orderTotal.toFixed(2) + '</td>';
-        html += '</tr>';
-        html += '<tr>';
-        if(curr_loc.indexOf("information")==-1 && curr_loc.indexOf("confirmation")==-1) {
-            if(orderItems.length>0)
-                html += '    <th colspan="2"><hr> <button onclick="window.location.href=\'/order-information\'" type="button" class="red-gradient-button">SUBMIT ORDER</button></td>';
-            }
-            html += '</tr>';
-
-            $('#order-totals-table-' + divName + ' > tbody').html(html);
-        }
-    
-    
-        // this method helps to cancel the order. It cancels one order at a time.
-        OrderItems.cancelOrder = function(id) {
-            var json = {
-                "pOrderItemId"       : id //Inputs an id as json
-            }
-     
-            //An ajax call to cancel the order in the back end
-            $.ajax({
-                url:  $.session.get('baseurl')+"/rest/order-pizza/delete-order-item",
-                type: "POST",
-                data: JSON.stringify(json),
-                success: function(data) {
-
-                    //It updates the orderItems resides in session after deletion
-                    var orderItems        = JSON.parse($.session.get('orderItems'));
-                    var updatedOrderItems = new Array();
-               
-                    for(var i = 0; i < orderItems.length; i++) {
-                        var orderItem = orderItems[i];
-                        if(orderItem['id'] != id) {
-                            updatedOrderItems.push(orderItem);
-                        }
-                    }
-                  
-                    $.session.set('orderItems', JSON.stringify(updatedOrderItems));
-          
-                    //It rebuilds the accordion after deletion
-                    OrderItems.buildYourOrder();
-                }
-            });
-        }
-    
-        OrderItems.clearField = function(val) {
-            $.session.set('currentTip',val);
-        }
-    
-        OrderItems.UpdateTip = function() {
-            var tip =  $.session.get('currentTip');
-                  
-            if(tip==null || tip==undefined || isNaN(parseFloat(tip)))
-                tip = 0;
-            $.session.set('orderTip',tip);
-      
-            OrderItems.buildYourOrder();
-        }
-        OrderItems.UpdateOrderItem = function() {
-        $('#modal-modify-item1').modal('hide');
-        $('#modal-please-wait').modal('show');
-        var orderLineId = $.session.get('selectedOrderLineId');
-        if(orderLineId) {
-            var orderItems        = JSON.parse($.session.get('orderItems'));
-            var selectedOrderItem;
-         
-            for(var i = 0; i < orderItems.length; i++) {
-                var orderItem = orderItems[i];
-                if(orderItem['id'] == orderLineId) {
-                    selectedOrderItem = orderItem;
-                }
-            }  
-
-            if(selectedOrderItem) {
-                selectedOrderItem['quantity'] = $.session.get('quantity');
-                //size
-          
-                var sizeId    = $.session.get('sizeId');
-                var sizeInSsn = JSON.parse($.session.get(selectedOrderItem['orderType']+'_SIZES'));
-                for(var i = 0; i < sizeInSsn.length; i++) {
-                    if(sizeId == sizeInSsn[i]['id']) {
-                        selectedOrderItem['size'] = sizeInSsn[i];
-                    }
-                }
-           
-                //style
-          
-                var styleId    = $.session.get('styleId');
-                var styleInSsn = JSON.parse($.session.get(selectedOrderItem['orderType']+'_STYLES'));
-                for(var i = 0; i < styleInSsn.length; i++) {
-                    if(styleId == styleInSsn[i]['id']) {
-                        selectedOrderItem['style'] = styleInSsn[i];
-                    }
-                }
-         
-                // Get sauce
-                var sauceId    = $.session.get('sauceId');
-                var sauceInSsn = JSON.parse($.session.get(selectedOrderItem['orderType']+'_SAUCES'));
-                for(var i = 0; i < sauceInSsn.length; i++) {
-                    if(sauceId == sauceInSsn[i]['id']) {
-                        selectedOrderItem['sauce'] = sauceInSsn[i];
-                    }
-                }
-
-                // Get sauce modifier
-                var sauceModifierId    = $.session.get('sauceModifierId');
-                if(sauceModifierId) {
-                    var sauceModInSsn = JSON.parse($.session.get(selectedOrderItem['orderType']+'_SAUCEMODIFIERS'));
-                    for(var i = 0; i < sauceModInSsn.length; i++) {
-                        if(sauceModifierId == sauceModInSsn[i]['id']) {
-                            selectedOrderItem['sauceModifier'] = sauceModInSsn[i];
-                        }
-                    }
-                }
-                else {
-                    selectedOrderItem['sauceModifier'] = {id: "NULL", description: ""};
-                }
-                //topper
-          
-                selectedOrderItem['toppers'] = new Array();
-                var selectedToppers  = JSON.parse($.session.get('ToppersInEdit'));
-                var topperInSsn = JSON.parse($.session.get(selectedOrderItem['orderType']+'_TOPPERS'));
-        
-                for(var i = 0; i < selectedToppers.length; i++) {
-                    var topperId = selectedToppers[i];
-                    for(var j = 0; j < topperInSsn.length; j++) {
-                        if(topperId == topperInSsn[j]['id']) {
-                            selectedOrderItem['toppers'].push(topperInSsn[j]);
-                        }
-                    }
-                }
-                //topping
-
-                var toppingsString  =  $.session.get('toppings');
-                var toppings        = toppingsString.split(',');
-
-                selectedOrderItem['toppings'] = new Array();
-
-                for(var i = 0; i < toppings.length; i++) {
-                    var item     = toppings[i];
-                    var elements = item.split('-');
-                    var itemId   = elements[0];
-                    var portion  = elements[1].split('+')[0];
-                    var topping = {};
-                    topping['id'] = itemId;
-                    topping['portion'] = portion;
-                    topping['description'] = elements[1].split('+')[1];
-                    selectedOrderItem['toppings'].push(topping);
-                }
-    
-                $.session.set('orderItems', JSON.stringify(orderItems));
-                $('#modal-please-wait').modal('hide'); 
-                OrderItems.buildYourOrder();
-            }
-        }
-    }
-}
-
-OrderItems.buildPromoAccordion = function(promoCost,userPromos,divName) {
-    var html='';        
-  
-    if(userPromos.length>0) {
-        html += '<tr>';
-        html += '    <td>';
-        html += '        <div class="panel-group" id="accordion-promo-'+divName+'">'
-        html += '            <div class="panel panel-default">'
-        html += '                <div style="background-color:#A49685;height:38px">'
-        html += '                    <h3 class="panel-title">'
-        html += '                         <div class="col-xs-9"> <a data-toggle="collapse" style="color:#fff;font-size:14px" data-parent="#accordion-promo-'+divName+'" href="#promo-detail-'+divName+'">'  
-        html +=                           '<span style="font-size:14px;">Promo</span></a></div>';
-        html +=                           '<div class="col-sm-2" style="height:38px;font-size:15px;float:right;"><div style="float:right" class="row">$ -' + promoCost.toFixed(2);
-        html += '                         </div></div>'
-        html += '                    </h3>'
-        html += '                </div>'
-        html += '                <div id="promo-detail-'+divName+'" class="panel-collapse collapse ">'
-        html += '                    <div class="panel-body" style="font-size:12px;background-color:#BDAFA0">'//A49670">'
-        html += ' <div style="height:76px;width:25%;margin-top:-27px;margin-left:-25px" class="row titleimage"></div> ';
-        for(var i = 0; i < userPromos.length; i++) {
-            var userPromo = userPromos[i];
-            html += '                        <p>Code : '+userPromo['code']+'</p>'
-            html += '                        <p>Description : ' + userPromo['description'] + '</p>'
-            html += '                        <p>Cost : $'+ Number(userPromo['cost']).toFixed(2)+'</p>'
-            if(i<userPromos.length-1)
-                html += '<hr>';
-        }
-        html += '                    </div>'
-        html += '                </div>'
-        html += '            </div>'
-        html += '        </div>'
-        html += '    </td>';
-        html += '</tr>';
-    }        
-    return html;                
-}
-

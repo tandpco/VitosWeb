@@ -66,8 +66,8 @@ get '/tblcustomers' do
     send_file('public/tblcustomers.html')
 end
 
-get '/trelstorespecialty' do
-    send_file('public/trelstorespecialty.html')
+get '/tblitems' do
+    send_file('public/tblitems.html')
 end
 
 ActiveRecord::Base.establish_connection(
@@ -1993,10 +1993,10 @@ post '/rest/view/tblcustomers/get-tblcustomers' do
     TblcustomersViewController.getTblcustomers(data)
 end
 
-post '/rest/view/trelstorespecialty/get-trelstorespecialties' do
+post '/rest/view/tblitems/get-tblitems' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    TrelstorespecialtyViewController.getTrelstorespecialties(data)
+    TblitemsViewController.getTblitems(data)
 end
 

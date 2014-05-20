@@ -12,11 +12,10 @@ ModalModifyPizzaItem.createMarkup = function() {
     html += '                <ul class="nav nav-tabs">';
     html += '                    <li class="active"><a class="white-no-shadow"';
     html += '                    href="#size-and-crust" data-toggle="tab">SIZE';
-    html += '                    &amp; CRUST</a></li>';
+    html += '                    &amp; TYPE</a></li>';
     html += '';
     html += '                    <li><a class="white-no-shadow" href=';
-    html += '                    "#cheese-and-sauce" data-toggle="tab">CHEESE';
-    html += '                    &amp; SAUCE</a></li>';
+    html += '                    "#cheese-and-sauce" data-toggle="tab">SAUCE</a></li>';
     html += '';
     html += '                    <li><a class="white-no-shadow" href="#toppings"';
     html += '                    data-toggle="tab">TOPPINGS</a></li>';
@@ -108,10 +107,9 @@ ModalModifyPizzaItem.createMarkup = function() {
     return html;
 }
 
-function FakeModalModifyPizzaItem () {}
-FakeModalModifyPizzaItem.createMarkup = function() {
+function ModalModifyOrderItem () {}
+ModalModifyOrderItem.createMarkup = function() {
     var html = "";
-    //html += '<div class="modal fade" id="modal-modify-item">';
     html += '    <div class="modal-dialog modal-lg">';
     html += '        <div class="modal-content">';
     html += '            <div class="modal-header">';
@@ -122,11 +120,10 @@ FakeModalModifyPizzaItem.createMarkup = function() {
     html += '                <ul class="nav nav-tabs">';
     html += '                    <li class="active"><a class="white-no-shadow"';
     html += '                    href="#size-and-crust1" data-toggle="tab">SIZE';
-    html += '                    &amp; CRUST</a></li>';
+    html += '                    &amp; TYPE</a></li>';
     html += '';
     html += '                    <li><a class="white-no-shadow" href=';
-    html += '                    "#cheese-and-sauce1" data-toggle="tab">CHEESE';
-    html += '                    &amp; SAUCE</a></li>';
+    html += '                    "#cheese-and-sauce1" data-toggle="tab">SAUCE</a></li>';
     html += '';
     html += '                    <li><a class="white-no-shadow" href="#toppings1"';
     html += '                    data-toggle="tab">TOPPINGS</a></li>';
@@ -186,7 +183,7 @@ FakeModalModifyPizzaItem.createMarkup = function() {
     html += '                </div>';
     html += '';
     html += '                <div>';
-    html +=                    '<span  style="font-weight:bold">'+  (CURRENT_ORDER_LOC=="PIZZA"? "Quantity of Pizzas :":(CURRENT_ORDER_LOC=="SUBS")?"Quantity of Subs :":"Quantity of Salads :")+ '</li></ul>'; 
+    html +=                    '<span  style="font-weight:bold" id="qntyHolder"></span>'; 
     html += '                                    <input id="quantity1" type=';
     html += '                                    "text" readonly style=';
     html += '                                    "margin-top:20px; " class="col-md-8">';
@@ -225,9 +222,9 @@ PanelOrderItemsSmall.createMarkup = function() {
             
     html += '<div class="panel-group" id="main-accordion">';
     html += '    <div class="panel panel-default">';
-    html += '        <div class="panel-heading">';
+    html += '        <div class="panel-heading" style="background-color:#A49670">';
     html += '            <h4 class="panel-title">';
-    html += '                 <a data-toggle="collapse" data-parent="#main-accordion" href="#childacc">';
+    html += '                 <a data-toggle="collapse" data-parent="#main-accordion" style="color:#fff;"  href="#childacc">';
     html += '                    <span class="itemSize">YOUR ORDER</span>';
     html += '                    <i class="glyphicon glyphicon-chevron-right" style="float:right"/>';
     html += '                 </a>';

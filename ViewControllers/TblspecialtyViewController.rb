@@ -17,9 +17,7 @@ class TblspecialtyViewController
     public
 
     def self.getTblspecialties(data)
-        unitId = data['UnitID']
-        whereClause = "UnitID = " + unitId
-        tblspecialties = Tblspecialty.where(whereClause)
+        tblspecialties = self.filterData(data)
         
         Array tblspecialtyJson = Array.new
         tblspecialties.each do |tblspecialty|
@@ -28,4 +26,16 @@ class TblspecialtyViewController
 
         return tblspecialtyJson.to_json
     end
+    
+    def self.filterData(data)
+
+        tblspecialties = []
+        storeId  = data['StoreID']
+        unitId   = data['UnitID']
+
+        tblspecialties = Tblspecialty.joins("inner join trelStoreSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID where StoreID = #{storeId}  and UnitID = #{unitId} and IsActive <> 0 and IsInternet <> 0 order by tblSpecialty.SpecialtyID")
+
+        return tblspecialties
+    end 
+    
 end
