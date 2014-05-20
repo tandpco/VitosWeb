@@ -181,13 +181,16 @@ function OrderItemsController () {
             "pDriverMoney"     : "0.75",
             "pOrderNotes"      : ""
         }
+
+        var URL = "/rest/view/tblorders/create-tblorders";
+
         $.ajax({
-            url:  this.getURL("create-order"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                console.log('Created Order Id: ' + data[0]['OrderID']);
-                $.session.set('orderId', data[0]['OrderID']);
+                console.log('Created Order Id: ' + data[0]['newid']);
+                $.session.set('orderId', data[0]['newid']);
                 pageController.createOrderItem();
             }
         });

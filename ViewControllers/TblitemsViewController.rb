@@ -33,8 +33,9 @@ class TblitemsViewController
 
         storeId  = data['StoreID']
         unitId   = data['UnitID']
-        if(data.has_key?("SPECIALTY_ITEMS")
-            tblitems = Tblitems.joins("inner join trelStoreItem on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = #{storeId} and trelUnitItems.UnitID = #{unitId} and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription")
+        if(data.has_key?("SPECIALTY_ITEMS"))
+            specialtyId   = data['SpecialtyID']
+            tblitems = Tblitems.joins("inner join trelSpecialtyItem as si on tblItems.ItemID = si.ItemID  AND tblItems.IsActive <> 0 inner join tblSpecialty as s on si.SpecialtyID = s.SpecialtyID inner join trelStoreSpecialty as ss on s.SpecialtyID = ss.SpecialtyID AND ss.SpecialtyID = #{specialtyId} AND ss.StoreID = #{storeId} inner join trelUnitItems as ui on tblItems.ItemID = ui.ItemID AND ui.UnitID = #{unitId} order by tblItems.ItemDescription")
         else
             tblitems = Tblitems.joins("inner join trelStoreItem on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = #{storeId} and trelUnitItems.UnitID = #{unitId} and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription")
         end

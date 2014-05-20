@@ -94,6 +94,10 @@ get '/tblsaucemodifier' do
     send_file('public/tblsaucemodifier.html')
 end
 
+get '/tblorders' do
+    send_file('public/tblorders.html')
+end
+
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],
@@ -2057,5 +2061,12 @@ post '/rest/view/tblsaucemodifier/get-tblsaucemodifiers' do
     data = JSON.parse request.body.read
     content_type :json
     TblsaucemodifierViewController.getTblsaucemodifiers(data)
+end
+
+post '/rest/view/tblorders/create-tblorders' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblordersViewController.createTblorders(data)
 end
 

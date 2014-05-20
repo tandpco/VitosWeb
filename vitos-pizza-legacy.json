@@ -182,6 +182,16 @@
                         "modelMethod" : "get"
                     }
                 ]
+            },
+            {
+                "name": "Tblorders",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorders",
+                        "modelMethod" : "create"
+                    }
+                ]
             }
         ],
         "lists"     : [
