@@ -42,6 +42,10 @@ get '/order-salads' do
     send_file('public/order-items.html')
 end
 
+get '/order-sides' do
+    send_file('public/order-items.html')
+end
+
 get '/order-confirmation' do
     send_file('public/order-confirmation.html')
 end

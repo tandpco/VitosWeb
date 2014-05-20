@@ -57,6 +57,16 @@
                 ]
             },
             {
+                "name": "OrderSides",
+                "file": "order-items",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
                 "name": "OrderConfirmation",
                 "methods" : [
                     {
