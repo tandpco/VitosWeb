@@ -18,6 +18,72 @@
         ],
         "views"     : [
             {
+                "name": "SignIn",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "OrderPizza",
+                "file": "order-items",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "OrderSubs",
+                "file": "order-items",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "OrderSalads",
+                "file": "order-items",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "OrderConfirmation",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "OrderInformation",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
+                "name": "PaymentInformation",
+                "methods" : [
+                    {
+                        "name"        : "init",
+                        "type"        : "init"
+                    }
+                ]
+            },
+            {
                 "name": "Tblunit",
                 "methods" : [
                     {
@@ -1899,6 +1965,9 @@
         },
         {
             "type"     : "Bootstrap"
+        },
+        {
+            "type"     : "RubyHtmlRoute"
         },
         {
             "type"     : "RubyActiveRecordLiteralModel"

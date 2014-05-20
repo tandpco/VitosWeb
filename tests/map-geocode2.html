@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <title>Google Maps</title>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0JT9DTtgL7tG2hxafuW9gppl8sVOY3e8&sensor=false">
+        </script>
+    </head>
+    <body>
+    
+        
+        <div id="map" style="width:800px;height:600px;"></div>
+        <div id="messages"></div>
+    
+        <script type="text/javascript">
+    
+        // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
+        var delay = 100;
+    
+        // ====== Create map objects ======
+        var infowindow = new google.maps.InfoWindow();
+        var latlng = new google.maps.LatLng(41.6776187, -83.62064929999997);
+        var mapOptions = {
+            zoom: 8,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var geo = new google.maps.Geocoder(); 
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var bounds = new google.maps.LatLngBounds();
+    
+        // ====== Geocoding ======
+        function getAddress(search, next) {
+            geo.geocode({address:search}, function (results,status) { 
+                // If that was successful
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // Lets assume that the first marker is the one we want
+                    var p = results[0].geometry.location;
+                    var lat=p.lat();
+                    var lng=p.lng();
+                    // Output the data
+                    //var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
+                    var msg = 'lat: "' + lat + '", lng: "' + lng + '" }<br>';
+                    document.getElementById("messages").innerHTML += msg;
+                    // Create a marker
+                    createMarker(search,lat,lng);
+                }
+                // ====== Decode the error status ======
+                else {
+                    // === if we were sending the requests to fast, try this one again and increase the delay
+                    if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                        nextAddress--;
+                        delay++;
+                    } else {
+                        var reason="Code "+status;
+                        var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
+                        document.getElementById("messages").innerHTML += msg;
+                    }   
+                }
+                next();
+              }
+            );
+        }
+        
+        // ======= Function to create a marker
+        function createMarker(add,lat,lng) {
+           var contentString = add;
+           var marker = new google.maps.Marker({
+             position: new google.maps.LatLng(lat,lng),
+             map: map,
+             zIndex: Math.round(latlng.lat()*-100000)<<5
+           });
+    
+          google.maps.event.addListener(marker, 'click', function() {
+             infowindow.setContent(contentString); 
+             infowindow.open(map,marker);
+           });
+    
+           bounds.extend(marker.position);
+    
+        }
+    
+        // ======= An array of locations that we want to Geocode ========
+        var addresses = new Array();
+        addresses[0] = { storeId: "1", address: "2129 N. Reynolds Rd. Toledo OH 43615" };
+        addresses[1] = { storeId: "2", address: "104 East Union St. Walbridge OH 43465" };
+        addresses[2] = { storeId: "3", address: "7060 Sylvania Ave. Sylvania OH 43560" };
+        addresses[3] = { storeId: "4", address: "4035 Navarre Ave. Oregon OH 43616" };
+        addresses[4] = { storeId: "5", address: "315 South Detroit Ave. Toledo OH 43609" };
+        addresses[5] = { storeId: "6", address: "4317 Heatherdowns Blvd. Toledo OH 43614" };
+        addresses[6] = { storeId: "7", address: "4804 Lewis Ave. Toledo OH 43612" };
+        addresses[7] = { storeId: "8", address: "5412 Monroe St. Toledo OH 43623" };
+        addresses[8] = { storeId: "9", address: "118 W. South Boundary St. Perrysburg OH 43551" };
+        addresses[9] = { storeId: "10", address: "847 S. McCord Rd. Holland OH 43528" };
+        addresses[10] = { storeId: "11", address: "524 Main St. Toledo OH 43605" };
+        addresses[11] = { storeId: "12", address: "4235 Douglas Rd. Toledo OH 43613" };
+        addresses[12] = { storeId: "13", address: "3392 Lagrange St. Toledo OH 43608" };
+        addresses[13] = { storeId: "14", address: "1500 N. Main St. Findlay OH 45840" };
+        addresses[14] = { storeId: "15", address: "5145 Summit St. Toledo OH 43611" };
+        addresses[15] = { storeId: "16", address: "3130 W. Central Ave. Toledo OH 43606" };
+        addresses[16] = { storeId: "17", address: "7321 Lewis #G Temperance MI 48182" };
+        addresses[17] = { storeId: "18", address: "6533 East State Blvd Ft. Wayne IN 46815" };
+        addresses[18] = { storeId: "19", address: "226 N. Telegraph Monore MI 48162" };
+        addresses[19] = { storeId: "20", address: "140 E. Wooster Bowling Green OH 43402" };
+
+        // ======= Global variable to remind us what to do next
+        var nextAddress = 0;
+    
+        // ======= Function to call the next Geocode operation when the reply comes back
+    
+        function theNext() {
+            if (nextAddress < addresses.length) {
+                var address = addresses[nextAddress]['address']
+                var storeId = addresses[nextAddress]['storeId']
+                document.getElementById("messages").innerHTML += '{ storeId: "' + storeId + '", ';
+              
+                setTimeout('getAddress("' + address + '",theNext)', delay);
+                nextAddress++;
+            } else {
+                // Show map bounds
+                map.fitBounds(bounds);
+            }
+        }
+  
+        // ======= Call that function for the first time =======
+        theNext();
+    
+        // This Javascript is based on code provided by the
+        // Community Church Javascript Team
+        // http://www.bisphamchurch.org.uk/   
+        // http://econym.org.uk/gmap/
+    
+        </script>
+    </body>
+    
+</html>
+
+

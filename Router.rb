@@ -21,6 +21,55 @@ set :bind, '0.0.0.0'
 set :port, 4111
 
 config = JSON::load(File.open(ARGV.shift))
+# HTML static routes (GET)
+get '/' do
+    send_file('public/sign-in.html')
+end
+
+get '/sign-in' do
+    send_file('public/sign-in.html')
+end
+
+get '/order-pizza' do
+    send_file('public/order-items.html')
+end
+
+get '/order-subs' do
+    send_file('public/order-items.html')
+end
+
+get '/order-salads' do
+    send_file('public/order-items.html')
+end
+
+get '/order-confirmation' do
+    send_file('public/order-confirmation.html')
+end
+
+get '/order-information' do
+    send_file('public/order-information.html')
+end
+
+get '/payment-information' do
+    send_file('public/payment-information.html')
+end
+
+get '/tblunit' do
+    send_file('public/tblunit.html')
+end
+
+get '/tblspecialty' do
+    send_file('public/tblspecialty.html')
+end
+
+get '/tblcustomers' do
+    send_file('public/tblcustomers.html')
+end
+
+get '/trelstorespecialty' do
+    send_file('public/trelstorespecialty.html')
+end
+
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],

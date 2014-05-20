@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:4777/" />
+<title>test-sign-in</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test-sign-in</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/sign-in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sign-in-email-address</td>
+	<td>sean.wright.vortex@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sign-in-password</td>
+	<td>swright</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sign-in-panel &gt; div.container &gt; div.col-md-6 &gt; div &gt; div.row &gt; button.red-gradient-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.green-gradient-button</td>
+	<td>CONTINUE</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.green-gradient-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#modeDelivery &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#modeDelivery &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td &gt; button.red-gradient-button</td>
+	<td>ORDER NOW</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td &gt; button.red-gradient-button</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/custom-theme.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <link rel="shortcut icon" href="/img/vitoslogo.png">
+        <script src="/js/jquery-1.8.3.js"></script>
+        <script src="/js/jquery.session.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap.touchspin.js"></script> <!-- Added for touchspin(Quantity) -->
+        <script src="/js-classes/sign-in-controller.js"></script>
+        <script src="/js-classes/common-utils.js"></script>
+        <script src="/js-classes/order-items-utils.js"></script>
+        <script src="/js-classes/order-items-controller.js"></script>
+        <script type="text/javascript" language="javascript">
+            
+            var CURRENT_ORDER_LOC ="PIZZA";
+            var UNIT_ID ="1";
+            
+            
+            var curr_loc= window.location.pathname;
+            if(curr_loc.indexOf("pizza")!=-1){
+              CURRENT_ORDER_LOC ="PIZZA";
+              UNIT_ID = "1";
+            }
+            else if(curr_loc.indexOf("subs")!=-1){
+              CURRENT_ORDER_LOC ="SUBS";
+              UNIT_ID = "17";
+            }
+            else if(curr_loc.indexOf("salads")!=-1){
+              CURRENT_ORDER_LOC ="SALADS";
+               UNIT_ID = "3";
+            }
+            
+            var pageController;
+            $(function() {
+                pageController = new OrderItemsController();
+                pageController.init();
+            });
+        </script>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0JT9DTtgL7tG2hxafuW9gppl8sVOY3e8&sensor=false">
+        </script>
+    </head>
+  
+    <body style="background-color: #F0E8DE;">
+        <div id="wrap">
+            <img src="/img/vitoslogo.png" id="logo"/>
+            <div id="header">
+                <div id="nav-container" class="nav-container"></div>
+            </div>
+            <div id="main" class="container"> 
+                <div class="modal fade" id="modal-modify-item"></div>
+
+                <div class="modal fade" id="modal-modify-item1"></div>
+
+                <div id="items-panel" class="col-md-8">
+
+                    <div id="order-items-panel-sm" class="container visible-sm visible-xs"></div>
+    
+                    <div id="items-grid-panel" class="container"></div>
+                </div>
+    
+                <div id="order-items-panel" class="col-md-4 visible-lg visible-md"></div>
+
+            </div>
+        </div>
+        
+        <div id="footer"></div>
+    </body>
+</html>

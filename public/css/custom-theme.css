@@ -1,0 +1,544 @@
+/* line 29, ../../sass/custom-theme.scss */
+* {
+  position: static;
+}
+
+/* line 36, ../../sass/custom-theme.scss */
+body {
+  background-color: #f0e8de;
+}
+
+/* line 44, ../../sass/custom-theme.scss */
+#header .nav-container {
+  width: 100%;
+  margin-top: 65px;
+}
+/* line 47, ../../sass/custom-theme.scss */
+#header .nav-container .main-navbar {
+  width: 100%;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cc1231), color-stop(1, #8f0923));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #cc1231 0%, #8f0923 100%);
+}
+/* line 66, ../../sass/custom-theme.scss */
+#header .nav-container .main-navbar .white-shadow {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+/* line 73, ../../sass/custom-theme.scss */
+#header .nav-container .sub-navbar {
+  width: 100%;
+  background-color: #00482c;
+}
+/* line 76, ../../sass/custom-theme.scss */
+#header .nav-container .sub-navbar .white-no-shadow {
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+}
+/* line 82, ../../sass/custom-theme.scss */
+#header .nav-container .sub-navbar .white-no-shadow.active {
+  color: white;
+}
+
+/* line 89, ../../sass/custom-theme.scss */
+#logo {
+  position: absolute;
+  z-index: 2;
+  height: auto;
+  width: auto;
+  left: 5px;
+  top: 0%;
+}
+
+/* line 98, ../../sass/custom-theme.scss */
+#collapse-button:hover, #collapse-button:focus {
+  background-color: transparent;
+}
+
+/* line 103, ../../sass/custom-theme.scss */
+#main {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+/* line 109, ../../sass/custom-theme.scss */
+#items-panel {
+  margin-top: 20px;
+  float: left;
+}
+/* line 112, ../../sass/custom-theme.scss */
+#items-panel > .container {
+  width: 100%;
+  margin: 0px;
+}
+/* line 116, ../../sass/custom-theme.scss */
+#items-panel > .container > .row > div {
+  margin: 10px;
+  padding: 0px;
+  background-color: white;
+}
+/* line 122, ../../sass/custom-theme.scss */
+#items-panel > .container > .row > div table {
+  width: auto;
+  margin: 5px;
+}
+/* line 125, ../../sass/custom-theme.scss */
+#items-panel > .container > .row > div table .header {
+  font-size: medium;
+  color: #ad1028;
+  font-weight: bold;
+  border-bottom: 1px solid #ad1028;
+}
+/* line 131, ../../sass/custom-theme.scss */
+#items-panel > .container > .row > div table .body {
+  word-wrap: break-word;
+  font-size: small;
+  height: 90px;
+}
+
+/* line 143, ../../sass/custom-theme.scss */
+#sign-in-panel > .container {
+  padding: 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/* line 147, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+/* line 151, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+}
+/* line 155, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row:last-child {
+  margin-bottom: 0px;
+}
+/* line 159, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row:first-child > p {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+/* line 168, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row {
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+/* line 172, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row > p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+}
+/* line 177, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row > p + p {
+  color: #716963;
+  font-size: 12px;
+}
+/* line 181, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row > input {
+  width: 100%;
+}
+/* line 184, ../../sass/custom-theme.scss */
+#sign-in-panel > .container > div > div > .row > button {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  text-shadow: 1px 1px black;
+}
+
+/* line 196, ../../sass/custom-theme.scss */
+#order-items-panel {
+  float: right;
+  right: 0px;
+  background-color: #ddd3c6;
+}
+
+/* line 202, ../../sass/custom-theme.scss */
+#order-table {
+  margin: 20px;
+  border-spacing: 5px;
+  border-collapse: separate;
+}
+/* line 206, ../../sass/custom-theme.scss */
+#order-table th {
+  border-bottom: 1px solid #716963;
+  color: #716963;
+  margin-bottom: 10px;
+}
+
+/* line 213, ../../sass/custom-theme.scss */
+#itemSize {
+  margin-right: 20px;
+  background-color: #a69585;
+}
+
+/* line 218, ../../sass/custom-theme.scss */
+#itemDescription {
+  background-color: #bdafa0;
+}
+
+/* line 222, ../../sass/custom-theme.scss */
+#footer {
+  background-color: #716963;
+}
+
+/* line 226, ../../sass/custom-theme.scss */
+#grid-table {
+  height: 100%;
+}
+/* line 228, ../../sass/custom-theme.scss */
+#grid-table tr {
+  height: 100%;
+}
+/* line 230, ../../sass/custom-theme.scss */
+#grid-table tr th {
+  height: 100%;
+}
+/* line 233, ../../sass/custom-theme.scss */
+#grid-table tr td {
+  height: 100%;
+}
+
+/* line 240, ../../sass/custom-theme.scss */
+#modal-location .modal-body {
+  width: 80%;
+  margin-left: 10%;
+}
+/* line 243, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 246, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row .modal-title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+}
+/* line 252, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row div {
+  overflow-y: hidden;
+  background-color: #F0E8DE;
+}
+/* line 255, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row div img {
+  width: 100%;
+  height: auto;
+}
+/* line 259, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row div div {
+  margin: 20px;
+}
+/* line 263, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row button {
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  text-shadow: 1px 1px black;
+}
+/* line 269, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row h5 {
+  font-weight: bold;
+  font-size: 20px;
+}
+/* line 273, ../../sass/custom-theme.scss */
+#modal-location .modal-body .row h5 + h5 {
+  border-bottom: 1px solid black;
+}
+
+/* line 282, ../../sass/custom-theme.scss */
+#modal-invalid-login .modal-body {
+  width: 80%;
+  margin-left: 10%;
+}
+/* line 285, ../../sass/custom-theme.scss */
+#modal-invalid-login .modal-body .row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 288, ../../sass/custom-theme.scss */
+#modal-invalid-login .modal-body .row .modal-title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+/* line 294, ../../sass/custom-theme.scss */
+#modal-invalid-login .modal-body .row button {
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  text-shadow: 1px 1px black;
+}
+
+/* line 307, ../../sass/custom-theme.scss */
+#modal-please-wait .modal-dialog .modal-content img {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 319, ../../sass/custom-theme.scss */
+#modal-delivery img {
+  width: 49%;
+}
+/* line 322, ../../sass/custom-theme.scss */
+#modal-delivery h5 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+/* line 333, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header {
+  padding: 0px;
+  border: none;
+}
+/* line 336, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header > img {
+  position: absolute;
+  z-index: 5;
+  margin-top: 5px;
+  /* Firefox */
+  margin-left: -moz-calc(100% - 25px);
+  /* WebKit */
+  margin-left: -webkit-calc(100% - 25px);
+  /* Opera */
+  margin-left: -o-calc(100% - 25px);
+  /* Standard */
+  margin-left: calc(100% - 25px);
+}
+/* line 349, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header > ul {
+  padding-bottom: 1px;
+  background-color: #629168;
+  border: none;
+}
+/* line 354, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header > ul > li {
+  width: 33%;
+  height: 100%;
+  border: none;
+}
+/* line 358, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header > ul > li > a, #modal-modify-item .modal-dialog .modal-content .modal-header > ul > li a:hover, #modal-modify-item .modal-dialog .modal-content .modal-header > ul > li a:active {
+  background-color: #629168;
+  color: #37653f;
+  font-weight: bold;
+  border: none;
+  border-radius: 0px;
+}
+/* line 367, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-header > ul li.active a {
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px black;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top, #007043 0%, #00482c 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #007043 0%, #00482c 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #007043 0%, #00482c 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #007043), color-stop(1, #00482c));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #007043 0%, #00482c 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #007043 0%, #00482c 100%);
+}
+/* line 393, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body table {
+  width: 100%;
+}
+/* line 396, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body table tr td {
+  width: 50%;
+}
+/* line 398, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li {
+  margin: 1px;
+  padding: 3px;
+}
+/* line 402, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li.header {
+  font-weight: bold;
+  margin-top: 5px;
+}
+/* line 406, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li.item {
+  background-color: #f0e8de;
+  box-shadow: 1px 1px 0px #ddd3c6;
+  margin-bottom: 5px;
+}
+/* line 414, ../../sass/custom-theme.scss */
+#modal-modify-item .modal-dialog .modal-content .modal-body button {
+  width: 49%;
+  margin-top: 20px;
+}
+
+/* line 424, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm, #order-items-panel #order-table-right, #order-items-panel-sm #order-table-sm, #order-items-panel-sm #order-table-right, #items-panel #order-table-sm, #items-panel #order-table-right {
+  width: 100%;
+}
+/* line 426, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm *, #order-items-panel #order-table-right *, #order-items-panel-sm #order-table-sm *, #order-items-panel-sm #order-table-right *, #items-panel #order-table-sm *, #items-panel #order-table-right * {
+  border: none;
+  border-radius: 0px;
+}
+/* line 430, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm tbody, #order-items-panel #order-table-sm tr, #order-items-panel #order-table-sm td, #order-items-panel #order-table-sm th, #order-items-panel #order-table-right tbody, #order-items-panel #order-table-right tr, #order-items-panel #order-table-right td, #order-items-panel #order-table-right th, #order-items-panel-sm #order-table-sm tbody, #order-items-panel-sm #order-table-sm tr, #order-items-panel-sm #order-table-sm td, #order-items-panel-sm #order-table-sm th, #order-items-panel-sm #order-table-right tbody, #order-items-panel-sm #order-table-right tr, #order-items-panel-sm #order-table-right td, #order-items-panel-sm #order-table-right th, #items-panel #order-table-sm tbody, #items-panel #order-table-sm tr, #items-panel #order-table-sm td, #items-panel #order-table-sm th, #items-panel #order-table-right tbody, #items-panel #order-table-right tr, #items-panel #order-table-right td, #items-panel #order-table-right th {
+  width: 100%;
+}
+/* line 433, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm th, #order-items-panel #order-table-right th, #order-items-panel-sm #order-table-sm th, #order-items-panel-sm #order-table-right th, #items-panel #order-table-sm th, #items-panel #order-table-right th {
+  font-size: 18px;
+  color: #716963;
+  text-decoration: underline;
+}
+/* line 439, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm td .panel-heading, #order-items-panel #order-table-right td .panel-heading, #order-items-panel-sm #order-table-sm td .panel-heading, #order-items-panel-sm #order-table-right td .panel-heading, #items-panel #order-table-sm td .panel-heading, #items-panel #order-table-right td .panel-heading {
+  background-color: #A49685;
+}
+/* line 441, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm td .panel-heading a, #order-items-panel #order-table-sm td .panel-heading a:hover, #order-items-panel #order-table-right td .panel-heading a, #order-items-panel #order-table-right td .panel-heading a:hover, #order-items-panel-sm #order-table-sm td .panel-heading a, #order-items-panel-sm #order-table-sm td .panel-heading a:hover, #order-items-panel-sm #order-table-right td .panel-heading a, #order-items-panel-sm #order-table-right td .panel-heading a:hover, #items-panel #order-table-sm td .panel-heading a, #items-panel #order-table-sm td .panel-heading a:hover, #items-panel #order-table-right td .panel-heading a, #items-panel #order-table-right td .panel-heading a:hover {
+  width: 100%;
+  text-decoration: none;
+}
+/* line 444, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm td .panel-heading a > span, #order-items-panel #order-table-sm td .panel-heading a:hover > span, #order-items-panel #order-table-right td .panel-heading a > span, #order-items-panel #order-table-right td .panel-heading a:hover > span, #order-items-panel-sm #order-table-sm td .panel-heading a > span, #order-items-panel-sm #order-table-sm td .panel-heading a:hover > span, #order-items-panel-sm #order-table-right td .panel-heading a > span, #order-items-panel-sm #order-table-right td .panel-heading a:hover > span, #items-panel #order-table-sm td .panel-heading a > span, #items-panel #order-table-sm td .panel-heading a:hover > span, #items-panel #order-table-right td .panel-heading a > span, #items-panel #order-table-right td .panel-heading a:hover > span {
+  color: white;
+  font-weight: bold;
+}
+/* line 450, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm td .panel-body, #order-items-panel #order-table-right td .panel-body, #order-items-panel-sm #order-table-sm td .panel-body, #order-items-panel-sm #order-table-right td .panel-body, #items-panel #order-table-sm td .panel-body, #items-panel #order-table-right td .panel-body {
+  background-color: #BDAFA0;
+}
+/* line 452, ../../sass/custom-theme.scss */
+#order-items-panel #order-table-sm td .panel-body > p, #order-items-panel #order-table-right td .panel-body > p, #order-items-panel-sm #order-table-sm td .panel-body > p, #order-items-panel-sm #order-table-right td .panel-body > p, #items-panel #order-table-sm td .panel-body > p, #items-panel #order-table-right td .panel-body > p {
+  color: white;
+}
+
+/* line 463, ../../sass/custom-theme.scss */
+input[type="radio"], input[type="checkbox"] {
+  display: none;
+}
+
+/* line 466, ../../sass/custom-theme.scss */
+input[type="radio"] + label, input[type="checkbox"] + label {
+  background: url(/Content/img/checkbox_unchecked.jpg) no-repeat;
+  padding-left: 30px;
+  margin: 0px;
+  font-weight: normal;
+}
+
+/* line 472, ../../sass/custom-theme.scss */
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
+  background: url(/Content/img/checkbox_checked.jpeg) no-repeat;
+}
+
+/*
+label.btn {
+    background:url(/Content/img/checkbox_unchecked.jpg) no-repeat;
+    margin:0px;
+    font-weight: normal;
+}
+
+label.btn.active {
+    background:url(/Content/img/checkbox_checked.jpeg) no-repeat;
+}
+*/
+/* line 488, ../../sass/custom-theme.scss */
+.tan-highlight {
+  background-color: #F0E8DE;
+  box-shadow: 1px 1px 0 #DDD3C6;
+  margin-bottom: 5px;
+}
+
+/* line 494, ../../sass/custom-theme.scss */
+.modal {
+  background-color: rgba(255, 255, 255, 0.75);
+  overflow-x: hidden;
+}
+/* line 498, ../../sass/custom-theme.scss */
+.modal .modal-dialog .modal-content {
+  width: 80%;
+  margin-left: 10%;
+  border: none;
+  border-radius: 0px;
+}
+
+/* line 507, ../../sass/custom-theme.scss */
+.shaded-input {
+  height: 35px;
+  border: none;
+  box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.25) inset;
+  padding: 10px;
+}
+
+/* line 513, ../../sass/custom-theme.scss */
+.red-gradient-button {
+  color: white;
+  font-weight: bold;
+  border: none;
+  height: 40px;
+  width: 100%;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cc1231), color-stop(1, #8f0923));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #cc1231 0%, #8f0923 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #cc1231 0%, #8f0923 100%);
+}
+
+/* line 539, ../../sass/custom-theme.scss */
+.green-gradient-button {
+  color: white;
+  font-weight: bold;
+  border: none;
+  height: 40px;
+  width: 100%;
+  /* IE10 Consumer Preview */
+  background-image: -ms-linear-gradient(top, #006744 0%, #003c25 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #006744 0%, #003c25 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #006744 0%, #003c25 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #006744), color-stop(1, #003c25));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #006744 0%, #003c25 100%);
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #006744 0%, #003c25 100%);
+}
