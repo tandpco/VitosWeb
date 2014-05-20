@@ -319,7 +319,7 @@ OrderItems.buildYourOrder = function() {
          
          //An ajax call to cancel the order in the back end
          $.ajax({
-                url:  $.session.get('baseurl')+"/rest/order-pizza/delete-order-item",
+                url: "/rest/order-pizza/delete-order-item",
                 type: "POST",
                 data: JSON.stringify(json),
                 success: function(data) {

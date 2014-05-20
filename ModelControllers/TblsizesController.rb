@@ -8,9 +8,9 @@ end
 class TblsizesController
     public
     def self.create(data)
-        tblsizes = Tblsizes.create( :RADRAT => data['RADRAT'], :SizeDescription => data['SizeDescription'], :SizeID => data['SizeID'], :SizeShortDescription => data['SizeShortDescription'], :InternetDescription => data['InternetDescription'] )
+        tblsizes = Tblsizes.create( :RADRAT => data['RADRAT'], :SizeDescription => data['SizeDescription'], :SizeID => data['SizeID'], :SizeShortDescription => data['SizeShortDescription'] )
 
-        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
+        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription }
 
         return tblsizesJson.to_json
     end
@@ -18,16 +18,16 @@ class TblsizesController
     def self.read(data)
         tblsizes = Tblsizes.find(data['id'])
 
-        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
+        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription }
 
         return tblsizesJson.to_json
 
     end
 
     def self.update(data)
-        tblsizes = Tblsizes.update( data['id'], :RADRAT => data['RADRAT'], :SizeDescription => data['SizeDescription'], :SizeID => data['SizeID'], :SizeShortDescription => data['SizeShortDescription'], :InternetDescription => data['InternetDescription'] )
+        tblsizes = Tblsizes.update( data['id'], :RADRAT => data['RADRAT'], :SizeDescription => data['SizeDescription'], :SizeID => data['SizeID'], :SizeShortDescription => data['SizeShortDescription'] )
 
-        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
+        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription }
 
         return tblsizesJson.to_json
 
@@ -37,7 +37,7 @@ class TblsizesController
         tblsizes = Tblsizes.find(data['id'])
         tblsizes.destroy
 
-        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription }
+        tblsizesJson = { :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription }
 
         return tblsizesJson.to_json
 
@@ -48,7 +48,7 @@ class TblsizesController
 
         Array tblsizesJson = Array.new
         tblsizes.each do |tblsizes|
-            tblsizesJson.push({ :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription })
+            tblsizesJson.push({ :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription })
         end
 
         return tblsizesJson.to_json
@@ -80,7 +80,7 @@ class TblsizesController
 
         Array tblsizesJson = Array.new
         tblsizes.each do |tblsizes|
-            tblsizesJson.push({ :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription, :InternetDescription => tblsizes.InternetDescription })
+            tblsizesJson.push({ :id => tblsizes.id, :RADRAT => tblsizes.RADRAT, :SizeDescription => tblsizes.SizeDescription, :SizeID => tblsizes.SizeID, :SizeShortDescription => tblsizes.SizeShortDescription })
         end
 
         tblsizesContainer = { :total => count, :tblsizes => tblsizesJson }

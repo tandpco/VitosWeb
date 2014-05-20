@@ -29,15 +29,14 @@ function OrderItemsController () {
         $('#order-items-panel').append(PanelOrderItems.createMarkup());
         
         $.when(
-            //OrderItems.buildYourOrder(),
-            //this.listSpecialties(),
-            //this.listToppers(),
-            //this.listSizes(),
-            //this.listSauces(),
-            //this.listStyles(),
-            //this.listSauceModifiers(),
-            //this.listToppings()
-            this.listSpecialties()
+            OrderItems.buildYourOrder(),
+            this.listSpecialties(),
+            this.listToppers(),
+            this.listSizes(),
+            this.listSauces(),
+            this.listStyles(),
+            this.listSauceModifiers(),
+            this.listToppings()
             
         ).then(function() {
             $('#modal-please-wait').modal('hide');
@@ -79,12 +78,16 @@ function OrderItemsController () {
         $.session.set('specialtyId', specialtyId);
 
         var json = {
-            "storeId":$.session.get("storeId"),
-            "specialtyId":specialtyId,
-            "unitId":UNIT_ID
+            "StoreID":$.session.get("storeId"),
+            "SpecialtyID":specialtyId,
+            "UnitID":UNIT_ID,
+            "SPECIALTY_ITEMS":"TRUE",
         }
+
+        var URL = "/rest/view/tblitems/get-tblitems";
+
         $.ajax({
-            url:  this.getURL("get-specialty-items"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -496,7 +499,7 @@ function OrderItemsController () {
     }
 
     this.getURL = function(pathname){ 
-     var URL=$.session.get('baseurl'); 
+     var URL=""
         if(CURRENT_ORDER_LOC == undefined )
           var CURRENT_ORDER_LOC="PIZZA";       
         if(CURRENT_ORDER_LOC=="PIZZA"){
@@ -511,13 +514,14 @@ function OrderItemsController () {
     
     this.listToppings = function() {
         var json = {
-            "storeId":$.session.get("storeId"),
-            "unitId":UNIT_ID
+            "StoreID":$.session.get("storeId"),
+            "UnitID":UNIT_ID
         }
         
+        var URL = "/rest/view/tblitems/get-tblitems";
         
         $.ajax({
-            url:  this.getURL("list-toppings"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -659,14 +663,13 @@ function OrderItemsController () {
     }
 
     this.listToppers = function() {
-    
         var json = {
-            "storeId":$.session.get("storeId"),
-            "unitId":UNIT_ID
+            "StoreID": $.session.get("storeId"),
+            "UnitID": UNIT_ID
         }
-          
+ 
         $.ajax({
-            url:  this.getURL("list-toppers"),
+            url: "/rest/view/tbltopper/get-tbltoppers" ,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -730,12 +733,14 @@ function OrderItemsController () {
 
     this.listSizes = function() {
         var json = {
-            "storeId":$.session.get("storeId"),
-            "unitId":UNIT_ID
+            "StoreID":$.session.get("storeId"),
+            "UnitID":UNIT_ID
         }
 
+        var URL = "/rest/view/tblsizes/get-tblsizes";
+
         $.ajax({
-            url:  this.getURL("list-sizes"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -791,13 +796,15 @@ function OrderItemsController () {
 
     this.listStyles = function() {
         var json = {
-            "storeId":$.session.get("storeId"),
-            "unitId":UNIT_ID,
-            "sizeId":"9"
+            "StoreID":$.session.get("storeId"),
+            "UnitID":UNIT_ID,
+            "SizeID":"9"
         }
+
+        var URL = "/rest/view/tblstyles/get-tblstyles";
         
         $.ajax({
-            url:  this.getURL("list-styles"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -910,12 +917,14 @@ function OrderItemsController () {
 
     this.listSauces = function() {
         var json = {
-            "storeId":$.session.get("storeId"),
-            "unitId":UNIT_ID
+            "StoreID":$.session.get("storeId"),
+            "UnitID":UNIT_ID
         }
         
+        var URL = "/rest/view/tblsauce/get-tblsauces";
+
         $.ajax({
-            url:  this.getURL("list-sauces"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -969,11 +978,13 @@ function OrderItemsController () {
 
     this.listSauceModifiers = function() {
         var json = {
-            "storeId":$.session.get("storeId")
+            "StoreID":$.session.get("storeId")
         }
+
+        var URL = "/rest/view/tblsaucemodifier/get-tblsaucemodifiers";
         
         $.ajax({
-            url:  this.getURL("list-sauce-modifiers"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {

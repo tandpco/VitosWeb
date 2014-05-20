@@ -451,7 +451,7 @@ input[type="radio"], input[type="checkbox"] {
 
 /* line 466, ../../sass/custom-theme.scss */
 input[type="radio"] + label, input[type="checkbox"] + label {
-  background: url(/Content/img/checkbox_unchecked.jpg) no-repeat;
+  background: url(/img/checkbox_unchecked.jpg) no-repeat;
   padding-left: 30px;
   margin: 0px;
   font-weight: normal;
@@ -459,7 +459,7 @@ input[type="radio"] + label, input[type="checkbox"] + label {
 
 /* line 472, ../../sass/custom-theme.scss */
 input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
-  background: url(/Content/img/checkbox_checked.jpeg) no-repeat;
+  background: url(/img/checkbox_checked.jpeg) no-repeat;
 }
 
 /*

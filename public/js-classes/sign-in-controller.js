@@ -3,8 +3,26 @@ function SignInController () {
     this.delay = 100;
     
     this.constructSession = function(){
-            var sessionArr;
-         
+        Session.set('orderItems', JSON.stringify(new Array()));
+        Session.set('userPromoCodes',JSON.stringify(new Array()));
+        Session.set('PIZZA_TOPPERS',JSON.stringify(new Array()));
+        Session.set('SUBS_TOPPERS',JSON.stringify(new Array()));
+        Session.set('SALADS_TOPPERS',JSON.stringify(new Array()));
+        Session.set('PIZZA_SIZES',JSON.stringify(new Array()));
+        Session.set('SUBS_SIZES',JSON.stringify(new Array()));
+        Session.set('SALADS_SIZES',JSON.stringify(new Array()));
+        Session.set('PIZZA_SAUCES',JSON.stringify(new Array()));
+        Session.set('SUBS_SAUCES',JSON.stringify(new Array()));
+        Session.set('SALADS_SAUCES',JSON.stringify(new Array()));
+        Session.set('PIZZA_STYLES',JSON.stringify(new Array()));
+        Session.set('SUBS_STYLES',JSON.stringify(new Array()));
+        Session.set('SALADS_STYLES',JSON.stringify(new Array()));
+        Session.set('PIZZA_SAUCEMODIFIERS',JSON.stringify(new Array()));
+        Session.set('SUBS_SAUCEMODIFIERS',JSON.stringify(new Array()));
+        Session.set('SALADS_SAUCEMODIFIERS',JSON.stringify(new Array()));
+        Session.set('PIZZA_TOPPINGS',JSON.stringify(new Array()));
+        Session.set('SUBS_TOPPINGS',JSON.stringify(new Array()));
+        Session.set('SALADS_TOPPINGS',JSON.stringify(new Array()));
     }
  
     this.init = function() {

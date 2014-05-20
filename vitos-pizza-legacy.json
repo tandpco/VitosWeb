@@ -132,6 +132,56 @@
                         "modelMethod" : "get"
                     }
                 ]
+            },
+            {
+                "name": "Tblsauce",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblsauce",
+                        "modelMethod" : "get"
+                    }
+                ]
+            },
+            {
+                "name": "Tbltopper",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tbltopper",
+                        "modelMethod" : "get"
+                    }
+                ]
+            },
+            {
+                "name": "Tblsizes",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblsizes",
+                        "modelMethod" : "get"
+                    }
+                ]
+            },
+            {
+                "name": "Tblstyles",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblstyles",
+                        "modelMethod" : "get"
+                    }
+                ]
+            },
+            {
+                "name": "Tblsaucemodifier",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblsaucemodifier",
+                        "modelMethod" : "get"
+                    }
+                ]
             }
         ],
         "lists"     : [
@@ -1087,10 +1137,6 @@
                     {
                         "name": "SizeShortDescription",
                         "type": "string"
-                    },
-                    {
-                        "name": "InternetDescription",
-                        "type": "string"
                     }
                 ],
                 "name": "Tblsizes"
@@ -1437,10 +1483,6 @@
                     {
                         "name": "TopperShortDescription",
                         "type": "string"
-                    },
-                    {
-                        "name": "AllowHalfItems",
-                        "type": "Boolean"
                     }
                 ],
                 "name": "Tbltopper"

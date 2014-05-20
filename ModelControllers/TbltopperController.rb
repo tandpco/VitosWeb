@@ -8,9 +8,9 @@ end
 class TbltopperController
     public
     def self.create(data)
-        tbltopper = Tbltopper.create( :RADRAT => data['RADRAT'], :TopperDescription => data['TopperDescription'], :TopperID => data['TopperID'], :TopperShortDescription => data['TopperShortDescription'], :AllowHalfItems => data['AllowHalfItems'] )
+        tbltopper = Tbltopper.create( :RADRAT => data['RADRAT'], :TopperDescription => data['TopperDescription'], :TopperID => data['TopperID'], :TopperShortDescription => data['TopperShortDescription'] )
 
-        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
+        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription }
 
         return tbltopperJson.to_json
     end
@@ -18,16 +18,16 @@ class TbltopperController
     def self.read(data)
         tbltopper = Tbltopper.find(data['id'])
 
-        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
+        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription }
 
         return tbltopperJson.to_json
 
     end
 
     def self.update(data)
-        tbltopper = Tbltopper.update( data['id'], :RADRAT => data['RADRAT'], :TopperDescription => data['TopperDescription'], :TopperID => data['TopperID'], :TopperShortDescription => data['TopperShortDescription'], :AllowHalfItems => data['AllowHalfItems'] )
+        tbltopper = Tbltopper.update( data['id'], :RADRAT => data['RADRAT'], :TopperDescription => data['TopperDescription'], :TopperID => data['TopperID'], :TopperShortDescription => data['TopperShortDescription'] )
 
-        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
+        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription }
 
         return tbltopperJson.to_json
 
@@ -37,7 +37,7 @@ class TbltopperController
         tbltopper = Tbltopper.find(data['id'])
         tbltopper.destroy
 
-        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems }
+        tbltopperJson = { :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription }
 
         return tbltopperJson.to_json
 
@@ -48,7 +48,7 @@ class TbltopperController
 
         Array tbltopperJson = Array.new
         tbltoppers.each do |tbltopper|
-            tbltopperJson.push({ :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems })
+            tbltopperJson.push({ :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription })
         end
 
         return tbltopperJson.to_json
@@ -80,7 +80,7 @@ class TbltopperController
 
         Array tbltopperJson = Array.new
         tbltoppers.each do |tbltopper|
-            tbltopperJson.push({ :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription, :AllowHalfItems => tbltopper.AllowHalfItems })
+            tbltopperJson.push({ :id => tbltopper.id, :RADRAT => tbltopper.RADRAT, :TopperDescription => tbltopper.TopperDescription, :TopperID => tbltopper.TopperID, :TopperShortDescription => tbltopper.TopperShortDescription })
         end
 
         tbltopperContainer = { :total => count, :tbltoppers => tbltopperJson }

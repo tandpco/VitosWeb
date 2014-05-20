@@ -74,6 +74,26 @@ get '/tblitems' do
     send_file('public/tblitems.html')
 end
 
+get '/tblsauce' do
+    send_file('public/tblsauce.html')
+end
+
+get '/tbltopper' do
+    send_file('public/tbltopper.html')
+end
+
+get '/tblsizes' do
+    send_file('public/tblsizes.html')
+end
+
+get '/tblstyles' do
+    send_file('public/tblstyles.html')
+end
+
+get '/tblsaucemodifier' do
+    send_file('public/tblsaucemodifier.html')
+end
+
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],
@@ -2002,5 +2022,40 @@ post '/rest/view/tblitems/get-tblitems' do
     data = JSON.parse request.body.read
     content_type :json
     TblitemsViewController.getTblitems(data)
+end
+
+post '/rest/view/tblsauce/get-tblsauces' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsauceViewController.getTblsauces(data)
+end
+
+post '/rest/view/tbltopper/get-tbltoppers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TbltopperViewController.getTbltoppers(data)
+end
+
+post '/rest/view/tblsizes/get-tblsizes' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsizesViewController.getTblsizes(data)
+end
+
+post '/rest/view/tblstyles/get-tblstyles' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblstylesViewController.getTblstyles(data)
+end
+
+post '/rest/view/tblsaucemodifier/get-tblsaucemodifiers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsaucemodifierViewController.getTblsaucemodifiers(data)
 end
 
