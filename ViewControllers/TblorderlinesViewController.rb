@@ -16,6 +16,28 @@ end
 class TblorderlinesViewController
     public
 
+    def self.getTblorderlines(data)
+        tblorderlines = self.filterData(data)
+
+        Array tblorderlinesJson = Array.new
+        tblorderlines.each do |tblorderlines|
+            tblorderlinesJson.push({ :id => tblorderlines.id, :CouponID => tblorderlines.CouponID, :Discount => tblorderlines.Discount, :Half1SauceID => tblorderlines.Half1SauceID, :Half1SauceModifierID => tblorderlines.Half1SauceModifierID, :Half2SauceID => tblorderlines.Half2SauceID, :Half2SauceModifierID => tblorderlines.Half2SauceModifierID, :IdealCost => tblorderlines.IdealCost, :IdealHalf1SauceCost => tblorderlines.IdealHalf1SauceCost, :IdealHalf1SauceWeight => tblorderlines.IdealHalf1SauceWeight, :IdealHalf2SauceCost => tblorderlines.IdealHalf2SauceCost, :IdealHalf2SauceWeight => tblorderlines.IdealHalf2SauceWeight, :IdealStandardCost => tblorderlines.IdealStandardCost, :IdealStyleCost => tblorderlines.IdealStyleCost, :IdealStyleWeight => tblorderlines.IdealStyleWeight, :InternetDescription => tblorderlines.InternetDescription, :MPOReason => tblorderlines.MPOReason, :OrderID => tblorderlines.OrderID, :OrderLineID => tblorderlines.OrderLineID, :OrderLineNotes => tblorderlines.OrderLineNotes, :Quantity => tblorderlines.Quantity, :RADRAT => tblorderlines.RADRAT, :SizeID => tblorderlines.SizeID, :SpecialtyID => tblorderlines.SpecialtyID, :StyleID => tblorderlines.StyleID, :UnitID => tblorderlines.UnitID, :IdealCost => tblorderlines.IdealCost, :Cost => tblorderlines.Cost })
+
+        end
+
+        return tblorderlinesJson.to_json
+
+    end
+
+    def self.filterData(data)
+        orderId = data['OrderID']
+
+        tblorderlines = []
+        tblorderlines = Tblorderlines.where("OrderID = #{orderId}").order("OrderLineID ASC")
+
+        return tblorderlines
+    end
+
     def self.createTblorderlines(data)
         data['pOrderID']              = convertToInt(data['pOrderID'])
         data['pUnitID']               = convertToInt(data['pUnitID'])

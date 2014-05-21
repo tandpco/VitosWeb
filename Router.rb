@@ -2074,10 +2074,24 @@ post '/rest/view/tblorders/create-tblorders' do
     TblordersViewController.createTblorders(data)
 end
 
+post '/rest/view/tblorders/update-price-tblorders' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblordersViewController.updatePriceTblorders(data)
+end
+
 post '/rest/view/tblorderlines/create-tblorderlines' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
     TblorderlinesViewController.createTblorderlines(data)
+end
+
+post '/rest/view/tblorderlines/get-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.getTblorderlines(data)
 end
 

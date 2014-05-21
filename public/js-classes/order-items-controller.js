@@ -144,18 +144,33 @@ function OrderItemsController () {
     this.listOrder = function() {
         var deferred = $.Deferred();
         var json = {
-            "orderId"       : $.session.get('orderId'),
+            "Tblorders": {
+                "filters": [
+                    {
+                        "name": "OrderID",
+                        "value": $.session.get('orderId')
+                    }
+                ],
+                "pagination": {
+                    "page": "1",
+                    "limit": "1"
+                }
+            }
         }
+
+        var URL = "/rest/model/tblorders/filter";
+
         $.ajax({
-            url:  this.getURL("list-order"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                $.session.set('orderTax', data[0]['Tax']);
-                $.session.set('orderTax2', data[0]['Tax2']);
-                $.session.set('orderTip', data[0]['Tip']);
-                $.session.set('orderDriverMoney', data[0]['DriverMoney']);
-                $.session.set('orderDeliveryCharge', data[0]['DeliveryCharge']);
+                var order = data['tblorders'][0]
+                $.session.set('orderTax', order['Tax']);
+                $.session.set('orderTax2', order['Tax2']);
+                $.session.set('orderTip', order['Tip']);
+                $.session.set('orderDriverMoney', order['DriverMoney']);
+                $.session.set('orderDeliveryCharge', order['DeliveryCharge']);
 
                 $('#modal-please-wait').modal('hide');
                 $("#modify-items-close-button").click();
@@ -216,8 +231,11 @@ function OrderItemsController () {
             "pPromos"        : couponIds,
             "pPromoCodes"    : ""
         }
+
+        var URL = "/rest/view/tblorders/update-price-tblorders";
+
         $.ajax({
-            url:  this.getURL("update-price"),
+            url:  URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -347,7 +365,10 @@ function OrderItemsController () {
 
                 $.session.set('orderItems', JSON.stringify(orderItems));
 
-                pageController.updatePrice();
+                //pageController.updatePrice();
+
+                // REMOVE THIS WHEN updatePrice works
+                pageController.listOrderItems();
             }
         });
     }
@@ -355,10 +376,13 @@ function OrderItemsController () {
     this.listOrderItems = function() {
         var orderId = $.session.get("orderId");
         var json = {
-            "orderId"       : orderId,
+            "OrderID"       : orderId,
         }
+
+        var URL = "/rest/view/tblorderlines/get-tblorderlines";
+
         $.ajax({
-            url:  this.getURL("list-order-items"),
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {

@@ -190,6 +190,11 @@
                         "type"        : "model",
                         "model"       : "Tblorders",
                         "modelMethod" : "create"
+                    },
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorders",
+                        "modelMethod" : "updatePrice"
                     }
                 ]
             },
@@ -200,6 +205,11 @@
                         "type"        : "model",
                         "model"       : "Tblorderlines",
                         "modelMethod" : "create"
+                    },
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorderlines",
+                        "modelMethod" : "get"
                     }
                 ]
             }
@@ -783,6 +793,10 @@
                     {
                         "name": "IdealCost",
                         "type": "float"
+                    },
+                    {
+                        "name": "Cost",
+                        "type": "float"
                     }
                 ],
                 "name": "Tblorderlines"
@@ -1023,10 +1037,6 @@
                     {
                         "name": "VoidReason",
                         "type": "string"
-                    },
-                    {
-                        "name": "IsActive",
-                        "type": "Boolean"
                     }
                 ],
                 "name": "Tblorders"
