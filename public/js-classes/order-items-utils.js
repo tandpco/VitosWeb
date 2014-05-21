@@ -93,8 +93,8 @@ ModalModifyPizzaItem.createMarkup = function() {
   
     html += '                    <button onclick=';
     html += '                    "pageController.updateQuantity('+'\'#quantity\''+');pageController.order()" type=';
-    html += '                    "button" class="red-gradient-button">ORDER THIS';
-    html += '                    PIZZA</button> <button id=';
+    html += '                    "button" class="red-gradient-button">ORDER ';
+    html += '                    NOW</button> <button id=';
     html += '                    "modify-items-close-button" onclick=';
     html += '                    "pageController.cancel()" type="button" class=';
     html += '                    "red-gradient-button" data-dismiss=';
