@@ -317,23 +317,28 @@ function OrderItemsController () {
         var orderId = $.session.get("orderId");
         
         var json = {
-            "pOrderId"       : orderId,
-            "pUnitId"          : UNIT_ID,
-            "pSpecialtyId"     : orderItem['items']['id'],
-            "pSizeId"          : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
-            "pStyleId"         : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
-            "pSauceId"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
-            "pSauceModifierId" : orderItem['sauceModifier']['id'],
-            "pNotes"           : orderItem['items']['detail'],
-            "pDescription"     : orderItem['items']['detail'],
+            "pOrderID"         : orderId,
+            "pUnitID"          : UNIT_ID,
+            "pSpecialtyID"     : orderItem['items']['id'],
+            "pSizeID"          : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
+            "pStyleID"         : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
+            "pHalf1SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
+            "pHalf2SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
+            "pHalf1SauceModifierID" : orderItem['sauceModifier']['id'],
+            "pHalf2SauceModifierID" : orderItem['sauceModifier']['id'],
+            "pOrderLineNotes"           : orderItem['items']['detail'],
+            "pInternetDescription"     : orderItem['items']['detail'],
             "pQuantity"        : orderItem['quantity']//passing quantity in json    
         }
+
+        var URL = "/rest/view/tblorderlines/create-tblorderlines";
+
         $.ajax({
-            url:  this.getURL("create-order-item"),
+            url:  URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                var orderItemId = data[0]['OrderLineID'];
+                var orderItemId = data[0]['newid'];
                 orderItem['id'] = orderItemId;
 
                 var orderItems       = JSON.parse($.session.get('orderItems'));

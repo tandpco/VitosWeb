@@ -192,6 +192,16 @@
                         "modelMethod" : "create"
                     }
                 ]
+            },
+            {
+                "name": "Tblorderlines",
+                "methods" : [
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorderlines",
+                        "modelMethod" : "create"
+                    }
+                ]
             }
         ],
         "lists"     : [

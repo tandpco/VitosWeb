@@ -98,6 +98,10 @@ get '/tblorders' do
     send_file('public/tblorders.html')
 end
 
+get '/tblorderlines' do
+    send_file('public/tblorderlines.html')
+end
+
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],
@@ -2068,5 +2072,12 @@ post '/rest/view/tblorders/create-tblorders' do
     data = JSON.parse request.body.read
     content_type :json
     TblordersViewController.createTblorders(data)
+end
+
+post '/rest/view/tblorderlines/create-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.createTblorderlines(data)
 end
 
