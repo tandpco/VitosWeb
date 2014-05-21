@@ -182,18 +182,19 @@ function OrderItemsController () {
 
     this.createOrder = function() {
         var json = {
-            "pSessionId"       : "0",
-            "pIpAddress"       : "0.0.0.0",
-            "pRefId"           : "0",
+            "pSessionID"       : "999999999",
+            "pIPAddress"       : "0.0.0.0",
+            "pEmpID"           : "1",
+            "pRefID"           : "NULL",
             "pTransactionDate" : "2014-04-01 23:18:58.1030000",
-            "pStoreId"         : $.session.get("storeId"),
-            "pCustomerId"      : "6063",
+            "pStoreID"         : $.session.get("storeId"),
+            "pCustomerID"      : "6063",
             "pCustomerName"    : "Vito''s Fan",
             "pCustomerPhone"   : "1111111111",
-            "pAddressId"       : "116423",
-            "pOrderTypeId"     : "1",
-            "pDeliveryCharge"  : "2.0",
-            "pDriverMoney"     : "0.75",
+            "pAddressID"       : "116423",
+            "pOrderTypeID"     : "1",
+            "pDeliveryCharge"  : "0.0",
+            "pDriverMoney"     : "0.0",
             "pOrderNotes"      : ""
         }
 
@@ -226,10 +227,10 @@ function OrderItemsController () {
         }
 
         var json = {
-            "pStoreId"       : $.session.get('storeId'),
-            "pOrderId"       : $.session.get('orderId'),
-            "pPromos"        : couponIds,
-            "pPromoCodes"    : ""
+            "pStoreID"       : $.session.get('storeId'),
+            "pOrderID"       : $.session.get('orderId'),
+            "pCouponIDs"     : couponIds,
+            "pPromoCodes"    : couponIds 
         }
 
         var URL = "/rest/view/tblorders/update-price-tblorders";
@@ -365,10 +366,7 @@ function OrderItemsController () {
 
                 $.session.set('orderItems', JSON.stringify(orderItems));
 
-                //pageController.updatePrice();
-
-                // REMOVE THIS WHEN updatePrice works
-                pageController.listOrderItems();
+                pageController.updatePrice();
             }
         });
     }
