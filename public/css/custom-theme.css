@@ -316,12 +316,12 @@ body {
 }
 
 /* line 333, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header {
+.modal-modify .modal-dialog .modal-content .modal-header {
   padding: 0px;
   border: none;
 }
 /* line 336, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header > img {
+.modal-modify .modal-dialog .modal-content .modal-header > img {
   position: absolute;
   z-index: 5;
   margin-top: 5px;
@@ -335,19 +335,19 @@ body {
   margin-left: calc(100% - 25px);
 }
 /* line 349, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header > ul {
+.modal-modify .modal-dialog .modal-content .modal-header > ul {
   padding-bottom: 1px;
   background-color: #629168;
   border: none;
 }
 /* line 354, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header > ul > li {
+.modal-modify .modal-dialog .modal-content .modal-header > ul > li {
   width: 33%;
   height: 100%;
   border: none;
 }
 /* line 358, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header > ul > li > a, #modal-modify-item .modal-dialog .modal-content .modal-header > ul > li a:hover, #modal-modify-item .modal-dialog .modal-content .modal-header > ul > li a:active {
+.modal-modify .modal-dialog .modal-content .modal-header > ul > li > a, .modal-modify .modal-dialog .modal-content .modal-header > ul > li a:hover, .modal-modify .modal-dialog .modal-content .modal-header > ul > li a:active {
   background-color: #629168;
   color: #37653f;
   font-weight: bold;
@@ -355,7 +355,7 @@ body {
   border-radius: 0px;
 }
 /* line 367, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-header > ul li.active a {
+.modal-modify .modal-dialog .modal-content .modal-header > ul li.active a {
   font-weight: bold;
   color: white;
   text-shadow: 1px 1px black;
@@ -373,31 +373,31 @@ body {
   background-image: linear-gradient(to bottom, #007043 0%, #00482c 100%);
 }
 /* line 393, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body table {
+.modal-modify .modal-dialog .modal-content .modal-body table {
   width: 100%;
 }
 /* line 396, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body table tr td {
+.modal-modify .modal-dialog .modal-content .modal-body table tr td {
   width: 50%;
 }
 /* line 398, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li {
+.modal-modify .modal-dialog .modal-content .modal-body table tr td li {
   margin: 1px;
   padding: 3px;
 }
 /* line 402, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li.header {
+.modal-modify .modal-dialog .modal-content .modal-body table tr td li.header {
   font-weight: bold;
   margin-top: 5px;
 }
 /* line 406, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body table tr td li.item {
+.modal-modify .modal-dialog .modal-content .modal-body table tr td li.item {
   background-color: #f0e8de;
   box-shadow: 1px 1px 0px #ddd3c6;
   margin-bottom: 5px;
 }
 /* line 414, ../../sass/custom-theme.scss */
-#modal-modify-item .modal-dialog .modal-content .modal-body button {
+.modal-modify .modal-dialog .modal-content .modal-body button {
   width: 49%;
   margin-top: 20px;
 }

@@ -216,7 +216,7 @@ OrderItems.buildYourOrder = function() {
                 if(orderItem['orderType']=="PIZZA"){
                    html += '       <span class="itemSize">' + orderItem['size']['description'] + '</span> '
                }   
-                html +=                           '<span class="itemDescription">' + orderItem['items']['name'] +'('+orderItem['quantity'] +')';
+                html +=                           '<span class="itemDescription">' + orderItem['item']['name'] +'('+orderItem['quantity'] +')';
                 if(curr_loc.indexOf("confirmation")==-1){
                   html +=                           '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder('+orderItem['id']+');">Edit</a></span>&nbsp;&nbsp;'; 
                   html +=                           '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder('+orderItem['id']+');">Remove</a>';

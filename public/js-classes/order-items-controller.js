@@ -251,12 +251,10 @@ function OrderItemsController () {
 
         // Get specialty
         var specialtyId    = $.session.get('specialtyId');
-        console.log("speciality id"+specialtyId);
-        console.log(""+this.items);
         for(var i = 0; i < this.items.length; i++) {
             if(specialtyId == this.items[i]['id']) {
-                orderItem['items'] = this.items[i];
-                console.log("items--"+orderItem['Items']);
+                orderItem['item'] = this.items[i];
+                break;
             }
         }
 
@@ -265,6 +263,7 @@ function OrderItemsController () {
         for(var i = 0; i < this.sizes.length; i++) {
             if(sizeId == this.sizes[i]['id']) {
                 orderItem['size'] = this.sizes[i];
+                break;
             }
         }
 
@@ -273,6 +272,7 @@ function OrderItemsController () {
         for(var i = 0; i < this.styles.length; i++) {
             if(styleId == this.styles[i]['id']) {
                 orderItem['style'] = this.styles[i];
+                break;
             }
         }
 
@@ -281,6 +281,7 @@ function OrderItemsController () {
         for(var i = 0; i < this.sauces.length; i++) {
             if(sauceId == this.sauces[i]['id']) {
                 orderItem['sauce'] = this.sauces[i];
+                break;
             }
         }
 
@@ -290,6 +291,7 @@ function OrderItemsController () {
             for(var i = 0; i < this.sauceModifiers.length; i++) {
                 if(sauceModifierId == this.sauceModifiers[i]['id']) {
                     orderItem['sauceModifier'] = this.sauceModifiers[i];
+                    break;
                 }
             }
         }
@@ -305,11 +307,12 @@ function OrderItemsController () {
             for(var j = 0; j < this.toppers.length; j++) {
                 if(topperId == this.toppers[j]['id']) {
                     orderItem['toppers'].push(this.toppers[j]);
+                    break;
                 }
             }
         }
 
-     var toppingsString  = $.session.get('toppings');
+        var toppingsString  = $.session.get('toppings');
         var toppings        = toppingsString.split(',');
 
         orderItem['toppings'] = new Array();
@@ -338,15 +341,15 @@ function OrderItemsController () {
         var json = {
             "pOrderID"         : orderId,
             "pUnitID"          : UNIT_ID,
-            "pSpecialtyID"     : orderItem['items']['id'],
+            "pSpecialtyID"     : orderItem['item']['id'],
             "pSizeID"          : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
             "pStyleID"         : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
             "pHalf1SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
             "pHalf2SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
             "pHalf1SauceModifierID" : orderItem['sauceModifier']['id'],
             "pHalf2SauceModifierID" : orderItem['sauceModifier']['id'],
-            "pOrderLineNotes"           : orderItem['items']['detail'],
-            "pInternetDescription"     : orderItem['items']['detail'],
+            "pOrderLineNotes"           : orderItem['item']['detail'],
+            "pInternetDescription"     : orderItem['item']['detail'],
             "pQuantity"        : orderItem['quantity']//passing quantity in json    
         }
 
