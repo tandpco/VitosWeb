@@ -1,0 +1,747 @@
+####################
+# Promos
+####################
+
+sqsh -S VitosDevServer -C "select tblCoupons.CouponID, Description, tblUnit.UnitID, tblSizes.SizeID, UnitDescription, SizeDescription from tblCoupons inner join trelCouponStore on tblCoupons.CouponID = trelCouponStore.CouponID and trelCouponStore.StoreID = 10 inner join tblCouponAppliesTo on tblCoupons.CouponID = tblCouponAppliesTo.CouponID inner join tblUnit on tblCouponAppliesTo.UnitID = tblUnit.UnitID inner join tblSizes on tblCouponAppliesTo.SizeID = tblSizes.SizeID inner join tblCouponDateRange on tblCoupons.CouponID = tblCouponDateRange.CouponID where '2014-05-08 19:55:53' between ValidFrom and ValidTo and ValidForInternetOrder <> 0 and ShowOnWeb <> 0 order by UnitID, SizeID"
+
+####################
+# Web Pricing
+####################
+
+sqsh -S VitosDevServer -C "EXEC WebRecalculateOrderPrice @pStoreID = 10, @pOrderID = 582621, @pCouponIDs = '', @pPromoCodes = ''"
+
+"EXEC WebRecalculateOrderPrice @pStoreID = " + pStore + ", @pOrderID = " + pOrderID + ", @pCouponIDs = '" + pPromos + "', @pPromoCodes = '" + pPromoCodes + "'"
+
+
+####################
+# Items
+####################
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, AllowHalfItems from trelStoreItem inner join tblItems on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = 10 and trelUnitItems.UnitID = 1 and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription"
+
+"select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, AllowHalfItems from trelStoreItem inner join tblItems on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = \" + pnStore + \" and trelUnitItems.UnitID = \" + pnUnitNum + \" and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription"
+
+####################
+# SpecialtyItems
+####################
+"select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = \" + storeId + \" and tblSpecialty.UnitID = \" + unitId + \" and trelStoreSpecialty.SpecialtyID = \" + specialtyId + \" and tblItems.IsActive <> 0 order by ItemDescription"
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = 10 and tblSpecialty.UnitID = " & pnUnitNum & " and trelStoreSpecialty.SpecialtyID = " & psSpecialty & " and tblItems.IsActive <> 0 order by ItemDescription"
+
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = 10 and tblItems.IsActive <> 0 order by ItemDescription"
+
+####################
+# OrderItems
+####################
+### Create OrderItem
+"EXEC AddOrderLine @pOrderID = " & pnOrderID & ", @pUnitID = " & pnUnitNum & ", @pSpecialtyID = " & psSpecialty & ", @pSizeID = " & pnSize & ", @pStyleID = " & pnCrust & ", @pHalf1SauceID = " & pnSauceWhole & ", @pHalf2SauceID = " & pnSauceWhole & ", @pHalf1SauceModifierID = " & pnSauceModifierWhole & ", @pHalf2SauceModifierID = " & pnSauceModifierWhole & ", @pOrderLineNotes = "  & "'" & CleanDBLiteral(Trim(psNotes)) & "'" & ", @pQuantity = 1, @pInternetDescription = " & "'" & CleanDBLiteral(Trim(psDescription)) & "'"
+
+### List OrderItem
+"select OrderLineID, Quantity, Cost, Discount, InternetDescription from tblOrderLines where OrderID = " + pnOrderID + " order by OrderLineID"
+
+sqsh -S VitosDevServer -C "select OrderLineID, Quantity, Cost, Discount, InternetDescription from tblOrderLines where OrderID = 491413 order by OrderLineID"
+
+####################
+# Order
+####################
+### Create Order
+EXEC AddOrder @pSessionID = " + sessionId + ", @pIPAddress = '" + ipAddress + "', @pEmpID = 1, @pRefID = " + refId + ", @pTransactionDate = '" + transactionDate + "', @pStoreID = " + storeId + ", @pCustomerID = " + customerId + ", @pCustomerName = '" + customerName + "', @pCustomerPhone = " + customerPhone + ", @pAddressID = " + addressId + ", @pOrderTypeID = " + orderTypeId + ", @pDeliveryCharge = " + deliveryCharge + ", @pDriverMoney = " + driverMoney + ", @pOrderNotes = '" + orderNotes + "'"
+
+sqsh -S VitosDevServer -C "EXEC AddOrder @pSessionID = 0, @pIPAddress = '0.0.0.0', @pEmpID = 1, @pRefID = 0, @pTransactionDate = '2014-02-25 23:18:58.1030000', @pStoreID = 10, @pCustomerID = 6063, @pCustomerName = 'Vito''s Fan', @pCustomerPhone = 1111111111, @pAddressID = 116423, @pOrderTypeID = 1, @pDeliveryCharge = 2.0, @pDriverMoney = 0.75, @pOrderNotes = ''"
+
+### List Order
+select DeliveryCharge, DriverMoney, Tax + Tax2 as TotalTax, Tip from tblOrders where OrderID = " + orderId
+
+sqsh -S VitosDevServer -C "select DeliveryCharge, DriverMoney, Tax + Tax2 as TotalTax, Tip from tblOrders where OrderID = 491413"
+
+sqsh -S VitosDevServer -C "Select top 10 * from tblOrders where StoreID = 10 Order by RADRAT DESC"
+
+####################
+# StoreReportDate
+####################
+Select top 1 CurrentStatus, ReportDate from tblStoreReportDate where StoreID = " + storeId + " Order by RADRAT DESC
+
+sqsh -S VitosDevServer -C "Select top 1 CurrentStatus, ReportDate from tblStoreReportDate where StoreID = 10 Order by RADRAT DESC"
+
+####################
+# Store
+####################
+select storename, address1, address2, city, state, postalcode, phone, fax, hours from tblStores where storeid = " + storeId
+
+sqsh -S VitosDevServer -C "select storename, address1, address2, city, state, postalcode, phone, fax, hours from tblStores where storeid = 10"
+
+####################
+# StoreLocation
+####################
+
+"select tblCASSAddresses.storeid, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid > 0 and tblCASSAddresses.postalcode = '" + postalCode + "' and tblCASSAddresses.street = '" + street + "' and tblCASSAddresses.lownumber <= " + address + " and tblCASSAddresses.highnumber >= " + address
+
+sqsh -S VitosDevServer -C "select tblCASSAddresses.storeid, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid > 0 and tblCASSAddresses.postalcode = '43537' and tblCASSAddresses.street = 'BRIXTON RD' and tblCASSAddresses.lownumber <= 6401 and tblCASSAddresses.highnumber >= 6401"
+
+
+
+
+####################
+# Customer
+####################
+
+select tblCustomers.CustomerID, FirstName, LastName, CellPhone, Birthdate, PrimaryAddressID, CustomerAddressDescription, AddressLine1, AddressLine2, City, State, PostalCode, CustomerAddressNotes from tblCustomers inner join trelCustomerAddresses on tblCustomers.CustomerID = trelCustomerAddresses.CustomerID and tblCustomers.PrimaryAddressID = trelCustomerAddresses.AddressID inner join tblAddresses on trelCustomerAddresses.AddressID = tblAddresses.AddressID where EMail = '" + email + "' and Password = '" + md5Password + "'"
+
+sqsh -S VitosDevServer -C "select tblCustomers.CustomerID, FirstName, LastName, CellPhone, Birthdate, PrimaryAddressID, CustomerAddressDescription, AddressLine1, AddressLine2, City, State, PostalCode, CustomerAddressNotes from tblCustomers inner join trelCustomerAddresses on tblCustomers.CustomerID = trelCustomerAddresses.CustomerID and tblCustomers.PrimaryAddressID = trelCustomerAddresses.AddressID inner join tblAddresses on trelCustomerAddresses.AddressID = tblAddresses.AddressID where EMail = 'jordan.davis2@rockets.utoledo.edu'"
+
+select customerid from tblCustomers where email = '\" + email + \"'
+
+sqsh -S VitosDevServer -C "select customerid from tblCustomers where email = 'sean.wright.vortex@gmail.com'"
+
+####################
+# Specialty
+####################
+
+select SpecialtyDescription, InternetDescription, tblSpecialty.SpecialtyID from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and IsActive <> 0 and IsInternet <> 0 order by tblSpecialty.SpecialtyID
+
+sqsh -S VitosDevServer -C "select SpecialtyDescription, InternetDescription, tblSpecialty.SpecialtyID from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID where StoreID = 7 and UnitID = 1 and IsActive <> 0 and IsInternet <> 0 order by tblSpecialty.SpecialtyID"
+
+```
+SpecialtyDescription: Deluxe or Supreme
+InternetDescription:  Pepperoni, Sausage, Fresh Mushrooms, Red Onions and Green Peppers with Mozzarella Cheese
+SpecialtyID:          5
+ 
+SpecialtyDescription: All Meat
+InternetDescription:  Pepperoni, Ham, Sausage, Ground Beef and Bacon with Mozzarella Cheese
+SpecialtyID:          6
+ 
+SpecialtyDescription: Pepperoni Pleaser
+InternetDescription:  Double Pepperoni, Double Mozzarella Cheese, Plus 2 toppings of Your Choice
+SpecialtyID:          7
+ 
+SpecialtyDescription: Cheeseburger
+InternetDescription:  Ground Beef, Bacon with Cheddar and Mozzarella Cheeses Plus 2 toppings of Your Choice
+SpecialtyID:          8
+ 
+SpecialtyDescription: Hawaiian
+InternetDescription:  Ham, Pineapple, Double Mozzarella Cheese plus 2 toppings of Your Choice
+SpecialtyID:          9
+ 
+SpecialtyDescription: Pancho Vito Taco
+InternetDescription:  Salsa Refried Bean Mix, Taco Meat, Mozzarella Cheese topped with Lettuce, Roma Tomatoes, Black Olives and Cheddar Cheese served with Taco Sauce and Sour Cream
+SpecialtyID:          10
+ 
+SpecialtyDescription: Veggie
+InternetDescription:  Thin Crust, Fresh Mushrooms, Red Onions, Green Peppers, Mild Banana Peppers, Black Olives with Feta and Mozzarella Cheeses and topped with Ground Basil and Oregano
+SpecialtyID:          11
+ 
+SpecialtyDescription: BLT
+InternetDescription:  Double Bacon with Cheddar and Mozzarella Cheeses topped with Mayo, Lettuce and Roma Tomatoes
+SpecialtyID:          12
+ 
+SpecialtyDescription: BBQ Chicken
+InternetDescription:  BBQ Sauce, Bacon, Chicken, Pineapple with Cheddar and Mozzarella Cheeses
+SpecialtyID:          13
+ 
+SpecialtyDescription: Mediterranean
+InternetDescription:  Thin Crust, Herb Infused Olive Oil Sauce, Chicken, Red Onions, Green Peppers, Black Olives with Feta and Mozzarella Cheeses and topped with Ground Basil and Oregano
+SpecialtyID:          14
+ 
+SpecialtyDescription: Chicken Bacon Ranch
+InternetDescription:  Ranch Sauce, Chicken, Bacon, Roma Tomatoes with Cheddar and Mozzarella Cheeses
+SpecialtyID:          16
+ 
+SpecialtyDescription: Chicken Chipotle
+InternetDescription:  Chipotle Ranch Sauce, Chicken, Bacon, Mild Banana Peppers, Roma Tomatoes with Cheddar and Mozzarella Cheeses
+SpecialtyID:          19
+ 
+SpecialtyDescription: The Works
+InternetDescription:  Pepperoni, Ham, Sausage, Bacon, Ground Beef, Fresh Mushrooms, Red Onions, Green Peppers, Mild Banana Peppers and Black Olives with Mozzarella Cheese
+SpecialtyID:          22
+ 
+SpecialtyDescription: Tony Packo Pizza
+InternetDescription:  Tony Packo's Chili Dog Sauce, Sliced Tony Packo's Sausage, Red Onions with Cheddar and Mozzarella Cheeses and topped with Mustard and Served with your choice of Pickles
+                      and Peppers
+SpecialtyID:          94
+```
+
+####################
+# Sizes
+####################
+
+select tblSizes.SizeID, SizeDescription from trelStoreUnitSize inner join tblSizes on trelStoreUnitSize.SizeID = tblSizes.SizeID where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and IsActive <> 0 order by tblSizes.SizeID
+
+sqsh -S VitosDevServer -C "select tblSizes.SizeID, SizeDescription from trelStoreUnitSize inner join tblSizes on trelStoreUnitSize.SizeID = tblSizes.SizeID where StoreID = 7 and UnitID = 1 and IsActive <> 0 order by tblSizes.SizeID"
+
+```
+SizeID:          9
+SizeDescription: Large
+ 
+SizeID:          10
+SizeDescription: Medium
+ 
+SizeID:          11
+SizeDescription: Small
+ 
+SizeID:          12
+SizeDescription: Giant
+ 
+SizeID:          39
+SizeDescription: Small Square
+ 
+SizeID:          40
+SizeDescription: Large Square
+```
+
+####################
+# Styles
+####################
+
+select tblStyles.StyleID, StyleDescription, StyleSurcharge from trelStoreSizeStyle inner join trelSizeStyle on trelStoreSizeStyle.StyleID = trelSizeStyle.StyleID and trelStoreSizeStyle.SizeID = trelSizeStyle.SizeID inner join tblStyles on trelSizeStyle.StyleID = tblStyles.StyleID inner join trelUnitStyles on tblStyles.StyleID = trelUnitStyles.StyleID  where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and trelStoreSizeStyle.SizeID = \" + sizeId + \" and IsActive <> 0
+
+sqsh -S VitosDevServer -C "select tblStyles.StyleID, StyleDescription, StyleSurcharge from trelStoreSizeStyle inner join trelSizeStyle on trelStoreSizeStyle.StyleID = trelSizeStyle.StyleID and trelStoreSizeStyle.SizeID = trelSizeStyle.SizeID inner join tblStyles on trelSizeStyle.StyleID = tblStyles.StyleID inner join trelUnitStyles on tblStyles.StyleID = trelUnitStyles.StyleID  where StoreID = 7 and UnitID = 1 and trelStoreSizeStyle.SizeID = 9 and IsActive <> 0"
+
+```
+StyleID:          7
+StyleDescription: Classic Pan
+StyleSurcharge:               0.000000
+ 
+StyleID:          8
+StyleDescription: Thin and Crispy
+StyleSurcharge:               0.000000
+ 
+StyleID:          9
+StyleDescription: Mozzarella Stuffed
+StyleSurcharge:               2.500000
+ 
+StyleID:          10
+StyleDescription: Jalapeno Stuffed
+StyleSurcharge:               2.500000
+```
+
+####################
+# Sauces
+####################
+
+select distinct tblSauce.SauceID, SauceDescription from trelStoreUnitSize inner join trelUnitSauce on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID inner join tblSauce on trelUnitSauce.SauceID = tblSauce.SauceID where StoreID = \" + storeId + \" and trelStoreUnitSize.UnitID = \" + unitId + \" and IsActive <> 0 and IsInternet <> 0 order by tblSauce.SauceID
+
+sqsh -S VitosDevServer -C "select distinct tblSauce.SauceID, SauceDescription from trelStoreUnitSize inner join trelUnitSauce on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID inner join tblSauce on trelUnitSauce.SauceID = tblSauce.SauceID where StoreID = 7 and trelStoreUnitSize.UnitID = 1 and IsActive <> 0 and IsInternet <> 0 order by tblSauce.SauceID"
+
+```
+SauceID:          6
+SauceDescription: Pizza Sauce
+ 
+SauceID:          7
+SauceDescription: Ranch Sauce
+ 
+SauceID:          8
+SauceDescription: Chipotle Sauce
+ 
+SauceID:          9
+SauceDescription: BBQ Sauce
+ 
+SauceID:          10
+SauceDescription: Herb Infused Olive Oil
+ 
+SauceID:          11
+SauceDescription: Garlic Butter
+ 
+SauceID:          12
+SauceDescription: No Sauce
+ 
+SauceID:          14
+SauceDescription: Buffalo Sauce
+ 
+SauceID:          29
+SauceDescription: Mayo
+ 
+SauceID:          30
+SauceDescription: Creamy Italian Dressing
+ 
+SauceID:          32
+SauceDescription: Mustard
+ 
+SauceID:          37
+SauceDescription: Salsa Bean Mix
+```
+
+####################
+# SauceModifiers
+####################
+select SauceModifierID, SauceModifierDescription from tblSauceModifier where IsActive <> 0 order by SauceModifierID
+
+sqsh -S VitosDevServer -C "select SauceModifierID, SauceModifierDescription from tblSauceModifier where IsActive <> 0 order by SauceModifierID"
+
+```
+SauceModifierID:          5
+SauceModifierDescription: Extra Sauce
+ 
+SauceModifierID:          7
+SauceModifierDescription: Light Sauce
+ 
+SauceModifierID:          8
+SauceModifierDescription: Very Light Sauce
+ 
+SauceModifierID:          9
+SauceModifierDescription: Extra Extra Sauce
+ 
+SauceModifierID:          10
+SauceModifierDescription: Light Extra Sauce
+ 
+SauceModifierID:          11
+SauceModifierDescription: Sauce On Side
+```
+
+####################
+# Toppers
+####################
+
+select distinct tblTopper.TopperID, TopperDescription from trelStoreUnitSize inner join trelUnitTopper on trelStoreUnitSize.UnitID = trelUnitTopper.UnitID inner join tblTopper on trelUnitTopper.TopperID = tblTopper.TopperID where StoreID = \" + storeId + \" and trelStoreUnitSize.UnitID = \" + unitId + \" and IsActive <> 0 order by tblTopper.TopperID
+
+sqsh -S VitosDevServer -C "select distinct tblTopper.TopperID, TopperDescription from trelStoreUnitSize inner join trelUnitTopper on trelStoreUnitSize.UnitID = trelUnitTopper.UnitID inner join tblTopper on trelUnitTopper.TopperID = tblTopper.TopperID where StoreID = 7 and trelStoreUnitSize.UnitID = 1 and IsActive <> 0 order by tblTopper.TopperID"
+
+```
+TopperID:          4
+TopperDescription: Garlic Butter
+ 
+TopperID:          5
+TopperDescription: Parmesan Cheese
+ 
+TopperID:          7
+TopperDescription: Sesame Seeds
+ 
+TopperID:          8
+TopperDescription: Cajun Spice
+ 
+TopperID:          9
+TopperDescription: Butter
+```
+
+####################
+# List Tables
+####################
+sqsh -S VitosDevServer -C "select name from sys.tables where type_desc = 'USER_TABLE' order by name" | grep name
+
+```
+name: tblAddresses
+name: tblCASSAddresses
+name: tblCouponAppliesTo
+name: tblCouponDateRange
+name: tblCouponPromoCodeDateRange
+name: tblCoupons
+name: tblCouponsPromoCodes
+name: tblCustomers
+name: tblItems
+name: tblMarquee
+name: tblOrderLineItems
+name: tblOrderLines
+name: tblOrderLinesIdealCost
+name: tblOrderLineSides
+name: tblOrderLineToppers
+name: tblOrders
+name: tblSauce
+name: tblSauceModifier
+name: tblSideGroup
+name: tblSides
+name: tblSizes
+name: tblSpecialty
+name: tblStoreReportDate
+name: tblStores
+name: tblStyles
+name: tblTopper
+name: tblUnit
+name: tblWebActivity
+name: trelCouponStore
+name: trelCustomerAddresses
+name: trelSideGroupSides
+name: trelSizeStyle
+name: trelSpecialtyItem
+name: trelSpecialtySizeSideGroup
+name: trelStoreItem
+name: trelStoreSides
+name: trelStoreSizeStyle
+name: trelStoreSpecialty
+name: trelStoreUnitSize
+name: trelUnitItems
+name: trelUnitSauce
+name: trelUnitSides
+name: trelUnitSize
+name: trelUnitSizeSideGroup
+name: trelUnitStyles
+name: trelUnitTopper
+```
+
+####################
+# List Column Names
+####################
+sqsh -S VitosDevServer -C "exec sp_columns tblAddresses" | egrep -i column_name
+
+
+####################
+# Web Pricing
+####################
+
+sqsh -S VitosDevServer -C "EXEC WebRecalculateOrderPrice @pStoreID = 10, @pOrderID = 582621, @pCouponIDs = '', @pPromoCodes = ''"
+
+"EXEC WebRecalculateOrderPrice @pStoreID = " + pStore + ", @pOrderID = " + pOrderID + ", @pCouponIDs = '" + pPromos + "', @pPromoCodes = '" + pPromoCodes + "'"
+
+
+####################
+# Items
+####################
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, AllowHalfItems from trelStoreItem inner join tblItems on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = 10 and trelUnitItems.UnitID = 1 and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription"
+
+"select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, AllowHalfItems from trelStoreItem inner join tblItems on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = \" + pnStore + \" and trelUnitItems.UnitID = \" + pnUnitNum + \" and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription"
+
+####################
+# SpecialtyItems
+####################
+"select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = \" + storeId + \" and tblSpecialty.UnitID = \" + unitId + \" and trelStoreSpecialty.SpecialtyID = \" + specialtyId + \" and tblItems.IsActive <> 0 order by ItemDescription"
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = 10 and tblSpecialty.UnitID = " & pnUnitNum & " and trelStoreSpecialty.SpecialtyID = " & psSpecialty & " and tblItems.IsActive <> 0 order by ItemDescription"
+
+
+sqsh -S VitosDevServer -C "select tblItems.ItemID, ItemDescription, ItemCount, FreeItemFlag, SpecialtyItemQuantity from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID inner join trelSpecialtyItem on tblSpecialty.SpecialtyID = trelSpecialtyItem.SpecialtyID inner join tblItems on trelSpecialtyItem.ItemID = tblItems.ItemID inner join trelStoreItem on trelStoreSpecialty.StoreID = trelStoreItem.StoreID and tblItems.ItemID = trelStoreItem.ItemID inner join trelUnitItems on tblSpecialty.UnitID = trelUnitItems.UnitID and tblItems.ItemID = trelUnitItems.ItemID where trelStoreSpecialty.StoreID = 10 and tblItems.IsActive <> 0 order by ItemDescription"
+
+####################
+# OrderItems
+####################
+### Create OrderItem
+"EXEC AddOrderLine @pOrderID = " & pnOrderID & ", @pUnitID = " & pnUnitNum & ", @pSpecialtyID = " & psSpecialty & ", @pSizeID = " & pnSize & ", @pStyleID = " & pnCrust & ", @pHalf1SauceID = " & pnSauceWhole & ", @pHalf2SauceID = " & pnSauceWhole & ", @pHalf1SauceModifierID = " & pnSauceModifierWhole & ", @pHalf2SauceModifierID = " & pnSauceModifierWhole & ", @pOrderLineNotes = "  & "'" & CleanDBLiteral(Trim(psNotes)) & "'" & ", @pQuantity = 1, @pInternetDescription = " & "'" & CleanDBLiteral(Trim(psDescription)) & "'"
+
+### List OrderItem
+"select OrderLineID, Quantity, Cost, Discount, InternetDescription from tblOrderLines where OrderID = " + pnOrderID + " order by OrderLineID"
+
+sqsh -S VitosDevServer -C "select OrderLineID, Quantity, Cost, Discount, InternetDescription from tblOrderLines where OrderID = 491413 order by OrderLineID"
+
+####################
+# Order
+####################
+### Create Order
+EXEC AddOrder @pSessionID = " + sessionId + ", @pIPAddress = '" + ipAddress + "', @pEmpID = 1, @pRefID = " + refId + ", @pTransactionDate = '" + transactionDate + "', @pStoreID = " + storeId + ", @pCustomerID = " + customerId + ", @pCustomerName = '" + customerName + "', @pCustomerPhone = " + customerPhone + ", @pAddressID = " + addressId + ", @pOrderTypeID = " + orderTypeId + ", @pDeliveryCharge = " + deliveryCharge + ", @pDriverMoney = " + driverMoney + ", @pOrderNotes = '" + orderNotes + "'"
+
+sqsh -S VitosDevServer -C "EXEC AddOrder @pSessionID = 0, @pIPAddress = '0.0.0.0', @pEmpID = 1, @pRefID = 0, @pTransactionDate = '2014-02-25 23:18:58.1030000', @pStoreID = 10, @pCustomerID = 6063, @pCustomerName = 'Vito''s Fan', @pCustomerPhone = 1111111111, @pAddressID = 116423, @pOrderTypeID = 1, @pDeliveryCharge = 2.0, @pDriverMoney = 0.75, @pOrderNotes = ''"
+
+### List Order
+select DeliveryCharge, DriverMoney, Tax + Tax2 as TotalTax, Tip from tblOrders where OrderID = " + orderId
+
+sqsh -S VitosDevServer -C "select DeliveryCharge, DriverMoney, Tax + Tax2 as TotalTax, Tip from tblOrders where OrderID = 491413"
+
+sqsh -S VitosDevServer -C "Select top 10 * from tblOrders where StoreID = 10 Order by RADRAT DESC"
+
+####################
+# StoreReportDate
+####################
+Select top 1 CurrentStatus, ReportDate from tblStoreReportDate where StoreID = " + storeId + " Order by RADRAT DESC
+
+sqsh -S VitosDevServer -C "Select top 1 CurrentStatus, ReportDate from tblStoreReportDate where StoreID = 10 Order by RADRAT DESC"
+
+####################
+# Store
+####################
+select storename, address1, address2, city, state, postalcode, phone, fax, hours from tblStores where storeid = " + storeId
+
+sqsh -S VitosDevServer -C "select storename, address1, address2, city, state, postalcode, phone, fax, hours from tblStores where storeid = 10"
+
+####################
+# StoreLocation
+####################
+
+"select tblCASSAddresses.storeid, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid > 0 and tblCASSAddresses.postalcode = '" + postalCode + "' and tblCASSAddresses.street = '" + street + "' and tblCASSAddresses.lownumber <= " + address + " and tblCASSAddresses.highnumber >= " + address
+
+sqsh -S VitosDevServer -C "select tblCASSAddresses.storeid, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid > 0 and tblCASSAddresses.postalcode = '43537' and tblCASSAddresses.street = 'BRIXTON RD' and tblCASSAddresses.lownumber <= 6401 and tblCASSAddresses.highnumber >= 6401"
+
+
+
+
+####################
+# Customer
+####################
+
+select tblCustomers.CustomerID, FirstName, LastName, CellPhone, Birthdate, PrimaryAddressID, CustomerAddressDescription, AddressLine1, AddressLine2, City, State, PostalCode, CustomerAddressNotes from tblCustomers inner join trelCustomerAddresses on tblCustomers.CustomerID = trelCustomerAddresses.CustomerID and tblCustomers.PrimaryAddressID = trelCustomerAddresses.AddressID inner join tblAddresses on trelCustomerAddresses.AddressID = tblAddresses.AddressID where EMail = '" + email + "' and Password = '" + md5Password + "'"
+
+sqsh -S VitosDevServer -C "select tblCustomers.CustomerID, FirstName, LastName, CellPhone, Birthdate, PrimaryAddressID, CustomerAddressDescription, AddressLine1, AddressLine2, City, State, PostalCode, CustomerAddressNotes from tblCustomers inner join trelCustomerAddresses on tblCustomers.CustomerID = trelCustomerAddresses.CustomerID and tblCustomers.PrimaryAddressID = trelCustomerAddresses.AddressID inner join tblAddresses on trelCustomerAddresses.AddressID = tblAddresses.AddressID where EMail = 'jordan.davis2@rockets.utoledo.edu'"
+
+select customerid from tblCustomers where email = '\" + email + \"'
+
+sqsh -S VitosDevServer -C "select customerid from tblCustomers where email = 'sean.wright.vortex@gmail.com'"
+
+####################
+# Specialty
+####################
+
+select SpecialtyDescription, InternetDescription, tblSpecialty.SpecialtyID from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and IsActive <> 0 and IsInternet <> 0 order by tblSpecialty.SpecialtyID
+
+sqsh -S VitosDevServer -C "select SpecialtyDescription, InternetDescription, tblSpecialty.SpecialtyID from trelStoreSpecialty inner join tblSpecialty on trelStoreSpecialty.SpecialtyID = tblSpecialty.SpecialtyID where StoreID = 7 and UnitID = 1 and IsActive <> 0 and IsInternet <> 0 order by tblSpecialty.SpecialtyID"
+
+```
+SpecialtyDescription: Deluxe or Supreme
+InternetDescription:  Pepperoni, Sausage, Fresh Mushrooms, Red Onions and Green Peppers with Mozzarella Cheese
+SpecialtyID:          5
+ 
+SpecialtyDescription: All Meat
+InternetDescription:  Pepperoni, Ham, Sausage, Ground Beef and Bacon with Mozzarella Cheese
+SpecialtyID:          6
+ 
+SpecialtyDescription: Pepperoni Pleaser
+InternetDescription:  Double Pepperoni, Double Mozzarella Cheese, Plus 2 toppings of Your Choice
+SpecialtyID:          7
+ 
+SpecialtyDescription: Cheeseburger
+InternetDescription:  Ground Beef, Bacon with Cheddar and Mozzarella Cheeses Plus 2 toppings of Your Choice
+SpecialtyID:          8
+ 
+SpecialtyDescription: Hawaiian
+InternetDescription:  Ham, Pineapple, Double Mozzarella Cheese plus 2 toppings of Your Choice
+SpecialtyID:          9
+ 
+SpecialtyDescription: Pancho Vito Taco
+InternetDescription:  Salsa Refried Bean Mix, Taco Meat, Mozzarella Cheese topped with Lettuce, Roma Tomatoes, Black Olives and Cheddar Cheese served with Taco Sauce and Sour Cream
+SpecialtyID:          10
+ 
+SpecialtyDescription: Veggie
+InternetDescription:  Thin Crust, Fresh Mushrooms, Red Onions, Green Peppers, Mild Banana Peppers, Black Olives with Feta and Mozzarella Cheeses and topped with Ground Basil and Oregano
+SpecialtyID:          11
+ 
+SpecialtyDescription: BLT
+InternetDescription:  Double Bacon with Cheddar and Mozzarella Cheeses topped with Mayo, Lettuce and Roma Tomatoes
+SpecialtyID:          12
+ 
+SpecialtyDescription: BBQ Chicken
+InternetDescription:  BBQ Sauce, Bacon, Chicken, Pineapple with Cheddar and Mozzarella Cheeses
+SpecialtyID:          13
+ 
+SpecialtyDescription: Mediterranean
+InternetDescription:  Thin Crust, Herb Infused Olive Oil Sauce, Chicken, Red Onions, Green Peppers, Black Olives with Feta and Mozzarella Cheeses and topped with Ground Basil and Oregano
+SpecialtyID:          14
+ 
+SpecialtyDescription: Chicken Bacon Ranch
+InternetDescription:  Ranch Sauce, Chicken, Bacon, Roma Tomatoes with Cheddar and Mozzarella Cheeses
+SpecialtyID:          16
+ 
+SpecialtyDescription: Chicken Chipotle
+InternetDescription:  Chipotle Ranch Sauce, Chicken, Bacon, Mild Banana Peppers, Roma Tomatoes with Cheddar and Mozzarella Cheeses
+SpecialtyID:          19
+ 
+SpecialtyDescription: The Works
+InternetDescription:  Pepperoni, Ham, Sausage, Bacon, Ground Beef, Fresh Mushrooms, Red Onions, Green Peppers, Mild Banana Peppers and Black Olives with Mozzarella Cheese
+SpecialtyID:          22
+ 
+SpecialtyDescription: Tony Packo Pizza
+InternetDescription:  Tony Packo's Chili Dog Sauce, Sliced Tony Packo's Sausage, Red Onions with Cheddar and Mozzarella Cheeses and topped with Mustard and Served with your choice of Pickles
+                      and Peppers
+SpecialtyID:          94
+```
+
+####################
+# Sizes
+####################
+
+select tblSizes.SizeID, SizeDescription from trelStoreUnitSize inner join tblSizes on trelStoreUnitSize.SizeID = tblSizes.SizeID where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and IsActive <> 0 order by tblSizes.SizeID
+
+sqsh -S VitosDevServer -C "select tblSizes.SizeID, SizeDescription from trelStoreUnitSize inner join tblSizes on trelStoreUnitSize.SizeID = tblSizes.SizeID where StoreID = 7 and UnitID = 1 and IsActive <> 0 order by tblSizes.SizeID"
+
+```
+SizeID:          9
+SizeDescription: Large
+ 
+SizeID:          10
+SizeDescription: Medium
+ 
+SizeID:          11
+SizeDescription: Small
+ 
+SizeID:          12
+SizeDescription: Giant
+ 
+SizeID:          39
+SizeDescription: Small Square
+ 
+SizeID:          40
+SizeDescription: Large Square
+```
+
+####################
+# Styles
+####################
+
+select tblStyles.StyleID, StyleDescription, StyleSurcharge from trelStoreSizeStyle inner join trelSizeStyle on trelStoreSizeStyle.StyleID = trelSizeStyle.StyleID and trelStoreSizeStyle.SizeID = trelSizeStyle.SizeID inner join tblStyles on trelSizeStyle.StyleID = tblStyles.StyleID inner join trelUnitStyles on tblStyles.StyleID = trelUnitStyles.StyleID  where StoreID = \" + storeId + \" and UnitID = \" + unitId + \" and trelStoreSizeStyle.SizeID = \" + sizeId + \" and IsActive <> 0
+
+sqsh -S VitosDevServer -C "select tblStyles.StyleID, StyleDescription, StyleSurcharge from trelStoreSizeStyle inner join trelSizeStyle on trelStoreSizeStyle.StyleID = trelSizeStyle.StyleID and trelStoreSizeStyle.SizeID = trelSizeStyle.SizeID inner join tblStyles on trelSizeStyle.StyleID = tblStyles.StyleID inner join trelUnitStyles on tblStyles.StyleID = trelUnitStyles.StyleID  where StoreID = 7 and UnitID = 1 and trelStoreSizeStyle.SizeID = 9 and IsActive <> 0"
+
+```
+StyleID:          7
+StyleDescription: Classic Pan
+StyleSurcharge:               0.000000
+ 
+StyleID:          8
+StyleDescription: Thin and Crispy
+StyleSurcharge:               0.000000
+ 
+StyleID:          9
+StyleDescription: Mozzarella Stuffed
+StyleSurcharge:               2.500000
+ 
+StyleID:          10
+StyleDescription: Jalapeno Stuffed
+StyleSurcharge:               2.500000
+```
+
+####################
+# Sauces
+####################
+
+select distinct tblSauce.SauceID, SauceDescription from trelStoreUnitSize inner join trelUnitSauce on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID inner join tblSauce on trelUnitSauce.SauceID = tblSauce.SauceID where StoreID = \" + storeId + \" and trelStoreUnitSize.UnitID = \" + unitId + \" and IsActive <> 0 and IsInternet <> 0 order by tblSauce.SauceID
+
+sqsh -S VitosDevServer -C "select distinct tblSauce.SauceID, SauceDescription from trelStoreUnitSize inner join trelUnitSauce on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID inner join tblSauce on trelUnitSauce.SauceID = tblSauce.SauceID where StoreID = 7 and trelStoreUnitSize.UnitID = 1 and IsActive <> 0 and IsInternet <> 0 order by tblSauce.SauceID"
+
+```
+SauceID:          6
+SauceDescription: Pizza Sauce
+ 
+SauceID:          7
+SauceDescription: Ranch Sauce
+ 
+SauceID:          8
+SauceDescription: Chipotle Sauce
+ 
+SauceID:          9
+SauceDescription: BBQ Sauce
+ 
+SauceID:          10
+SauceDescription: Herb Infused Olive Oil
+ 
+SauceID:          11
+SauceDescription: Garlic Butter
+ 
+SauceID:          12
+SauceDescription: No Sauce
+ 
+SauceID:          14
+SauceDescription: Buffalo Sauce
+ 
+SauceID:          29
+SauceDescription: Mayo
+ 
+SauceID:          30
+SauceDescription: Creamy Italian Dressing
+ 
+SauceID:          32
+SauceDescription: Mustard
+ 
+SauceID:          37
+SauceDescription: Salsa Bean Mix
+```
+
+####################
+# SauceModifiers
+####################
+select SauceModifierID, SauceModifierDescription from tblSauceModifier where IsActive <> 0 order by SauceModifierID
+
+sqsh -S VitosDevServer -C "select SauceModifierID, SauceModifierDescription from tblSauceModifier where IsActive <> 0 order by SauceModifierID"
+
+```
+SauceModifierID:          5
+SauceModifierDescription: Extra Sauce
+ 
+SauceModifierID:          7
+SauceModifierDescription: Light Sauce
+ 
+SauceModifierID:          8
+SauceModifierDescription: Very Light Sauce
+ 
+SauceModifierID:          9
+SauceModifierDescription: Extra Extra Sauce
+ 
+SauceModifierID:          10
+SauceModifierDescription: Light Extra Sauce
+ 
+SauceModifierID:          11
+SauceModifierDescription: Sauce On Side
+```
+
+####################
+# Toppers
+####################
+
+select distinct tblTopper.TopperID, TopperDescription from trelStoreUnitSize inner join trelUnitTopper on trelStoreUnitSize.UnitID = trelUnitTopper.UnitID inner join tblTopper on trelUnitTopper.TopperID = tblTopper.TopperID where StoreID = \" + storeId + \" and trelStoreUnitSize.UnitID = \" + unitId + \" and IsActive <> 0 order by tblTopper.TopperID
+
+sqsh -S VitosDevServer -C "select distinct tblTopper.TopperID, TopperDescription from trelStoreUnitSize inner join trelUnitTopper on trelStoreUnitSize.UnitID = trelUnitTopper.UnitID inner join tblTopper on trelUnitTopper.TopperID = tblTopper.TopperID where StoreID = 7 and trelStoreUnitSize.UnitID = 1 and IsActive <> 0 order by tblTopper.TopperID"
+
+```
+TopperID:          4
+TopperDescription: Garlic Butter
+ 
+TopperID:          5
+TopperDescription: Parmesan Cheese
+ 
+TopperID:          7
+TopperDescription: Sesame Seeds
+ 
+TopperID:          8
+TopperDescription: Cajun Spice
+ 
+TopperID:          9
+TopperDescription: Butter
+```
+
+####################
+# List Tables
+####################
+sqsh -S VitosDevServer -C "select name from sys.tables where type_desc = 'USER_TABLE' order by name" | grep name
+
+```
+name: tblAddresses
+name: tblCASSAddresses
+name: tblCouponAppliesTo
+name: tblCouponDateRange
+name: tblCouponPromoCodeDateRange
+name: tblCoupons
+name: tblCouponsPromoCodes
+name: tblCustomers
+name: tblItems
+name: tblMarquee
+name: tblOrderLineItems
+name: tblOrderLines
+name: tblOrderLinesIdealCost
+name: tblOrderLineSides
+name: tblOrderLineToppers
+name: tblOrders
+name: tblSauce
+name: tblSauceModifier
+name: tblSideGroup
+name: tblSides
+name: tblSizes
+name: tblSpecialty
+name: tblStoreReportDate
+name: tblStores
+name: tblStyles
+name: tblTopper
+name: tblUnit
+name: tblWebActivity
+name: trelCouponStore
+name: trelCustomerAddresses
+name: trelSideGroupSides
+name: trelSizeStyle
+name: trelSpecialtyItem
+name: trelSpecialtySizeSideGroup
+name: trelStoreItem
+name: trelStoreSides
+name: trelStoreSizeStyle
+name: trelStoreSpecialty
+name: trelStoreUnitSize
+name: trelUnitItems
+name: trelUnitSauce
+name: trelUnitSides
+name: trelUnitSize
+name: trelUnitSizeSideGroup
+name: trelUnitStyles
+name: trelUnitTopper
+```
+
+####################
+# List Column Names
+####################
+sqsh -S VitosDevServer -C "exec sp_columns tblAddresses" | egrep -i column_name
+
+
+iii
+
+

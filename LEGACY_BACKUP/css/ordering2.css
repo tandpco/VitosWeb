@@ -1,0 +1,42 @@
+﻿body{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	background: #FAF2C6;
+}
+
+img {
+	border: none;
+	margin: none;
+	padding: none;
+	display: block;
+	font-size: 0;
+}
+
+p {
+	text-align:left;
+}
+
+a {
+	color: #000000;
+}
+
+.copyright {
+	text-align: center;
+	font-size: 11px;
+}
+
+.total {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.error {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.customize {
+	font-size: 16px;
+}

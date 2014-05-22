@@ -1,0 +1,3265 @@
+CouponID:               1
+Description:            Manager Price Override
+ShortDescription:       Mgr Override
+CouponTypeID:           3
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  0
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-13 10:43:36.5100000
+ 
+CouponID:               76
+Description:            $1 Dollar Off General
+ShortDescription:       DollarOffGen
+CouponTypeID:           3
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-28 14:15:02.5100000
+ 
+CouponID:               77
+Description:            10 Percent Off
+ShortDescription:       10PercentOff
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                     10.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-28 14:15:31.8000000
+ 
+CouponID:               81
+Description:            BOGO Test Coupon
+ShortDescription:       BOGOTest
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-28 14:18:37.8900000
+ 
+CouponID:               82
+Description:            $1 Off Large Specialty
+ShortDescription:       $1 Off Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-28 15:46:18.3170000
+ 
+CouponID:               83
+Description:            Box Topper Specialty Price
+ShortDescription:       Box Topper Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-29 12:14:53.2670000
+ 
+CouponID:               84
+Description:            Box Topper 2 Specialty Pizzas
+ShortDescription:       Box Topper 2 Specialty Pizzas
+CouponTypeID:           1
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-29 12:16:15.6270000
+ 
+CouponID:               85
+Description:            Box Topper 2 Topping
+ShortDescription:       Box Topper 2 Topping
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-29 12:18:33.9430000
+ 
+CouponID:               86
+Description:            Box Topper 2 Pizzas 2 Topping
+ShortDescription:       Box Topper 2 Pizzas 2 Topping
+CouponTypeID:           1
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-29 12:19:29.8070000
+ 
+CouponID:               87
+Description:            Box Topper Small Vito Bread
+ShortDescription:       Box Topper Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.990000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-09-29 12:22:44.8200000
+ 
+CouponID:               90
+Description:            Free Large 5 item or Specialty
+ShortDescription:       Free Large 5 item or Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                         15.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2011-10-13 14:14:16.8970000
+ 
+CouponID:               93
+Description:            $10 Large Specialty or 5 toppings
+ShortDescription:       $10 Large Specialty 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 14:59:27.3730000
+ 
+CouponID:               95
+Description:            $8 Medium Specialty or 5 toppings
+ShortDescription:       $8 Medium Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:05:04.6370000
+ 
+CouponID:               97
+Description:            $12 Medium Specialty or 5 toppings
+ShortDescription:       $12 Medium Specialty 
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:08:32.1400000
+ 
+CouponID:               98
+Description:            $5 Small Specialty or 5 toppings
+ShortDescription:       $5 Small Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:11:05.8200000
+ 
+CouponID:               100
+Description:            $6 Small Specialty
+ShortDescription:       $6 Small Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:14:11.4270000
+ 
+CouponID:               103
+Description:            $10 Large 2 toppings
+ShortDescription:       $10 Large 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:25:24.0070000
+ 
+CouponID:               104
+Description:            $14 Large Specialty or 5 toppings
+ShortDescription:       $14 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:26:41.6130000
+ 
+CouponID:               105
+Description:            $8 Medium 2 toppings
+ShortDescription:       $8 Medium 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:29:23.3900000
+ 
+CouponID:               106
+Description:            $10 Small Specialty
+ShortDescription:       $10 Small Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:31:01.3370000
+ 
+CouponID:               107
+Description:            $5 Small 2 toppings
+ShortDescription:       $5 Small 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.500000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:33:12.1400000
+ 
+CouponID:               108
+Description:            $7 Small 2 toppings
+ShortDescription:       $7 Small 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:34:58.2600000
+ 
+CouponID:               109
+Description:            $13 Giant 2 toppings
+ShortDescription:       $13 Giant 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:38:48.7970000
+ 
+CouponID:               110
+Description:            $17 Giant Specialty
+ShortDescription:       $17 Giant Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:40:37.5030000
+ 
+CouponID:               111
+Description:            Free Small Vito Bread
+ShortDescription:       Free Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2011-10-13 15:43:26.0570000
+ 
+CouponID:               112
+Description:            $4 Small Vito Bread
+ShortDescription:       $4 Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:45:35.3170000
+ 
+CouponID:               113
+Description:            $4.50 Small Vito Bread
+ShortDescription:       $4.50 Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.990000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:47:03.4300000
+ 
+CouponID:               114
+Description:            $5 Large Salad
+ShortDescription:       $5 Large Salad
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:48:25.1100000
+ 
+CouponID:               115
+Description:            $6.99 Chicken Dippers
+ShortDescription:       $6.99 Chicken Dippers
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:49:25.4330000
+ 
+CouponID:               116
+Description:            20% off
+ShortDescription:       20% off
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                     20.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:50:32.7170000
+ 
+CouponID:               117
+Description:            $5 Small Vito Bread w/ 20oz. Pop
+ShortDescription:       $5 Small Vito Bread w/ 20oz. Pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:51:28.6530000
+ 
+CouponID:               118
+Description:            $60 - 10 Large 1 topping
+ShortDescription:       $60 - 10 Large 1 topping
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:55:09.2730000
+ 
+CouponID:               119
+Description:            $36 - 6 Large 1 toppings
+ShortDescription:       $36 - 6 Large 1 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:56:31.9400000
+ 
+CouponID:               120
+Description:            $13 iPong 2 toppings
+ShortDescription:       $13 iPong 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:58:10.2200000
+ 
+CouponID:               121
+Description:            $17 iPong Specialty or 5 toppings
+ShortDescription:       $17 iPong Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 15:59:17.3000000
+ 
+CouponID:               122
+Description:            $6 iPong Specialty
+ShortDescription:       $6 iPong Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 16:01:29.5470000
+ 
+CouponID:               123
+Description:            $12 Giant Specialty
+ShortDescription:       $12 Giant Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-13 16:02:27.6800000
+ 
+CouponID:               124
+Description:            $5 Sub (not for Steak or Reuben)
+ShortDescription:       $5 Sub 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-14 08:51:58.9400000
+ 
+CouponID:               126
+Description:            $6 Any Pizza
+ShortDescription:       $6 Any Pizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-17 15:47:22.7870000
+ 
+CouponID:               127
+Description:            $16 - 2 Small Specialties
+ShortDescription:       $16 - 2 Small Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:12:31.8770000
+ 
+CouponID:               128
+Description:            $20 - 2 Medium Specialties
+ShortDescription:       $20 - 2 Medium Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:14:55.2400000
+ 
+CouponID:               129
+Description:            $25 - 2 Large Specialties
+ShortDescription:       $25 - 2 Large Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:16:27.4100000
+ 
+CouponID:               130
+Description:            $29 - 2 Giant Specialties
+ShortDescription:       $29 - 2 Giant Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:17:51.5330000
+ 
+CouponID:               131
+Description:            $14 - 2 Small 2 Toppings
+ShortDescription:       $14 - 2 Small 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:20:39.8130000
+ 
+CouponID:               132
+Description:            $16 - 2 Medium 2 Toppings
+ShortDescription:       $16 - 2 Medium 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:22:22.8970000
+ 
+CouponID:               133
+Description:            $20 - 2 Large 2 Toppings
+ShortDescription:       $20 - 2 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:23:38.2800000
+ 
+CouponID:               134
+Description:            $26 - 2 Giant 2 Toppings
+ShortDescription:       $26 - 2 Giant 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-10-19 12:25:14.3870000
+ 
+CouponID:               135
+Description:            Free Small w/ any pizza purchase
+ShortDescription:       Free Small w/pizza purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2011-10-20 12:07:22.7270000
+ 
+CouponID:               136
+Description:            $7 Large 2 toppings
+ShortDescription:       $7 Large 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-12-16 11:26:41.9870000
+ 
+CouponID:               137
+Description:            $11 Large Specialty or 5 toppings
+ShortDescription:       $11 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-12-16 12:08:22.8700000
+ 
+CouponID:               138
+Description:            $9 Medium Specialty or 5 toppings
+ShortDescription:       $9 Medium Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-12-16 12:14:39.2530000
+ 
+CouponID:               139
+Description:            Employee Discount
+ShortDescription:       Employee Discount
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       0
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                     33.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2011-12-18 20:23:01.2600000
+ 
+CouponID:               141
+Description:            $10 Large Stuffed Crust 2 Toppings
+ShortDescription:       $10 Large Stuffed Crust 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-01 22:17:03.4670000
+ 
+CouponID:               142
+Description:            $8 Medium Stuffed Crust 2 toppings
+ShortDescription:       $8 Medium Stuffed Crust 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-05 15:55:29.7630000
+ 
+CouponID:               144
+Description:            $6 Small Stuffed Crust 2 Toppings
+ShortDescription:       $6 Small Stuffed Crust 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-05 16:07:12.4270000
+ 
+CouponID:               145
+Description:            no good
+ShortDescription:       no good
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       0
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.590000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-10 10:46:26.7930000
+ 
+CouponID:               148
+Description:            $3 Slice and 20oz. Pop
+ShortDescription:       $3 Slice and 20oz. Pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-10 11:26:48.0630000
+ 
+CouponID:               149
+Description:            $3 slice and 20 oz pop
+ShortDescription:       $3 slice and 20 oz pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-10 11:46:42.6700000
+ 
+CouponID:               152
+Description:            $6 Foldover Sub and Pop
+ShortDescription:       $6 Foldover Sub and Pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.590000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-12 12:37:03.9400000
+ 
+CouponID:               153
+Description:            $5 Foldover Sub
+ShortDescription:       $5 Foldover Sub
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-16 11:48:50.0100000
+ 
+CouponID:               154
+Description:            $5 Bun Sub
+ShortDescription:       $5 Bun Sub
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-16 11:49:59.8500000
+ 
+CouponID:               155
+Description:            $5 Large Salad
+ShortDescription:       $5 Large Salad
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-01-16 11:55:14.6900000
+ 
+CouponID:               156
+Description:            $8 Small Lobster
+ShortDescription:       $8 Small Lobster Pizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-02-06 09:18:59.7830000
+ 
+CouponID:               157
+Description:            $8 Large Specialty or 5 toppings
+ShortDescription:       $8 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-02-16 10:36:25.5000000
+ 
+CouponID:               158
+Description:            Free Small Salad
+ShortDescription:       Free Small Salad
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-02-27 09:50:24.2100000
+ 
+CouponID:               159
+Description:            $6 Large 2 Toppings
+ShortDescription:       $6 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-03-07 16:35:15.8670000
+ 
+CouponID:               160
+Description:            $7 Medium Specialty or 5 toppings
+ShortDescription:       $7 Medium Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-03-12 12:35:46.2270000
+ 
+CouponID:               161
+Description:            $6.99 Large 2 Topping
+ShortDescription:       $6.99 Large 2 Topping
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-03-26 09:11:47.1200000
+ 
+CouponID:               162
+Description:            test salads
+ShortDescription:       test salads
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-03-26 15:07:55.6300000
+ 
+CouponID:               163
+Description:            Chicken Enchilada Pizza and Taco Pizza Deal
+ShortDescription:       Chicken Enchilada - Taco
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-04-02 09:29:17.0000000
+ 
+CouponID:               164
+Description:            $5 Large 2 Toppings
+ShortDescription:       $5 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-04-05 10:07:44.3170000
+ 
+CouponID:               166
+Description:            $9.95 Large Specialty or 5 Toppings
+ShortDescription:       $9.95 Large Specialty 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-05-30 14:06:31.3030000
+ 
+CouponID:               167
+Description:            $5.95 Large 2 Toppings
+ShortDescription:       $5.95 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-05-30 14:18:31.2270000
+ 
+CouponID:               168
+Description:            $5 Large Specialty or 5 Item
+ShortDescription:       $5 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-07 10:01:11.1630000
+ 
+CouponID:               169
+Description:            $10 Large 2 Toppings plus Small Vito Bread
+ShortDescription:       $10 Large 2 toppings Vito + Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-07 12:03:52.8330000
+ 
+CouponID:               170
+Description:            $9.99 Large Specialty or 5 Toppings
+ShortDescription:       $9.99 Large Specialty or 5 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-07 12:06:31.0200000
+ 
+CouponID:               171
+Description:            $10 Large 2 Toppings
+ShortDescription:       $10 Large 2 Toppings
+CouponTypeID:           3
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          2.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 14:47:13.0200000
+ 
+CouponID:               172
+Description:            $10 Large 2 Toppings
+ShortDescription:       $10 Large 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          2.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 14:53:21.4800000
+ 
+CouponID:               173
+Description:            $8 Medium 2 Toppings
+ShortDescription:       $8 Medium 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:03:46.7270000
+ 
+CouponID:               174
+Description:            $7 Small 2 Toppings
+ShortDescription:       $7 Small 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:07:02.7430000
+ 
+CouponID:               175
+Description:            $13 Giant 2 Toppings
+ShortDescription:       $13 Giant 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.500000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:14:41.5800000
+ 
+CouponID:               176
+Description:            $13 Giant 2 Toppings 
+ShortDescription:       $13 Giant 2 Toppings 
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:15:37.0270000
+ 
+CouponID:               177
+Description:            $13 Giant 2 Toppings
+ShortDescription:       $13 Giant 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:16:20.5200000
+ 
+CouponID:               178
+Description:            $13 Giant 2 Toppings
+ShortDescription:       $13 Giant 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:17:33.0000000
+ 
+CouponID:               179
+Description:            $14   2 Small 2 Toppings
+ShortDescription:       $14   2 Small 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:23:53.6230000
+ 
+CouponID:               180
+Description:            $16  2 Medium 2 Toppings
+ShortDescription:       $16  2 Medium 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:27:32.1630000
+ 
+CouponID:               181
+Description:            $20 2 Large 2 Toppings
+ShortDescription:       $20 2 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:33:00.1100000
+ 
+CouponID:               182
+Description:            $26 2 Giant 2 Toppings
+ShortDescription:       $26 2 Giant 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:38:51.5800000
+ 
+CouponID:               183
+Description:            $5 Small 2 Toppings
+ShortDescription:       $5 Small 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:52:06.9130000
+ 
+CouponID:               184
+Description:            $5.95 Large 2 Toppings
+ShortDescription:       $5.95 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-22 15:58:10.8700000
+ 
+CouponID:               185
+Description:            $10 lg 2 topping plus small bread FOR INT USE ONLY
+ShortDescription:       $10 lg 2 topping plus small bread FOR INT USE ONLY
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-06-23 09:48:44.5230000
+ 
+CouponID:               186
+Description:            10 Free Chicken Wings w/Pizza Purchase
+ShortDescription:       10 Free Wings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-06-28 15:12:00.5530000
+ 
+CouponID:               187
+Description:            Free Foldover Sub w/Pizza Purchase
+ShortDescription:       Free Foldover Sub w/Pizza Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-06-28 15:13:56.3200000
+ 
+CouponID:               188
+Description:            Free Large Salad w/Pizza Purchase
+ShortDescription:       Free Large Salad
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-06-28 15:15:33.1300000
+ 
+CouponID:               189
+Description:            Free Small Vito Bread w/Pizza Purchase
+ShortDescription:       Free Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-06-28 15:17:03.5700000
+ 
+CouponID:               190
+Description:            $9 Large Square 1 Topping (or any crust style)
+ShortDescription:       $9 Large Square 1 Topping (or any crust style)
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-07-12 15:18:46.5170000
+ 
+CouponID:               191
+Description:            $5 Small Square 1Topping (or any crust style)
+ShortDescription:       $5 Small Square 1Topping (or any crust style)
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          1.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-07-12 15:20:11.1870000
+ 
+CouponID:               192
+Description:            $8 Large 2 toppings
+ShortDescription:       $8 Large 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-01 17:05:28.2470000
+ 
+CouponID:               193
+Description:            $12 Large Specialty or 5 toppings
+ShortDescription:       $12 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-01 17:07:19.3270000
+ 
+CouponID:               194
+Description:            $14 Large Specialty
+ShortDescription:       $14 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-13 12:01:56.2600000
+ 
+CouponID:               195
+Description:            $10 Small Specialty
+ShortDescription:       $10 Small Specialty
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-13 12:07:26.6570000
+ 
+CouponID:               196
+Description:            $16 2 Small Specialties
+ShortDescription:       $16 2 Small Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-13 12:10:22.6630000
+ 
+CouponID:               197
+Description:            $25 2 Large Specialties
+ShortDescription:       $25 2 Large Specialties
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-13 12:13:00.0070000
+ 
+CouponID:               198
+Description:            Free Small Specialty
+ShortDescription:       Free Small Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-08-14 12:36:23.1870000
+ 
+CouponID:               199
+Description:            Free Small Taco or Mediterranean Pizza
+ShortDescription:       Free Small Taco or Mediterranean Pizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-08-14 12:40:16.0170000
+ 
+CouponID:               200
+Description:            Free Small Mac n Cheese Pizza
+ShortDescription:       Free Small Mac n Cheese Pizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-08-14 12:43:58.6730000
+ 
+CouponID:               201
+Description:            Free Large Specialty Business Card
+ShortDescription:       Free Large Specialty Business Card
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-08-14 12:47:26.2970000
+ 
+CouponID:               202
+Description:            $4 Small Vito Bread
+ShortDescription:       $4 Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-08-31 14:42:58.8430000
+ 
+CouponID:               203
+Description:            $7 Chicken Dippers
+ShortDescription:       $7 Chicken Dippers
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2012-09-11 10:35:08.5330000
+ 
+CouponID:               204
+Description:            Free 12" Sub
+ShortDescription:       Free 12" Sub
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2012-09-12 09:53:35.5600000
+ 
+CouponID:               205
+Description:            BOGO Foldover Sub Lunch Deal
+ShortDescription:       BOGO Foldover Sub 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-01-29 16:03:12.0970000
+ 
+CouponID:               208
+Description:            BOGO Slice Lunch Deal
+ShortDescription:       BOGO Slice
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-01-29 16:06:52.1270000
+ 
+CouponID:               209
+Description:            BOGO Bun Sub Lunch Deal
+ShortDescription:       BOGO Bun Sub
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-01-29 16:10:24.1170000
+ 
+CouponID:               210
+Description:            $1 off wings
+ShortDescription:       $1 off wings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-02-03 16:44:23.9070000
+ 
+CouponID:               211
+Description:            $1 off Vito Bread
+ShortDescription:       $1 off Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-02-03 16:47:54.0230000
+ 
+CouponID:               212
+Description:            Free Small Cinnamon Bread
+ShortDescription:       Free Small Cinnamon Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-02-20 11:46:33.7600000
+ 
+CouponID:               213
+Description:            Free Chips with Sub Purchase
+ShortDescription:       Free Chips with Sub Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 12:57:25.8300000
+ 
+CouponID:               214
+Description:            Free Drink with Sub Purchase
+ShortDescription:       Free Drink with Sub Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:01:19.9030000
+ 
+CouponID:               215
+Description:            2 Free Cookies with Sub Order
+ShortDescription:       2 Free Cookies with Sub Order
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-03-01 13:03:28.3330000
+ 
+CouponID:               216
+Description:            Free Small Salad w/ Sub Purchase
+ShortDescription:       Free Small Salad w/ Sub Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:06:08.3270000
+ 
+CouponID:               217
+Description:            Free 6" or 12 Sub w/ Vito Bread Purchase
+ShortDescription:       Free 6" or 12 Sub w/ Vito Bread Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:08:04.3300000
+ 
+CouponID:               218
+Description:            Free Half or Whole Foldover w/Vito Bread Purchase
+ShortDescription:       Free Half or Whole Foldover w/Vito Bread Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:09:18.6530000
+ 
+CouponID:               219
+Description:            Free Half or Whole Foldover w/ Vito Bread Purchase
+ShortDescription:       Free Sub w/ Vito Bread Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:11:51.5030000
+ 
+CouponID:               220
+Description:            Free Combo Meal
+ShortDescription:       Free Combo Meal 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-03-01 13:27:12.8100000
+ 
+CouponID:               221
+Description:            $4.95 Small 1 Topping add $3 for Specialty 
+ShortDescription:       $4.95 Small 1 Topping add $3 for Specialty 
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-03-05 14:37:27.9270000
+ 
+CouponID:               222
+Description:            $8.95 Large 1 Topping add $3 for Specialty
+ShortDescription:       $8.95 Large 1 Topping add $3 for Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-03-05 14:39:25.6170000
+ 
+CouponID:               224
+Description:            $5 Any Large Pizza
+ShortDescription:       $5 Any Large Pizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-04-06 11:53:31.3130000
+ 
+CouponID:               225
+Description:            Free Large Bread w/$10 Pizza Purchase
+ShortDescription:       Free Large Bread w/$10 Pizza Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-04-10 13:28:54.2930000
+ 
+CouponID:               226
+Description:            $5 Small pizzas before 5pm Mon Tues in April
+ShortDescription:       $5 Small pizzas before 5pm Mon Tues in April
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-04-15 10:07:20.3600000
+ 
+CouponID:               227
+Description:            $6 Small Pizzas After 5pm Mon Tues in April
+ShortDescription:       $6 Small Pizzas After 5pm Mon Tues in April
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-04-15 10:10:51.0800000
+ 
+CouponID:               228
+Description:            Free Foldover Sub
+ShortDescription:       Free Foldover Sub
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-04-18 15:29:11.7170000
+ 
+CouponID:               229
+Description:            Free Small Sicilian w/$9 Purchase
+ShortDescription:       Free Small Sicilian w/$9 Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-04-30 11:04:30.8970000
+ 
+CouponID:               230
+Description:            $8 Any Pizza Any Size
+ShortDescription:       $8 Any Pizza Any Size
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-04-30 11:06:13.4100000
+ 
+CouponID:               231
+Description:            $3 Small CinnaBread
+ShortDescription:       $3 Small CinnaBread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-21 18:25:02.9930000
+ 
+CouponID:               232
+Description:            Two for Tuesday
+ShortDescription:       Two for Tuesday
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-28 09:31:15.7630000
+ 
+CouponID:               233
+Description:            Free Large Cinnabread w/$10 purchase
+ShortDescription:       Free Large Cinnabread w/$10 purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-05-28 10:46:25.2970000
+ 
+CouponID:               234
+Description:            test $6
+ShortDescription:       test $6
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-28 14:37:29.4170000
+ 
+CouponID:               235
+Description:            $6 Lunch Deal Whole Foldover w/20oz.Drink
+ShortDescription:       $6 Lunch Deal Whole Foldover w/20oz.Drink
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-28 15:31:55.2730000
+ 
+CouponID:               236
+Description:            $6 Lunch Deal Small Sicilian 1 topping w20oz.Drink
+ShortDescription:       $6 Lunch Deal Small Sicilian 1 topping w20oz.Drink
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-28 15:33:12.1230000
+ 
+CouponID:               238
+Description:            $6 Large Specialty
+ShortDescription:       $6 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-30 17:06:04.3900000
+ 
+CouponID:               239
+Description:            $6 Large 1 topping
+ShortDescription:       $6 Large 1 topping
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-30 17:10:23.9730000
+ 
+CouponID:               240
+Description:            $9 Large Specialty
+ShortDescription:       $9 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-30 17:14:19.2270000
+ 
+CouponID:               241
+Description:            $4.95 Small Vito Bread
+ShortDescription:       $4.95 Small Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-05-30 17:17:39.4300000
+ 
+CouponID:               242
+Description:            $6.95 Large 1 Topping
+ShortDescription:       $6.95 Large 1 Topping
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-06 10:23:40.4800000
+ 
+CouponID:               243
+Description:            $9.95 Large Specialty or 5 toppings
+ShortDescription:       $9.95 Large Specialty or 5 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-06 10:26:11.5300000
+ 
+CouponID:               244
+Description:            $6 Half Foldover Salad Combo
+ShortDescription:       $6 Half Foldover Salad Combo
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-06 12:38:41.7100000
+ 
+CouponID:               245
+Description:            $6 Foldover
+ShortDescription:       $6 Foldover
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-06 12:45:14.3300000
+ 
+CouponID:               246
+Description:            BOGO Sub Business Card
+ShortDescription:       BOGO Sub Business Card
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-06 15:23:37.6630000
+ 
+CouponID:               247
+Description:            Buy One Pizza Get One Pizza
+ShortDescription:       BOGO Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-06-17 14:32:09.9370000
+ 
+CouponID:               248
+Description:            $6.95 Medium Vito Bread
+ShortDescription:       $6.95 Medium Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-07-03 16:39:10.1970000
+ 
+CouponID:               249
+Description:            $7.95 Large Vito Bread
+ShortDescription:       $7.95 Large Vito Bread
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-07-03 16:41:25.9270000
+ 
+CouponID:               250
+Description:            $6 Small 1 topping and 20 oz. pop
+ShortDescription:       $6 Small 1 topping and 20 oz. pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-07-25 08:57:49.3700000
+ 
+CouponID:               251
+Description:            $6 Foldover Sub and 20 oz. pop
+ShortDescription:       $6 Foldover Sub and 20 oz. pop
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-07-25 08:59:19.8700000
+ 
+CouponID:               252
+Description:            $5 order of 6 Wings
+ShortDescription:       $5 order of 6 Wings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:22:10.3030000
+ 
+CouponID:               253
+Description:            $14 order of 20 wings
+ShortDescription:       $14 order of 20 wings
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:23:11.1870000
+ 
+CouponID:               254
+Description:            $5 Medium Cinnamon Bread
+ShortDescription:       $5 Medium Cinnamon Bread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:25:15.2870000
+ 
+CouponID:               255
+Description:            $6 Large Cinnamon Bread
+ShortDescription:       $6 Large Cinnamon Bread
+CouponTypeID:           2
+ShowOnWeb:              1
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:26:33.3000000
+ 
+CouponID:               256
+Description:            $10.95 Large Specialty or 5 toppings
+ShortDescription:       $10.95 Large Specialty or 5 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:29:36.5230000
+ 
+CouponID:               257
+Description:            $7.95 Large 2 toppings
+ShortDescription:       $7.95 Large 2 toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-08-19 10:33:14.8570000
+ 
+CouponID:               258
+Description:            50% off Birthday Promotion Card
+ShortDescription:       50% off Birthday Promotion
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                     50.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-09-05 12:00:25.2600000
+ 
+CouponID:               259
+Description:            Free Foldover w/ Pizza Purchase
+ShortDescription:       Free Foldover w/ Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-09-06 09:42:41.9330000
+ 
+CouponID:               260
+Description:            $5.95 Large 1 Topping
+ShortDescription:       $5.95 Large 1 Topping
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-09-11 16:32:34.8630000
+ 
+CouponID:               261
+Description:            $4.99 2 slices and Fountain
+ShortDescription:       $4.99 2 slices and Fountain
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-09-27 11:55:54.5130000
+ 
+CouponID:               262
+Description:            Harvard Order
+ShortDescription:       Harvard Order
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.050000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-16 18:11:05.7830000
+ 
+CouponID:               263
+Description:            Harvard School Order
+ShortDescription:       Harvard School Order
+CouponTypeID:           3
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.010000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-10-16 18:23:05.7270000
+ 
+CouponID:               264
+Description:            50% Discount
+ShortDescription:       50% Discount Coupon
+CouponTypeID:           5
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                     50.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-25 15:53:49.0070000
+ 
+CouponID:               265
+Description:            $6 Large 2 toppings School Orders
+ShortDescription:       $6 Large 2 toppings School Order
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-25 15:59:58.1830000
+ 
+CouponID:               266
+Description:            $11 Large Specialty School Order
+ShortDescription:       $11 Large Specialty School Order
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-25 16:01:47.9970000
+ 
+CouponID:               268
+Description:            OLPH BOGO Pizza
+ShortDescription:       OLPH BOGO Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-25 16:23:01.9300000
+ 
+CouponID:               269
+Description:            $9.95 Any Size AnyPizza
+ShortDescription:       $9.95 Any Size AnyPizza
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-30 10:55:49.6700000
+ 
+CouponID:               270
+Description:            $6.95 Large 2 Toppings
+ShortDescription:       $6.95 Large 2 Toppings
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-10-30 11:02:52.2930000
+ 
+CouponID:               272
+Description:            $1 Vito Bread w/ Any Pizza Purchase
+ShortDescription:       $1 Vito Bread w/ Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-11-18 10:44:00.1330000
+ 
+CouponID:               273
+Description:            $1 Cinnabread w/ Any Pizza Purchase
+ShortDescription:       $1 Cinnabread w/ Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-11-18 10:44:49.8200000
+ 
+CouponID:               274
+Description:            $1 Large Cinnabread w/ Pizza Purchase
+ShortDescription:       $1 Lg. Cinn. w/Pizza Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-11-21 09:14:32.8600000
+ 
+CouponID:               275
+Description:            $1 Lg.Vito Bread w/pizza Purchase
+ShortDescription:       $1 Lg Vito Bread w/pizza Purch.
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-11-21 09:17:28.1170000
+ 
+CouponID:               276
+Description:            $8.95 Large Specialty or 5 toppings
+ShortDescription:       $8.95 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-12-04 11:04:58.1870000
+ 
+CouponID:               277
+Description:            $1 Second Pizza
+ShortDescription:       $1 Second Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-12-05 10:59:23.2200000
+ 
+CouponID:               278
+Description:            $6.95 Large 2 topping/ $9.95 Large Specialty
+ShortDescription:       $6.95/ $9.95 Deal
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-12-13 13:46:53.0600000
+ 
+CouponID:               279
+Description:            $8 Large 2 Toppings/ $11 Large Specialty
+ShortDescription:       $8 Large 2 Toppings/ $11 Large Specialty
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2013-12-16 15:27:12.0000000
+ 
+CouponID:               282
+Description:            Free Mediterranean w/ Med/Lg/Giant Pizza
+ShortDescription:       Free Mediterranean w/ Med/Lg/Giant Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-12-17 15:05:54.4830000
+ 
+CouponID:               283
+Description:            Free BBQ or CBR w/ Med/Lg/Giant Pizza
+ShortDescription:       Free BBQ or CBR w/ Med/Lg/Giant Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-12-17 15:08:41.1630000
+ 
+CouponID:               284
+Description:            Free Sm. Square w/ Med/Lg/Giant Pizza
+ShortDescription:       Free Sm. Square w/ Med/Lg/Giant Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2013-12-17 15:16:17.4900000
+ 
+CouponID:               285
+Description:            $7.95/$10.95 Large Deal
+ShortDescription:       $7.95/$10.95 Large Deal
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-01-14 12:45:26.5730000
+ 
+CouponID:               286
+Description:            Free Large Cinnabread w/ Any Pizza Purchase
+ShortDescription:       Free Lg. Cinnabread w/ Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2014-02-04 09:17:47.6000000
+ 
+CouponID:               287
+Description:            Free Large Vito Bread w/ Any Pizza Purchase
+ShortDescription:       Free Lg. Vito Bread w/ Pizza
+CouponTypeID:           1
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 1
+RADRAT:                 2014-02-04 09:19:01.3830000
+ 
+CouponID:               288
+Description:            $9 Any Pizza Any Size
+ShortDescription:       $9 Any Pizza Any Size
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-02-10 10:36:44.2170000
+ 
+CouponID:               289
+Description:            $5 Small Pizza 1 topping and 20oz. Drink
+ShortDescription:       $5 Small Pizza 1 topping and 20oz. Drink
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-03-17 15:49:25.7630000
+ 
+CouponID:               290
+Description:            $5 Half Sub and 20oz.Drink
+ShortDescription:       $5 Half Sub and 20oz.Drink
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-03-17 15:55:20.2800000
+ 
+CouponID:               291
+Description:            $7 Whole Sub and 20oz. Drink
+ShortDescription:       $7 Whole Sub and 20oz. Drink
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-03-17 15:56:52.6870000
+ 
+CouponID:               292
+Description:            Mon Tuesday special
+ShortDescription:       5.95 1 topping/8.95 Medium 5 item
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  1
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-03-24 16:52:41.0000000
+ 
+CouponID:               293
+Description:            Free Small Vito Bread w/Pizza Purchase
+ShortDescription:       Free Small Vito Bread w/Pizza Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  0
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-05-06 10:35:12.5970000
+ 
+CouponID:               294
+Description:            Free Small Salad w/ Pizza Purchase
+ShortDescription:       Free Small Salad w/ Pizza Purchase
+CouponTypeID:           2
+ShowOnWeb:              0
+ValidForPickup:         1
+ValidForDelivery:       1
+ValidForDineIn:         1
+ValidForInternetOrder:  0
+ValidForTelephoneOrder: 1
+ValidForWalkInOrder:    1
+PercentageOff:                      0.000000
+DollarOff:                          0.000000
+MinimumPurchase:                    0.000000
+IsFree:                 0
+RADRAT:                 2014-05-06 10:37:40.1500000
+ 
+(192 rows affected)

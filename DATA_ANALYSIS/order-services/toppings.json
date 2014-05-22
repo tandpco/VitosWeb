@@ -1,0 +1,191 @@
+[
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Bacon",
+        "ItemID": 45
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Black Olives",
+        "ItemID": 8
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Black Olives on Top",
+        "ItemID": 82
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Cheddar on Top",
+        "ItemID": 84
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Chicken",
+        "ItemID": 11
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Extra Motz Cheese",
+        "ItemID": 12
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Feta Cheese",
+        "ItemID": 13
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Genoa Salami",
+        "ItemID": 14
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Green Olives",
+        "ItemID": 15
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Green Peppers",
+        "ItemID": 16
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Ground Basil",
+        "ItemID": 17
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Ground Beef",
+        "ItemID": 19
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Ground Oregano",
+        "ItemID": 20
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Ham",
+        "ItemID": 21
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Jalapenos",
+        "ItemID": 22
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Mild Banana Peppers",
+        "ItemID": 24
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Mushrooms - Fresh",
+        "ItemID": 25
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Packos Chili,ItemCount:0,FreeItemFlag:0,AllowHalfItems:0},{ItemID:27,ItemDescription:Packos Sausage",
+        "ItemID": 46
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Pepperoni",
+        "ItemID": 28
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Pineapple",
+        "ItemID": 29
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Red Onions",
+        "ItemID": 31
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Roma Tomatoes",
+        "ItemID": 32
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Sausage",
+        "ItemID": 33
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Shredded Cheddar",
+        "ItemID": 10
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Shredded Lettuce",
+        "ItemID": 34
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Taco Beef",
+        "ItemID": 35
+    },
+    {
+        "AllowHalfItems": 0,
+        "FreeItemFlag": 0,
+        "ItemCount": 0,
+        "ItemDescription": "Tomatoes on Top",
+        "ItemID": 83
+    }
+]

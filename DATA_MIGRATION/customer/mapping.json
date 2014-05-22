@@ -1,0 +1,28 @@
+[
+    {
+        "foreignRestUrl"   : "http://localhost:4111//rest/view/tblcustomers/get-tblcustomers",
+        "localRestUrl"     : "",
+        "localTableName"   : "customers",
+        "filter" : {
+            "CustomerID" : "255208"
+        },
+        "fields" : [
+            {
+                "foreignFieldName" : "FirstName",
+                "localFieldName"   : "firstName"
+            },
+            {
+                "foreignFieldName" : "LastName",
+                "localFieldName"   : "lastName"
+            },
+            {
+                "foreignFieldName" : "EMail",
+                "localFieldName"   : "email"
+            },
+            {
+                "foreignFieldName" : "CellPhone",
+                "localFieldName"   : "cellPhone"
+            }
+        ]
+    }
+]

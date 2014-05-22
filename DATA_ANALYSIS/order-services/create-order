@@ -1,0 +1,79 @@
+#!/usr/bin/ruby
+require 'json'
+require 'tempfile'
+
+# Create Order
+orderFile = Tempfile.new('order')
+orderFile.puts('{')
+orderFile.puts('    "pSessionId":"0",')
+orderFile.puts('    "pIpAddress":"0.0.0.0",')
+orderFile.puts('    "pRefId":"0",')
+orderFile.puts('    "pTransactionDate":"2014-04-01 23:18:58.1030000",')
+orderFile.puts('    "pStoreId":"10",')
+orderFile.puts('    "pCustomerId":"6063",')
+orderFile.puts('    "pCustomerName":"Vito''s Fan",')
+orderFile.puts('    "pCustomerPhone":"1111111111",')
+orderFile.puts('    "pAddressId":"116423",')
+orderFile.puts('    "pOrderTypeId":"1",')
+orderFile.puts('    "pDeliveryCharge":"2.0",')
+orderFile.puts('    "pDriverMoney":"0.75",')
+orderFile.puts('    "pOrderNotes":""')
+orderFile.puts('}')
+orderFile.close
+
+orderJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/create-order' #{orderFile.path}`
+
+puts(orderJson)
+orders = JSON.parse(orderJson)
+order = orders[0]
+orderId = order['OrderID']
+puts("Order Id: " + orderId.to_s)
+
+orderFile.unlink
+
+# Create OrderItem
+orderItemFile = Tempfile.new('order-item')
+orderItemFile.puts('{')
+orderItemFile.puts('    "pDescription": "Pepperoni, Sausage, Fresh Mushrooms, Red Onions and Green Peppers with Mozzarella Cheese",')
+orderItemFile.puts('    "pNotes": "Pepperoni, Sausage, Fresh Mushrooms, Red Onions and Green Peppers with Mozzarella Cheese",')
+orderItemFile.puts('    "pOrderId": "' + orderId.to_s + '",')
+orderItemFile.puts('    "pQuantity": "1",')
+orderItemFile.puts('    "pSauceId": 6,')
+orderItemFile.puts('    "pSauceModifierId": "NULL",')
+orderItemFile.puts('    "pSizeId": 9,')
+orderItemFile.puts('    "pSpecialtyId": 5,')
+orderItemFile.puts('    "pStyleId": 7,')
+orderItemFile.puts('    "pUnitId": "1"')
+orderItemFile.puts('}')
+orderItemFile.close
+
+orderItemJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/create-order-item' #{orderItemFile.path}`
+puts(orderItemJson)
+orderItems = JSON.parse(orderItemJson)
+orderItem = orderItems[0]
+orderItemId = orderItem['OrderLineID']
+puts("Order Item Id: " + orderItemId.to_s)
+
+orderItemFile.unlink
+
+# Create OrderLineItem
+
+# Jalepenos, Pineapple, Black Olives, Extra Mozz Cheese, Green Peppers
+toppings = ["22", "29", "8", "12", "16"]
+
+toppings.each do |topping|
+    orderLineItemFile = Tempfile.new('order-line-item')
+    orderLineItemFile.puts('{')
+    orderLineItemFile.puts('    "pOrderLineId": "' + orderItemId.to_s + '",')
+    orderLineItemFile.puts('    "pItemId": "' + topping + '",')
+    orderLineItemFile.puts('    "pHalfId": "' + topping + '"')
+    orderLineItemFile.puts('}')
+    orderLineItemFile.close
+    
+    orderLineItemJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/create-order-line-item' #{orderLineItemFile.path}`
+    puts(orderLineItemJson)
+    
+    orderLineItemFile.unlink
+
+end
+

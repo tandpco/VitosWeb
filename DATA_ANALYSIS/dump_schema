@@ -1,0 +1,1 @@
+sqsh -S VitosDevServer -C "SELECT * FROM sys.tables t inner join sys.columns c on t.object_id = c.object_id where t.type = 'U' Order by t.name, c.name" 

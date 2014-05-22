@@ -1,0 +1,55 @@
+#!/usr/bin/ruby
+require 'json'
+require 'tempfile'
+
+if(ARGV.length < 1)
+    puts ""
+    puts "Usage: #{$0} <orderId>"
+    puts ""
+    exit
+end
+
+
+orderId = ARGV[0]
+
+# Create Order
+orderFile = Tempfile.new('order')
+orderFile.puts('{')
+orderFile.puts('    "orderId": "' + orderId + '"')
+orderFile.puts('}')
+orderFile.close
+
+orderJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/list-order' #{orderFile.path}`
+
+puts(orderJson)
+
+orderFile.unlink
+
+# Create OrderItem
+orderItemFile = Tempfile.new('order-item')
+orderItemFile.puts('{')
+orderItemFile.puts('    "orderId": "' + orderId + '"')
+orderItemFile.puts('}')
+orderItemFile.close
+
+orderItemJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/list-order-items' #{orderItemFile.path}`
+puts(orderItemJson)
+orderItems = JSON.parse(orderItemJson)
+orderItem = orderItems[0]
+orderItemId = orderItem['OrderLineID']
+puts("Order Item Id: " + orderItemId.to_s)
+
+orderItemFile.unlink
+
+# Create OrderLineItem
+orderLineItemFile = Tempfile.new('order-line-item')
+orderLineItemFile.puts('{')
+orderLineItemFile.puts('    "orderLineId": "' + orderItemId.to_s + '"')
+orderLineItemFile.puts('}')
+orderLineItemFile.close
+
+orderLineItemJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/list-order-line-items' #{orderLineItemFile.path}`
+puts(orderLineItemJson)
+
+orderLineItemFile.unlink
+

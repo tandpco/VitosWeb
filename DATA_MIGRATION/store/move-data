@@ -1,0 +1,62 @@
+#!/usr/local/bin/ruby
+
+require 'json'
+require 'curb'
+
+class DataMover
+    @directory = nil
+    @mapping = nil
+    @dataJson = nil
+    def initialize(mappingFile)
+        @directory = File.dirname($0)
+        @mapping = JSON::load(File.open(mappingFile))
+        @dataJson = {}
+    end
+
+    def pull
+        @mapping.each do |table|
+            tableJson = []
+            puts table['foreignRestUrl']
+            curl = Curl::Easy.http_post(table['foreignRestUrl'], "{}") do |curl|
+                curl.ssl_verify_peer = false
+                curl.headers['Accept'] = "application/json"
+            end
+            data = JSON.parse(curl.body_str)
+            data.each do |entry|
+                entryJson = {}
+                entry.each_key do |key|
+                    fieldMapping = table['fields'].select{|x| x['foreignFieldName'] == key}.first
+                    if(fieldMapping)
+                        entryJson[fieldMapping['localFieldName']] = entry[key].to_s.sub("'", "\\u0027")
+                    end
+                end
+                tableJson.push(entryJson)
+            end
+            @dataJson[table['localTableName']] = tableJson
+        end
+        if(File.exists?("#{@directory}/data/latest.json"))
+            system("mv #{@directory}/data/latest.json #{@directory}/data/#{Time.now.strftime("%Y-%m-%dT%H:%M:%S")}.json")
+        end
+        File.open("#{@directory}/data/latest.json","w"){|f| f.write(JSON.pretty_generate(@dataJson))}
+    end
+
+    def push
+
+    end
+end
+
+if(ARGV.length != 2)
+    puts "Usage: #{$0} [pull|push|reset] (data.json)"
+    exit -1
+end
+case ARGV[0]
+    when "pull"
+        DataMover.new(ARGV[1]).pull
+    when "push"
+        DataMover.new(ARGV[1]).push
+    when "reset"
+        DataMover.new(ARGV[1]).pull
+        DataMover.new(ARGV[1]).push
+    else
+        puts "Usage: #{$0} [pull|push|reset] (data.json)"
+end

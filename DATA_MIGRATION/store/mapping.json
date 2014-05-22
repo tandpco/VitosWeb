@@ -1,0 +1,49 @@
+[
+    {
+        "foreignRestUrl"   : "http://localhost:4111/rest/model/tblstores/list",
+        "localRestUrl"     : "http://localhost:4999/rest/model/stores/list",
+        "localTableName"   : "stores",
+        "fields" : [
+            {
+                "foreignFieldName" : "Address1",
+                "localFieldName"   : "addressLine1"
+            },
+            {
+                "foreignFieldName" : "Address2",
+                "localFieldName"   : "addressLine2"
+            },
+            {
+                "foreignFieldName" : "Phone",
+                "localFieldName"   : "phone"
+            },
+            {
+                "foreignFieldName" : "City",
+                "localFieldName"   : "city"
+            },
+            {
+                "foreignFieldName" : "State",
+                "localFieldName"   : "state"
+            },
+            {
+                "foreignFieldName" : "PostalCode",
+                "localFieldName"   : "postalCode"
+            },
+            {
+                "foreignFieldName" : "Hours",
+                "localFieldName"   : "hours"
+            },
+            {
+                "foreignFieldName" : "Latitude",
+                "localFieldName"   : "latitude"
+            },
+            {
+                "foreignFieldName" : "Longitude",
+                "localFieldName"   : "longitude"
+            },
+            {
+                "foreignFieldName" : "StoreName",
+                "localFieldName"   : "storeName"
+            }
+        ]
+    }
+]

@@ -260,6 +260,9 @@ function OrderItemsController () {
             topping['description'] = description;
             orderItem['toppings'].push(topping);
         }
+
+        //var orderToppingsJson = JSON.stringify(orderItem['toppings']);
+        var orderItemToppingsJson = orderItem['toppings'];
         
         //added quantity in session
         orderItem['quantity']=$.session.get("quantity");
@@ -305,10 +308,7 @@ function OrderItemsController () {
         }
 
         var now = new Date();
-        //var dateString = now.toLocaleString();
         var dateString = now.toISOString();
-
-        //"pTransactionDate" : "2014-04-01 23:18:58.1030000",
 
         var orderJson = {
             "pSessionID"       : "999999999",
@@ -331,7 +331,7 @@ function OrderItemsController () {
             "order" : orderJson, 
             "orderItem" : orderItemJson,
             "updatePrice" : updatePriceJson,
-            "orderLineItems" : "[]"
+            "orderItemToppings" : orderItemToppingsJson
         }
 
         var URL = "/rest/view/tblorders/create-tblorders";

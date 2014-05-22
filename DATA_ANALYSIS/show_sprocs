@@ -1,0 +1,3 @@
+#!/usr/bin/ruby
+
+system("sqsh -S VitosDevServer -C \"select * from information_schema.routines where routine_type = 'PROCEDURE'\" | egrep ROUTINE_NAME")

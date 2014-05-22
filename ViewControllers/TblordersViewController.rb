@@ -17,6 +17,8 @@ class TblordersViewController
     public
 
     def self.createTblorders(data)
+        result = Hash.new()
+
         # Order
         order = data['order']
 
@@ -36,7 +38,6 @@ class TblordersViewController
         order['pOrderNotes']      = order['pOrderNotes']
         
         orderResult = Tblorders.connection.execute_procedure("AddOrder", order)
-
 
         # OrderItem
         orderItem = data['orderItem']
@@ -58,19 +59,45 @@ class TblordersViewController
 
         orderItemResult = Tblorderlines.connection.execute_procedure("AddOrderLine", orderItem);
 
+        # OrderLineItem
+        toppings = data['orderItemToppings']
+
+        result['orderLineItemResults'] = Array.new
+
+        toppings.each do |topping|
+            orderLineItem = Hash.new
+            orderLineItem['pOrderLineID'] = convertToInt(orderItemResult[0]['newid'])
+            orderLineItem['pItemID'] = topping['id']
+            case topping['portion']
+            when 'whole' 
+                orderLineItem['pHalfID'] = '0'
+            when 'left'
+                orderLineItem['pHalfID'] = '1'
+            when 'right'
+                orderLineItem['pHalfID'] = '2'
+            when '2x'
+                orderLineItem['pHalfID'] = '3'
+            else
+                orderLineItem['pHalfID'] = '0'
+            end
+
+            orderLineItemResult = Tblorderlineitems.connection.execute_procedure("AddOrderLineItem", orderLineItem);
+            result['orderLineItemResults'].push(orderLineItemResult)
+        end
+
         # Update Price
         updatePrice = data['updatePrice']
-        updatePrice['pOrderID']  = convertToInt(orderResult[0]['newid'])
+        updatePrice['pOrderID']         = convertToInt(orderResult[0]['newid'])
         updatePrice['pStoreID']         = convertToInt(updatePrice['pStoreID'])
         updatePrice['pCouponIDs']       = updatePrice['pCouponIDs']
         updatePrice['pPromoCodes']      = updatePrice['pPromoCodes']
 
         updatePriceResult = Tblorders.connection.execute_procedure("WebRecalculateOrderPrice", updatePrice)
 
-        result = Hash.new()
 
-        result['order'] = orderResult
-        result['orderItem'] = orderItemResult
+        result['order']             = orderResult
+        result['orderItem']         = orderItemResult
+        result['updatePriceResult'] = updatePriceResult
 
         return result.to_json
     end

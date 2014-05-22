@@ -1,0 +1,90 @@
+#!/usr/local/bin/ruby
+
+require 'json'
+require 'curb'
+
+class DataMover
+    @directory = nil
+    @mapping = nil
+    @dataJson = nil
+    def initialize(mappingFile)
+        @directory = File.dirname($0)
+        @mapping = JSON::load(File.open(mappingFile))
+    end
+
+    def pull
+        tableName = ""
+        @mapping.each do |table|
+            tableName = table['localTableName']
+        end
+
+        dataJson = Hash.new()
+        dataJson[tableName] = Array.new()
+
+        @mapping.each do |table|
+            data = getJson(table)
+            dataJson[tableName] = data
+        end
+
+        #puts(JSON.generate(dataJson))
+        if(File.exists?("#{@directory}/data/latest.json"))
+            system("mv #{@directory}/data/latest.json #{@directory}/data/#{Time.now.strftime("%Y-%m-%dT%H:%M:%S")}.json")
+        end
+        #File.open("#{@directory}/data/latest.json","w"){|f| f.write(JSON.pretty_generate(dataJson))}
+        File.open("#{@directory}/data/latest.json","w"){|f| f.write(JSON.generate(dataJson))}
+
+    end
+
+    def getJson(table)
+        tableJson = []
+        # puts table['foreignRestUrl']
+        filter = JSON.generate(table['filter'])
+        # puts filter
+        curl = Curl::Easy.http_post(table['foreignRestUrl'], filter) do |curl|
+            curl.ssl_verify_peer = false
+            curl.headers['Accept'] = "application/json"
+        end
+        # puts curl.body_str
+        data = JSON.parse(curl.body_str)
+        data.each do |entry|
+            entryJson = {}
+            entry.each_key do |key|
+                fieldMapping = table['fields'].select{|x| x['foreignFieldName'] == key}.first
+                if(fieldMapping)
+                    entryJson[fieldMapping['localFieldName']] = entry[key].to_s.gsub("'", "\\u0027")
+                end
+            end
+            if(table.has_key?('subTables'))
+                subTables = table['subTables']
+                subTables.each do |subTable|
+                    entryJson[subTable['localTableName']] = self.getJson(subTable)
+                end
+            end
+            tableJson.push(entryJson)
+        end
+
+        # tableJson.push(entryJson)
+
+        return tableJson
+    end
+
+    def push
+
+    end
+end
+
+if(ARGV.length != 2)
+    puts "Usage: #{$0} [pull|push|reset] (data.json)"
+    exit -1
+end
+case ARGV[0]
+    when "pull"
+        DataMover.new(ARGV[1]).pull
+    when "push"
+        DataMover.new(ARGV[1]).push
+    when "reset"
+        DataMover.new(ARGV[1]).pull
+        DataMover.new(ARGV[1]).push
+    else
+        puts "Usage: #{$0} [pull|push|reset] (data.json)"
+end

@@ -1,0 +1,171 @@
+{
+    "product_types": [
+        {
+            "description": "Pizza",
+            "specialties": [
+                {
+                    "description": "Deluxe or Supreme",
+                    "name": "Deluxe Supreme"
+                },
+                {
+                    "description": "All Meat",
+                    "name": "All Meat"
+                },
+                {
+                    "description": "Pepperoni Pleaser",
+                    "name": "Pep Pleaser"
+                },
+                {
+                    "description": "Cheeseburger",
+                    "name": "Cheeseburger"
+                },
+                {
+                    "description": "Hawaiian",
+                    "name": "Hawaiian"
+                },
+                {
+                    "description": "Pancho Vito Taco",
+                    "name": "Pancho Vito Taco"
+                },
+                {
+                    "description": "Veggie",
+                    "name": "Veggie"
+                },
+                {
+                    "description": "BLT",
+                    "name": "BLT"
+                },
+                {
+                    "description": "BBQ Chicken",
+                    "name": "BBQ Chicken"
+                },
+                {
+                    "description": "Mediterranean",
+                    "name": "Mediterranean"
+                },
+                {
+                    "description": "Angus Steak Ranch",
+                    "name": "Steak Ranch"
+                },
+                {
+                    "description": "Chicken Bacon Ranch",
+                    "name": "Chicken Bacon Ranch"
+                },
+                {
+                    "description": "Angus Steak Chipotle",
+                    "name": "Steak Chipotle"
+                },
+                {
+                    "description": "Chicken Chipotle",
+                    "name": "Chicken Chipotle"
+                },
+                {
+                    "description": "Cajun Shrimp",
+                    "name": "Cajun Shrimp"
+                },
+                {
+                    "description": "Plain Shrimp",
+                    "name": "Plain Shrimp"
+                },
+                {
+                    "description": "The Works",
+                    "name": "Works"
+                },
+                {
+                    "description": "Tony Packo Pizza",
+                    "name": "Tony Packo Pizza"
+                },
+                {
+                    "description": "Lobster Pizza",
+                    "name": "Lobster Pizza"
+                },
+                {
+                    "description": "Chicken Enchilada",
+                    "name": "Chicken Enchilada"
+                }
+            ]
+        },
+        {
+            "description": "Subx",
+            "specialties": [
+                {
+                    "description": "Classic Italian",
+                    "name": "Classic Italian"
+                },
+                {
+                    "description": "Pizza",
+                    "name": "Pizza"
+                },
+                {
+                    "description": "Chicken Breast",
+                    "name": "Chicken Breast"
+                },
+                {
+                    "description": "BBQ Chicken Breast",
+                    "name": "BBQ Chicken Breast"
+                },
+                {
+                    "description": "Turkey Breast",
+                    "name": "Turkey Breast"
+                },
+                {
+                    "description": "Classic Club",
+                    "name": "Classic Club"
+                },
+                {
+                    "description": "Ham & Cheese",
+                    "name": "Ham & Cheese"
+                },
+                {
+                    "description": "A1 Angus Steak",
+                    "name": "A1 Angus Steak"
+                },
+                {
+                    "description": "Classic Reuben",
+                    "name": "Classic Reuben"
+                },
+                {
+                    "description": "Veggie",
+                    "name": "Veggie"
+                },
+                {
+                    "description": "Tony Packo\\u0027s",
+                    "name": "Tony Packo\\u0027s"
+                },
+                {
+                    "description": "BLT",
+                    "name": "BLT"
+                },
+                {
+                    "description": "Taco ",
+                    "name": "Taco"
+                }
+            ]
+        },
+        {
+            "description": "Salad",
+            "specialties": [
+                {
+                    "description": "Chicken Salad",
+                    "name": "Chicken Salad"
+                },
+                {
+                    "description": "Greek Salad",
+                    "name": "Greek Salad"
+                },
+                {
+                    "description": "Italian Salad",
+                    "name": "Italian Salad"
+                },
+                {
+                    "description": "Taco Salad",
+                    "name": "Taco Salad"
+                },
+                {
+                    "description": "The Vito\\u0027s Salad",
+                    "name": "The Vito\\u0027s Salad"
+                }
+            ]
+        }
+    ]
+}

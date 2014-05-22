@@ -1,0 +1,27 @@
+#!/usr/bin/ruby
+require 'json'
+require 'tempfile'
+
+if(ARGV.length < 1)
+    puts ""
+    puts "Usage: #{$0} <storeId>"
+    puts ""
+    exit
+end
+
+
+storeId   = ARGV[0]
+promoCode = ARGV[1]
+
+# List Promos
+promoFile = Tempfile.new('promo')
+promoFile.puts('{')
+promoFile.puts('    "storeId": "' + storeId + '"')
+promoFile.puts('}')
+promoFile.close
+
+promoJson = `rest-client 'http://69.132.51.248:8080/rest/order-pizza/list-promos' #{promoFile.path}`
+
+puts(promoJson)
+
+promoFile.unlink

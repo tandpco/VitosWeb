@@ -1,0 +1,104 @@
+[
+    {
+        "foreignRestUrl"   : "http://localhost:4111/rest/view/tblunit/get-tblunits",
+        "localRestUrl"     : "",
+        "localTableName"   : "product_types",
+        "filter" : {
+            "UnitID" : "1"
+        },
+        "fields" : [
+            {
+                "foreignFieldName" : "UnitDescription",
+                "localFieldName"   : "description"
+            }
+        ],
+        "subTables" : [
+            {
+                "foreignRestUrl"   : "http://localhost:4111/rest/view/tblspecialty/get-tblspecialties",
+                "localRestUrl"     : "",
+                "localTableName"   : "specialties",
+                "filter" : {
+                    "UnitID" : "1"
+                },
+                "fields" : [
+                    {
+                        "foreignFieldName" : "SpecialtyDescription",
+                        "localFieldName"   : "name"
+                    },
+                    {
+                        "foreignFieldName" : "InternetDescription",
+                        "localFieldName"   : "description"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "foreignRestUrl"   : "http://localhost:4111/rest/view/tblunit/get-tblunits",
+        "localRestUrl"     : "",
+        "localTableName"   : "product_types",
+        "filter" : {
+            "UnitID" : "17"
+        },
+        "fields" : [
+            {
+                "foreignFieldName" : "UnitDescription",
+                "localFieldName"   : "description"
+            }
+        ],
+        "subTables" : [
+            {
+                "foreignRestUrl"   : "http://localhost:4111/rest/view/tblspecialty/get-tblspecialties",
+                "localRestUrl"     : "",
+                "localTableName"   : "specialties",
+                "filter" : {
+                    "UnitID" : "17"
+                },
+                "fields" : [
+                    {
+                        "foreignFieldName" : "SpecialtyDescription",
+                        "localFieldName"   : "name"
+                    },
+                    {
+                        "foreignFieldName" : "InternetDescription",
+                        "localFieldName"   : "description"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "foreignRestUrl"   : "http://localhost:4111/rest/view/tblunit/get-tblunits",
+        "localRestUrl"     : "",
+        "localTableName"   : "product_types",
+        "filter" : {
+            "UnitID" : "3"
+        },
+        "fields" : [
+            {
+                "foreignFieldName" : "UnitDescription",
+                "localFieldName"   : "description"
+            }
+        ],
+        "subTables" : [
+            {
+                "foreignRestUrl"   : "http://localhost:4111/rest/view/tblspecialty/get-tblspecialties",
+                "localRestUrl"     : "",
+                "localTableName"   : "specialties",
+                "filter" : {
+                    "UnitID" : "3"
+                },
+                "fields" : [
+                    {
+                        "foreignFieldName" : "SpecialtyDescription",
+                        "localFieldName"   : "name"
+                    },
+                    {
+                        "foreignFieldName" : "InternetDescription",
+                        "localFieldName"   : "description"
+                    }
+                ]
+            }
+        ]
+    }
+]
