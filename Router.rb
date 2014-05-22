@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'active_record'
+require 'logger'
 
 Dir["./ViewControllers/*.rb"].sort.each do |file| 
     file.sub!("\.rb","");
@@ -19,6 +20,8 @@ end
 
 set :bind, '0.0.0.0'
 set :port, 4111
+
+$logger = Logger.new(STDOUT)
 
 config = JSON::load(File.open(ARGV.shift))
 # HTML static routes (GET)

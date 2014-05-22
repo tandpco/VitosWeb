@@ -17,37 +17,65 @@ class TblordersViewController
     public
 
     def self.createTblorders(data)
-        data['pSessionID']       = convertToInt(data['pSessionID'])
-        data['pIPAddress']       = data['pIPAddress']
-        data['pEmpID']           = convertToInt(data['pEmpID'])
-        data['pRefID']           = convertToInt(data['pRefID'])
-        data['pTransactionDate'] = data['pTransactionDate']
-        data['pStoreID']         = convertToInt(data['pStoreID'])
-        data['pCustomerID']      = convertToInt(data['pCustomerID'])
-        data['pCustomerName']    = data['pCustomerName']
-        data['pCustomerPhone']   = data['pCustomerPhone']
-        data['pAddressID']       = convertToInt(data['pAddressID'])
-        data['pOrderTypeID']     = convertToInt(data['pOrderTypeID'])
-        data['pDeliveryCharge']  = convertToFloat(data['pDeliveryCharge'])
-        data['pDriverMoney']     = convertToFloat(data['pDriverMoney'])
-        data['pOrderNotes']      = data['pOrderNotes']
+        # Order
+        order = data['order']
+
+        order['pSessionID']       = convertToInt(order['pSessionID'])
+        order['pIPAddress']       = order['pIPAddress']
+        order['pEmpID']           = convertToInt(order['pEmpID'])
+        order['pRefID']           = convertToInt(order['pRefID'])
+        order['pTransactionDate'] = order['pTransactionDate']
+        order['pStoreID']         = convertToInt(order['pStoreID'])
+        order['pCustomerID']      = convertToInt(order['pCustomerID'])
+        order['pCustomerName']    = order['pCustomerName']
+        order['pCustomerPhone']   = order['pCustomerPhone']
+        order['pAddressID']       = convertToInt(order['pAddressID'])
+        order['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
+        order['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
+        order['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
+        order['pOrderNotes']      = order['pOrderNotes']
         
-        result = Tblorders.connection.execute_procedure("AddOrder", data)
+        orderResult = Tblorders.connection.execute_procedure("AddOrder", order)
 
+
+        # OrderItem
+        orderItem = data['orderItem']
+        orderItem['pOrderID']              = convertToInt(orderResult[0]['newid'])
+
+        orderItem['pUnitID']               = convertToInt(orderItem['pUnitID'])
+        orderItem['pSpecialtyID']          = convertToInt(orderItem['pSpecialtyID'])
+        orderItem['pSizeID']               = convertToInt(orderItem['pSizeID'])
+        orderItem['pStyleID']              = convertToInt(orderItem['pStyleID'])
+        orderItem['pHalf1SauceID']         = convertToInt(orderItem['pHalf1SauceID'])
+        orderItem['pHalf2SauceID']         = convertToInt(orderItem['pHalf2SauceID'])
+        orderItem['pHalf1SauceModifierID'] = convertToInt(orderItem['pHalf1SauceModifierID'])
+        orderItem['pHalf2SauceModifierID'] = convertToInt(orderItem['pHalf2SauceModifierID'])
+        orderItem['pOrderLineNotes']       = orderItem['pOrderLineNotes']
+        orderItem['pInternetDescription']  = orderItem['pInternetDescription']
+        orderItem['pQuantity']             = convertToInt(orderItem['pQuantity'])
+
+        puts(JSON.pretty_generate(orderItem))
+
+        orderItemResult = Tblorderlines.connection.execute_procedure("AddOrderLine", orderItem);
+
+        # Update Price
+        updatePrice = data['updatePrice']
+        updatePrice['pOrderID']  = convertToInt(orderResult[0]['newid'])
+        updatePrice['pStoreID']         = convertToInt(updatePrice['pStoreID'])
+        updatePrice['pCouponIDs']       = updatePrice['pCouponIDs']
+        updatePrice['pPromoCodes']      = updatePrice['pPromoCodes']
+
+        updatePriceResult = Tblorders.connection.execute_procedure("WebRecalculateOrderPrice", updatePrice)
+
+        result = Hash.new()
+
+        result['order'] = orderResult
+        result['orderItem'] = orderItemResult
 
         return result.to_json
     end
 
-    def self.updatePriceTblorders(data)
-        data['pStoreID']       = convertToInt(data['pStoreID'])
-        data['pOrderID']       = convertToInt(data['pOrderID'])
-        data['pCouponIDs']     = data['pCouponIDs']
-        data['pPromoCodes']    = data['pPromoCodes']
 
-        result = Tblorders.connection.execute_procedure("WebRecalculateOrderPrice", data)
-
-        return result.to_json
-    end
 
     def self.convertToInt(value)
         if(value == 'NULL' || value.to_i == 0)

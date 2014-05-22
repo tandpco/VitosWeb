@@ -28,6 +28,8 @@ function OrderItemsController () {
         $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
         $('#order-items-panel').append(PanelOrderItems.createMarkup());
         
+        $('#modal-please-wait').modal('show');
+
         $.when(
             OrderItems.buildYourOrder(),
             this.listSpecialties(),
@@ -54,13 +56,7 @@ function OrderItemsController () {
         $('#modal-modify-item').modal('hide');
         $('#modal-please-wait').modal('show');
         var orderId = $.session.get("orderId");
-        // Check to see if this is the first time
-        if(orderId) {
-            this.createOrderItem();
-        }
-        else {
-            this.createOrder();
-        }
+        this.createOrder();
     }
 
     this.cancel = function() {
@@ -181,71 +177,6 @@ function OrderItemsController () {
     }
 
     this.createOrder = function() {
-        var json = {
-            "pSessionID"       : "999999999",
-            "pIPAddress"       : "0.0.0.0",
-            "pEmpID"           : "1",
-            "pRefID"           : "NULL",
-            "pTransactionDate" : "2014-04-01 23:18:58.1030000",
-            "pStoreID"         : $.session.get("storeId"),
-            "pCustomerID"      : "6063",
-            "pCustomerName"    : "Vito''s Fan",
-            "pCustomerPhone"   : "1111111111",
-            "pAddressID"       : "116423",
-            "pOrderTypeID"     : "1",
-            "pDeliveryCharge"  : "0.0",
-            "pDriverMoney"     : "0.0",
-            "pOrderNotes"      : ""
-        }
-
-        var URL = "/rest/view/tblorders/create-tblorders";
-
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                console.log('Created Order Id: ' + data[0]['newid']);
-                $.session.set('orderId', data[0]['newid']);
-                pageController.createOrderItem();
-            }
-        });
-    }
-
-    this.updatePrice = function() {
-        var userPromos = JSON.parse($.session.get('userPromoCodes'));
-        var couponIds = ""
-        for(var i = 0; i < userPromos.length; i++) {
-            var userPromo = userPromos[i];
-            var couponId = userPromo['code'];
-            if(i == 0) {
-                couponIds = couponId;
-            }
-            else {
-                couponIds += "," + couponId;
-            }
-        }
-
-        var json = {
-            "pStoreID"       : $.session.get('storeId'),
-            "pOrderID"       : $.session.get('orderId'),
-            "pCouponIDs"     : couponIds,
-            "pPromoCodes"    : couponIds 
-        }
-
-        var URL = "/rest/view/tblorders/update-price-tblorders";
-
-        $.ajax({
-            url:  URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                pageController.listOrderItems();
-            }
-        });
-    }
-
-    this.createOrderItem = function() {
 
         var orderItem = {};
 
@@ -338,7 +269,7 @@ function OrderItemsController () {
         //this.orderItems.push(orderItem);
         var orderId = $.session.get("orderId");
         
-        var json = {
+        var orderItemJson = {
             "pOrderID"         : orderId,
             "pUnitID"          : UNIT_ID,
             "pSpecialtyID"     : orderItem['item']['id'],
@@ -353,14 +284,67 @@ function OrderItemsController () {
             "pQuantity"        : orderItem['quantity']//passing quantity in json    
         }
 
-        var URL = "/rest/view/tblorderlines/create-tblorderlines";
+        var userPromos = JSON.parse($.session.get('userPromoCodes'));
+        var couponIds = ""
+        for(var i = 0; i < userPromos.length; i++) {
+            var userPromo = userPromos[i];
+            var couponId = userPromo['code'];
+            if(i == 0) {
+                couponIds = couponId;
+            }
+            else {
+                couponIds += "," + couponId;
+            }
+        }
+
+        var updatePriceJson = {
+            "pStoreID"       : $.session.get('storeId'),
+            "pOrderID"       : $.session.get('orderId'),
+            "pCouponIDs"     : couponIds,
+            "pPromoCodes"    : couponIds 
+        }
+
+        var now = new Date();
+        //var dateString = now.toLocaleString();
+        var dateString = now.toISOString();
+
+        //"pTransactionDate" : "2014-04-01 23:18:58.1030000",
+
+        var orderJson = {
+            "pSessionID"       : "999999999",
+            "pIPAddress"       : "0.0.0.0",
+            "pEmpID"           : "1",
+            "pRefID"           : "NULL",
+            "pTransactionDate" : dateString,
+            "pStoreID"         : $.session.get("storeId"),
+            "pCustomerID"      : "6063",
+            "pCustomerName"    : "Vito''s Fan",
+            "pCustomerPhone"   : "1111111111",
+            "pAddressID"       : "116423",
+            "pOrderTypeID"     : "1",
+            "pDeliveryCharge"  : "0.0",
+            "pDriverMoney"     : "0.0",
+            "pOrderNotes"      : ""
+        }
+
+        var json = {
+            "order" : orderJson, 
+            "orderItem" : orderItemJson,
+            "updatePrice" : updatePriceJson,
+            "orderLineItems" : "[]"
+        }
+
+        var URL = "/rest/view/tblorders/create-tblorders";
 
         $.ajax({
-            url:  URL,
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                var orderItemId = data[0]['newid'];
+                console.log('Created Order Id: ' + data['order'][0]['newid']);
+                $.session.set('orderId', data['order'][0]['newid']);
+
+                var orderItemId = data['orderItem'][0]['newid'];
                 orderItem['id'] = orderItemId;
 
                 var orderItems       = JSON.parse($.session.get('orderItems'));
@@ -369,7 +353,40 @@ function OrderItemsController () {
 
                 $.session.set('orderItems', JSON.stringify(orderItems));
 
-                pageController.updatePrice();
+                pageController.listOrderItems();
+            }
+        });
+    }
+
+    this.updatePrice = function() {
+        var userPromos = JSON.parse($.session.get('userPromoCodes'));
+        var couponIds = ""
+        for(var i = 0; i < userPromos.length; i++) {
+            var userPromo = userPromos[i];
+            var couponId = userPromo['code'];
+            if(i == 0) {
+                couponIds = couponId;
+            }
+            else {
+                couponIds += "," + couponId;
+            }
+        }
+
+        var json = {
+            "pStoreID"       : $.session.get('storeId'),
+            "pOrderID"       : $.session.get('orderId'),
+            "pCouponIDs"     : couponIds,
+            "pPromoCodes"    : couponIds 
+        }
+
+        var URL = "/rest/view/tblorders/update-price-tblorders";
+
+        $.ajax({
+            url:  URL,
+            type: "POST",
+            data: JSON.stringify(json),
+            success: function(data) {
+                pageController.listOrderItems();
             }
         });
     }
