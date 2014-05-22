@@ -313,13 +313,13 @@ OrderItems.buildYourOrder = function() {
         
     // this method helps to cancel the order. It cancels one order at a time.
     OrderItems.cancelOrder = function(id){
-         var json = {
-                "pOrderItemId"       : id //Inputs an id as json
-         }
+        var json = {
+            "OrderLineID" : id 
+        }
          
-         //An ajax call to cancel the order in the back end
-         $.ajax({
-                url: "/rest/order-pizza/delete-order-item",
+        //An ajax call to cancel the order in the back end
+        $.ajax({
+                url: "/rest/view/tblorderlines/delete-tblorderlines",
                 type: "POST",
                 data: JSON.stringify(json),
                 success: function(data) {

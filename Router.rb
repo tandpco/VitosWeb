@@ -2088,6 +2088,13 @@ post '/rest/view/tblorderlines/create-tblorderlines' do
     TblorderlinesViewController.createTblorderlines(data)
 end
 
+post '/rest/view/tblorderlines/delete-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.deleteTblorderlines(data)
+end
+
 post '/rest/view/tblorderlines/get-tblorderlines' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read

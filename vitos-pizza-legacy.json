@@ -209,6 +209,11 @@
                     {
                         "type"        : "model",
                         "model"       : "Tblorderlines",
+                        "modelMethod" : "delete"
+                    },
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorderlines",
                         "modelMethod" : "get"
                     }
                 ]

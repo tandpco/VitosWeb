@@ -59,6 +59,13 @@ class TblorderlinesViewController
         return result.to_json
     end
 
+    def self.deleteTblorderlines(data)
+        orderLineId = data['OrderLineID']
+
+        result = Tblorderlines.delete_all(:OrderLineID => orderLineId)
+        return result.to_json
+    end
+
     def self.convertToInt(value)
         if(value == 'NULL' || value.to_i == 0)
             value = nil
