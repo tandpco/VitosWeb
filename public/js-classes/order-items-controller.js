@@ -30,20 +30,31 @@ function OrderItemsController () {
         
         $('#modal-please-wait').modal('show');
 
-        $.when(
-            OrderItems.buildYourOrder(),
-            this.listSpecialties(),
-            this.listToppers(),
-            this.listSizes(),
-            this.listSauces(),
-            this.listStyles(),
-            this.listSauceModifiers(),
-            this.listToppings()
-            
-        ).then(function() {
-            $('#modal-please-wait').modal('hide');
-            console.log('Got all the data');
-      
+        var json = {
+            "StoreID": $.session.get("storeId"),
+            "UnitID": UNIT_ID,
+            "SizeID":"9"
+        }
+
+        var URL = "/rest/view/tblspecialty/get-tblspecialties";
+        
+        $.ajax({
+            url:  URL,
+            type: "POST",
+            data: JSON.stringify(json),
+            success: function(data) {
+                OrderItems.buildYourOrder();
+                pageController.listSpecialties(data);
+                pageController.listToppers(data);
+                pageController.listSizes(data);
+                pageController.listSauces(data);
+                pageController.listStyles(data);
+                pageController.listSauceModifiers(data);
+                pageController.listToppings(data);
+                $('#modal-please-wait').modal('hide');
+                console.log('Got all the data');
+            }
+
         });
     
         Session.set('selectedToppers', JSON.stringify(new Array()));
@@ -429,42 +440,27 @@ function OrderItemsController () {
         });
     }
 
-    this.listSpecialties = function() {
-        var json = {
-            "StoreID": $.session.get("storeId"),
-            "UnitID": UNIT_ID
-        }
-
+    this.listSpecialties = function(data) {
         firstName  = $.session.get("firstName");
         lastName   = $.session.get("lastName");
          
-        var URL = "/rest/view/tblspecialty/get-tblspecialties";
-        
-        $.ajax({
-            url:  URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                j = 0;
-                html = "";
-              
-                var items = data
-                for(var i = 0; i < items.length; i++) {
-                    if(j == 0) {
-                        html += "<div class=\"row\">";
-                    }
-                    html += pageController.buildItemList(items[i]["SpecialtyDescription"], items[i]["InternetDescription"],items[i]["SpecialtyID"],items[i]["StyleID"],items[i]["SauceID"]);
-                    j++;
-                    if(j == 2) {
-                        html += "</div>";
-                        j = 0;
-                    }
-                }
-                $("#items-grid-panel").html(html);
-                $('.btn-group').button();
+        j = 0;
+        html = "";
+      
+        var items = data['specialties']
+        for(var i = 0; i < items.length; i++) {
+            if(j == 0) {
+                html += "<div class=\"row\">";
             }
-        });
+            html += pageController.buildItemList(items[i]["SpecialtyDescription"], items[i]["InternetDescription"],items[i]["SpecialtyID"],items[i]["StyleID"],items[i]["SauceID"]);
+            j++;
+            if(j == 2) {
+                html += "</div>";
+                j = 0;
+            }
+        }
+        $("#items-grid-panel").html(html);
+        $('.btn-group').button();
     }
     
     this.buildItemList = function(name,detail,specialtyId,styleId,sauceId) {
@@ -562,71 +558,57 @@ function OrderItemsController () {
       return URL;    
     }
     
-    this.listToppings = function() {
-        var json = {
-            "StoreID":$.session.get("storeId"),
-            "UnitID":UNIT_ID
+    this.listToppings = function(data) {
+        var toppings = data['toppings']
+        html  = '<table class="table table-colored table-condensed">';
+        html += '    <tbody>';
+        html += '       <tr>'
+        html += '           <td  class="tan-highlight">&nbsp;</td>'
+        html += '           <td  class="tan-highlight" align="right">';
+        html += '               <img src="/img/topping-whole.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-left.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-right.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-2x.png">';
+        html += '           </td>';
+        html += '       </tr>';
+
+        
+        var toppingItems = new Array();
+        for(var i = 0; i < toppings.length; i++) {
+            var itemId      = toppings[i]['ItemID'];
+            var description = toppings[i]['ItemDescription'];
+            toppingItems.push(itemId);
+            html += pageController.buildToppingItem(itemId,description,toppings.length);
         }
-        
-        var URL = "/rest/view/tblitems/get-tblitems";
-        
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                html  = '<table class="table table-colored table-condensed">';
-                html += '    <tbody>';
-                html += '       <tr>'
-                html += '           <td  class="tan-highlight">&nbsp;</td>'
-                html += '           <td  class="tan-highlight" align="right">';
-                html += '               <img src="/img/topping-whole.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-left.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-right.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-2x.png">';
-                html += '           </td>';
-                html += '       </tr>';
- 
-                
-                var toppingItems = new Array();
-                for(var i = 0; i < data.length; i++) {
-                    var itemId      = data[i]['ItemID'];
-                    var description = data[i]['ItemDescription'];
-                    toppingItems.push(itemId);
-                    html += pageController.buildToppingItem(itemId,description,data.length);
-                }
 
-                $.session.set('toppingItems', toppingItems);
+        $.session.set('toppingItems', toppingItems);
 
-                html += '       <tr>'
-                html += '           <td  class="tan-highlight">&nbsp;</td>'
-                html += '           <td  class="tan-highlight" align="right">';
-                html += '               <img src="/img/topping-whole.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-left.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-right.png">';
-                html += '           </td>';
-                html += '           <td  class="tan-highlight">';
-                html += '               <img src="/img/topping-2x.png">';
-                html += '           </td>';
-                html += '       </tr>';
+        html += '       <tr>'
+        html += '           <td  class="tan-highlight">&nbsp;</td>'
+        html += '           <td  class="tan-highlight" align="right">';
+        html += '               <img src="/img/topping-whole.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-left.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-right.png">';
+        html += '           </td>';
+        html += '           <td  class="tan-highlight">';
+        html += '               <img src="/img/topping-2x.png">';
+        html += '           </td>';
+        html += '       </tr>';
 
-    
-                html += '</tbody>';
-                html += "</table>";
-                $("#toppings .left-column").append(html);
-            }
-        });
+
+        html += '</tbody>';
+        html += "</table>";
+        $("#toppings .left-column").append(html);
     }
 
     this.buildToppingItem = function(id,description,contentLength) {
@@ -712,30 +694,17 @@ function OrderItemsController () {
 
     }
 
-    this.listToppers = function() {
-        var json = {
-            "StoreID": $.session.get("storeId"),
-            "UnitID": UNIT_ID
+    this.listToppers = function(data) {
+        var toppers = data['toppers']
+        for(var i = 0; i < toppers.length; i++) {
+            html = "";
+            if(i == 0){
+                html += "<li class=\"header\">Type Flavors:</li>";
+            } 
+            html += pageController.buildTopperRadioItem(toppers[i]['TopperID'],toppers[i]['TopperDescription'],toppers.length);
+            $("#size-and-crust .right-column").append(html);
+            
         }
- 
-        $.ajax({
-            url: "/rest/view/tbltopper/get-tbltoppers" ,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                
-                for(var i = 0; i < data.length; i++) {
-                    html = "";
-                    if(i == 0){
-                        html += "<li class=\"header\">Type Flavors:</li>";
-                    } 
-                    html += pageController.buildTopperRadioItem(data[i]['TopperID'],data[i]['TopperDescription'],data.length);
-                    $("#size-and-crust .right-column").append(html);
-                    
-                }
-            }
-        });
     }
     
     this.buildTopperRadioItem = function(id,description,contentLength) {
@@ -743,6 +712,7 @@ function OrderItemsController () {
         var topper = {};
         topper['id']          = id;
         topper['description'] = description;
+        console.log(CURRENT_ORDER_LOC);
         var topprs = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPERS')); 
         if(topprs.length < contentLength){
         topprs.push(topper);
@@ -781,31 +751,16 @@ function OrderItemsController () {
         console.log("after.."+topperId+" "+sessionKey+" "+Session.get(sessionKey));
     }
 
-    this.listSizes = function() {
-        var json = {
-            "StoreID":$.session.get("storeId"),
-            "UnitID":UNIT_ID
+    this.listSizes = function(data) {
+        var sizes = data['sizes']
+        for(var i = 0; i < sizes.length; i++) {
+            html = "";
+            if(i == 0){
+                html += "<li class=\"header\">Sizes:</li>";
+            } 
+            html += pageController.buildSizeRadioItem(sizes[i]['SizeID'],sizes[i]['SizeDescription'],sizes.length);
+            $("#size-and-crust .left-column").append(html);
         }
-
-        var URL = "/rest/view/tblsizes/get-tblsizes";
-
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                
-                for(var i = 0; i < data.length; i++) {
-                    html = "";
-                    if(i == 0){
-                        html += "<li class=\"header\">Sizes:</li>";
-                    } 
-                    html += pageController.buildSizeRadioItem(data[i]['SizeID'],data[i]['SizeDescription'],data.length);
-                    $("#size-and-crust .left-column").append(html);
-                }
-            }
-        });
     }
 
     this.buildSizeRadioItem = function(id, description,contentLength) {
@@ -844,31 +799,15 @@ function OrderItemsController () {
         $.session.set('sizeId', sizeId);
     }
 
-    this.listStyles = function() {
-        var json = {
-            "StoreID":$.session.get("storeId"),
-            "UnitID":UNIT_ID,
-            "SizeID":"9"
+    this.listStyles = function(data) {
+        var styles = data['styles']
+        html  = "<div id='styles'>";
+        html += "<li class=\"header\">Type Options:</li>";
+        for(var i = 0; i < styles.length; i++) {
+            html += pageController.buildStyleRadioItem(styles[i]['StyleID'],styles[i]['StyleDescription'],styles.length);
         }
-
-        var URL = "/rest/view/tblstyles/get-tblstyles";
-        
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                 
-                html  = "<div id='styles'>";
-                html += "<li class=\"header\">Type Options:</li>";
-                for(var i = 0; i < data.length; i++) {
-                    html += pageController.buildStyleRadioItem(data[i]['StyleID'],data[i]['StyleDescription'],data.length);
-                }
-                html += "</div>";
-                $("#size-and-crust .left-column").append(html);
-            }
-        });
+        html += "</div>";
+        $("#size-and-crust .left-column").append(html);
     }
 
     this.buildStyleRadioItem = function(id, description,contentLength) {
@@ -965,40 +904,25 @@ function OrderItemsController () {
 
     }
 
-    this.listSauces = function() {
-        var json = {
-            "StoreID":$.session.get("storeId"),
-            "UnitID":UNIT_ID
-        }
-        
-        var URL = "/rest/view/tblsauce/get-tblsauces";
-
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                
-                var html = "<li class=\"header\">Sauces:</li>";
-                var noSauceHtml = "";
-                for(var i = 0; i < data.length; i++) {
-                   
-                    var sauceId = data[i]['SauceID'];
-                    var sauceDescription = data[i]['SauceDescription'];
-                    if(sauceDescription == 'No Sauce') {
-                        noSauceHtml = pageController.buildSauceRadioItem(sauceId,sauceDescription,data.length);
-                    }
-                    else {
-                        html += pageController.buildSauceRadioItem(sauceId,sauceDescription,data.length);
-                    }
-
-                }
-
-                $("#cheese-and-sauce .left-column").append(html);
-                $("#cheese-and-sauce .left-column").append(noSauceHtml);
+    this.listSauces = function(data) {
+        var sauces = data['sauces']
+        var html = "<li class=\"header\">Sauces:</li>";
+        var noSauceHtml = "";
+        for(var i = 0; i < sauces.length; i++) {
+           
+            var sauceId = sauces[i]['SauceID'];
+            var sauceDescription = sauces[i]['SauceDescription'];
+            if(sauceDescription == 'No Sauce') {
+                noSauceHtml = pageController.buildSauceRadioItem(sauceId,sauceDescription,sauces.length);
             }
-        });
+            else {
+                html += pageController.buildSauceRadioItem(sauceId,sauceDescription,sauces.length);
+            }
+
+        }
+
+        $("#cheese-and-sauce .left-column").append(html);
+        $("#cheese-and-sauce .left-column").append(noSauceHtml);
     }
 
     this.buildSauceRadioItem = function(id,description,contentLength) {
@@ -1026,30 +950,16 @@ function OrderItemsController () {
         $.session.set('sauceId', sauceId);
     }
 
-    this.listSauceModifiers = function() {
-        var json = {
-            "StoreID":$.session.get("storeId")
+    this.listSauceModifiers = function(data) {
+        var sauceModifiers = data['sauceModifiers']
+        for(var i = 0; i < sauceModifiers.length; i++) {
+            html = "";
+            if(i == 0){
+                html += "<li class=\"header\">Sauce Options:</li>";
+            } 
+            html += pageController.buildSauceModifierRadioItem(sauceModifiers[i]['SauceModifierID'],sauceModifiers[i]['SauceModifierDescription'],sauceModifiers.length);
+            $("#cheese-and-sauce .right-column").append(html);
         }
-
-        var URL = "/rest/view/tblsaucemodifier/get-tblsaucemodifiers";
-        
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                
-                for(var i = 0; i < data.length; i++) {
-                    html = "";
-                    if(i == 0){
-                        html += "<li class=\"header\">Sauce Options:</li>";
-                    } 
-                    html += pageController.buildSauceModifierRadioItem(data[i]['SauceModifierID'],data[i]['SauceModifierDescription'],data.length);
-                    $("#cheese-and-sauce .right-column").append(html);
-                }
-            }
-        });
     }
     
    // this method helps to update the order. It updates one order at a time.
