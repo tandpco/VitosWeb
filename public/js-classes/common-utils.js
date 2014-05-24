@@ -130,7 +130,7 @@ ModalLocation.createMarkup = function(name, message) {
     html += '                    </div>';
     html += '                </div>';
     html += '                <div class="row">';
-    html += '                    <button class="red-gradient-button" onclick="pageController.chooseMode()">CHANGE LOCATION</button>';
+    //html += '                    <button class="red-gradient-button" onclick="pageController.chooseMode()">CHANGE LOCATION</button>';
     html += '                </div>';
     html += '                <div class="row">';
     html += '                    <button class="green-gradient-button" onclick="pageController.chooseMode()">CONTINUE</button>';

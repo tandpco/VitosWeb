@@ -2,7 +2,7 @@
     "component"   : "JetstreamEngine",
     "settings"    : {
         "name"      : "vitos-pizza-legacy",
-        "port"      : "4111",
+        "port"      : "4222",
         "namespace" : "com.vortex.vitospizza",
         "location"  : "dev/vortex",
         "databases" : [

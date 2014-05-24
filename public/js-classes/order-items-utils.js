@@ -371,7 +371,7 @@ OrderItems.buildYourOrder = function () {
             }
             html += '<span class="itemDescription">' + orderItem['item']['name'] + '(' + orderItem['quantity'] + ')';
             if (curr_loc.indexOf("confirmation") == -1) {
-                html += '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>&nbsp;&nbsp;';
+                // html += '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>&nbsp;&nbsp;';
                 html += '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder(' + orderItem['id'] + ');">Remove</a>';
             }
             html += '</div></span><div style="height:38px;font-size:15px;float:right;" class="col-sm-2"> <div class="row" style="float:right"><br>$ ' + orderCost.toFixed(2) + '</div></div>'

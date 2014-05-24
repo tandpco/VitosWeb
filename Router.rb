@@ -18,7 +18,7 @@ if(ARGV.length != 1)
 end
 
 set :bind, '0.0.0.0'
-set :port, 4111
+set :port, 4222
 
 config = JSON::load(File.open(ARGV.shift))
 # HTML static routes (GET)
