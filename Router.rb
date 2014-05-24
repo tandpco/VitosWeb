@@ -2070,10 +2070,6 @@ end
 post '/rest/view/tblorders/create-tblorders' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
-
-    toppings = data['orderItemToppings']
-    logger.info(toppings.inspect)
-
     content_type :json
     TblordersViewController.createTblorders(data)
 end
