@@ -14,24 +14,45 @@ end
 
 class TblsaucemodifierViewController
     public
+    @PIZZA     = "1"
+    @SUB       = "17"
+    @SALAD     = "3"
+    @SIDE      = "8000"
+    @BEVERAGE  = "8001"
 
     def self.getTblsaucemodifiers(data)
-        tblsaucemodifiers = self.filterData(data)
+        unitId   = data['UnitID']
+
+        if(unitId == @PIZZA || unitId == @SUB)
+            return getSaucemodifierFromDatabase(data)
+        else
+            return getSaucemodifierFromJson(data)
+        end
+    end
+    
+    def self.getSaucemodifierFromDatabase(data)
+        tblsaucemodifiers = []
+
+        storeId  = data['StoreID']
+        unitId   = data['UnitID']
+
+        tblsaucemodifiers = Tblsaucemodifier.where("IsActive <> 0").order(:SauceModifierID)
 
         Array tblsaucemodifierJson = Array.new
+
         tblsaucemodifiers.each do |tblsaucemodifier|
             tblsaucemodifierJson.push({ :id => tblsaucemodifier.id, :RADRAT => tblsaucemodifier.RADRAT, :SauceModifierDescription => tblsaucemodifier.SauceModifierDescription, :SauceModifierID => tblsaucemodifier.SauceModifierID, :SauceModifierShortDescription => tblsaucemodifier.SauceModifierShortDescription, :IsActive => tblsaucemodifier.IsActive })
         end
 
-        return tblsaucemodifiers.to_json
-    end
-    
-    def self.filterData(data)
-        tblsaucemodifiers = []
+        return tblsaucemodifierJson.to_json
 
-        tblsaucemodifiers = Tblsaucemodifier.where("IsActive <> 0").order(:SauceModifierID)
-
-        return tblsaucemodifiers
     end 
+
+    def self.getSaucemodifierFromJson(data)
+        unitId   = data['UnitID']
+
+        unitSaucemodifier = $saucemodifier["Units"].select { |t| t['UnitID'] == unitId }
+        tblsaucemodifierJson = unitSaucemodifier.first['SauceModifiers'].to_json
+    end
 
 end

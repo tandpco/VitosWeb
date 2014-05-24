@@ -20,7 +20,12 @@ end
 set :bind, '0.0.0.0'
 set :port, 4222
 
-config = JSON::load(File.open(ARGV.shift))
+config          = JSON::load(File.open(ARGV.shift))
+$sizes          = JSON::load(File.open('./JSON-DATA/sizes.json'))
+$topper         = JSON::load(File.open('./JSON-DATA/toppers.json'))
+$sauce          = JSON::load(File.open('./JSON-DATA/sauces.json'))
+$saucemodifier  = JSON::load(File.open('./JSON-DATA/saucemodifiers.json'))
+
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')

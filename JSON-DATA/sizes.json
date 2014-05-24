@@ -1,0 +1,42 @@
+{
+    "Units" : [
+        {
+            "UnitID" : "17",
+            "Sizes"  : [
+                {
+                    "id" : "61",
+                    "SizeID" : "61",
+                    "SizeDescription" : "Whole Foldover",
+                    "SizeShortDescription" : "Whole Foldover",
+                    "RADRAT" : "2014-02-06 14:33:09"
+                },
+                {
+                    "id" : "65",
+                    "SizeID" : "65",
+                    "SizeDescription" : "Half Foldover",
+                    "SizeShortDescription" : "Half Foldover",
+                    "RADRAT" : "2014-02-06 14:33:09"
+                }
+            ]
+        },
+        {
+            "UnitID" : "3",
+            "Sizes"  : [
+                {
+                    "RADRAT": "2011-05-04T13:27:48Z",
+                    "SizeDescription": "Large",
+                    "SizeID": 9,
+                    "SizeShortDescription": "Large",
+                    "id": null
+                },
+                {
+                    "RADRAT": "2011-05-04T13:30:34Z",
+                    "SizeDescription": "Small",
+                    "SizeID": 11,
+                    "SizeShortDescription": "Small",
+                    "id": null
+                }
+            ]
+        }
+    ]
+}

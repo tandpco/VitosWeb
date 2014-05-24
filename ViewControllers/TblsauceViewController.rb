@@ -14,27 +14,45 @@ end
 
 class TblsauceViewController
     public
+    @PIZZA     = "1"
+    @SUB       = "17"
+    @SALAD     = "3"
+    @SIDE      = "8000"
+    @BEVERAGE  = "8001"
 
     def self.getTblsauces(data)
-        tblsauces = self.filterData(data)
+        unitId   = data['UnitID']
 
-        Array tblsauceJson = Array.new
-        tblsauces.each do |tblsauce|
-            tblsauceJson.push({ :id => tblsauce.id, :IsInternet => tblsauce.IsInternet, :RADRAT => tblsauce.RADRAT, :SauceDescription => tblsauce.SauceDescription, :SauceID => tblsauce.SauceID, :SauceShortDescription => tblsauce.SauceShortDescription, :IsActive => tblsauce.IsActive })
+        if(unitId == @PIZZA)
+            return getSauceFromDatabase(data)
+        else
+            return getSauceFromJson(data)
         end
-
-        return tblsauces.to_json
     end
     
-    def self.filterData(data)
-        tblsauces = []
+    def self.getSauceFromDatabase(data)
+        tblsauce = []
 
         storeId  = data['StoreID']
         unitId   = data['UnitID']
 
         tblsauces = Tblsauce.joins("inner join trelUnitSauce on trelUnitSauce.SauceID = tblSauce.SauceID and trelUnitSauce.UnitID = #{unitId} and IsActive <> 0 and IsInternet <> 0 inner join trelStoreUnitSize on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID and StoreID = #{storeId}").distinct()
 
-        return tblsauces
+        Array tblsauceJson = Array.new
+
+        tblsauces.each do |tblsauce|
+            tblsauceJson.push({ :id => tblsauce.id, :IsInternet => tblsauce.IsInternet, :RADRAT => tblsauce.RADRAT, :SauceDescription => tblsauce.SauceDescription, :SauceID => tblsauce.SauceID, :SauceShortDescription => tblsauce.SauceShortDescription, :IsActive => tblsauce.IsActive })
+        end
+
+        return tblsauceJson.to_json
+
     end 
+
+    def self.getSauceFromJson(data)
+        unitId   = data['UnitID']
+
+        unitSauce = $sauce["Units"].select { |t| t['UnitID'] == unitId }
+        tblsauceJson = unitSauce.first['Sauces'].to_json
+    end
 
 end
