@@ -12,15 +12,16 @@ Dir["./ModelControllers/*.rb"].sort.each do |file|
     require file
 end
 
-if(ARGV.length != 1)
-    puts "Usage: ruby #{$0} <config.json>"
-    exit -1
-end
+#if(ARGV.length != 1)
+#    puts "Usage: ruby #{$0} <config.json>"
+#    exit -1
+#end
 
-set :bind, '0.0.0.0'
-set :port, 4111
+#set :bind, '0.0.0.0'
+#set :port, 4111
 
-config = JSON::load(File.open(ARGV.shift))
+#config = JSON::load(File.open(ARGV.shift))
+config = JSON::load(File.open('./config/vitos-pizza-legacy-local.json'))
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')
