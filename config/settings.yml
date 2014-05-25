@@ -1,0 +1,2 @@
+environment : 'development'
+configName : 'config/vitos-pizza-legacy-local.json'
