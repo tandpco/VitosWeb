@@ -19,14 +19,12 @@ class TblspecialtyViewController
         unitId   = data['UnitID']
         result = Hash.new()
 
-        Array tblspecialtyData = Array.new
-        if(unitId == "0")
-            tblspecialtyData = self.getSides(data)
+        if(unitId != $SIDE)
+            result['specialties']    = self.getSpecialtyFromDatabase(data)
         else
-            tblspecialtyData = self.getSpecialties(data)
+            result['specialties']    = self.getSpecialtyFromJson(data)
         end
 
-        result['specialties']    = tblspecialtyData
         result['toppers']        = JSON.parse(TbltopperViewController.getTbltoppers(data))
         result['sizes']          = JSON.parse(TblsizesViewController.getTblsizes(data))
         result['sauces']         = JSON.parse(TblsauceViewController.getTblsauces(data))
@@ -36,8 +34,9 @@ class TblspecialtyViewController
 
         return result.to_json
     end
-    
-    def self.getSpecialties(data)
+
+    def self.getSpecialtyFromDatabase(data)
+
         tblspecialties = []
         storeId  = data['StoreID']
         unitId   = data['UnitID']
@@ -52,19 +51,14 @@ class TblspecialtyViewController
         return returnData
     end 
 
-    def self.getSides(data)
-        storeId  = data['StoreID']
+    def self.getSpecialtyFromJson(data)
+        unitId   = data['UnitID']
 
-        tblunits = Tblunit.joins("inner join trelUnitSize on tblUnit.UnitID = trelUnitSize.UnitID inner join trelStoreUnitSize on trelUnitSize.UnitID = trelStoreUnitSize.UnitID and trelUnitSize.SizeID = trelStoreUnitSize.SizeID where StoreID = #{storeId} and tblUnit.IsActive <> 0 and tblUnit.IsInternet <> 0 order by UnitMenuSortOrder").distinct()
-
-        returnData = Array.new()
-        tblunits.each do |tblunit|
-            next if tblunit.UnitID.to_s =~ /^(1|32|3|14)$/
-            returnData.push({ :id => "", :IsActive => "", :IsInternet => "", :NoBaseCheese => "", :RADRAT => "", :SauceID => "", :SpecialtyDescription => tblunit.UnitDescription, :InternetDescription => tblunit.CustomDescription, :SpecialtyID => "800" + tblunit.UnitID.to_s, :SpecialtyShortDescription => tblunit.UnitDescription, :StyleID => "", :UnitID => "SIDES" })
-        end
+        unitSpecialty = $specialty["Units"].select { |s| s['UnitID'] == unitId }
+        returnData = unitSpecialty.first['Specialties']
 
         return returnData
+    end
 
-    end 
 
 end

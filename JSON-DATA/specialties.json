@@ -1,0 +1,80 @@
+{
+    "Units" : [
+        {
+            "UnitID" : "8000",
+            "Specialties"  : [
+                {
+                    "InternetDescription": "Our fresh made dough topped with mozzarella and cheddar cheeses. Baked to the way Vito likes it and topped with garlic and parmesan. Served with 3 dipping sauces.",
+                    "IsActive": "",
+                    "IsInternet": "",
+                    "NoBaseCheese": "",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Vito Bread",
+                    "SpecialtyID": "8002",
+                    "SpecialtyShortDescription": "Vito Bread",
+                    "StyleID": "",
+                    "UnitID": "8000",
+                    "id": ""
+                },
+                {
+                    "InternetDescription": "3/4 of a pound of juicy breaded chicken chunks baked the way Vito likes them and served with 2 dipping sauces.",
+                    "IsActive": "",
+                    "IsInternet": "",
+                    "NoBaseCheese": "",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Chicken Dippers",
+                    "SpecialtyID": "8007",
+                    "SpecialtyShortDescription": "Chicken Dippers",
+                    "StyleID": "",
+                    "UnitID": "8000",
+                    "id": ""
+                },
+                {
+                    "InternetDescription": "Chicken wings cooked to perfection and smothered in your favorite sauce or served plain.",
+                    "IsActive": "",
+                    "IsInternet": "",
+                    "NoBaseCheese": "",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Chicken Wings",
+                    "SpecialtyID": "8004",
+                    "SpecialtyShortDescription": "Chicken Wings",
+                    "StyleID": "",
+                    "UnitID": "8000",
+                    "id": ""
+                },
+                {
+                    "InternetDescription": "Coke, Diet Coke, Sprite, Barqs Root Beer, Mello Yellow, Cherry Coke",
+                    "IsActive": "",
+                    "IsInternet": "",
+                    "NoBaseCheese": "",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Beverages",
+                    "SpecialtyID": "8015",
+                    "SpecialtyShortDescription": "Beverages",
+                    "StyleID": "",
+                    "UnitID": "8000",
+                    "id": ""
+                },
+                {
+                    "InternetDescription": "Our fresh made dough baked the way Vito likes it and topped with butter, cinnamon and sugar.  Served with vanilla icing.",
+                    "IsActive": "",
+                    "IsInternet": "",
+                    "NoBaseCheese": "",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Cinnamon Breadsticks",
+                    "SpecialtyID": "8005",
+                    "SpecialtyShortDescription": "Cinnamon Breadsticks",
+                    "StyleID": "",
+                    "UnitID": "8000",
+                    "id": ""
+                }
+            ]
+        }
+    ]
+}
+

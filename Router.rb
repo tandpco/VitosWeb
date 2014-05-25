@@ -25,6 +25,14 @@ $sizes          = JSON::load(File.open('./JSON-DATA/sizes.json'))
 $topper         = JSON::load(File.open('./JSON-DATA/toppers.json'))
 $sauce          = JSON::load(File.open('./JSON-DATA/sauces.json'))
 $saucemodifier  = JSON::load(File.open('./JSON-DATA/saucemodifiers.json'))
+$specialty      = JSON::load(File.open('./JSON-DATA/specialties.json'))
+
+$PIZZA     = "1"
+$SUB       = "17"
+$SALAD     = "3"
+$SIDE      = "8000"
+$BEVERAGE  = "8001"
+
 
 # HTML static routes (GET)
 get '/' do

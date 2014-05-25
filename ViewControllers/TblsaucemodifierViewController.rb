@@ -14,16 +14,11 @@ end
 
 class TblsaucemodifierViewController
     public
-    @PIZZA     = "1"
-    @SUB       = "17"
-    @SALAD     = "3"
-    @SIDE      = "8000"
-    @BEVERAGE  = "8001"
 
     def self.getTblsaucemodifiers(data)
         unitId   = data['UnitID']
 
-        if(unitId == @PIZZA || unitId == @SUB)
+        if(unitId == $PIZZA || unitId == $SUB)
             return getSaucemodifierFromDatabase(data)
         else
             return getSaucemodifierFromJson(data)

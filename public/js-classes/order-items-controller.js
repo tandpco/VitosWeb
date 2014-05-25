@@ -28,11 +28,15 @@ function OrderItemsController () {
         $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
         $('#order-items-panel').append(PanelOrderItems.createMarkup());
         
+        this.getData(UNIT_ID, true);
+    }  
+
+    this.getData = function(unitId, isOnInit) {
         $('#modal-please-wait').modal('show');
 
         var json = {
             "StoreID": $.session.get("storeId"),
-            "UnitID": UNIT_ID,
+            "UnitID": unitId,
             "SizeID":"9"
         }
 
@@ -43,8 +47,10 @@ function OrderItemsController () {
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                OrderItems.buildYourOrder();
-                pageController.listSpecialties(data);
+                if(isOnInit) {
+                    OrderItems.buildYourOrder();
+                    pageController.listSpecialties(data);
+                }
                 pageController.listToppers(data);
                 pageController.listSizes(data);
                 pageController.listSauces(data);
@@ -57,10 +63,10 @@ function OrderItemsController () {
 
         });
     
-        Session.set('selectedToppers', JSON.stringify(new Array()));
-        Session.set('ToppersInEdit', JSON.stringify(new Array()));
-       
-       
+        if(isOnInit) {
+            Session.set('selectedToppers', JSON.stringify(new Array()));
+            Session.set('ToppersInEdit', JSON.stringify(new Array()));
+        }
     }  
     
     this.order = function() {
@@ -498,7 +504,7 @@ function OrderItemsController () {
             "8004" : "VitoBread300x300.jpg",
             "8005" : "CinnamonBread300x300.jpg",
             "8007" : "VitoBread300x300.jpg",
-            "80015" : "CokeEtc300x300.jpg"
+            "8015" : "CokeEtc300x300.jpg"
         };
     
        var html="";

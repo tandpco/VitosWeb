@@ -14,16 +14,11 @@ end
 
 class TbltopperViewController
     public
-    @PIZZA     = "1"
-    @SUB       = "17"
-    @SALAD     = "3"
-    @SIDE      = "8000"
-    @BEVERAGE  = "8001"
 
     def self.getTbltoppers(data)
         unitId   = data['UnitID']
 
-        if(unitId == @PIZZA)
+        if(unitId == $PIZZA)
             return getTopperFromDatabase(data)
         else
             return getTopperFromJson(data)
