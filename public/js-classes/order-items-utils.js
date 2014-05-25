@@ -75,7 +75,7 @@ ModalModifyPizzaItem.createMarkup = function () {
     html += '                </div>';
     html += '';
     html += '                <div>';
-    html += '<span  style="font-weight:bold">' + (CURRENT_ORDER_LOC == "PIZZA" ? "Quantity of Pizzas :" : (CURRENT_ORDER_LOC == "SUBS") ? "Quantity of Subs :" : "Quantity of Salads :") + '</li></ul>';
+    html += '<span  style="font-weight:bold">Quantity :</li></ul>';
     html += '                                    <input id="quantity" type=';
     html += '                                    "text" readonly style=';
     html += '                                    "margin-top:20px; " class="col-md-8">';

@@ -1,11 +1,6 @@
 {
     "Units" : [
         {
-            "UnitID" : "8002",
-            "Sizes"  : [
-            ]
-        },
-        {
             "UnitID" : "17",
             "Sizes"  : [
                 {
@@ -46,6 +41,18 @@
         {
             "UnitID" : "8000",
             "Sizes"  : [
+            ]
+        },
+        {
+            "UnitID" : "8002",
+            "Sizes"  : [
+                {
+                    "RADRAT": "2011-05-04T13:30:34Z",
+                    "SizeDescription": "Small",
+                    "SizeID": 11,
+                    "SizeShortDescription": "Small",
+                    "id": null
+                }
             ]
         }
     ]

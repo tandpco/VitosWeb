@@ -44,7 +44,7 @@ class TblsizesViewController
     end 
 
     def self.getSizesFromJson(data)
-        unitId   = data['UnitID']
+        unitId   = data['UnitID'].to_s
 
         unitSizes = $sizes["Units"].select { |s| s['UnitID'] == unitId }
 

@@ -16,17 +16,16 @@ class TblitemsViewController
     public
 
     def self.getTblitems(data)
-        tblitems = self.filterData(data)
+        unitId   = data['UnitID']
 
-        Array tblitemsJson = Array.new
-        tblitems.each do |tblitems|
-            tblitemsJson.push({ :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT })
+        if(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD}|#{$SIDE})$/)
+            return getItemsFromDatabase(data)
+        else
+            return getItemsFromJson(data)
         end
-
-        return tblitems.to_json
     end
 
-    def self.filterData(data)
+    def self.getItemsFromDatabase(data)
 
         tblitems = []
 
@@ -40,7 +39,27 @@ class TblitemsViewController
         end
 
 
-        return tblitems
+        Array tblitemsJson = Array.new
+        tblitems.each do |tblitems|
+            tblitemsJson.push({ :IsInternet => tblitems.IsInternet, :ItemDescription => tblitems.ItemDescription, :ItemID => tblitems.ItemID, :ItemShortDescription => tblitems.ItemShortDescription, :ItemSortOrder => tblitems.ItemSortOrder, :RADRAT => tblitems.RADRAT })
+        end
+        
+        return tblitems.to_json
+
+    end
+    
+    def self.getItemsFromJson(data)
+        unitId   = data['UnitID'].to_s
+
+        unitItems = $items["Units"].select { |s| s['UnitID'] == unitId }
+
+        tblitemsJson = "[]"
+
+        if(unitItems.count > 0)
+            tblitemsJson = unitItems.first['Items'].to_json
+        end
+
+        return tblitemsJson
 
     end
 

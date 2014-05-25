@@ -44,7 +44,7 @@ class TblsaucemodifierViewController
     end 
 
     def self.getSaucemodifierFromJson(data)
-        unitId   = data['UnitID']
+        unitId   = data['UnitID'].to_s
 
         unitSaucemodifier = $saucemodifier["Units"].select { |t| t['UnitID'] == unitId }
 

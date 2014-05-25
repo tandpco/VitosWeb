@@ -17,6 +17,7 @@ end
 config = JSON::load(File.open(settings.configName))
 $sizes          = JSON::load(File.open("./JSON-DATA/sizes.json"))
 $topper         = JSON::load(File.open("./JSON-DATA/toppers.json"))
+$items          = JSON::load(File.open("./JSON-DATA/items.json"))
 $sauce          = JSON::load(File.open("./JSON-DATA/sauces.json"))
 $saucemodifier  = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
 $specialty      = JSON::load(File.open("./JSON-DATA/specialties.json"))
@@ -26,6 +27,7 @@ $SUB       = "17"
 $SALAD     = "3"
 $SIDE      = "8000"
 $BEVERAGE  = "8001"
+$VITOBREAD = "8002"
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')

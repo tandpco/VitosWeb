@@ -54,9 +54,15 @@ function OrderItemsController () {
                 pageController.listToppers(data);
                 pageController.listSizes(data);
                 pageController.listSauces(data);
-                pageController.listStyles(data);
+                if(UNIT_ID == PIZZA) {
+                    pageController.listStyles(data);
+                }
                 pageController.listSauceModifiers(data);
                 pageController.listToppings(data);
+
+                if(UNIT_ID == SIDES) {
+                    $.session.set("toppings", "");
+                }
                 $('#modal-please-wait').modal('hide');
                 console.log('Got all the data');
             }
@@ -297,7 +303,7 @@ function OrderItemsController () {
         var orderItemJson = {
             "pOrderID"         : orderId,
             "pUnitID"          : UNIT_ID,
-            "pSpecialtyID"     : orderItem['item']['id'],
+            "pSpecialtyID"     : ((orderItem['item']['id'] ) == null ? '' : orderItem['item']['id']),
             "pSizeID"          : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
             "pStyleID"         : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
             "pHalf1SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
@@ -587,6 +593,8 @@ function OrderItemsController () {
     
     this.listToppings = function(data) {
         var toppings = data['toppings']
+        $("#toppings .left-column").html("");
+
         html  = '<table class="table table-colored table-condensed">';
         html += '    <tbody>';
         html += '       <tr>'
@@ -645,11 +653,13 @@ function OrderItemsController () {
         topping['description'] = description;
         pageController.toppings.push(topping);
 
-        var toppingsArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPINGS'));
-        
-        if(toppingsArr.length < contentLength){
-           toppingsArr.push(topping);
-           Session.set(CURRENT_ORDER_LOC+'_TOPPINGS',JSON.stringify(toppingsArr));
+        if(CURRENT_ORDER_LOC != 'SIDES') {
+            var toppingsArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPINGS'));
+            
+            if(toppingsArr.length < contentLength){
+               toppingsArr.push(topping);
+               Session.set(CURRENT_ORDER_LOC+'_TOPPINGS',JSON.stringify(toppingsArr));
+            }
         }
         
         var html;
@@ -673,36 +683,39 @@ function OrderItemsController () {
 
     this.selectTopping = function(itemId, portion,checkbxId,description) {
         var toppingsString  = $.session.get('toppings');
-                    
-        var currentToppings = toppingsString.split(',');
-       // alert("chckbxid "+checkbxId + "itemId "+ itemId + "prtn "+portion);
-        // Uncheck item's row
-        $(checkbxId + itemId + "-whole").attr("src", "/img/checkbox_unchecked.jpg");
-        $(checkbxId + itemId + "-left").attr("src", "/img/checkbox_unchecked.jpg");
-        $(checkbxId + itemId + "-right").attr("src", "/img/checkbox_unchecked.jpg");
-        $(checkbxId + itemId + "-2x").attr("src", "/img/checkbox_unchecked.jpg");
-
-        var toppings = new Array();
 
         var select = true;
-        for(var i = 0; i < currentToppings.length; i++) {
-            var currentItem    = currentToppings[i];
+        var toppings = new Array();
+        // Only process current toppings if they exist
+        if(toppingsString.length > 0) {
 
-            var elements       = currentItem.split('-');
-            var currentItemId  = elements[0];
-
-            var currentPortion = elements[1].split('+')[0];
-            var currentDesc = elements[1].split('+')[1];
-            
-            if(currentItemId == itemId && currentPortion == portion) {
-                select = false;
-                // $(checkbxId + itemId + "-" + portion ).attr("src", "/img/checkbox_unchecked.jpg");
-            }
-            else {
-                if(currentItemId != itemId) {
-                    item = currentItemId + "-" + currentPortion + "+"+currentDesc;
-                    toppings.push(item);
-                    $(checkbxId + itemId + '-' + portion).attr('src', '/img/checkbox_checked.jpeg' );
+            var currentToppings = toppingsString.split(',');
+           // alert("chckbxid "+checkbxId + "itemId "+ itemId + "prtn "+portion);
+            // Uncheck item's row
+            $(checkbxId + itemId + "-whole").attr("src", "/img/checkbox_unchecked.jpg");
+            $(checkbxId + itemId + "-left").attr("src", "/img/checkbox_unchecked.jpg");
+            $(checkbxId + itemId + "-right").attr("src", "/img/checkbox_unchecked.jpg");
+            $(checkbxId + itemId + "-2x").attr("src", "/img/checkbox_unchecked.jpg");
+    
+            for(var i = 0; i < currentToppings.length; i++) {
+                var currentItem    = currentToppings[i];
+    
+                var elements       = currentItem.split('-');
+                var currentItemId  = elements[0];
+    
+                var currentPortion = elements[1].split('+')[0];
+                var currentDesc = elements[1].split('+')[1];
+                
+                if(currentItemId == itemId && currentPortion == portion) {
+                    select = false;
+                    // $(checkbxId + itemId + "-" + portion ).attr("src", "/img/checkbox_unchecked.jpg");
+                }
+                else {
+                    if(currentItemId != itemId) {
+                        item = currentItemId + "-" + currentPortion + "+"+currentDesc;
+                        toppings.push(item);
+                        $(checkbxId + itemId + '-' + portion).attr('src', '/img/checkbox_checked.jpeg' );
+                    }
                 }
             }
         }
@@ -723,6 +736,7 @@ function OrderItemsController () {
 
     this.listToppers = function(data) {
         var toppers = data['toppers']
+        $("#size-and-crust .right-column").html("");
         for(var i = 0; i < toppers.length; i++) {
             html = "";
             if(i == 0){
@@ -740,12 +754,14 @@ function OrderItemsController () {
         topper['id']          = id;
         topper['description'] = description;
         console.log(CURRENT_ORDER_LOC);
-        var topprs = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPERS')); 
-        if(topprs.length < contentLength){
-        topprs.push(topper);
-        Session.set(CURRENT_ORDER_LOC+'_TOPPERS',JSON.stringify(topprs));
+        if(CURRENT_ORDER_LOC != 'SIDES') {
+            var topprs = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_TOPPERS')); 
+            if(topprs.length < contentLength) {
+                topprs.push(topper);
+                Session.set(CURRENT_ORDER_LOC+'_TOPPERS',JSON.stringify(topprs));
+            }
+            pageController.toppers.push(topper);
         }
-        pageController.toppers.push(topper);
         
         html = '';
         html += '<li class="item">';
@@ -780,6 +796,7 @@ function OrderItemsController () {
 
     this.listSizes = function(data) {
         var sizes = data['sizes']
+        $("#size-and-crust .left-column").html("");
         for(var i = 0; i < sizes.length; i++) {
             html = "";
             if(i == 0){
@@ -797,10 +814,12 @@ function OrderItemsController () {
         size['description'] = description;
         pageController.sizes.push(size);
        
-        var sizesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SIZES'));
-        if(sizesArr.length < contentLength){
-           sizesArr.push(size);
-           Session.set(CURRENT_ORDER_LOC+'_SIZES',JSON.stringify(sizesArr));
+        if(CURRENT_ORDER_LOC != 'SIDES') {
+            var sizesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SIZES'));
+            if(sizesArr.length < contentLength){
+               sizesArr.push(size);
+               Session.set(CURRENT_ORDER_LOC+'_SIZES',JSON.stringify(sizesArr));
+            }
         }
 
         html = "";
@@ -935,6 +954,7 @@ function OrderItemsController () {
         var sauces = data['sauces']
         var html = "<li class=\"header\">Sauces:</li>";
         var noSauceHtml = "";
+        $("#cheese-and-sauce .left-column").html("");
         for(var i = 0; i < sauces.length; i++) {
            
             var sauceId = sauces[i]['SauceID'];
@@ -959,10 +979,12 @@ function OrderItemsController () {
         sauce['description'] = description;
         pageController.sauces.push(sauce);
         
-        var saucesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCES'));
-        if(saucesArr.length < contentLength){
-           saucesArr.push(sauce);
-           Session.set(CURRENT_ORDER_LOC+'_SAUCES', JSON.stringify(saucesArr));
+        if(CURRENT_ORDER_LOC != 'SIDES') {
+            var saucesArr = JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCES'));
+            if(saucesArr.length < contentLength){
+               saucesArr.push(sauce);
+               Session.set(CURRENT_ORDER_LOC+'_SAUCES', JSON.stringify(saucesArr));
+            }
         }
 
         html = "";
@@ -979,6 +1001,7 @@ function OrderItemsController () {
 
     this.listSauceModifiers = function(data) {
         var sauceModifiers = data['sauceModifiers']
+        $("#cheese-and-sauce .right-column").html("");
         for(var i = 0; i < sauceModifiers.length; i++) {
             html = "";
             if(i == 0){
@@ -1062,7 +1085,7 @@ this.buildModifyModalItem = function(orderType){
 
   var html = "";
  
-  $("#qntyHolder").html(orderType=="PIZZA"? "Quantity of Pizzas :":(orderType=="SUBS")?"Quantity of Subs :":"Quantity of Salads :");
+  $("#qntyHolder").html("Quantity :");
         
   if(data.length >0){  
     html += "<li class=\"header\">Type Flavors:</li>";
@@ -1216,10 +1239,12 @@ this.buildModifyModalItem = function(orderType){
         sauceModifier['id']          = id;
         sauceModifier['description'] = description;
         pageController.sauceModifiers.push(sauceModifier);
-        var sauceModfrArr =  JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS'));
-        if(sauceModfrArr.length < contentLength){
-         sauceModfrArr.push(sauceModifier);
-         Session.set(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS',JSON.stringify(sauceModfrArr));
+        if(CURRENT_ORDER_LOC != 'SIDES') {
+            var sauceModfrArr =  JSON.parse(Session.get(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS'));
+            if(sauceModfrArr.length < contentLength){
+             sauceModfrArr.push(sauceModifier);
+             Session.set(CURRENT_ORDER_LOC+'_SAUCEMODIFIERS',JSON.stringify(sauceModfrArr));
+            }
         }
         html = '';
         html += '<li class="item">';
