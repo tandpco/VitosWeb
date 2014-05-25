@@ -47,8 +47,15 @@ class TblsizesViewController
         unitId   = data['UnitID']
 
         unitSizes = $sizes["Units"].select { |s| s['UnitID'] == unitId }
-        #File.open("log", 'w') { |file| file.puts(JSON.generate(unitSizes.first['Sizes'])) }
-        tblsizesJson = unitSizes.first['Sizes'].to_json
+
+        tblsizesJson = "[]"
+
+        if(unitSizes.count > 0)
+            tblsizesJson = unitSizes.first['Sizes'].to_json
+        end
+
+        return tblsizesJson
+
     end
 
 end

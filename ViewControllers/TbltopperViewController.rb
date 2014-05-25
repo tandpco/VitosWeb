@@ -45,9 +45,19 @@ class TbltopperViewController
 
     def self.getTopperFromJson(data)
         unitId   = data['UnitID']
+        File.open("log", 'a') { |file| file.puts("UnitID: #{unitId}") }
+        #File.open("log", 'a') { |file| file.puts("Toppers: #{$topper}") }
 
         unitTopper = $topper["Units"].select { |t| t['UnitID'] == unitId }
-        tbltopperJson = unitTopper.first['Toppers'].to_json
+        File.open("log", 'a') { |file| file.puts("Toppers: #{unitTopper}") }
+
+        tbltopperJson = "[]"
+
+        if(unitTopper.count > 0)
+            tbltopperJson = unitTopper.first['Toppers'].to_json
+        end
+
+        return tbltopperJson
     end
 
 end

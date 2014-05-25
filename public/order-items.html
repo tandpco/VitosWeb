@@ -17,26 +17,30 @@
         <script src="/js-classes/order-items-controller.js"></script>
         <script type="text/javascript" language="javascript">
             
+            var PIZZA  = "1";
+            var SUBS   = "17";
+            var SALADS = "3";
+            var SIDES  = "8000";
+
             var CURRENT_ORDER_LOC ="PIZZA";
-            var UNIT_ID ="1";
-            
+            var UNIT_ID = PIZZA;
             
             var curr_loc= window.location.pathname;
             if(curr_loc.indexOf("pizza")!=-1){
               CURRENT_ORDER_LOC ="PIZZA";
-              UNIT_ID = "1";
+              UNIT_ID = PIZZA;
             }
             else if(curr_loc.indexOf("subs")!=-1){
               CURRENT_ORDER_LOC ="SUBS";
-              UNIT_ID = "17";
+              UNIT_ID = SUBS;
             }
             else if(curr_loc.indexOf("salads")!=-1){
               CURRENT_ORDER_LOC ="SALADS";
-               UNIT_ID = "3";
+               UNIT_ID = SALADS;
             }
             else if(curr_loc.indexOf("sides")!=-1){
               CURRENT_ORDER_LOC ="SIDES";
-              UNIT_ID = "8000";
+              UNIT_ID = SIDES;
             }
             
             var pageController;

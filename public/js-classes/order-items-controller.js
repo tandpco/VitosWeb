@@ -68,6 +68,11 @@ function OrderItemsController () {
             Session.set('ToppersInEdit', JSON.stringify(new Array()));
         }
     }  
+
+    this.getSideDetail = function(unitId) {
+        this.getData(unitId, false);
+        this.showModifyItemModal();
+    }  
     
     this.order = function() {
         $('#modal-modify-item').modal('hide');
@@ -87,13 +92,13 @@ function OrderItemsController () {
         $.session.set('selectedOrderLineId',"");
     }
 
-    this.getSpecialtyItems = function(specialtyId, styleId, sauceId) {
+    this.getSpecialtyItems = function(unitId, specialtyId, styleId, sauceId) {
         $.session.set('specialtyId', specialtyId);
 
         var json = {
             "StoreID":$.session.get("storeId"),
             "SpecialtyID":specialtyId,
-            "UnitID":UNIT_ID,
+            "UnitID":unitId,
             "SPECIALTY_ITEMS":"TRUE",
         }
 
@@ -533,14 +538,30 @@ function OrderItemsController () {
         html += "                        <td colspan=2>";
         html += "                            <p class=\"body\">" + detail + "</p>";
         html += "                        </td>";
-        html += "                    <tr>";
-        html += "                        <td>";
-        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
-        html += '                        </td>';
-        html += '                        <td>';
-        html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
-        html += "                        </td>";
-        html += "                    </tr>";
+
+
+        if(UNIT_ID == SIDES) {
+            html += "                    <tr>";
+            html += "                        <td>";
+            html += '                            <button class="red-gradient-button" onClick="pageController.getSideDetail(' + specialtyId + ')">ORDER NOW</button>';
+            html += '                        </td>';
+            html += '                        <td>';
+            html += '                            <button class="red-gradient-button" onClick="pageController.getSideItems(' + specialtyId + ')">SEE DETAILS</button>';
+            html += "                        </td>";
+            html += "                    </tr>";
+
+        }
+        else {
+            html += "                    <tr>";
+            html += "                        <td>";
+            html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
+            html += '                        </td>';
+            html += '                        <td>';
+            html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
+            html += "                        </td>";
+            html += "                    </tr>";
+        }
+
         html += "                </table>";
         html += "            </td>";
         html += "        </tr>";
@@ -1231,22 +1252,4 @@ this.buildModifyModalItem = function(orderType){
         $("#modal-modify-item").modal();
     }
     
-    buildItemForModifyItemModal = function(id,description) {
-        html = "";
-        html += "<li class=\"item\">";
-        html += "<input type=\"checkbox\" id=\"" + id + description + "\"/>";
-        html += "<label for=\"" + id + description + "\">" + description + "</label>";
-        html += "</li>";
-        return html;
-    }
-    buildItemForGridPanel = function(name,detail) {
-        html = "<div id=\"grid-block\" class=\"col-md-5\">";
-        html += "<table id=\"grid-table\"><tr><td><img src=\"/img/pizza-background.jpg\" width=\"100\" height=\"100\"></td>";
-        html += "<td><table><tr><td colspan=2>";
-        html += "<p class=\"header\">" + name + "</p>";
-        html += "</td></tr><tr><td colspan=2>";
-        html += "<p class=\"body\">" + detail + "</p>";
-        html += "</td><tr><td><button class=\"red-gradient-button\" onClick=\"$('#modal-modify-item').modal()\">ORDER NOW</button></td><td><button class=\"red-gradient-button\">SEE DETAILS</button></td></tr></table></td></tr></table></div>";
-        return html;
-    }
 }

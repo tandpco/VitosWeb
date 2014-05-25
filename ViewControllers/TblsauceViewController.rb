@@ -47,7 +47,16 @@ class TblsauceViewController
         unitId   = data['UnitID']
 
         unitSauce = $sauce["Units"].select { |t| t['UnitID'] == unitId }
-        tblsauceJson = unitSauce.first['Sauces'].to_json
+
+        tblsauceJson = "[]"
+
+        if(unitSauce.count > 0)
+            tblsauceJson = unitSauce.first['Sauces'].to_json
+        end
+
+        return tblsauceJson
+
+
     end
 
 end
