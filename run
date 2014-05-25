@@ -1,22 +1,13 @@
 #!/usr/bin/ruby
+require 'json'
+
 path = File.dirname($0)
-logFileName = "#{path}/run.log"
-pidFileName = "#{path}/run.pid"
-
-puts
-if(ARGV.length != 1)
-    puts "Usage: #{$0} <config.json>"
-    exit -1
-end
-
-config = ARGV[0]
-
 
 # Find out if already running
-if(File.exists?(pidFileName))
-    pid = File.read(pidFileName)
+if(File.exists?('./puma.pid'))
+    pid = File.read('./puma.pid')
     pid.chomp!
-    isRunning = `ps -aux | grep '#{pid}.*rub[y]'`
+    isRunning = `ps -aux | grep '#{pid}.*pum[a]'`
     isRunning.chomp!
 
     if(isRunning.length > 0)
@@ -29,10 +20,6 @@ if(File.exists?(pidFileName))
     end
 end
 
-
-command = "/usr/bin/ruby Router.rb #{config}"
+command = "/usr/local/bin/puma -C ./config/puma.config"
 puts("Starting solution: #{command}")
-pid = spawn(command, :out=>logFileName, :err=>logFileName)
-puts("    New process: #{pid}")
-
-File.write(pidFileName, pid)
+system(command)

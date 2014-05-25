@@ -1,7 +1,9 @@
 require 'sinatra'
+require "sinatra/config_file"
 require 'json'
 require 'active_record'
 
+config_file 'config/settings.yml'
 Dir["./ViewControllers/*.rb"].sort.each do |file| 
     file.sub!("\.rb","");
     require file
@@ -12,28 +14,18 @@ Dir["./ModelControllers/*.rb"].sort.each do |file|
     require file
 end
 
-if(ARGV.length != 1)
-    puts "Usage: ruby #{$0} <config.json>"
-    exit -1
-end
-
-set :bind, '0.0.0.0'
-set :port, 4222
-
-config          = JSON::load(File.open(ARGV.shift))
-$sizes          = JSON::load(File.open('./JSON-DATA/sizes.json'))
-$topper         = JSON::load(File.open('./JSON-DATA/toppers.json'))
-$sauce          = JSON::load(File.open('./JSON-DATA/sauces.json'))
-$saucemodifier  = JSON::load(File.open('./JSON-DATA/saucemodifiers.json'))
-$specialty      = JSON::load(File.open('./JSON-DATA/specialties.json'))
+config = JSON::load(File.open(settings.configName))
+$sizes          = JSON::load(File.open("./JSON-DATA/sizes.json"))
+$topper         = JSON::load(File.open("./JSON-DATA/toppers.json"))
+$sauce          = JSON::load(File.open("./JSON-DATA/sauces.json"))
+$saucemodifier  = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
+$specialty      = JSON::load(File.open("./JSON-DATA/specialties.json"))
 
 $PIZZA     = "1"
 $SUB       = "17"
 $SALAD     = "3"
 $SIDE      = "8000"
 $BEVERAGE  = "8001"
-
-
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')

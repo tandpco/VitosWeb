@@ -1,10 +1,7 @@
 #!/usr/bin/ruby
-path = File.dirname($0)
-logFileName = "#{path}/run.log"
-pidFileName = "#{path}/run.pid"
 
-if(File.exists?(pidFileName))
-    pid = File.read(pidFileName)
+if(File.exists?('./puma.pid'))
+    pid = File.read('./puma.pid')
     pid.chomp!
     puts("Stopping process: #{pid}")
     Process.kill("KILL", pid.to_i)

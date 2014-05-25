@@ -1,6 +1,7 @@
 ## User defined
-run.pid
-run.log
+puma.pid
+puma.stderr.log
+puma.stdout.log
 Gemfile.lock
 ## End
 *.rbc
