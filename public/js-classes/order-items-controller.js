@@ -301,18 +301,18 @@ function OrderItemsController () {
         var orderId = $.session.get("orderId");
         
         var orderItemJson = {
-            "pOrderID"         : orderId,
-            "pUnitID"          : UNIT_ID,
-            "pSpecialtyID"     : ((orderItem['item']['id'] ) == null ? '' : orderItem['item']['id']),
-            "pSizeID"          : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
-            "pStyleID"         : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
+            "pOrderID"              : orderId,
+            "pUnitID"               : UNIT_ID,
+            "pSpecialtyID"          : ((orderItem['item']) == undefined ? 'NULL' : orderItem['item']['id']),
+            "pSizeID"               : (orderItem['size']!=undefined && orderItem['size']!=null)? orderItem['size']['id']:'NULL',
+            "pStyleID"              : (orderItem['style']!=undefined && orderItem['style']!=null)? orderItem['style']['id']:'NULL',
             "pHalf1SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
             "pHalf2SauceID"         : (orderItem['sauce']!=undefined && orderItem['sauce']!=null)? orderItem['sauce']['id']:'NULL',
             "pHalf1SauceModifierID" : orderItem['sauceModifier']['id'],
             "pHalf2SauceModifierID" : orderItem['sauceModifier']['id'],
-            "pOrderLineNotes"           : orderItem['item']['detail'],
-            "pInternetDescription"     : orderItem['item']['detail'],
-            "pQuantity"        : orderItem['quantity']//passing quantity in json    
+            "pOrderLineNotes"       : ((orderItem['item']) == undefined ? 'NULL' : orderItem['item']['detail']),
+            "pInternetDescription"  : ((orderItem['item']) == undefined ? 'NULL' : orderItem['item']['detail']),
+            "pQuantity"             : orderItem['quantity']//passing quantity in json    
         }
 
         var userPromos = JSON.parse($.session.get('userPromoCodes'));
@@ -355,35 +355,47 @@ function OrderItemsController () {
             "pOrderNotes"      : ""
         }
 
-        var json = {
-            "order" : orderJson, 
-            "orderItem" : orderItemJson,
-            "updatePrice" : updatePriceJson,
-            "orderItemToppings" : orderItemToppingsJson
-        }
+        // Don't submit side order until service call works
+        if(UNIT_ID != SIDES) {
 
-        var URL = "/rest/view/tblorders/create-tblorders";
-
-        $.ajax({
-            url: URL,
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                console.log('Created Order Id: ' + data['order'][0]['newid']);
-                $.session.set('orderId', data['order'][0]['newid']);
-
-                var orderItemId = data['orderItem'][0]['newid'];
-                orderItem['id'] = orderItemId;
-
-                var orderItems       = JSON.parse($.session.get('orderItems'));
-
-                orderItems.push(orderItem);
-
-                $.session.set('orderItems', JSON.stringify(orderItems));
-
-                pageController.listOrderItems();
+            var json = {
+                "order" : orderJson, 
+                "orderItem" : orderItemJson,
+                "updatePrice" : updatePriceJson,
+                "orderItemToppings" : orderItemToppingsJson
             }
-        });
+    
+            var URL = "/rest/view/tblorders/create-tblorders";
+    
+            $.ajax({
+                url: URL,
+                type: "POST",
+                data: JSON.stringify(json),
+                success: function(data) {
+                    console.log('Created Order Id: ' + data['order'][0]['newid']);
+                    $.session.set('orderId', data['order'][0]['newid']);
+    
+                    var orderItemId = data['orderItem'][0]['newid'];
+                    orderItem['id'] = orderItemId;
+    
+                    var orderItems       = JSON.parse($.session.get('orderItems'));
+    
+                    orderItems.push(orderItem);
+    
+                    $.session.set('orderItems', JSON.stringify(orderItems));
+    
+                    pageController.listOrderItems();
+                }
+            });
+        }
+        else {
+            orderItem['id'] = 0;
+            $.session.set('orderId', 0);
+            var orderItems       = JSON.parse($.session.get('orderItems'));
+            orderItems.push(orderItem);
+            $.session.set('orderItems', JSON.stringify(orderItems));
+            pageController.listOrderItems();
+        }
     }
 
     this.updatePrice = function() {

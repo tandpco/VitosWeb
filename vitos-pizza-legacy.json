@@ -94,6 +94,15 @@
                 ]
             },
             {
+                "name": "StoreLocator",
+                "methods" : [
+                    {
+                        "name"        : "findStore",
+                        "type"        : "custom"
+                    }
+                ]
+            },
+            {
                 "name": "Tblunit",
                 "methods" : [
                     {
@@ -2048,6 +2057,9 @@
         },
         {
             "type"     : "RubyPuma"
+        },
+        {
+            "type"     : "RubyGeometry"
         },
         {
             "type"     : "Bootstrap"

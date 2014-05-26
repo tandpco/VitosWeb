@@ -21,13 +21,17 @@ $items          = JSON::load(File.open("./JSON-DATA/items.json"))
 $sauce          = JSON::load(File.open("./JSON-DATA/sauces.json"))
 $saucemodifier  = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
 $specialty      = JSON::load(File.open("./JSON-DATA/specialties.json"))
+$stores         = JSON::load(File.open("./JSON-DATA/store-coordinates.json"))
 
-$PIZZA     = "1"
-$SUB       = "17"
-$SALAD     = "3"
-$SIDE      = "8000"
-$BEVERAGE  = "8001"
-$VITOBREAD = "8002"
+$PIZZA               = "1"
+$SUB                 = "17"
+$SALAD               = "3"
+$SIDE                = "8000"
+$VITOBREAD           = "8002"
+$WINGS               = "8004"
+$CINNAMONBREADSTICKS = "8005"
+$DIPPERS             = "8007"
+$BEVERAGE            = "8015"
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')
@@ -63,6 +67,10 @@ end
 
 get '/payment-information' do
     send_file('public/payment-information.html')
+end
+
+get '/store-locator' do
+    send_file('public/store-locator.html')
 end
 
 get '/tblunit' do
@@ -2011,6 +2019,12 @@ post '/rest/model/trelunitstyles/filter' do
 end
 
 # View REST routes (POST)
+post '/rest/view/store-locator/find-store' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    StoreLocatorViewController.findStore(data)
+end
 post '/rest/view/tblunit/get-tblunits' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read

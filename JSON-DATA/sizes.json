@@ -54,6 +54,30 @@
                     "id": null
                 }
             ]
+        },
+        {
+            "UnitID" : "8007",
+            "Sizes"  : [
+                {
+                    "RADRAT": "2011-05-04T13:30:34Z",
+                    "SizeDescription": "3/4 Pound",
+                    "SizeID": 21,
+                    "SizeShortDescription": "3/4 Pound",
+                    "id": null
+                }
+            ]
+        },
+        {
+            "UnitID" : "8004",
+            "Sizes"  : [
+                {
+                    "RADRAT": "2011-05-04T13:30:34Z",
+                    "SizeDescription": "Order of 6",
+                    "SizeID": 55,
+                    "SizeShortDescription": "Order of 6",
+                    "id": null
+                }
+            ]
         }
     ]
 }

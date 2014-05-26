@@ -154,42 +154,23 @@ function SignInController () {
                 // Output the data
                 var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay=' + pageController.delay + 'ms)<br>';
 
-                var stores = new Array();
-                stores[0]  = { storeId: "1", lat: "41.6611726", lng: "-83.66769339999996" };
-                stores[1]  = { storeId: "2", lat: "41.58776779999999", lng: "-83.4926021" };
-                stores[2]  = { storeId: "3", lat: "41.690257", lng: "-83.71288800000002" };
-                stores[3]  = { storeId: "4", lat: "41.6373726", lng: "-83.45169169999997" };
-                stores[4]  = { storeId: "5", lat: "41.6330219", lng: "-83.590169" };
-                stores[5]  = { storeId: "6", lat: "41.5942302", lng: "-83.64468590000001" };
-                stores[6]  = { storeId: "7", lat: "41.704079", lng: "-83.56567100000001" };
-                stores[7]  = { storeId: "8", lat: "41.705399", lng: "-83.66177299999998" };
-                stores[8]  = { storeId: "9", lat: "41.5451618", lng: "-83.62160929999999" };
-                stores[9]  = { storeId: "10", lat: "41.6258259", lng: "-83.70329290000001" };
-                stores[10] = { storeId: "11", lat: "41.64471", lng: "-83.51976200000001" };
-                stores[11] = { storeId: "12", lat: "41.696273", lng: "-83.604289" };
-                stores[12] = { storeId: "13", lat: "41.684755", lng: "-83.54274399999997" };
-                stores[13] = { storeId: "14", lat: "41.059306", lng: "-83.65056600000003" };
-                stores[14] = { storeId: "15", lat: "41.7155184", lng: "-83.47915039999998" };
-                stores[15] = { storeId: "16", lat: "41.6776187", lng: "-83.62064929999997" };
-                stores[16] = { storeId: "17", lat: "41.7501802", lng: "-83.5677637" };
-                stores[17] = { storeId: "18", lat: "41.1023733", lng: "-85.05734899999999" };
-                stores[18] = { storeId: "19", lat: "41.9256341", lng: "-83.4133933" };
-                stores[19] = { storeId: "20", lat: "41.374559", lng: "-83.64959899999997" };
-    
-                var minDistance = 1000;
-                var closeestStoreId = -1;
-                for(var i = 0; i < stores.length; i++) {
-                    var store = stores[i]; 
-                    var distance = getDistanceFromLatLonInKm(lat,lng,store['lat'],store['lng']);
-                    if(distance < minDistance) {
-                        closestStoreId = store['storeId'];
-                        minDistance = distance;
-                    }
+                var json = {
+                    x: lng,
+                    y: lat
                 }
-    
-                console.log('Closest store: ' + closestStoreId);
-                console.log('Distance: ' + minDistance + ' km');
-                pageController.chooseLocation(closestStoreId);
+        
+                $.ajax({
+                    url: "/rest/view/store-locator/find-store",
+                    type: "POST",
+                    data: JSON.stringify(json),
+                    success: function(data) {
+                        // Yay! It worked!
+                        if(data != '') {
+                            var storeId = data['StoreID']
+                            pageController.chooseLocation(storeId);
+                        }
+                    }
+                });
 
             }
             // ====== Decode the error status ======
