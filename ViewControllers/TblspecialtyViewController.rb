@@ -55,8 +55,13 @@ class TblspecialtyViewController
         unitId   = data['UnitID'].to_s
         File.open("log", 'w') { |file| file.puts("UnitID: #{unitId}") }
 
+        returnData = Array.new
+
         unitSpecialty = $specialty["Units"].select { |s| s['UnitID'] == unitId }
-        returnData = unitSpecialty.first['Specialties']
+
+        if(unitSpecialty.count > 0)
+            returnData = unitSpecialty.first['Specialties']
+        end
 
         return returnData
     end
