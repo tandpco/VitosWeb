@@ -18,7 +18,9 @@ class TblitemsViewController
     def self.getTblitems(data)
         unitId   = data['UnitID']
 
-        if(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD}|#{$SIDE})$/)
+        if(data.has_key?("SPECIALTY_ITEMS"))
+            return getSpecialtyItemsFromJson(data)
+        elsif(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD}|#{$SIDE})$/)
             return getItemsFromDatabase(data)
         else
             return getItemsFromJson(data)
@@ -31,13 +33,7 @@ class TblitemsViewController
 
         storeId  = data['StoreID']
         unitId   = data['UnitID']
-        if(data.has_key?("SPECIALTY_ITEMS"))
-            specialtyId   = data['SpecialtyID']
-            tblitems = Tblitems.joins("inner join trelSpecialtyItem as si on tblItems.ItemID = si.ItemID  AND tblItems.IsActive <> 0 inner join tblSpecialty as s on si.SpecialtyID = s.SpecialtyID inner join trelStoreSpecialty as ss on s.SpecialtyID = ss.SpecialtyID AND ss.SpecialtyID = #{specialtyId} AND ss.StoreID = #{storeId} inner join trelUnitItems as ui on tblItems.ItemID = ui.ItemID AND ui.UnitID = #{unitId} order by tblItems.ItemDescription")
-        else
-            tblitems = Tblitems.joins("inner join trelStoreItem on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = #{storeId} and trelUnitItems.UnitID = #{unitId} and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription")
-        end
-
+        tblitems = Tblitems.joins("inner join trelStoreItem on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = #{storeId} and trelUnitItems.UnitID = #{unitId} and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 order by ItemDescription")
 
         Array tblitemsJson = Array.new
         tblitems.each do |tblitems|
@@ -52,6 +48,23 @@ class TblitemsViewController
         unitId   = data['UnitID'].to_s
 
         unitItems = $items["Units"].select { |s| s['UnitID'] == unitId }
+
+        tblitemsJson = "[]"
+
+        if(unitItems.count > 0)
+            tblitemsJson = unitItems.first['Items'].to_json
+        end
+
+        return tblitemsJson
+
+    end
+
+    def self.getSpecialtyItemsFromJson(data)
+        specialtyId   = data['SpecialtyID'].to_s
+        #File.open("log", 'w') { |file| file.puts("SpecialtyID: #{specialtyId}") }
+
+        unitItems = $specialtyItems["Units"].select { |s| s['SpecialtyID'] == specialtyId }
+        #File.open("log", 'a') { |file| file.puts("units: #{unitItems}") }
 
         tblitemsJson = "[]"
 

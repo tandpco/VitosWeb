@@ -353,6 +353,7 @@ OrderItems.buildYourOrder = function () {
 
         for (var i = 0; i < orderItems.length; i++) {
             var orderItem = orderItems[i];
+            console.log(orderItem);
 
             var cost = Number(orderItem['cost']);
             orderSubTotal += (cost * Number(orderItem['quantity']));

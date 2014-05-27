@@ -276,17 +276,22 @@ function OrderItemsController () {
 
         orderItem['toppings'] = new Array();
 
-        for(var i = 0; i < toppings.length; i++) {
-            var item     = toppings[i];
-            var elements = item.split('-');
-            var itemId   = elements[0];
-            var portion  = elements[1].split('+')[0];
-            var description = elements[1].split('+')[1];
-            var topping={};
-            topping['portion'] = portion;
-            topping['id'] = itemId;
-            topping['description'] = description;
-            orderItem['toppings'].push(topping);
+        // Don't try this with items that don't have toppings
+        console.log("UnitID: " + UNIT_ID);
+        console.log("SpecialtyID: " + specialtyId);
+        if(UNIT_ID != SIDES) {
+            for(var i = 0; i < toppings.length; i++) {
+                var item     = toppings[i];
+                var elements = item.split('-');
+                var itemId   = elements[0];
+                var portion  = elements[1].split('+')[0];
+                var description = elements[1].split('+')[1];
+                var topping={};
+                topping['portion'] = portion;
+                topping['id'] = itemId;
+                topping['description'] = description;
+                orderItem['toppings'].push(topping);
+            }
         }
 
         //var orderToppingsJson = JSON.stringify(orderItem['toppings']);

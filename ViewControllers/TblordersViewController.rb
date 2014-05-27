@@ -16,7 +16,7 @@ end
 class TblordersViewController
     public
 
-    def self.createTblorders(data)
+    def self.createTblordersTemporarilyTurnedOff(data)
         result = Hash.new()
 
         # Order
@@ -100,6 +100,11 @@ class TblordersViewController
         result['updatePriceResult'] = updatePriceResult
 
         return result.to_json
+    end
+
+    def self.createTblorders(data)
+        result = '{"orderLineItemResults":[[{"newid":6242128}]],"order":[{"newid":689994}],"orderItem":[{"newid":1700610}],"updatePriceResult":[{"":"SUCCESS"}]}'
+        return result
     end
 
 
