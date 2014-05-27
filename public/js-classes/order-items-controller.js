@@ -168,36 +168,29 @@ function OrderItemsController () {
     this.listOrder = function() {
         var deferred = $.Deferred();
         var json = {
-            "Tblorders": {
-                "filters": [
-                    {
-                        "name": "OrderID",
-                        "value": $.session.get('orderId')
-                    }
-                ],
-                "pagination": {
-                    "page": "1",
-                    "limit": "1"
-                }
-            }
+            "OrderID" : $.session.get('orderId')
         }
 
-        var URL = "/rest/model/tblorders/filter";
+        var URL = "/rest/view/tblorders/get-tblorders";
 
         $.ajax({
             url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
-                var order = data['tblorders'][0]
-                $.session.set('orderTax', order['Tax']);
-                $.session.set('orderTax2', order['Tax2']);
-                $.session.set('orderTip', order['Tip']);
-                $.session.set('orderDriverMoney', order['DriverMoney']);
-                $.session.set('orderDeliveryCharge', order['DeliveryCharge']);
+                if(data.length > 0) {
+                    var order = data['tblorders'][0]
+                    $.session.set('orderTax', order['Tax']);
+                    $.session.set('orderTax2', order['Tax2']);
+                    $.session.set('orderTip', order['Tip']);
+                    $.session.set('orderDriverMoney', order['DriverMoney']);
+                    $.session.set('orderDeliveryCharge', order['DeliveryCharge']);
+    
+                }
 
                 $('#modal-please-wait').modal('hide');
                 $("#modify-items-close-button").click();
+
                 OrderItems.buildYourOrder();
             }
         });
@@ -277,21 +270,17 @@ function OrderItemsController () {
         orderItem['toppings'] = new Array();
 
         // Don't try this with items that don't have toppings
-        console.log("UnitID: " + UNIT_ID);
-        console.log("SpecialtyID: " + specialtyId);
-        if(UNIT_ID != SIDES) {
-            for(var i = 0; i < toppings.length; i++) {
-                var item     = toppings[i];
-                var elements = item.split('-');
-                var itemId   = elements[0];
-                var portion  = elements[1].split('+')[0];
-                var description = elements[1].split('+')[1];
-                var topping={};
-                topping['portion'] = portion;
-                topping['id'] = itemId;
-                topping['description'] = description;
-                orderItem['toppings'].push(topping);
-            }
+        for(var i = 0; i < toppings.length; i++) {
+            var item     = toppings[i];
+            var elements = item.split('-');
+            var itemId   = elements[0];
+            var portion  = elements[1].split('+')[0];
+            var description = elements[1].split('+')[1];
+            var topping={};
+            topping['portion'] = portion;
+            topping['id'] = itemId;
+            topping['description'] = description;
+            orderItem['toppings'].push(topping);
         }
 
         //var orderToppingsJson = JSON.stringify(orderItem['toppings']);
@@ -361,7 +350,7 @@ function OrderItemsController () {
         }
 
         // Don't submit side order until service call works
-        if(UNIT_ID != SIDES) {
+        if(UNIT_ID == PIZZA || UNIT_ID == SUBS || UNIT_ID == SALADS) {
 
             var json = {
                 "order" : orderJson, 
@@ -394,11 +383,11 @@ function OrderItemsController () {
             });
         }
         else {
-            orderItem['id'] = 0;
-            $.session.set('orderId', 0);
-            var orderItems       = JSON.parse($.session.get('orderItems'));
-            orderItems.push(orderItem);
-            $.session.set('orderItems', JSON.stringify(orderItems));
+            //orderItem['id'] = 0;
+            //$.session.set('orderId', 0);
+            //var orderItems       = JSON.parse($.session.get('orderItems'));
+            //orderItems.push(orderItem);
+            //$.session.set('orderItems', JSON.stringify(orderItems));
             pageController.listOrderItems();
         }
     }

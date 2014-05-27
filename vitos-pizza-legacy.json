@@ -204,6 +204,11 @@
                         "type"        : "model",
                         "model"       : "Tblorders",
                         "modelMethod" : "updatePrice"
+                    },
+                    {
+                        "type"        : "model",
+                        "model"       : "Tblorder",
+                        "modelMethod" : "get"
                     }
                 ]
             },

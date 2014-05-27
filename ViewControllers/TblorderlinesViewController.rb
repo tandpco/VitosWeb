@@ -33,7 +33,9 @@ class TblorderlinesViewController
         orderId = data['OrderID']
 
         tblorderlines = []
-        tblorderlines = Tblorderlines.where("OrderID = #{orderId}").order("OrderLineID ASC")
+        if(orderId.to_i > 0)
+            tblorderlines = Tblorderlines.where("OrderID = #{orderId}").order("OrderLineID ASC")
+        end
 
         return tblorderlines
     end

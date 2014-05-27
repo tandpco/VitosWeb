@@ -19,7 +19,7 @@ class TblspecialtyViewController
         unitId   = data['UnitID']
         result = Hash.new()
 
-        if(unitId != $SIDE)
+        if(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD})$/)
             result['specialties']    = self.getSpecialtyFromDatabase(data)
         else
             result['specialties']    = self.getSpecialtyFromJson(data)
@@ -52,7 +52,8 @@ class TblspecialtyViewController
     end 
 
     def self.getSpecialtyFromJson(data)
-        unitId   = data['UnitID']
+        unitId   = data['UnitID'].to_s
+        File.open("log", 'w') { |file| file.puts("UnitID: #{unitId}") }
 
         unitSpecialty = $specialty["Units"].select { |s| s['UnitID'] == unitId }
         returnData = unitSpecialty.first['Specialties']

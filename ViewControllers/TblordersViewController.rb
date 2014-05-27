@@ -16,7 +16,7 @@ end
 class TblordersViewController
     public
 
-    def self.createTblordersTemporarilyTurnedOff(data)
+    def self.createTblorders(data)
         result = Hash.new()
 
         # Order
@@ -101,13 +101,30 @@ class TblordersViewController
 
         return result.to_json
     end
-
-    def self.createTblorders(data)
-        result = '{"orderLineItemResults":[[{"newid":6242128}]],"order":[{"newid":689994}],"orderItem":[{"newid":1700610}],"updatePriceResult":[{"":"SUCCESS"}]}'
-        return result
+    
+    def self.getTblorders(data)
+        return getOrdersFromDatabase(data)
     end
+    
+    def self.getOrdersFromDatabase(data)
 
+        tblorders = []
 
+        orderId  = data['OrderID']
+        if(orderId.to_i > 0)
+            tblorders = Tblorders.where("OrderID = #{orderId}")
+        end
+        
+        Array tblordersJson = Array.new
+        tblorders.each do |tblorders|
+            tblordersJson.push({ :id => tblorders.id, :AddressID => tblorders.AddressID, :CustomerID => tblorders.CustomerID, :CustomerName => tblorders.CustomerName, :CustomerPhone => tblorders.CustomerPhone, :DailySequence => tblorders.DailySequence, :DeliveryCharge => tblorders.DeliveryCharge, :DriverMoney => tblorders.DriverMoney, :EditEmpID => tblorders.EditEmpID, :EditReason => tblorders.EditReason, :EmpID => tblorders.EmpID, :ExpectedDate => tblorders.ExpectedDate, :IPAddress => tblorders.IPAddress, :IsPaid => tblorders.IsPaid, :OrderID => tblorders.OrderID, :OrderNotes => tblorders.OrderNotes, :OrderStatusID => tblorders.OrderStatusID, :OrderTypeID => tblorders.OrderTypeID, :PaidDate => tblorders.PaidDate, :PaymentAuthorization => tblorders.PaymentAuthorization, :PaymentEmpID => tblorders.PaymentEmpID, :PaymentReference => tblorders.PaymentReference, :PaymentTypeID => tblorders.PaymentTypeID, :RADRAT => tblorders.RADRAT, :RefID => tblorders.RefID, :ReleaseDate => tblorders.ReleaseDate, :SessionID => tblorders.SessionID, :StoreID => tblorders.StoreID, :SubmitDate => tblorders.SubmitDate, :Tax => tblorders.Tax, :Tax2 => tblorders.Tax2, :Tip => tblorders.Tip, :TransactionDate => tblorders.TransactionDate, :VoidDate => tblorders.VoidDate, :VoidEmpID => tblorders.VoidEmpID, :VoidReason => tblorders.VoidReason })
+        end
+
+        tblordersContainer = { :tblorders => tblordersJson }
+
+        return tblordersContainer.to_json
+
+    end
 
     def self.convertToInt(value)
         if(value == 'NULL' || value.to_i == 0)

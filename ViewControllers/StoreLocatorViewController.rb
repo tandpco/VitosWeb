@@ -55,7 +55,7 @@ class StoreLocatorViewController
         x_client = data['x'].to_f
         y_client = data['y'].to_f
         returnValue = Hash.new()
-        $stores = JSON::load(File.open("./JSON-DATA/store-coordinates.json"))
+ 
         minDistance = 1000000
         closestStoreId = -1
         distance = ''
