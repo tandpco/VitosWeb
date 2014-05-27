@@ -20,8 +20,10 @@ class TblitemsViewController
 
         if(data.has_key?("SPECIALTY_ITEMS"))
             return getSpecialtyItemsFromJson(data)
-        elsif(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD}|#{$SIDE})$/)
+        elsif(unitId == $PIZZA)
             return getItemsFromDatabase(data)
+        elsif(unitId =~ /^(#{$SUB}|#{$SALAD}|#{$SIDE})$/)
+            return getItemsFromJson(data)
         else
             return getItemsFromJson(data)
         end
