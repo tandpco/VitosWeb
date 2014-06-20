@@ -18,7 +18,7 @@ class TbltopperViewController
     def self.getTbltoppers(data)
         unitId   = data['UnitID']
 
-        if(unitId == $PIZZA)
+        if(unitId == $PIZZA || unitId == $SUB)
             return getTopperFromDatabase(data)
         else
             return getTopperFromJson(data)

@@ -26,7 +26,7 @@ $specialty      = JSON::load(File.open("./JSON-DATA/specialties.json"))
 $stores         = JSON::load(File.open("./JSON-DATA/store-coordinates.json"))
 
 $PIZZA               = "1"
-$SUB                 = "17"
+$SUB                 = "32"
 $SALAD               = "3"
 $SIDE                = "8000"
 $VITOBREAD           = "8002"

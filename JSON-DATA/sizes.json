@@ -1,25 +1,6 @@
 {
     "Units" : [
         {
-            "UnitID" : "17",
-            "Sizes"  : [
-                {
-                    "id" : "61",
-                    "SizeID" : "61",
-                    "SizeDescription" : "Whole Foldover",
-                    "SizeShortDescription" : "Whole Foldover",
-                    "RADRAT" : "2014-02-06 14:33:09"
-                },
-                {
-                    "id" : "65",
-                    "SizeID" : "65",
-                    "SizeDescription" : "Half Foldover",
-                    "SizeShortDescription" : "Half Foldover",
-                    "RADRAT" : "2014-02-06 14:33:09"
-                }
-            ]
-        },
-        {
             "UnitID" : "3",
             "Sizes"  : [
                 {

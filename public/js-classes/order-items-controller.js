@@ -39,6 +39,7 @@ function OrderItemsController () {
             "UnitID": unitId,
             "SizeID":"9"
         }
+        console.log(json);
 
         var URL = "/rest/view/tblspecialty/get-tblspecialties";
         
@@ -504,16 +505,16 @@ function OrderItemsController () {
             "19" : "ChickenChipotle3000x300.jpg",
             "22" : "TheWorks300x300.jpg",
             "94" : "TonyPackos300x300.jpg",
-            "59" : "ItalianFoldoverSub300x300.jpg",
-            "60" : "ItalianFoldoverSub300x300.jpg",
-            "61" : "ItalianFoldoverSub300x300.jpg",
-            "62" : "BBQChickenSub300x300.jpg",
-            "64" : "ItalianFoldoverSub300x300.jpg",
-            "65" : "ItalianFoldoverSub300x300.jpg",
-            "68" : "ItalianFoldoverSub300x300.jpg",
-            "69" : "ItalianFoldoverSub300x300.jpg",
-            "88" : "ItalianFoldoverSub300x300.jpg",
-            "91" : "ItalianFoldoverSub300x300.jpg",
+            "27" : "ItalianFoldoverSub300x300.jpg",
+            "28" : "ItalianFoldoverSub300x300.jpg",
+            "29" : "ItalianFoldoverSub300x300.jpg",
+            "30" : "ItalianFoldoverSub300x300.jpg",
+            "32" : "ItalianFoldoverSub300x300.jpg",
+            "33" : "ItalianFoldoverSub300x300.jpg",
+            "36" : "ItalianFoldoverSub300x300.jpg",
+            "37" : "ItalianFoldoverSub300x300.jpg",
+            "44" : "ItalianFoldoverSub300x300.jpg",
+            "45" : "ItalianFoldoverSub300x300.jpg",
             "38" : "ChickenSalad3000x300.jpg",
             "39" : "ItalianSalad3000x300.jpg",
             "40" : "ItalianSalad3000x300.jpg",
