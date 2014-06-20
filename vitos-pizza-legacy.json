@@ -1,5 +1,5 @@
 {
-    "component"   : "JetstreamEngine",
+    "component"   : "RaptorEngine",
     "settings"    : {
         "name"      : "vitos-pizza-legacy",
         "port"      : "4222",
@@ -18,7 +18,8 @@
         ],
         "views"     : [
             {
-                "name": "SignIn",
+                "name"      : "SignIn",
+                "isDefault" : "true",
                 "methods" : [
                     {
                         "name"        : "init",
@@ -2058,28 +2059,16 @@
     },
     "units"       : [
         {
-            "type"     : "RubySinatra"
+            "type"     : "Ruby/Project/Sinatra"
         },
         {
-            "type"     : "RubyPuma"
+            "type"     : "Ruby/Project/Geometry"
         },
         {
-            "type"     : "RubyGeometry"
+            "type"     : "Ruby/Project/VitosCustom"
         },
         {
-            "type"     : "Bootstrap"
-        },
-        {
-            "type"     : "RubyHtmlRoute"
-        },
-        {
-            "type"     : "RubyActiveRecordLiteralModel"
-        },
-        {
-            "type"     : "RubyView"
-        },
-        {
-            "type"     : "RubyVitosCustom"
+            "type"     : "Ruby/DataModel/ActiveRecordLiteralModel"
         }
     ]
 }

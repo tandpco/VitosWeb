@@ -15,6 +15,7 @@ Dir["./ModelControllers/*.rb"].sort.each do |file|
 end
 
 config = JSON::load(File.open(settings.configName))
+
 $sizes          = JSON::load(File.open("./JSON-DATA/sizes.json"))
 $topper         = JSON::load(File.open("./JSON-DATA/toppers.json"))
 $items          = JSON::load(File.open("./JSON-DATA/items.json"))
@@ -118,6 +119,117 @@ get '/tblorderlines' do
     send_file('public/tblorderlines.html')
 end
 
+# View REST routes (POST)
+post '/rest/view/store-locator/find-store' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    StoreLocatorViewController.findStore(data)
+end
+post '/rest/view/tblunit/get-tblunits' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblunitViewController.getTblunits(data)
+end
+
+post '/rest/view/tblspecialty/get-tblspecialties' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblspecialtyViewController.getTblspecialties(data)
+end
+
+post '/rest/view/tblcustomers/get-tblcustomers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblcustomersViewController.getTblcustomers(data)
+end
+
+post '/rest/view/tblitems/get-tblitems' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblitemsViewController.getTblitems(data)
+end
+
+post '/rest/view/tblsauce/get-tblsauces' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsauceViewController.getTblsauces(data)
+end
+
+post '/rest/view/tbltopper/get-tbltoppers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TbltopperViewController.getTbltoppers(data)
+end
+
+post '/rest/view/tblsizes/get-tblsizes' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsizesViewController.getTblsizes(data)
+end
+
+post '/rest/view/tblstyles/get-tblstyles' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblstylesViewController.getTblstyles(data)
+end
+
+post '/rest/view/tblsaucemodifier/get-tblsaucemodifiers' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblsaucemodifierViewController.getTblsaucemodifiers(data)
+end
+
+post '/rest/view/tblorders/create-tblorders' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblordersViewController.createTblorders(data)
+end
+
+post '/rest/view/tblorders/update-price-tblorders' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblordersViewController.updatePriceTblorders(data)
+end
+
+post '/rest/view/tblorders/get-tblorders' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblordersViewController.getTblorders(data)
+end
+
+post '/rest/view/tblorderlines/create-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.createTblorderlines(data)
+end
+
+post '/rest/view/tblorderlines/delete-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.deleteTblorderlines(data)
+end
+
+post '/rest/view/tblorderlines/get-tblorderlines' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    TblorderlinesViewController.getTblorderlines(data)
+end
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],
     :host => config['host'],
@@ -2017,117 +2129,5 @@ post '/rest/model/trelunitstyles/filter' do
     data = JSON.parse request.body.read
     content_type :json
     TrelunitstylesController.filter(data)
-end
-
-# View REST routes (POST)
-post '/rest/view/store-locator/find-store' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    StoreLocatorViewController.findStore(data)
-end
-post '/rest/view/tblunit/get-tblunits' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblunitViewController.getTblunits(data)
-end
-
-post '/rest/view/tblspecialty/get-tblspecialties' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblspecialtyViewController.getTblspecialties(data)
-end
-
-post '/rest/view/tblcustomers/get-tblcustomers' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblcustomersViewController.getTblcustomers(data)
-end
-
-post '/rest/view/tblitems/get-tblitems' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblitemsViewController.getTblitems(data)
-end
-
-post '/rest/view/tblsauce/get-tblsauces' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblsauceViewController.getTblsauces(data)
-end
-
-post '/rest/view/tbltopper/get-tbltoppers' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TbltopperViewController.getTbltoppers(data)
-end
-
-post '/rest/view/tblsizes/get-tblsizes' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblsizesViewController.getTblsizes(data)
-end
-
-post '/rest/view/tblstyles/get-tblstyles' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblstylesViewController.getTblstyles(data)
-end
-
-post '/rest/view/tblsaucemodifier/get-tblsaucemodifiers' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblsaucemodifierViewController.getTblsaucemodifiers(data)
-end
-
-post '/rest/view/tblorders/create-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.createTblorders(data)
-end
-
-post '/rest/view/tblorders/update-price-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.updatePriceTblorders(data)
-end
-
-post '/rest/view/tblorders/get-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.getTblorders(data)
-end
-
-post '/rest/view/tblorderlines/create-tblorderlines' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblorderlinesViewController.createTblorderlines(data)
-end
-
-post '/rest/view/tblorderlines/delete-tblorderlines' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblorderlinesViewController.deleteTblorderlines(data)
-end
-
-post '/rest/view/tblorderlines/get-tblorderlines' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblorderlinesViewController.getTblorderlines(data)
 end
 
