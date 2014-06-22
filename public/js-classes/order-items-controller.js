@@ -336,6 +336,7 @@ function OrderItemsController () {
         var dateString = now.toISOString();
 
         var orderJson = {
+            "pOrderID"         : orderId,
             "pSessionID"       : "999999999",
             "pIPAddress"       : "0.0.0.0",
             "pEmpID"           : "1",
@@ -369,8 +370,10 @@ function OrderItemsController () {
                 type: "POST",
                 data: JSON.stringify(json),
                 success: function(data) {
-                    console.log('Created Order Id: ' + data['order'][0]['newid']);
-                    $.session.set('orderId', data['order'][0]['newid']);
+                    if(orderId == null) {
+                        console.log('Created Order Id: ' + data['order'][0]['newid']);
+                        $.session.set('orderId', data['order'][0]['newid']);
+                    }
     
                     var orderItemId = data['orderItem'][0]['newid'];
                     orderItem['id'] = orderItemId;

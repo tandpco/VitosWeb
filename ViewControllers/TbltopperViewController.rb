@@ -45,7 +45,6 @@ class TbltopperViewController
 
     def self.getTopperFromJson(data)
         unitId   = data['UnitID'].to_s
-        #File.open("log", 'w') { |file| file.puts("UnitID: #{unitId}") }
 
         unitTopper = $topper["Units"].select { |t| t['UnitID'] == unitId }
 

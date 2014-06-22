@@ -21,27 +21,35 @@ class TblordersViewController
 
         # Order
         order = data['order']
+        orderItem = data['orderItem']
 
-        order['pSessionID']       = convertToInt(order['pSessionID'])
-        order['pIPAddress']       = order['pIPAddress']
-        order['pEmpID']           = convertToInt(order['pEmpID'])
-        order['pRefID']           = convertToInt(order['pRefID'])
-        order['pTransactionDate'] = order['pTransactionDate']
-        order['pStoreID']         = convertToInt(order['pStoreID'])
-        order['pCustomerID']      = convertToInt(order['pCustomerID'])
-        order['pCustomerName']    = order['pCustomerName']
-        order['pCustomerPhone']   = order['pCustomerPhone']
-        order['pAddressID']       = convertToInt(order['pAddressID'])
-        order['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
-        order['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
-        order['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
-        order['pOrderNotes']      = order['pOrderNotes']
-        
-        orderResult = Tblorders.connection.execute_procedure("AddOrder", order)
+        orderId = convertToInt(order['pOrderID'])
+
+        puts("OrderID: " + orderId.to_s)
+        if(orderId == nil || orderId < 1)
+
+            order['pSessionID']       = convertToInt(order['pSessionID'])
+            order['pIPAddress']       = order['pIPAddress']
+            order['pEmpID']           = convertToInt(order['pEmpID'])
+            order['pRefID']           = convertToInt(order['pRefID'])
+            order['pTransactionDate'] = order['pTransactionDate']
+            order['pStoreID']         = convertToInt(order['pStoreID'])
+            order['pCustomerID']      = convertToInt(order['pCustomerID'])
+            order['pCustomerName']    = order['pCustomerName']
+            order['pCustomerPhone']   = order['pCustomerPhone']
+            order['pAddressID']       = convertToInt(order['pAddressID'])
+            order['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
+            order['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
+            order['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
+            order['pOrderNotes']      = order['pOrderNotes']
+            
+            orderResult = Tblorders.connection.execute_procedure("AddOrder", order)
+            orderId = convertToInt(orderResult[0]['newid'])
+        end
+
+        orderItem['pOrderID']     = orderId
 
         # OrderItem
-        orderItem = data['orderItem']
-        orderItem['pOrderID']              = convertToInt(orderResult[0]['newid'])
 
         orderItem['pUnitID']               = convertToInt(orderItem['pUnitID'])
         orderItem['pSpecialtyID']          = convertToInt(orderItem['pSpecialtyID'])
@@ -87,7 +95,7 @@ class TblordersViewController
 
         # Update Price
         updatePrice = data['updatePrice']
-        updatePrice['pOrderID']         = convertToInt(orderResult[0]['newid'])
+        updatePrice['pOrderID']         = orderId
         updatePrice['pStoreID']         = convertToInt(updatePrice['pStoreID'])
         updatePrice['pCouponIDs']       = updatePrice['pCouponIDs']
         updatePrice['pPromoCodes']      = updatePrice['pPromoCodes']
