@@ -53,7 +53,7 @@ class TblspecialtyViewController
 
     def self.getSpecialtyFromJson(data)
         unitId   = data['UnitID'].to_s
-        File.open("log", 'w') { |file| file.puts("UnitID: #{unitId}") }
+        #File.open("log", 'w') { |file| file.puts("UnitID: #{unitId}") }
 
         returnData = Array.new
 

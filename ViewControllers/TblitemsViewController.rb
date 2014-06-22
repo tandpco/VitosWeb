@@ -18,9 +18,7 @@ class TblitemsViewController
     def self.getTblitems(data)
         unitId   = data['UnitID']
 
-        if(data.has_key?("SPECIALTY_ITEMS"))
-            return getSpecialtyItemsFromJson(data)
-        elsif(unitId =~ /^(#{$PIZZA}|#{$SUB})$/)
+        if(unitId =~ /^(#{$PIZZA}|#{$SUB})$/)
             return getItemsFromDatabase(data)
         elsif(unitId =~ /^(#{$SALAD}|#{$SIDE})$/)
             return getItemsFromJson(data)
@@ -50,23 +48,6 @@ class TblitemsViewController
         unitId   = data['UnitID'].to_s
 
         unitItems = $items["Units"].select { |s| s['UnitID'] == unitId }
-
-        tblitemsJson = "[]"
-
-        if(unitItems.count > 0)
-            tblitemsJson = unitItems.first['Items'].to_json
-        end
-
-        return tblitemsJson
-
-    end
-
-    def self.getSpecialtyItemsFromJson(data)
-        specialtyId   = data['SpecialtyID'].to_s
-        #File.open("log", 'w') { |file| file.puts("SpecialtyID: #{specialtyId}") }
-
-        unitItems = $specialtyItems["Units"].select { |s| s['SpecialtyID'] == specialtyId }
-        #File.open("log", 'a') { |file| file.puts("units: #{unitItems}") }
 
         tblitemsJson = "[]"
 

@@ -109,7 +109,7 @@ function OrderItemsController () {
             "SPECIALTY_ITEMS":"TRUE",
         }
 
-        var URL = "/rest/view/tblitems/get-tblitems";
+        var URL = "/rest/view/order-items/get-default-specialty-items";
 
         $.ajax({
             url: URL,

@@ -153,6 +153,12 @@ post '/rest/view/tblitems/get-tblitems' do
     content_type :json
     TblitemsViewController.getTblitems(data)
 end
+post '/rest/view/order-items/get-default-specialty-items' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    OrderItemsViewController.getDefaultSpecialtyItems(data)
+end
 
 post '/rest/view/tblsauce/get-tblsauces' do
     request.body.rewind  # in case someone already read it
