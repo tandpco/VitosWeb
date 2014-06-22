@@ -353,7 +353,7 @@ OrderItems.buildYourOrder = function () {
 
         for (var i = 0; i < orderItems.length; i++) {
             var orderItem = orderItems[i];
-            console.log(orderItem);
+            //console.log(orderItem);
 
             var cost = Number(orderItem['cost']);
             orderSubTotal += (cost * Number(orderItem['quantity']));
@@ -411,14 +411,18 @@ OrderItems.buildYourOrder = function () {
         var orderDriverMoney = 0;
         var orderTotal = 0;
 
-
         if ($.session.get('orderTax')) {
-            orderTaxes = Number($.session.get('orderTax') + $.session.get('orderTax2'));
-            orderTip = Number($.session.get('orderTip'));
-            orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
-            orderDriverMoney = Number($.session.get('orderDriverMoney'));
-            orderTotal = orderSubTotal + orderTaxes + orderTip - promoCost; //Subtracting promocode price    
+            orderTaxes = Number($.session.get('orderTax'));
         }
+
+        if ($.session.get('orderTax2')) {
+            orderTaxes2 = Number($.session.get('orderTax2'));
+            orderTaxes  += orderTaxes2;
+        }
+        orderTip = Number($.session.get('orderTip'));
+        orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
+        orderDriverMoney = Number($.session.get('orderDriverMoney'));
+        orderTotal = orderSubTotal + orderTaxes + orderTip - promoCost; //Subtracting promocode price    
 
         html = "";
 
@@ -433,6 +437,7 @@ OrderItems.buildYourOrder = function () {
         html += '<tr>';
         html += '    <td>TIP</td>';
         html += '    <td align="right"> $ ';
+        console.log(curr_loc);
         if (curr_loc.indexOf("confirmation") != -1) {
             html += orderTip.toFixed(2);
         } else {
