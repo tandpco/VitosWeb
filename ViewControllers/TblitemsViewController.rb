@@ -18,12 +18,10 @@ class TblitemsViewController
     def self.getTblitems(data)
         unitId   = data['UnitID']
 
-        if(unitId =~ /^(#{$PIZZA}|#{$SUB})$/)
-            return getItemsFromDatabase(data)
-        elsif(unitId =~ /^(#{$SALAD}|#{$SIDE})$/)
+        if(unitId == $SIDE)
             return getItemsFromJson(data)
         else
-            return getItemsFromJson(data)
+            return getItemsFromDatabase(data)
         end
     end
 

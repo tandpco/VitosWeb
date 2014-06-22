@@ -18,10 +18,10 @@ class TblsauceViewController
     def self.getTblsauces(data)
         unitId   = data['UnitID']
 
-        if(unitId == $PIZZA || unitId == $SUB)
-            return getSauceFromDatabase(data)
-        else
+        if(unitId == $SIDE)
             return getSauceFromJson(data)
+        else
+            return getSauceFromDatabase(data)
         end
     end
     

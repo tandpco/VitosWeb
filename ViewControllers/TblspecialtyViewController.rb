@@ -19,10 +19,10 @@ class TblspecialtyViewController
         unitId   = data['UnitID']
         result = Hash.new()
 
-        if(unitId =~ /^(#{$PIZZA}|#{$SUB}|#{$SALAD})$/)
-            result['specialties']    = self.getSpecialtyFromDatabase(data)
-        else
+        if(unitId == $SIDE)
             result['specialties']    = self.getSpecialtyFromJson(data)
+        else
+            result['specialties']    = self.getSpecialtyFromDatabase(data)
         end
 
         result['toppers']        = JSON.parse(TbltopperViewController.getTbltoppers(data))
