@@ -388,9 +388,11 @@ OrderItems.buildYourOrder = function () {
             html += '                        <p>Toppings: <br>'
             // Toppings
             var toppings = orderItem['toppings']
-            for (var toppingIndex = 0; toppingIndex < toppings.length; toppingIndex++) {
-                var topping = toppings[toppingIndex];
-                html += topping['description'] + ' - ' + topping['portion'] + "<br>";
+            if(toppings) {
+                for (var toppingIndex = 0; toppingIndex < toppings.length; toppingIndex++) {
+                    var topping = toppings[toppingIndex];
+                    html += topping['description'] + ' - ' + topping['portion'] + "<br>";
+                }
             }
             html += '                        </p>'
             html += '                    </div>'
@@ -437,7 +439,7 @@ OrderItems.buildYourOrder = function () {
         html += '<tr>';
         html += '    <td>TIP</td>';
         html += '    <td align="right"> $ ';
-        console.log(curr_loc);
+ 
         if (curr_loc.indexOf("confirmation") != -1) {
             html += orderTip.toFixed(2);
         } else {

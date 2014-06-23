@@ -19,7 +19,7 @@ class TblspecialtyViewController
         unitId   = data['UnitID']
         result = Hash.new()
 
-        if(unitId == $SIDE)
+        if(unitId.to_i >= $SIDE.to_i)
             result['specialties']    = self.getSpecialtyFromJson(data)
         else
             result['specialties']    = self.getSpecialtyFromDatabase(data)

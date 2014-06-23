@@ -18,7 +18,7 @@ class TblsaucemodifierViewController
     def self.getTblsaucemodifiers(data)
         unitId   = data['UnitID']
 
-        if(unitId == $SIDE)
+        if(unitId.to_i >= $SIDE.to_i)
             return getSaucemodifierFromJson(data)
         else
             return getSaucemodifierFromDatabase(data)

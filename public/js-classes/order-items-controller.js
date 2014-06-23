@@ -77,6 +77,7 @@ function OrderItemsController () {
     }  
 
     this.getSideDetail = function(unitId) {
+        $.session.set('specialtyId', unitId);
         this.getData(unitId, false);
         this.showModifyItemModal();
     }  
@@ -266,22 +267,26 @@ function OrderItemsController () {
         }
 
         var toppingsString  = $.session.get('toppings');
-        var toppings        = toppingsString.split(',');
+        if(toppingsString.length > 0) {
+            var toppings        = toppingsString.split(',');
+    
+            orderItem['toppings'] = new Array();
 
-        orderItem['toppings'] = new Array();
-
-        // Don't try this with items that don't have toppings
-        if(UNIT_ID != SIDES) {
             for(var i = 0; i < toppings.length; i++) {
-                var item     = toppings[i];
-                var elements = item.split('-');
-                var itemId   = elements[0];
-                var portion  = elements[1].split('+')[0];
-                var description = elements[1].split('+')[1];
+                var item        = toppings[i];
+                var elements    = item.split('-');
+                var itemId      = elements[0];
+                var portion     = ""
+                var description = ""
+                if(elements.length > 1) {
+                    portion  = elements[1].split('+')[0];
+                    description = elements[1].split('+')[1];
+                }
+
                 var topping={};
                 topping['portion'] = portion;
-                topping['id'] = itemId;
                 topping['description'] = description;
+                topping['id'] = itemId;
                 orderItem['toppings'].push(topping);
             }
         }
@@ -354,7 +359,7 @@ function OrderItemsController () {
         }
 
         // Don't submit side order until service call works
-        if(UNIT_ID == PIZZA || UNIT_ID == SUBS || UNIT_ID == SALADS) {
+        // if(UNIT_ID == PIZZA || UNIT_ID == SUBS || UNIT_ID == SALADS) {
 
             var json = {
                 "order" : orderJson, 
@@ -387,7 +392,8 @@ function OrderItemsController () {
                     pageController.listOrderItems();
                 }
             });
-        }
+        //}
+        /*
         else {
             //orderItem['id'] = 0;
             //$.session.set('orderId', 0);
@@ -396,6 +402,7 @@ function OrderItemsController () {
             //$.session.set('orderItems', JSON.stringify(orderItems));
             pageController.listOrderItems();
         }
+        */
     }
 
     this.updatePrice = function() {
@@ -434,7 +441,7 @@ function OrderItemsController () {
     this.listOrderItems = function() {
         var orderId = $.session.get("orderId");
         var json = {
-            "OrderID"       : orderId,
+            "OrderID"       : orderId
         }
 
         var URL = "/rest/view/tblorderlines/get-tblorderlines";
@@ -564,7 +571,7 @@ function OrderItemsController () {
             html += '                            <button class="red-gradient-button" onClick="pageController.getSideDetail(' + specialtyId + ')">ORDER NOW</button>';
             html += '                        </td>';
             html += '                        <td>';
-            html += '                            <button class="red-gradient-button" onClick="pageController.getSideItems(' + specialtyId + ')">SEE DETAILS</button>';
+            html += '                            <button class="red-gradient-button" onClick="pageController.getSideDetail(' + specialtyId + ')">SEE DETAILS</button>';
             html += "                        </td>";
             html += "                    </tr>";
 

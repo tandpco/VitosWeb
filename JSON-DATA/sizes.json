@@ -1,25 +1,6 @@
 {
     "Units" : [
         {
-            "UnitID" : "3",
-            "Sizes"  : [
-                {
-                    "RADRAT": "2011-05-04T13:27:48Z",
-                    "SizeDescription": "Large",
-                    "SizeID": 9,
-                    "SizeShortDescription": "Large",
-                    "id": null
-                },
-                {
-                    "RADRAT": "2011-05-04T13:30:34Z",
-                    "SizeDescription": "Small",
-                    "SizeID": 11,
-                    "SizeShortDescription": "Small",
-                    "id": null
-                }
-            ]
-        },
-        {
             "UnitID" : "8000",
             "Sizes"  : [
             ]

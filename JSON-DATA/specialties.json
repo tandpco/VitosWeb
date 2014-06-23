@@ -74,25 +74,6 @@
                     "id": ""
                 }
             ]
-        },
-        {
-            "UnitID" : "8002",
-            "Specialties"  : [
-                {
-                    "InternetDescription": "Our fresh made dough topped with mozzarella and cheddar cheeses. Baked to the way Vito likes it and topped with garlic and parmesan. Served with 3 dipping sauces.",
-                    "IsActive": "",
-                    "IsInternet": "",
-                    "NoBaseCheese": "",
-                    "RADRAT": "",
-                    "SauceID": "",
-                    "SpecialtyDescription": "Vito Bread",
-                    "SpecialtyID": "8002",
-                    "SpecialtyShortDescription": "Vito Bread",
-                    "StyleID": "",
-                    "UnitID": "8002",
-                    "id": ""
-                }
-            ]
         }
     ]
 }

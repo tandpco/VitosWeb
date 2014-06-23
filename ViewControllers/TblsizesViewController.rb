@@ -18,7 +18,7 @@ class TblsizesViewController
     def self.getTblsizes(data)
         unitId   = data['UnitID']
 
-        if(unitId == $SIDE)
+        if(unitId.to_i >= $SIDE.to_i)
             return getSizesFromJson(data)
         else
             return getSizesFromDatabase(data)

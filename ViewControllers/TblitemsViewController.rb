@@ -18,7 +18,7 @@ class TblitemsViewController
     def self.getTblitems(data)
         unitId   = data['UnitID']
 
-        if(unitId == $SIDE)
+        if(unitId.to_i >= $SIDE.to_i)
             return getItemsFromJson(data)
         else
             return getItemsFromDatabase(data)
