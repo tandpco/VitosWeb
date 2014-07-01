@@ -2069,6 +2069,11 @@
         },
         {
             "type"     : "Ruby/DataModel/ActiveRecordLiteralModel"
+        },
+        {
+            "type"     : "Web/Resource",
+            "path"     : "public",
+            "resource" : "jquery-2.1.1"
         }
     ]
 }
