@@ -39,12 +39,19 @@ function SignInController () {
     this.signIn = function() {
         var email    = $("#sign-in-email-address").val();
         var password = $("#sign-in-password").val();
+
+        password = $.md5(password);
+
         var json = {
             Tblcustomers: {
                 filters: [
                     {
                         name: "EMail",
                         value: email
+                    },
+                    {
+                        name: "Password",
+                        value: password
                     }
                 ],
                 pagination: {
