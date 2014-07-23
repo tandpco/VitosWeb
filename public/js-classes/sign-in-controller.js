@@ -43,28 +43,14 @@ function SignInController () {
         password = $.md5(password);
 
         var json = {
-            Tblcustomers: {
-                filters: [
-                    {
-                        name: "EMail",
-                        value: email
-                    },
-                    {
-                        name: "Password",
-                        value: password
-                    }
-                ],
-                pagination: {
-                    page: "1",
-                    limit: "1"
-                }
-            }
+            email: email,
+            password: password
         }
 
         $('#modal-please-wait').modal('show');
 
         $.ajax({
-            url: "/rest/view/tblcustomers/get-tblcustomers",
+            url: "/rest/view/customer/get-customer",
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
@@ -75,13 +61,10 @@ function SignInController () {
                     var addressLine1 = customer['AddressLine1'];
                     var postalCode   = customer['PostalCode'];
 
-                    Session.set('email', email);
-
-                    $('#modal-please-wait').modal('hide');
+                    $.session.set('email', email);
 
                     search = addressLine1 + " " + postalCode;
                     pageController.findStore(search);
-
                 }
                 else {
                     $('#modal-please-wait').modal('hide');

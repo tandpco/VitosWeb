@@ -531,9 +531,9 @@ function OrderItemsController () {
             "41" : "ItalianSalad3000x300.jpg",
             "42" : "ItalianSalad3000x300.jpg",
             "8002" : "VitoBread300x300.jpg",
-            "8004" : "VitoBread300x300.jpg",
+            "8004" : "ChickenWings300x300.jpg",
             "8005" : "CinnamonBread300x300.jpg",
-            "8007" : "VitoBread300x300.jpg",
+            "8007" : "ChickenDippers300x300.jpg",
             "8015" : "CokeEtc300x300.jpg"
         };
     
