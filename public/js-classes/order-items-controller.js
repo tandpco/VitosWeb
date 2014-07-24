@@ -145,10 +145,18 @@ function OrderItemsController () {
 
                 $.each(data, function( index ) {
                     specialty = data[index];
+                    console.log(specialty);
                     itemId = specialty['ItemID'];
-                    var item = itemId + "-" + "whole" + "+"+specialty['ItemDescription'];
+                    var item = null
+                    if (specialty['SpecialtyItemQuantity'] == 2) {
+                        item = itemId + "-2x" + "+"+specialty['ItemDescription'];
+                        $("#topping-" + itemId + '-2x').attr('src', '/img/checkbox_checked.jpeg' );
+                    } else {
+                        item = itemId + "-whole" + "+"+specialty['ItemDescription'];
+                        $("#topping-" + itemId + '-whole').attr('src', '/img/checkbox_checked.jpeg' );
+
+                    }
                     toppings.push(item);
-                    $("#topping-" + itemId + '-whole').attr('src', '/img/checkbox_checked.jpeg' );
                 });
                 
                 if(pageController.toppers!=undefined && pageController.toppers){
