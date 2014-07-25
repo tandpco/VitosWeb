@@ -1034,7 +1034,7 @@ function OrderItemsController () {
             if(i == 0){
                 html += "<li class=\"header\">Sauce Options:</li>";
             } 
-            html += pageController.buildSauceModifierRadioItem(sauceModifiers[i]['SauceModifierID'],sauceModifiers[i]['SauceModifierDescription'],sauceModifiers.length);
+            html += pageController.buildSauceModifierRadioItem(sauceModifiers[i]['SauceModifierID'],sauceModifiers[i]['SauceModifierDescription'].replace("Modifier", ""),sauceModifiers.length);
             $("#cheese-and-sauce .right-column").append(html);
         }
     }
