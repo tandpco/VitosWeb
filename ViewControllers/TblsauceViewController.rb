@@ -33,6 +33,8 @@ class TblsauceViewController
 
         tblsauces = Tblsauce.joins("inner join trelUnitSauce on trelUnitSauce.SauceID = tblSauce.SauceID and trelUnitSauce.UnitID = #{unitId} and IsActive <> 0 and IsInternet <> 0 inner join trelStoreUnitSize on trelStoreUnitSize.UnitID = trelUnitSauce.UnitID and StoreID = #{storeId}").distinct()
 
+        puts(tblsauces.to_sql)
+
         Array tblsauceJson = Array.new
 
         tblsauces.each do |tblsauce|
