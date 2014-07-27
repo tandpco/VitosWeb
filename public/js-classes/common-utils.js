@@ -130,10 +130,31 @@ ModalLocation.createMarkup = function(name, message) {
     html += '                    </div>';
     html += '                </div>';
     html += '                <div class="row">';
-    html += '                    <button class="red-gradient-button" onclick="alert(\'Choose Store\')">CHANGE LOCATION</button>';
+    html += '                    <button class="red-gradient-button" onclick="CommonUtils.chooseStore()">CHANGE LOCATION</button>';
     html += '                </div>';
     html += '                <div class="row">';
     html += '                    <button class="green-gradient-button" onclick="CommonUtils.chooseMode()">CONTINUE</button>';
+    html += '                </div>';
+    html += '            </div>';
+    html += '        </div><!-- /.modal-content -->';
+    html += '    </div><!-- /.modal-dialog -->';
+    html += '</div><!-- /.modal -->';
+    return html;
+}
+
+function ModalStores () {}
+ModalStores.createMarkup = function(name, message) {
+    var html = "";
+    html += '<div class="modal fade" data-backdrop="static" data-keyboard="false" id="' + name + '">';
+    html += '    <div class="modal-dialog">';
+    html += '        <div class="modal-content">';
+    html += '            <div class="modal-body">';
+    html += '                <div class="row">';
+    html += '                    <h4 class="modal-title">' + message + '</h4>';
+    html += '                </div>';
+    html += '                <div class="row">';
+    html += '                    <div id="stores">';
+    html += '                    </div>';
     html += '                </div>';
     html += '            </div>';
     html += '        </div><!-- /.modal-content -->';
@@ -159,7 +180,7 @@ CommonUtils.choosePickup = function(isRedirect) {
     $.session.set('mode', 'Pickup');
     $('#modal-delivery').modal('hide');
     $('.modal-backdrop').remove();
-     if(isRedirect =="YES"){
+    if(isRedirect =="YES"){
        window.location.href = "/order-pizza";
     }
     else if(isRedirect =="NO"){
@@ -171,6 +192,7 @@ CommonUtils.chooseMode = function() {
     $('#modal-location').modal('hide');
     $('#modal-delivery').modal('show');
 }
+
 
 CommonUtils.chooseLocation = function(storeId) {
     var json = {
@@ -196,6 +218,9 @@ CommonUtils.chooseLocation = function(storeId) {
                 hours            = store['Hours'];
 
                 Session.set('storeId', storeId);
+
+                var storeAddress = addressLine1 + ' ' + city + ', ' + state + ', ' + postalCode;
+                Session.set('storeAddress', storeAddress);
 
                 /*
                 array = phone.split('');
@@ -224,4 +249,129 @@ CommonUtils.chooseLocation = function(storeId) {
             }
         }
     });
+}
+
+CommonUtils.chooseStore = function() {
+    var json = {
+    }
+
+    $.ajax({
+        url: "/rest/view/store/list-stores",
+        type: "POST",
+        data: JSON.stringify(json),
+        success: function(data) {
+            // Yay! It worked!
+            if(data != '') {
+                var stores = data;
+                var html   = "<h3>Stores:</h3>";
+
+                $.each(data, function( index ) {
+                    store = data[index];
+                    console.log(store);
+
+                    storeId          = store['StoreID'];
+                    storeName        = store['StoreName'];
+                    addressLine1     = store['Address1'];
+                    addressLine2     = store['ADdress2'];
+                    city             = store['City'];
+                    state            = store['State'];
+                    postalCode       = store['PostalCode'];
+                    phone            = store['Phone']
+                    hours            = store['Hours'];
+
+                    var storeAddress = addressLine1 + ' ' + city + ', ' + state + ', ' + postalCode; 
+                    var search       = addressLine1 + ' ' + postalCode; 
+                    html += '<a href="#" onclick="$(\'#modal-stores\').modal(\'hide\'); CommonUtils.findStore(\'' + search + '\');">' + storeAddress + '</a>'
+                    html += '<br>'
+                });
+                $('#stores').html(html);
+
+                $('#modal-please-wait').modal('hide');
+                $('#modal-stores').modal('show');
+            }
+            else {
+                $('#modal-please-wait').modal('hide');
+                $('#modal-invalid-login').modal('show');
+            }
+        }
+    });
+}
+
+CommonUtils.findStore = function(search) {
+    geo.geocode({address:search}, function (results,status) { 
+        // If that was successful
+        if (status == google.maps.GeocoderStatus.OK) {
+            // Lets assume that the first marker is the one we want
+            var point = results[0];
+            var location = point.geometry.location;
+            var lat = location.lat();
+            var lng = location.lng();
+
+            // Get Google's version of the address
+            var streetNumber = "";
+            var route        = "";
+            var city         = "";
+            var state        = "";
+            var zip          = "";
+            for (var component in point['address_components']) {
+                var shortName = point['address_components'][component]['short_name'];
+                for (var i in point['address_components'][component]['types']) {
+                    var type = point['address_components'][component]['types'][i];
+                    if (type == "administrative_area_level_1") {
+                        state = shortName;
+                    }
+                    if (type == "locality") {
+                        city = shortName;
+                    }
+                    if (type == "street_number") {
+                        streetNumber = shortName;
+                    }
+                    if (type == "route") {
+                        route = shortName;
+                    }
+                    if (type == "postal_code") {
+                        var zip = shortName;
+                    }
+                }
+            }
+            var street = streetNumber + " " + route;
+            Session.set('addressLine1', street);
+            Session.set('city', city);
+            Session.set('state', state);
+            Session.set('zip', zip);
+
+            // Output the data
+            var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay=' + delay + 'ms)<br>';
+
+            var json = {
+                x: lng,
+                y: lat
+            }
+    
+            $.ajax({
+                url: "/rest/view/store-locator/find-store",
+                type: "POST",
+                data: JSON.stringify(json),
+                success: function(data) {
+                    // Yay! It worked!
+                    if(data != '') {
+                        var storeId = data['StoreID']
+                        CommonUtils.chooseLocation(storeId);
+                    }
+                }
+            });
+
+        }
+        // ====== Decode the error status ======
+        else {
+            // === if we were sending the requests to fast, try this one again and increase the delay
+            if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                delay++;
+            } else {
+                var reason="Code "+status;
+                var msg = 'address="' + search + '" error=' + reason + '(delay=' + delay + 'ms)<br>';
+            }   
+        }
+      }
+    );
 }

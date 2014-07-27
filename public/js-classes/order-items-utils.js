@@ -337,7 +337,7 @@ OrderItems.buildYourOrder = function () {
 
         var html = "";
         html = "<tr>";
-        html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + $.session.get('mode') + "</a>)</td>";
+        html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + $.session.get('mode') + '</a>) (<a href="#" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
         html += "</tr>";
 
         // Process all order items

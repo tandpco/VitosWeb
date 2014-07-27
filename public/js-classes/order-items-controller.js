@@ -8,6 +8,9 @@ function OrderItemsController () {
     this.toppings        = new Array();
     
     this.init = function() {
+        geo = new google.maps.Geocoder();
+        delay = 100;
+        
         var customerId = $.session.get("customerId");
         var email      = $.session.get("email");
         
@@ -20,7 +23,10 @@ function OrderItemsController () {
 
         $('#main').append(ModalPleaseWait.createMarkup('modal-please-wait', 'Please wait'));
         $('#main').append(ModalInvalidPromo.createMarkup('modal-invalid-promo', 'Invalid promo code'));
-        $('#main').append(ModalDelivery.createMarkup('modal-delivery', 'HOW WOULD YOU LIKE YOUR ORDER?','NO'));
+        $('#main').append(ModalDelivery.createMarkup('modal-delivery', 'HOW WOULD YOU LIKE YOUR ORDER?','YES'));
+
+        $('#main').append(ModalLocation.createMarkup('modal-location', 'LOCATION CLOSEST TO YOU'));
+        $('#main').append(ModalStores.createMarkup('modal-stores', 'CHOOSE STORE'));
 
         $('#modal-modify-item').append(ModalModifyPizzaItem.createMarkup());
         $('#modal-modify-item1').append(ModalModifyOrderItem.createMarkup());
