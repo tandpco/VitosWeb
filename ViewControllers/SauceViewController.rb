@@ -5,6 +5,19 @@ class SauceViewController
     public
 
     def self.listSauces(data)
+    
+    
+    
+        unitId   = data['UnitID']
+
+        if(unitId.to_i >= $SIDE.to_i)
+            return listSauceFromJson(data)
+        else
+            return listSauceFromDatabase(data)
+        end
+    end
+    
+    def self.listSauceFromDatabase(data)
         storeId  = data['StoreID']
         unitId   = data['UnitID']
 
@@ -18,6 +31,23 @@ class SauceViewController
 
         return rows.to_json
     end
+    
+    def self.listSauceFromJson(data)
+        unitId   = data['UnitID'].to_s
+
+        unitSauce = $sauce["Units"].select { |t| t['UnitID'] == unitId }
+
+        tblsauceJson = "[]"
+
+        if(unitSauce.count > 0)
+            tblsauceJson = unitSauce.first['Sauces'].to_json
+        end
+
+        return tblsauceJson
+
+
+    end
+
 
 end
 

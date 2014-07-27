@@ -1,0 +1,53 @@
+require 'sinatra'
+require 'json'
+
+class ToppingViewController
+    public
+
+    def self.listToppings(data)
+    
+        unitId   = data['UnitID']
+
+        if(unitId.to_i >= $SIDE.to_i)
+            return listToppingsFromJson(data)
+        else
+            return listToppingsFromDatabase(data)
+        end
+    end
+    
+    def self.listToppingsFromDatabase(data)
+        storeId  = data['StoreID']
+        unitId   = data['UnitID']
+
+        rows = ActiveRecord::Base.connection.select_all('SELECT [tblitems].* FROM [tblitems] inner join trelStoreItem on trelStoreItem.ItemID = tblItems.ItemID inner join trelUnitItems on tblItems.ItemID = trelUnitItems.ItemID inner join tblUnit on trelUnitItems.UnitID = tblUnit.UnitID where StoreID = ' + storeId + ' and trelUnitItems.UnitID = ' + unitId + ' and tblItems.IsActive <> 0 and tblItems.IsInternet <> 0 and IsBaseCheese = 0 AND 1 = 1 order by ItemDescription')
+
+        rows.each do |row|
+            row.keys.each do |key|
+                if(row[key].class == "String")
+                    row[key].gsub!(/'/,"\\'")
+                end
+            end
+        end
+
+        return rows.to_json
+    end
+    
+    def self.listToppingsFromJson(data)
+        unitId   = data['UnitID'].to_s
+
+        unitItems = $items["Units"].select { |s| s['UnitID'] == unitId }
+
+        tblitemsJson = "[]"
+
+        if(unitItems.count > 0)
+            tblitemsJson = unitItems.first['Items'].to_json
+        end
+
+        return tblitemsJson
+
+
+    end
+
+
+end
+
