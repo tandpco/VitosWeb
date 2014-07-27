@@ -150,6 +150,18 @@ post '/rest/view/store/get-store' do
     content_type :json
     StoreViewController.getStore(data)
 end
+post '/rest/view/order/get-order' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    OrderViewController.getOrder(data)
+end
+post '/rest/view/order/create-order' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    OrderViewController.createOrder(data)
+end
 
 post '/rest/view/tblspecialty/get-tblspecialties' do
     request.body.rewind  # in case someone already read it
@@ -163,27 +175,6 @@ post '/rest/view/order-items/get-default-specialty-items' do
     data = JSON.parse request.body.read
     content_type :json
     OrderItemsViewController.getDefaultSpecialtyItems(data)
-end
-
-post '/rest/view/tblorders/create-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.createTblorders(data)
-end
-
-post '/rest/view/tblorders/update-price-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.updatePriceTblorders(data)
-end
-
-post '/rest/view/tblorders/get-tblorders' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblordersViewController.getTblorders(data)
 end
 
 post '/rest/view/tblorderlines/create-tblorderlines' do

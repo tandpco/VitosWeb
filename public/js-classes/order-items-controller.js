@@ -184,10 +184,10 @@ function OrderItemsController () {
     this.listOrder = function() {
         var deferred = $.Deferred();
         var json = {
-            "OrderID" : $.session.get('orderId')
+            "orderId" : $.session.get('orderId')
         }
 
-        var URL = "/rest/view/tblorders/get-tblorders";
+        var URL = "/rest/view/order/get-order";
 
         $.ajax({
             url: URL,
@@ -195,13 +195,21 @@ function OrderItemsController () {
             data: JSON.stringify(json),
             success: function(data) {
                 if(data.length > 0) {
-                    var order = data['tblorders'][0]
+                    var order = data[0]
                     $.session.set('orderTax', order['Tax']);
                     $.session.set('orderTax2', order['Tax2']);
                     $.session.set('orderTip', order['Tip']);
                     $.session.set('orderDriverMoney', order['DriverMoney']);
                     $.session.set('orderDeliveryCharge', order['DeliveryCharge']);
     
+                }
+                else {
+                    $.session.set('orderTax', 0.00);
+                    $.session.set('orderTax2', 0.00);
+                    $.session.set('orderTip', 0.00);
+                    $.session.set('orderDriverMoney', 0.00);
+                    $.session.set('orderDeliveryCharge', 0.00);
+
                 }
 
                 $('#modal-please-wait').modal('hide');
@@ -382,7 +390,7 @@ function OrderItemsController () {
                 "orderItemToppings" : orderItemToppingsJson
             }
     
-            var URL = "/rest/view/tblorders/create-tblorders";
+            var URL = "/rest/view/order/create-order";
     
             $.ajax({
                 url: URL,

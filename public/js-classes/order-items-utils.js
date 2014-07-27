@@ -407,11 +407,11 @@ OrderItems.buildYourOrder = function () {
         $('#order-table-' + divName + ' > tbody').html(html);
 
         // Order Totals
-        var orderTaxes = 0;
-        var orderTip = 0;
-        var orderDeliveryCharge = 0;
-        var orderDriverMoney = 0;
-        var orderTotal = 0;
+        var orderTaxes          = 0.00;
+        var orderTip            = 0.00;
+        var orderDeliveryCharge = 0.00;
+        var orderDriverMoney    = 0.00;
+        var orderTotal          = 0.00;
 
         if ($.session.get('orderTax')) {
             orderTaxes = Number($.session.get('orderTax'));
@@ -421,9 +421,19 @@ OrderItems.buildYourOrder = function () {
             orderTaxes2 = Number($.session.get('orderTax2'));
             orderTaxes  += orderTaxes2;
         }
-        orderTip = Number($.session.get('orderTip'));
-        orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
-        orderDriverMoney = Number($.session.get('orderDriverMoney'));
+
+        if ($.session.get('orderTip')) {
+            orderTip = Number($.session.get('orderTip'));
+        }
+
+        if ($.session.get('orderDeliveryCharge')) {
+            orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
+        }
+
+        if ($.session.get('orderDriverMoney')) {
+            orderDriverMoney = Number($.session.get('orderDriverMoney'));
+        }
+
         orderTotal = orderSubTotal + orderTaxes + orderTip - promoCost; //Subtracting promocode price    
 
         html = "";

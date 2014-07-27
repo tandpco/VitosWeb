@@ -1,22 +1,27 @@
 require 'sinatra'
 require 'json'
-require 'active_record'
 
-Dir["../ModelControllers/*.rb"].sort.each do |file|
-    file.sub!(".rb","");
-    require file
-end
-
-Dir["../Models/*.rb"].sort.each do |file|
-    file.sub!(".rb","");
-    require file
-end
-
-
-class TblordersViewController
+class OrderViewController
     public
 
-    def self.createTblorders(data)
+    def self.getOrder(data)
+        orderId   = data['orderId'].to_s
+
+        rows = ActiveRecord::Base.connection.select_all('SELECT [tblorders].* FROM [tblorders] WHERE OrderID = ' + orderId)
+
+        rows.each do |row|
+            row.keys.each do |key|
+                puts("#{key} -> #{row[key].class.to_s}, #{row[key].to_s}")
+                # if(row[key].class.to_s == "String")
+                    # row[key].gsub!(/'/,"\u2019")
+                # end
+            end
+        end
+
+        return rows.to_json
+    end
+    
+    def self.createOrder(data)
         result = Hash.new()
 
         # Order
@@ -137,32 +142,6 @@ class TblordersViewController
 
         return result.to_json
     end
-    
-    def self.getTblorders(data)
-        return getOrdersFromDatabase(data)
-    end
-    
-    def self.getOrdersFromDatabase(data)
-
-        tblorders = []
-
-        orderId  = data['OrderID']
-        if(orderId.to_i > 0)
-            tblorders = Tblorders.where("OrderID = #{orderId}")
-        end
-
-        puts(tblorders.to_sql)
-        
-        Array tblordersJson = Array.new
-        tblorders.each do |tblorders|
-            tblordersJson.push({ :id => tblorders.id, :AddressID => tblorders.AddressID, :CustomerID => tblorders.CustomerID, :CustomerName => tblorders.CustomerName, :CustomerPhone => tblorders.CustomerPhone, :DailySequence => tblorders.DailySequence, :DeliveryCharge => tblorders.DeliveryCharge, :DriverMoney => tblorders.DriverMoney, :EditEmpID => tblorders.EditEmpID, :EditReason => tblorders.EditReason, :EmpID => tblorders.EmpID, :ExpectedDate => tblorders.ExpectedDate, :IPAddress => tblorders.IPAddress, :IsPaid => tblorders.IsPaid, :OrderID => tblorders.OrderID, :OrderNotes => tblorders.OrderNotes, :OrderStatusID => tblorders.OrderStatusID, :OrderTypeID => tblorders.OrderTypeID, :PaidDate => tblorders.PaidDate, :PaymentAuthorization => tblorders.PaymentAuthorization, :PaymentEmpID => tblorders.PaymentEmpID, :PaymentReference => tblorders.PaymentReference, :PaymentTypeID => tblorders.PaymentTypeID, :RADRAT => tblorders.RADRAT, :RefID => tblorders.RefID, :ReleaseDate => tblorders.ReleaseDate, :SessionID => tblorders.SessionID, :StoreID => tblorders.StoreID, :SubmitDate => tblorders.SubmitDate, :Tax => tblorders.Tax, :Tax2 => tblorders.Tax2, :Tip => tblorders.Tip, :TransactionDate => tblorders.TransactionDate, :VoidDate => tblorders.VoidDate, :VoidEmpID => tblorders.VoidEmpID, :VoidReason => tblorders.VoidReason })
-        end
-
-        tblordersContainer = { :tblorders => tblordersJson }
-
-        return tblordersContainer.to_json
-
-    end
 
     def self.convertToInt(value)
         if(value == 'NULL' || value.to_i == 0)
@@ -186,3 +165,4 @@ class TblordersViewController
 
 
 end
+
