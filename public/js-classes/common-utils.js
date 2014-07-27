@@ -281,8 +281,9 @@ CommonUtils.chooseStore = function() {
 
                     var storeAddress = addressLine1 + ' ' + city + ', ' + state + ', ' + postalCode; 
                     var search       = addressLine1 + ' ' + postalCode; 
+                    html += "<div>"
                     html += '<a href="#" onclick="$(\'#modal-stores\').modal(\'hide\'); CommonUtils.findStore(\'' + search + '\');">' + storeAddress + '</a>'
-                    html += '<br>'
+                    html += "</div>"
                 });
                 $('#stores').html(html);
 

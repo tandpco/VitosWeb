@@ -3,6 +3,7 @@ puma.pid
 puma.stderr.log
 puma.stdout.log
 Gemfile.lock
+.sass-cache
 ## End
 *.rbc
 capybara-*.html
