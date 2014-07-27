@@ -299,6 +299,7 @@ CommonUtils.chooseStore = function() {
 }
 
 CommonUtils.findStore = function(search) {
+    $('#modal-please-wait').modal();
     geo.geocode({address:search}, function (results,status) { 
         // If that was successful
         if (status == google.maps.GeocoderStatus.OK) {
