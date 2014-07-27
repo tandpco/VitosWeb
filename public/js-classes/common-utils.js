@@ -61,10 +61,10 @@ ModalDelivery.createMarkup = function(name, message, isRedirect) {
     html += '        <div class="modal-content">';
     html += '            <div class="modal-body">';
     html += '                <h5 class="modal-title">' + message + '</h4>';
-    html += '                <a style="cursor:pointer; cursor:hand;" id="modeDelivery" onclick="SetDelivery.chooseDelivery(\''+isRedirect+'\')">';
+    html += '                <a style="cursor:pointer; cursor:hand;" id="modeDelivery" onclick="CommonUtils.chooseDelivery(\''+isRedirect+'\')">';
     html += '                    <img src="/img/mode-delivery.png"/>';
     html += '                </a>';
-    html += '                <a style="cursor:pointer; cursor:hand;" id="modePickup" onclick="SetPickup.choosePickup(\''+isRedirect+'\')">';
+    html += '                <a style="cursor:pointer; cursor:hand;" id="modePickup" onclick="CommonUtils.choosePickup(\''+isRedirect+'\')">';
     html += '                    <img src="/img/mode-pickup.png"/>';
     html += '                </a>';
     html += '            </div>';
@@ -130,10 +130,10 @@ ModalLocation.createMarkup = function(name, message) {
     html += '                    </div>';
     html += '                </div>';
     html += '                <div class="row">';
-    //html += '                    <button class="red-gradient-button" onclick="pageController.chooseMode()">CHANGE LOCATION</button>';
+    html += '                    <button class="red-gradient-button" onclick="alert(\'Choose Store\')">CHANGE LOCATION</button>';
     html += '                </div>';
     html += '                <div class="row">';
-    html += '                    <button class="green-gradient-button" onclick="pageController.chooseMode()">CONTINUE</button>';
+    html += '                    <button class="green-gradient-button" onclick="CommonUtils.chooseMode()">CONTINUE</button>';
     html += '                </div>';
     html += '            </div>';
     html += '        </div><!-- /.modal-content -->';
@@ -142,30 +142,86 @@ ModalLocation.createMarkup = function(name, message) {
     return html;
 }
 
-function SetDelivery (){}
-SetDelivery.chooseDelivery = function(isRedirect) {
-        $.session.set('mode', 'Delivery');
-        $('#modal-delivery').modal('hide');
-        $('.modal-backdrop').remove();
-        if(isRedirect =="YES"){
-           window.location.href = "/order-pizza";
-        }
-        else if(isRedirect =="NO"){
-           OrderItems.buildYourOrder();
-        }
+function CommonUtils() {}
+CommonUtils.chooseDelivery = function(isRedirect) {
+    $.session.set('mode', 'Delivery');
+    $('#modal-delivery').modal('hide');
+    $('.modal-backdrop').remove();
+    if(isRedirect =="YES"){
+       window.location.href = "/order-pizza";
+    }
+    else if(isRedirect =="NO"){
+       OrderItems.buildYourOrder();
+    }
+}
+
+CommonUtils.choosePickup = function(isRedirect) {
+    $.session.set('mode', 'Pickup');
+    $('#modal-delivery').modal('hide');
+    $('.modal-backdrop').remove();
+     if(isRedirect =="YES"){
+       window.location.href = "/order-pizza";
+    }
+    else if(isRedirect =="NO"){
+       OrderItems.buildYourOrder();
+    }
+}
+
+CommonUtils.chooseMode = function() {
+    $('#modal-location').modal('hide');
+    $('#modal-delivery').modal('show');
+}
+
+CommonUtils.chooseLocation = function(storeId) {
+    var json = {
+        storeId:  storeId
     }
 
-function SetPickup (){}
-    SetPickup.choosePickup = function(isRedirect) {
-        $.session.set('mode', 'Pickup');
-        $('#modal-delivery').modal('hide');
-        $('.modal-backdrop').remove();
-         if(isRedirect =="YES"){
-           window.location.href = "/order-pizza";
-        }
-        else if(isRedirect =="NO"){
-           OrderItems.buildYourOrder();
-        }
-    }
-  
+    $.ajax({
+        url: "/rest/view/store/get-store",
+        type: "POST",
+        data: JSON.stringify(json),
+        success: function(data) {
+            // Yay! It worked!
+            if(data != '') {
+                var store = data[0]
+                storeId          = store['StoreID'];
+                storeName        = store['StoreName'];
+                addressLine1     = store['Address1'];
+                addressLine2     = store['ADdress2'];
+                city             = store['City'];
+                state            = store['State'];
+                postalCode       = store['PostalCode'];
+                phone            = store['Phone']
+                hours            = store['Hours'];
 
+                Session.set('storeId', storeId);
+
+                /*
+                array = phone.split('');
+                if(array.length > 0) {
+                    phone = "(" + array[0] + array[1] + array[2] + ") " + array[3] + array[4] + array[5] + "-" + array[6] + array[7] + array[8]+ array[9];
+                }
+                */
+
+                html  = '<img src="/img/store-' + storeId + '-map.png"></img>';
+                html += '<h5>' + addressLine1 + '</h5>';
+                html += '<h5>' + city + ", " + state + " " + postalCode + '</h5>';
+                html += '<label for="#store_phone_num">' + 'PHONE: </label><p id="store_phone_num">' + phone + '</p>';
+                html += '<label>' + "HOURS" + '</label>';
+                html += '<p>' + hours + '</p>';
+                $('#storeInfo').html(html);
+
+                $('#storeInfo').find("img").css({height: "200px", width: "200px"});
+                $('#storeInfo').attr("align","center");
+
+                $('#modal-please-wait').modal('hide');
+                $('#modal-location').modal('show');
+            }
+            else {
+                $('#modal-please-wait').modal('hide');
+                $('#modal-invalid-login').modal('show');
+            }
+        }
+    });
+}

@@ -132,6 +132,18 @@ post '/rest/view/store-locator/find-store' do
     content_type :json
     StoreLocatorViewController.findStore(data)
 end
+post '/rest/view/store/list-stores' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    StoreViewController.listStores(data)
+end
+post '/rest/view/store/get-store' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    StoreViewController.getStore(data)
+end
 post '/rest/view/tblunit/get-tblunits' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read

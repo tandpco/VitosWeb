@@ -157,7 +157,7 @@ function SignInController () {
                         // Yay! It worked!
                         if(data != '') {
                             var storeId = data['StoreID']
-                            pageController.chooseLocation(storeId);
+                            CommonUtils.chooseLocation(storeId);
                         }
                     }
                 });
@@ -177,92 +177,5 @@ function SignInController () {
         );
     }
 
-    function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-        var R = 6371; // Radius of the earth in km
-        var dLat = deg2rad(lat2-lat1);  // deg2rad below
-        var dLon = deg2rad(lon2-lon1); 
-        var a = 
-        Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-        Math.sin(dLon/2) * Math.sin(dLon/2)
-        ; 
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-        var d = R * c; // Distance in km
-        return d;
-    }
-
-    function deg2rad(deg) {
-        return deg * (Math.PI/180)
-    }
-
-    this.chooseMode = function() {
-        $('#modal-location').modal('hide');
-        $('#modal-delivery').modal('show');
-    }
-
-    this.chooseLocation = function(storeId) {
-        var json = {
-            Tblstores: {
-                filters: [
-                    {
-                        name: "StoreID",
-                        value: storeId
-                    }
-                ],
-                pagination: {
-                    page: "1",
-                    limit: "1"
-                }
-            }
-        }
-
-        $.ajax({
-            url: "/rest/model/tblstores/filter",
-            type: "POST",
-            data: JSON.stringify(json),
-            success: function(data) {
-                // Yay! It worked!
-                if(data != '') {
-                    var store = data['tblstores'][0]
-                    storeId          = store['StoreID'];
-                    storeName        = store['StoreName'];
-                    addressLine1     = store['Address1'];
-                    addressLine2     = store['ADdress2'];
-                    city             = store['City'];
-                    state            = store['State'];
-                    postalCode       = store['PostalCode'];
-                    phone            = store['Phone']
-                    hours            = store['Hours'];
-
-                    Session.set('storeId', storeId);
-
-                    /*
-                    array = phone.split('');
-                    if(array.length > 0) {
-                        phone = "(" + array[0] + array[1] + array[2] + ") " + array[3] + array[4] + array[5] + "-" + array[6] + array[7] + array[8]+ array[9];
-                    }
-                    */
-
-                    html  = '<img src="/img/store-' + storeId + '-map.png"></img>';
-                    html += '<h5>' + addressLine1 + '</h5>';
-                    html += '<h5>' + city + ", " + state + " " + postalCode + '</h5>';
-                    html += '<label for="#store_phone_num">' + 'PHONE: </label><p id="store_phone_num">' + phone + '</p>';
-                    html += '<label>' + "HOURS" + '</label>';
-                    html += '<p>' + hours + '</p>';
-                    $('#storeInfo').html(html);
-
-                    $('#storeInfo').find("img").css({height: "200px", width: "200px"});
-                    $('#storeInfo').attr("align","center");
-
-                    $('#modal-please-wait').modal('hide');
-                    $('#modal-location').modal('show');
-                }
-                else {
-                    $('#modal-please-wait').modal('hide');
-                    $('#modal-invalid-login').modal('show');
-                }
-            }
-        });
-    }
 
 }
