@@ -120,6 +120,12 @@ get '/tblorderlines' do
 end
 
 # View REST routes (POST)
+post '/rest/view/topping/list-toppings' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    ToppingViewController.listToppings(data)
+end
 post '/rest/view/customer/get-customer' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read

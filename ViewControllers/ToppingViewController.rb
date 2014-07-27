@@ -23,8 +23,8 @@ class ToppingViewController
 
         rows.each do |row|
             row.keys.each do |key|
-                if(row[key].class == "String")
-                    row[key].gsub!(/'/,"\\'")
+                if(row[key].class.to_s == "String")
+                    row[key].gsub!(/'/,"\u2019")
                 end
             end
         end
