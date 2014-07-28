@@ -167,13 +167,19 @@ function OrderItemsController () {
                 
                 if(pageController.toppers!=undefined && pageController.toppers){
                   
-                for(var i = 0; i < pageController.toppers.length; i++) {
-                    var currentTopperItemId = pageController.toppers[i]['id'];
-                    $("#topper-" + currentTopperItemId).attr('checked', false);
-     
-                }
+                    for(var i = 0; i < pageController.toppers.length; i++) {
+                        var currentTopperItemId = pageController.toppers[i]['id'];
+                        $("#topper-" + currentTopperItemId).attr('checked', false);
+         
+                    }
                 }
                 $.session.set('toppings', toppings);
+
+                // Unset Sizes
+                for(var i = 0; i < pageController.sizes.length; i++) {
+                    sizeId = pageController.sizes[i]['id'];
+                    $('#size-' + sizeId).prop("checked", false);
+                }
                 
                 $("#quantity").val(1);    
                 
@@ -846,6 +852,7 @@ function OrderItemsController () {
             html += pageController.buildSizeRadioItem(sizes[i]['SizeID'],sizes[i]['SizeDescription'],sizes.length);
             $("#size-and-crust .left-column").append(html);
         }
+
     }
 
     this.buildSizeRadioItem = function(id, description,contentLength) {
