@@ -74,6 +74,27 @@ ModalDelivery.createMarkup = function(name, message, isRedirect) {
     return html;
 }
 
+function ModalStoreIsClosed () {}
+ModalStoreIsClosed.createMarkup = function(name, message) {
+    var html = "";
+    html += '<div class="modal fade" data-backdrop="static" data-keyboard="false" id="' + name + '">';
+    html += '    <div class="modal-dialog">';
+    html += '        <div class="modal-content">';
+    html += '            <div class="modal-body">';
+    html += '                <div class="row">';
+    html += '                    <h4 class="modal-title">Store is currently closed.<br>Please try again during normal business hours.</h4>';
+    html += '                </div>';
+    html += '                <div class="row">';
+    html += '                    <button class="red-gradient-button" onclick="$.session.clear(); window.location.href = \'/sign-in\';">' + message + '</button>';
+    html += '                </div>';
+    html += '            </div>';
+    html += '        </div><!-- /.modal-content -->';
+    html += '    </div><!-- /.modal-dialog -->';
+    html += '</div><!-- /.modal -->';
+    return html;
+}
+
+
 function ModalInvalidLogin () {}
 ModalInvalidLogin.createMarkup = function(name, message) {
     var html = "";
@@ -216,6 +237,14 @@ CommonUtils.chooseLocation = function(storeId) {
                 postalCode       = store['PostalCode'];
                 phone            = store['Phone']
                 hours            = store['Hours'];
+                isOpen           = store['IsOpen'];
+
+                //console.log(hours);
+                //console.log('Store is open: ' + isOpen);
+
+                if(isOpen == false) {
+                    $('#modal-store-is-closed').modal('show');
+                }
 
                 Session.set('storeId', storeId);
 

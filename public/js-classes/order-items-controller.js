@@ -27,6 +27,7 @@ function OrderItemsController () {
 
         $('#main').append(ModalLocation.createMarkup('modal-location', 'LOCATION CLOSEST TO YOU'));
         $('#main').append(ModalStores.createMarkup('modal-stores', 'CHOOSE STORE'));
+        $('#main').append(ModalStoreIsClosed.createMarkup('modal-store-is-closed', 'OK'));
 
         $('#modal-modify-item').append(ModalModifyPizzaItem.createMarkup());
         $('#modal-modify-item1').append(ModalModifyOrderItem.createMarkup());
