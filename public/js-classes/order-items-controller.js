@@ -597,10 +597,10 @@ function OrderItemsController () {
         if(UNIT_ID == SIDES) {
             html += "                    <tr>";
             html += "                        <td>";
-            html += '                            <button class="red-gradient-button" onClick="pageController.getSideDetail(' + specialtyId + ')">ORDER NOW</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSideDetail(' + specialtyId + ')">ORDER NOW</button>';
             html += '                        </td>';
             html += '                        <td>';
-            html += '                            <button class="red-gradient-button" onClick="pageController.getSideDetail(' + specialtyId + ')">SEE DETAILS</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSideDetail(' + specialtyId + ')">SEE DETAILS</button>';
             html += "                        </td>";
             html += "                    </tr>";
 
@@ -608,10 +608,10 @@ function OrderItemsController () {
         else {
             html += "                    <tr>";
             html += "                        <td>";
-            html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
             html += '                        </td>';
             html += '                        <td>';
-            html += '                            <button class="red-gradient-button" onClick="pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
             html += "                        </td>";
             html += "                    </tr>";
         }
