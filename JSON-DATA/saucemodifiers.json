@@ -133,28 +133,13 @@
         {
             "UnitID" : "8002",
             "SauceModifiers"  : [
-                {
-                    "IsActive": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceModifierDescription": "Taco SauceModifier Packet",
-                    "SauceModifierID": 4,
-                    "SauceModifierShortDescription": "Taco SauceModifier Packet",
-                    "id": null
-                },
+
                 {
                     "IsActive": true,
                     "RADRAT": "2011-08-01T11:44:02Z",
                     "SauceModifierDescription": "Bleu Cheese Dressing",
                     "SauceModifierID": 6,
                     "SauceModifierShortDescription": "Bleu Cheese Dressing",
-                    "id": null
-                },
-                {
-                    "IsActive": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceModifierDescription": "Sour Cream Packet",
-                    "SauceModifierID": 7,
-                    "SauceModifierShortDescription": "Sour Cream Packet",
                     "id": null
                 },
                 {
@@ -227,14 +212,6 @@
                     "SauceModifierDescription": "Buffalo SauceModifier Cup",
                     "SauceModifierID": 18,
                     "SauceModifierShortDescription": "Buffalo SauceModifier Cup",
-                    "id": null
-                },
-                {
-                    "IsActive": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceModifierDescription": "Fat Free Raspberry Vinaigrette Dressing",
-                    "SauceModifierID": 21,
-                    "SauceModifierShortDescription": "Fat Free Raspberry Vinaigrette Dressing",
                     "id": null
                 },
                 {

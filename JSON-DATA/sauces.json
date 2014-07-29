@@ -152,27 +152,9 @@
                     "IsActive": true,
                     "IsInternet": true,
                     "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceDescription": "Taco Sauce Packet",
-                    "SauceID": 4,
-                    "SauceShortDescription": "Taco Sauce Packet",
-                    "id": null
-                },
-                {
-                    "IsActive": true,
-                    "IsInternet": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
                     "SauceDescription": "Bleu Cheese Dressing",
                     "SauceID": 6,
                     "SauceShortDescription": "Bleu Cheese Dressing",
-                    "id": null
-                },
-                {
-                    "IsActive": true,
-                    "IsInternet": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceDescription": "Sour Cream Packet",
-                    "SauceID": 7,
-                    "SauceShortDescription": "Sour Cream Packet",
                     "id": null
                 },
                 {
@@ -254,15 +236,6 @@
                     "SauceDescription": "Buffalo Sauce Cup",
                     "SauceID": 18,
                     "SauceShortDescription": "Buffalo Sauce Cup",
-                    "id": null
-                },
-                {
-                    "IsActive": true,
-                    "IsInternet": true,
-                    "RADRAT": "2011-08-01T11:44:02Z",
-                    "SauceDescription": "Fat Free Raspberry Vinaigrette Dressing",
-                    "SauceID": 21,
-                    "SauceShortDescription": "Fat Free Raspberry Vinaigrette Dressing",
                     "id": null
                 },
                 {
