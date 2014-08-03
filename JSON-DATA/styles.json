@@ -1,0 +1,81 @@
+{
+    "Units" : [
+        {
+            "UnitID" : "3",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8000",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8002",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8007",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8004",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8005",
+            "Styles"  : [
+            ]
+        },
+        {
+            "UnitID" : "8015",
+            "Styles"  : [
+                {
+                    "id" : "38",
+                    "StyleID" : "38",
+                    "StyleDescription" : "Coke (add $1.50)",
+                    "StyleShortDescription" : "Coke (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                },
+                {
+                    "id" : "39",
+                    "StyleID" : "39",
+                    "StyleDescription" : "Diet Coke (add $1.50)",
+                    "StyleShortDescription" : "Diet Coke (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                },
+                {
+                    "id" : "40",
+                    "StyleID" : "40",
+                    "StyleDescription" : "Sprite (add $1.50)",
+                    "StyleShortDescription" : "Sprite (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                },
+                {
+                    "id" : "42",
+                    "StyleID" : "42",
+                    "StyleDescription" : "Barqs Root Beer (add $1.50)",
+                    "StyleShortDescription" : "Barqs Root Beer (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                },
+                {
+                    "id" : "43",
+                    "StyleID" : "43",
+                    "StyleDescription" : "Mello Yello (add $1.50)",
+                    "StyleShortDescription" : "Mello Yello (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                },
+                {
+                    "id" : "45",
+                    "StyleID" : "45",
+                    "StyleDescription" : "Cherry Coke (add $1.50)",
+                    "StyleShortDescription" : "Cherry Coke (add $1.50)",
+                    "RADRAT" : "2014-02-06 14:33:0id"
+                }
+            ]
+        }
+    ]
+}

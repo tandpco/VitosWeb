@@ -62,7 +62,7 @@ function OrderItemsController () {
                 pageController.listToppers(data);
                 pageController.listSizes(data);
                 pageController.listSauces(data);
-                if(UNIT_ID == PIZZA) {
+                if(UNIT_ID == PIZZA || UNIT_ID == SIDES) {
                     pageController.listStyles(data);
                 }
                 pageController.listSauceModifiers(data);

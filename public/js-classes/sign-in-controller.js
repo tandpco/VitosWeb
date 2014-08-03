@@ -15,6 +15,7 @@ function SignInController () {
         Session.set('PIZZA_STYLES',JSON.stringify(new Array()));
         Session.set('SUBS_STYLES',JSON.stringify(new Array()));
         Session.set('SALADS_STYLES',JSON.stringify(new Array()));
+        Session.set('SIDES_STYLES',JSON.stringify(new Array()));
         Session.set('PIZZA_SAUCEMODIFIERS',JSON.stringify(new Array()));
         Session.set('SUBS_SAUCEMODIFIERS',JSON.stringify(new Array()));
         Session.set('SALADS_SAUCEMODIFIERS',JSON.stringify(new Array()));
