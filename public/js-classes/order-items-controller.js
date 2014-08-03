@@ -330,6 +330,7 @@ function OrderItemsController () {
 
         //this.orderItems.push(orderItem);
         var orderId = $.session.get("orderId");
+
         
         var orderItemJson = {
             "pOrderID"              : orderId,
@@ -369,6 +370,17 @@ function OrderItemsController () {
         var now = new Date();
         var dateString = now.toISOString();
 
+        var mode    = $.session.get("mode");
+
+        var deliveryMode = 0;
+
+        if(mode == "Delivery") {
+            deliveryMode = "1";
+        }
+        else if(mode == "Pickup") {
+            deliveryMode = "2";
+        }
+
         var orderJson = {
             "pOrderID"         : orderId,
             "pSessionID"       : "999999999",
@@ -380,10 +392,10 @@ function OrderItemsController () {
             "pCustomerID"      : "6063",
             "pCustomerName"    : "Vito''s Fan",
             "pCustomerPhone"   : "1111111111",
-            "pAddressID"       : "116423",
-            "pOrderTypeID"     : "1",
-            "pDeliveryCharge"  : "0.0",
-            "pDriverMoney"     : "0.0",
+            "pAddressID"       : "1",
+            "pOrderTypeID"     : deliveryMode,
+            "pDeliveryCharge"  : $.session.get("deliveryCharge"),
+            "pDriverMoney"     : $.session.get("driverMoney"),
             "pOrderNotes"      : ""
         }
 

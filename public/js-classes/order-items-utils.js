@@ -426,16 +426,15 @@ OrderItems.buildYourOrder = function () {
             orderTip = Number($.session.get('orderTip'));
         }
 
-        if ($.session.get('orderDeliveryCharge')) {
-            orderDeliveryCharge = Number($.session.get('orderDeliveryCharge'));
+        if ($.session.get('deliveryCharge')) {
+            orderDeliveryCharge = Number($.session.get('deliveryCharge'));
         }
 
-        if ($.session.get('orderDriverMoney')) {
-            orderDriverMoney = Number($.session.get('orderDriverMoney'));
+        if ($.session.get('driverMoney')) {
+            orderDriverMoney = Number($.session.get('driverMoney'));
         }
 
-        orderTotal = orderSubTotal + orderTaxes + orderTip - promoCost; //Subtracting promocode price    
-
+        orderTotal = orderSubTotal + orderTaxes + orderTip + orderDeliveryCharge + orderDriverMoney - promoCost; //Subtracting promocode price    
         html = "";
 
         html += '<tr>';
@@ -445,6 +444,14 @@ OrderItems.buildYourOrder = function () {
         html += '<tr>';
         html += '    <td>TAXES</td>';
         html += '    <td align="right">$ ' + orderTaxes.toFixed(2) + '</span></th>';
+        html += '</tr>';
+        html += '<tr>';
+        html += '    <td>DELIVERY CHARGE:</td>';
+        html += '    <td align="right">$ ' + orderDeliveryCharge.toFixed(2) + '</span></th>';
+        html += '</tr>';
+        html += '<tr>';
+        html += '    <td>DRIVER MONEY:</td>';
+        html += '    <td align="right">$ ' + orderDriverMoney.toFixed(2) + '</span></th>';
         html += '</tr>';
         html += '<tr>';
         html += '    <td>TIP</td>';

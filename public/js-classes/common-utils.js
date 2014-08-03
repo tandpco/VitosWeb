@@ -217,7 +217,10 @@ CommonUtils.chooseMode = function() {
 
 CommonUtils.chooseLocation = function(storeId) {
     var json = {
-        storeId:  storeId
+        storeId:      storeId,
+        streetName:   Session.get("streetName"),
+        streetNumber: Session.get("streetNumber"),
+        zip: Session.get("zip")
     }
 
     $.ajax({
@@ -238,6 +241,13 @@ CommonUtils.chooseLocation = function(storeId) {
                 phone            = store['Phone']
                 hours            = store['Hours'];
                 isOpen           = store['IsOpen'];
+                driverMoney      = store['DefaultDriverMoney'];
+                deliveryCharge   = store['DefaultDeliveryCharge'];
+                deliveryMin      = store['DeliveryMin'];
+
+                Session.set('driverMoney', driverMoney);
+                Session.set('deliveryCharge', deliveryCharge);
+                Session.set('deliveryMin', deliveryMin);
 
                 //console.log(hours);
                 //console.log('Store is open: ' + isOpen);
@@ -361,11 +371,13 @@ CommonUtils.findStore = function(search) {
                         route = shortName;
                     }
                     if (type == "postal_code") {
-                        var zip = shortName;
+                        zip = shortName;
                     }
                 }
             }
             var street = streetNumber + " " + route;
+            Session.set('streetName', route);
+            Session.set('streetNumber', streetNumber);
             Session.set('addressLine1', street);
             Session.set('city', city);
             Session.set('state', state);
@@ -373,6 +385,7 @@ CommonUtils.findStore = function(search) {
 
             // Output the data
             var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay=' + delay + 'ms)<br>';
+            console.log("Address From Google: " + street);
 
             var json = {
                 x: lng,

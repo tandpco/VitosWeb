@@ -6,49 +6,60 @@ class StoreViewController
     public
 
     def self.getStore(data)
-        storeId   = data['storeId'].to_s
+        storeId      = data['storeId'].to_s
+        streetNumber = data['streetNumber']
+        streetName   = data['streetName']
+        zip          = data['zip']
 
-        rows = ActiveRecord::Base.connection.select_all('select * from tblStores where storeid = ' + storeId + ' AND 1 = 1')
+        storeData = ActiveRecord::Base.connection.select_all('select * from tblStores where storeid = ' + storeId + ' AND 1 = 1')
 
         now  = Time.new()
 
         isOpen = false
-        if(rows.count > 0)
+        if(storeData.count > 0)
             nTime = now.hour * 100 + now.min
             open  = 0
             close = 0
             case now.wday 
                 when 0
-                    open = rows[0]['OpenSun']
-                    close = rows[0]['CloseSun']
+                    open = storeData[0]['OpenSun']
+                    close = storeData[0]['CloseSun']
                 when 1
-                    open = rows[0]['OpenMon']
-                    close = rows[0]['CloseMon']
+                    open = storeData[0]['OpenMon']
+                    close = storeData[0]['CloseMon']
                 when 2
-                    open = rows[0]['OpenTue']
-                    close = rows[0]['CloseTue']
+                    open = storeData[0]['OpenTue']
+                    close = storeData[0]['CloseTue']
                 when 3
-                    open = rows[0]['OpenWed']
-                    close = rows[0]['CloseWed']
+                    open = storeData[0]['OpenWed']
+                    close = storeData[0]['CloseWed']
                 when 4
-                    open = rows[0]['OpenThu']
-                    close = rows[0]['CloseThu']
+                    open = storeData[0]['OpenThu']
+                    close = storeData[0]['CloseThu']
                 when 5
-                    open = rows[0]['OpenFri']
-                    close = rows[0]['CloseFri']
+                    open = storeData[0]['OpenFri']
+                    close = storeData[0]['CloseFri']
                 when 6
-                    open = rows[0]['OpenSat']
-                    close = rows[0]['CloseSat']
+                    open = storeData[0]['OpenSat']
+                    close = storeData[0]['CloseSat']
             end
 
             if(nTime >= open && nTime <= 2400) or (nTime >= 0 && nTime <= close)
                 isOpen = true
             end
 
-            rows[0]['IsOpen'] = isOpen
+            storeData[0]['IsOpen'] = isOpen
+
+            sql = 'select distinct tblCASSAddresses.storeid, tblCASSAddresses.street, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid = ' + storeId + ' and tblCASSAddresses.postalcode = \'' + zip + '\' and tblCASSAddresses.street like \'' + streetName + '%\' and tblCASSAddresses.lownumber <= ' + streetNumber + ' and tblCASSAddresses.highnumber >= ' + streetNumber + ' AND 1 = 1'
+            deliveryData = ActiveRecord::Base.connection.select_all(sql)
+
+            if(deliveryData.count > 0)
+                storeData[0]['DefaultDeliveryCharge'] = deliveryData[0]['DeliveryCharge']
+                storeData[0]['DefaultDriverMoney']    = deliveryData[0]['DriverMoney']
+            end
         end
 
-        return rows.to_json
+        return storeData.to_json
     end
 
     def self.listStores(data)
