@@ -6,8 +6,6 @@ class SauceViewController
 
     def self.listSauces(data)
     
-    
-    
         unitId   = data['UnitID']
 
         if(unitId.to_i >= $SIDE.to_i)
@@ -35,7 +33,7 @@ class SauceViewController
     def self.listSauceFromJson(data)
         unitId   = data['UnitID'].to_s
 
-        unitSauce = $sauce["Units"].select { |t| t['UnitID'] == unitId }
+        unitSauce = $sauces["Units"].select { |t| t['UnitID'] == unitId }
 
         tblsauceJson = "[]"
 

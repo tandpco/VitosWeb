@@ -18,7 +18,7 @@ config = JSON::load(File.open(settings.configName))
 
 $sizes          = JSON::load(File.open("./JSON-DATA/sizes.json"))
 $styles         = JSON::load(File.open("./JSON-DATA/styles.json"))
-$topper         = JSON::load(File.open("./JSON-DATA/toppers.json"))
+$toppers        = JSON::load(File.open("./JSON-DATA/toppers.json"))
 $items          = JSON::load(File.open("./JSON-DATA/items.json"))
 $specialtyItems = JSON::load(File.open("./JSON-DATA/specialty-items.json"))
 $sauce          = JSON::load(File.open("./JSON-DATA/sauces.json"))
