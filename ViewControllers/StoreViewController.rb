@@ -53,9 +53,12 @@ class StoreViewController
             sql = 'select distinct tblCASSAddresses.storeid, tblCASSAddresses.street, tblCASSAddresses.city, tblCASSAddresses.state, tblCASSAddresses.deliverycharge, tblCASSAddresses.drivermoney from tblCASSAddresses inner join tblStores on tblCASSAddresses.storeid = tblStores.storeid where tblStores.storeid = ' + storeId + ' and tblCASSAddresses.postalcode = \'' + zip + '\' and tblCASSAddresses.street like \'' + streetName + '%\' and tblCASSAddresses.lownumber <= ' + streetNumber + ' and tblCASSAddresses.highnumber >= ' + streetNumber + ' AND 1 = 1'
             deliveryData = ActiveRecord::Base.connection.select_all(sql)
 
+            puts("SQL: #{sql}")
+            puts("Delivery Data: #{deliveryData.to_json}")
+
             if(deliveryData.count > 0)
-                storeData[0]['DefaultDeliveryCharge'] = deliveryData[0]['DeliveryCharge']
-                storeData[0]['DefaultDriverMoney']    = deliveryData[0]['DriverMoney']
+                storeData[0]['DefaultDeliveryCharge'] = deliveryData[0]['deliverycharge']
+                storeData[0]['DefaultDriverMoney']    = deliveryData[0]['drivermoney']
             end
         end
 
