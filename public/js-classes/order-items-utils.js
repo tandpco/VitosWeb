@@ -381,6 +381,9 @@ OrderItems.buildYourOrder = function () {
             html += '                </div>'
             html += '                <div id="order-item-detail-' + divName + '-' + orderItem['id'] + '" class="panel-collapse collapse">'
             html += '                    <div class="panel-body">'
+            if (typeof orderItem['style'] === 'object' && orderItem['style']['id'] != 'NULL') {
+                html += '                        <p>Style: ' + orderItem['style']['description'] + '</p>'
+            }
             if (orderItem['orderType'] == "PIZZA") {
                 html += '                        <p>Sauce: ' + orderItem['sauce']['description'] + '</p>'
             }
