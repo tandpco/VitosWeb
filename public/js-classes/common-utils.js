@@ -106,7 +106,7 @@ ModalInvalidLogin.createMarkup = function(name, message) {
     html += '                    <h4 class="modal-title">Invalid e-mail address or password.</h4>';
     html += '                </div>';
     html += '                <div class="row">';
-    html += '                    <button class="red-gradient-button" onclick="$(\'#invalidLogin\').modal(\'hide\');">' + message + '</button>';
+    html += '                    <button class="red-gradient-button" onclick="$(\'#modal-invalid-login\').modal(\'hide\');">' + message + '</button>';
     html += '                </div>';
     html += '            </div>';
     html += '        </div><!-- /.modal-content -->';
