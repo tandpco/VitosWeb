@@ -703,6 +703,10 @@ function OrderItemsController () {
 
         html += '</tbody>';
         html += "</table>";
+        if(!toppings.length)
+            $("a[href='#toppings']").hide()
+        else
+            $("a[href='#toppings']").show()
         $("#toppings .left-column").append(html);
     }
 
@@ -1030,6 +1034,10 @@ function OrderItemsController () {
         }
 
         $("#cheese-and-sauce .left-column").append(html);
+        if(!sauces.length)
+            $("a[href='#cheese-and-sauce']").hide()
+        else
+            $("a[href='#cheese-and-sauce']").show()
         $("#cheese-and-sauce .left-column").append(noSauceHtml);
     }
 
