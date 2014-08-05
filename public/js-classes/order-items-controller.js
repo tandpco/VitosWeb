@@ -1034,6 +1034,11 @@ function OrderItemsController () {
         }
 
         $("#cheese-and-sauce .left-column").append(html);
+        var specialtyId = $.session.get('specialtyId');
+        if(specialtyId == 8002)
+            $("a[href='#cheese-and-sauce']").text('DIPPING SAUCE')
+        else
+            $("a[href='#cheese-and-sauce']").text('SAUCE')
         if(!sauces.length)
             $("a[href='#cheese-and-sauce']").hide()
         else
