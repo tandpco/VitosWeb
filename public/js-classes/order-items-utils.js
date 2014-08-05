@@ -367,7 +367,7 @@ OrderItems.buildYourOrder = function () {
             html += '                    <h3 class="panel-title">'
             html += '                       <div class="col-xs-9"> '
             html += '                         <a class="accordion-toggle" data-toggle="collapse" style="color:#fff;font-size:14px" data-parent="#accordion-' + divName + '-' + orderItem['id'] + '" href="#order-item-detail-' + divName + '-' + orderItem['id'] + '">'
-            if (orderItem['orderType'] == "PIZZA") {
+            if (typeof orderItem['size'] === 'object' && orderItem['size']['id'] != 'NULL') {
                 html += '       <span class="itemSize">' + orderItem['size']['description'] + '</span> '
             }
             html += '<span class="itemDescription">' + orderItem['item']['name'] + '(' + orderItem['quantity'] + ')';
@@ -383,6 +383,19 @@ OrderItems.buildYourOrder = function () {
             html += '                    <div class="panel-body">'
             if (typeof orderItem['style'] === 'object' && orderItem['style']['id'] != 'NULL') {
                 html += '                        <p>Style: ' + orderItem['style']['description'] + '</p>'
+            }
+            if (typeof orderItem['item'] === 'object' && orderItem['item']['detail'] > '') {
+                html += '                        <p style="font-style:italic">' + orderItem['item']['detail'] + '</p>'
+            }
+            if (typeof orderItem['toppers'] === 'object' && orderItem['toppers'].length != 'undefined'  && orderItem['toppers'].length > 0) {
+                html += '<div><div><b>Toppers</b></div>'
+                for (var i = 0; i < orderItem['toppers'].length; i++) {
+                    
+                    html += '<span>' + orderItem['toppers'][i]['description'] + '</span>'
+                    if(i+1 !== orderItem['toppers'].length)
+                    html += ', '
+                };
+                html += '</div>'
             }
             if (orderItem['orderType'] == "PIZZA") {
                 html += '                        <p>Sauce: ' + orderItem['sauce']['description'] + '</p>'
