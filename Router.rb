@@ -22,8 +22,8 @@ $toppers        = JSON::load(File.open("./JSON-DATA/toppers.json"))
 $items          = JSON::load(File.open("./JSON-DATA/items.json"))
 $specialtyItems = JSON::load(File.open("./JSON-DATA/specialty-items.json"))
 $sauces         = JSON::load(File.open("./JSON-DATA/sauces.json"))
-$saucemodifier  = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
-$specialty      = JSON::load(File.open("./JSON-DATA/specialties.json"))
+$sauceModifiers = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
+$specialties    = JSON::load(File.open("./JSON-DATA/specialties.json"))
 $stores         = JSON::load(File.open("./JSON-DATA/store-coordinates.json"))
 
 $PIZZA               = "1"
@@ -121,6 +121,12 @@ get '/tblorderlines' do
 end
 
 # View REST routes (POST)
+post '/rest/view/specialty/list-specialties' do
+    request.body.rewind  # in case someone already read it
+    data = JSON.parse request.body.read
+    content_type :json
+    SpecialtyViewController.listSpecialties(data)
+end
 post '/rest/view/topping/list-toppings' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read

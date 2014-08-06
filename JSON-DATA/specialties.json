@@ -74,7 +74,63 @@
                     "id": ""
                 }
             ]
+        },
+        {
+            "UnitID" : "1",
+            "Specialties"  : [
+                {
+                    "InternetDescription": "Choose Toppings of Your Choice",
+                    "IsActive": "true",
+                    "IsInternet": "true",
+                    "NoBaseCheese": "false",
+                    "RADRAT": "",
+                    "SauceID": "6",
+                    "SpecialtyDescription": "Create Your Own Pizza",
+                    "SpecialtyID": "7",
+                    "SpecialtyShortDescription": "Create Your Own Pizza",
+                    "StyleID": "null",
+                    "UnitID": "1",
+                    "id": ""
+                }
+            ]
+        },
+        {
+            "UnitID" : "32",
+            "Specialties"  : [
+                {
+                    "InternetDescription": "Choose 5 of your favorite toppings. Vegetables are free.",
+                    "IsActive": "true",
+                    "IsInternet": "true",
+                    "NoBaseCheese": "false",
+                    "RADRAT": "",
+                    "SauceID": "6",
+                    "SpecialtyDescription": "Create Your Own Sub",
+                    "SpecialtyID": "28",
+                    "SpecialtyShortDescription": "Choose 5 of your favorite toppings. Vegetables are free.",
+                    "StyleID": "null",
+                    "UnitID": "32",
+                    "id": ""
+                }
+            ]
+        },
+        {
+            "UnitID" : "3",
+            "Specialties"  : [
+                {
+                    "InternetDescription": "Chopped Romaine Lettuce. Choose 5 of your favorite toppings. Served with Seasoned Croutons or Tortilla Chips and your choice of 2 dressings.",
+                    "IsActive": "true",
+                    "IsInternet": "true",
+                    "NoBaseCheese": "false",
+                    "RADRAT": "",
+                    "SauceID": "",
+                    "SpecialtyDescription": "Create Your Own Salad",
+                    "SpecialtyID": "40",
+                    "SpecialtyShortDescription": "Create Your Own Salad",
+                    "StyleID": "null",
+                    "UnitID": "3",
+                    "id": ""
+                }
+            ]
         }
     ]
 }
-

@@ -48,7 +48,7 @@ function OrderItemsController () {
         }
         console.log(json);
 
-        var URL = "/rest/view/tblspecialty/get-tblspecialties";
+        var URL = "/rest/view/specialty/list-specialties";
         
         $.ajax({
             url:  URL,

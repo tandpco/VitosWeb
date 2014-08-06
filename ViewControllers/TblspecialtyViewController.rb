@@ -29,7 +29,7 @@ class TblspecialtyViewController
         result['sizes']          = JSON.parse(SizeViewController.listSizes(data))
         result['sauces']         = JSON.parse(SauceViewController.listSauces(data))
         result['styles']         = JSON.parse(StyleViewController.listStyles(data))
-        result['sauceModifiers'] = JSON.parse(TblsaucemodifierViewController.getTblsaucemodifiers(data))
+        result['sauceModifiers'] = JSON.parse(SauceModifierViewController.listSauceModifiers(data))
         result['toppings']       = JSON.parse(ToppingViewController.listToppings(data))
 
         return result.to_json
