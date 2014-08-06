@@ -578,15 +578,22 @@ function OrderItemsController () {
             "8015" : "CokeEtc300x300.jpg"
         };
     
-       var html="";
-       var imgUrl="";
-       var item={};
+        var html="";
+        var imgUrl="";
+        var item={};
+
         item['id']     = specialtyId;
         item['name']   = name;
         item['detail'] = detail;
+
         pageController.items.push(item);
         
-        imgUrl =  specialtyImages[specialtyId];
+        if(specialtyId in specialtyImages) {
+            imgUrl =  specialtyImages[specialtyId];
+        }
+        else {
+            imgUrl =  "DefaultImage300x300.jpg";
+        }
       
       
         html  = "<div class=\"col-md-5\">";
