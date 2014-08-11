@@ -60,10 +60,12 @@ ModalDelivery.createMarkup = function(name, message, isRedirect) {
     html += '    <div class="modal-dialog">';
     html += '        <div class="modal-content">';
     html += '            <div class="modal-body">';
+
     html += '                <h5 class="modal-title">' + message + '</h4>';
     html += '                <a style="cursor:pointer; cursor:hand;" id="modeDelivery" onclick="CommonUtils.chooseDelivery(\''+isRedirect+'\')">';
     html += '                    <img src="/img/mode-delivery.png"/>';
     html += '                </a>';
+
     html += '                <a style="cursor:pointer; cursor:hand;" id="modePickup" onclick="CommonUtils.choosePickup(\''+isRedirect+'\')">';
     html += '                    <img src="/img/mode-pickup.png"/>';
     html += '                </a>';
@@ -211,7 +213,12 @@ CommonUtils.choosePickup = function(isRedirect) {
 
 CommonUtils.chooseMode = function() {
     $('#modal-location').modal('hide');
-    $('#modal-delivery').modal('show');
+    if(Session.get('deliveryAvailable') == "true") {
+        $('#modal-delivery').modal('show');
+    }
+    else {
+        CommonUtils.choosePickup('YES');
+    }
 }
 
 
@@ -321,7 +328,7 @@ CommonUtils.chooseStore = function() {
                     var storeAddress = addressLine1 + ' ' + city + ', ' + state + ', ' + postalCode; 
                     var search       = addressLine1 + ' ' + postalCode; 
                     html += "<div>"
-                    html += '<a href="#" onclick="$(\'#modal-stores\').modal(\'hide\'); CommonUtils.findStore(\'' + search + '\');">' + storeAddress + '</a>'
+                    html += '<a href="#" onclick="$(\'#modal-stores\').modal(\'hide\'); CommonUtils.findStore(\'' + search + '\', false);">' + storeAddress + '</a>'
                     html += "</div>"
                 });
                 $('#stores').html(html);
@@ -337,7 +344,7 @@ CommonUtils.chooseStore = function() {
     });
 }
 
-CommonUtils.findStore = function(search) {
+CommonUtils.findStore = function(search, isCustomerAddress) {
     $('#modal-please-wait').modal();
     geo.geocode({address:search}, function (results,status) { 
         // If that was successful
@@ -387,9 +394,27 @@ CommonUtils.findStore = function(search) {
             var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay=' + delay + 'ms)<br>';
             console.log("Address From Google: " + street);
 
+            var customerX = 0.0;
+            var customerY = 0.0;
+            if(isCustomerAddress) {
+                customerX = lng;
+                customerY = lat;
+                Session.set('customerX', customerX);
+                Session.set('customerY', customerY);
+            }
+            else {
+                customerX = Session.get('customerX');
+                customerY = Session.get('customerY');
+            }
+
             var json = {
-                x: lng,
-                y: lat
+                x:            lng,
+                y:            lat,
+                customerX:   customerX,
+                customerY:   customerY,
+                streetName:   route,
+                streetNumber: streetNumber,
+                zip:          zip
             }
     
             $.ajax({
@@ -400,7 +425,65 @@ CommonUtils.findStore = function(search) {
                     // Yay! It worked!
                     if(data != '') {
                         var storeId = data['StoreID']
-                        CommonUtils.chooseLocation(storeId);
+                        //CommonUtils.chooseLocation(storeId);
+                        if(data['storeInfo'] != '') {
+                            var store = data['storeInfo'][0]
+                            storeId          = store['StoreID'];
+                            storeName        = store['StoreName'];
+                            addressLine1     = store['Address1'];
+                            addressLine2     = store['ADdress2'];
+                            city             = store['City'];
+                            state            = store['State'];
+                            postalCode       = store['PostalCode'];
+                            phone            = store['Phone']
+                            hours            = store['Hours'];
+                            isOpen           = store['IsOpen'];
+                            driverMoney      = store['DefaultDriverMoney'];
+                            deliveryCharge   = store['DefaultDeliveryCharge'];
+                            deliveryMin      = store['DeliveryMin'];
+            
+                            Session.set('deliveryAvailable', data['DeliveryAvailable']);
+                            Session.set('driverMoney', driverMoney);
+                            Session.set('deliveryCharge', deliveryCharge);
+                            Session.set('deliveryMin', deliveryMin);
+            
+                            //console.log(hours);
+                            //console.log('Store is open: ' + isOpen);
+            
+                            if(isOpen == false) {
+                                $('#modal-store-is-closed').modal('show');
+                            }
+            
+                            Session.set('storeId', storeId);
+            
+                            var storeAddress = addressLine1 + ' ' + city + ', ' + state + ', ' + postalCode;
+                            Session.set('storeAddress', storeAddress);
+            
+                            /*
+                            array = phone.split('');
+                            if(array.length > 0) {
+                                phone = "(" + array[0] + array[1] + array[2] + ") " + array[3] + array[4] + array[5] + "-" + array[6] + array[7] + array[8]+ array[9];
+                            }
+                            */
+            
+                            html  = '<img src="/img/store-' + storeId + '-map.png"></img>';
+                            html += '<h5>' + addressLine1 + '</h5>';
+                            html += '<h5>' + city + ", " + state + " " + postalCode + '</h5>';
+                            html += '<label for="#store_phone_num">' + 'PHONE: </label><p id="store_phone_num">' + phone + '</p>';
+                            html += '<label>' + "HOURS" + '</label>';
+                            html += '<p>' + hours + '</p>';
+                            $('#storeInfo').html(html);
+            
+                            $('#storeInfo').find("img").css({height: "200px", width: "200px"});
+                            $('#storeInfo').attr("align","center");
+            
+                            $('#modal-please-wait').modal('hide');
+                            $('#modal-location').modal('show');
+                        }
+                        else {
+                            $('#modal-please-wait').modal('hide');
+                            $('#modal-invalid-login').modal('show');
+                        }
                     }
                 }
             });
@@ -758,7 +841,13 @@ OrderItems.buildYourOrder = function () {
 
         var html = "";
         html = "<tr>";
-        html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + $.session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
+        if(Session.get('deliveryAvailable') == "true") {
+            html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + $.session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
+        }
+        else {
+            html += '    <td>' + $.session.get('email') + ' (<a href="#" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">' + $.session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
+        }
+
         html += "</tr>";
 
         // Process all order items

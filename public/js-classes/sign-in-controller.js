@@ -67,7 +67,7 @@ function SignInController () {
                     $.session.set('email', email);
 
                     search = addressLine1 + " " + postalCode;
-                    CommonUtils.findStore(search);
+                    CommonUtils.findStore(search, true);
                 }
                 else {
                     $('#modal-please-wait').modal('hide');
@@ -98,7 +98,7 @@ function SignInController () {
 
         $('#modal-please-wait').modal('show');
         search = street + " " + zip;
-        CommonUtils.findStore(search);
+        CommonUtils.findStore(search, true);
     }
 
 

@@ -19,12 +19,41 @@ class StoreLocatorViewController
     public
 
     def self.findStore(data)
+
+        # Customer Data
+        x = data['customerX'].to_f
+        y = data['customerY'].to_f
+        customerData = findContainingStore(x,y)
+        
+        if(customerData['StoreID'].to_i < 1)
+            customerData = findDistanceToNearestStore(data)
+        end
+
+        # Coordinate Data
         x = data['x'].to_f
         y = data['y'].to_f
-
-        userCoordinate = Point(x,y)
+        returnData = findContainingStore(x,y)
         
-        returnData = Hash.new
+        if(returnData['StoreID'].to_i < 1)
+            returnData = findDistanceToNearestStore(data)
+        end
+
+        if((returnData['StoreID'] == customerData['StoreID']) && customerData['DeliveryAvailable'] == true)
+            returnData['DeliveryAvailable'] = true 
+        else
+            returnData['DeliveryAvailable'] = false 
+        end
+    
+
+        data['storeId']    = returnData['StoreID']
+        returnData['storeInfo'] = JSON.parse(StoreViewController.getStore(data))
+
+        return returnData.to_json
+    end
+    
+    def self.findContainingStore(x,y)
+        userCoordinate = Point(x,y)
+        returnValue = Hash.new
         $stores.each do |store|
             polyPoints = Array.new
             coordinates = store['coordinates']
@@ -38,23 +67,22 @@ class StoreLocatorViewController
             if(polyPoints.count > 0)
                 if(polygon.contains?(userCoordinate))
                     # puts("User is within store #{store['id']}'s boundary")
-                    returnData['StoreID'] = store['id']
-                    returnData['Message'] = 'The nearest store to your current location is ' + store['id'].to_s + '.'
+                    returnValue['StoreID'] = store['id']
+                    returnValue['DeliveryAvailable'] = true
+                    returnValue['Message'] = 'The nearest store to your current location is ' + store['id'].to_s + '.'
                     break
                 end
             end
         end
-        if(returnData['StoreID'].to_i < 1)
-            result = findDistanceToNearestStore(data)
-            returnData = result
-        end
-        return returnData.to_json
+
+        return returnValue
     end
-    
-    def self.findDistanceToNearestStore(data)
-        x_client = data['x'].to_f
-        y_client = data['y'].to_f
+
+    def self.findDistanceToNearestStore(x,y)
+        x_client = x
+        y_client = y
         returnValue = Hash.new()
+        returnValue['DeliveryAvailable'] = false
  
         minDistance = 1000000
         closestStoreId = -1
@@ -71,19 +99,10 @@ class StoreLocatorViewController
                 minDistance = distance
             end
         end
-        if(minDistance > 50)
-            if(returnValue['StoreID'].to_i < 1)
-                returnValue['StoreID'] = "1"
-                returnValue['Message'] = 'No stores found'
-            else
-                returnValue['StoreID'] = closestStoreId.to_s
-                returnValue['Message'] = 'No Stores within 25 miles of your location. Store ' + closestStoreId.to_s + ' is ' + minDistance.to_s + ' miles away from your current location.'
-            end
-        else
-            returnValue['StoreID'] = closestStoreId.to_s
-            returnValue['Message'] = 'Is ' + minDistance.to_s + ' miles away from your location.'
-        end
-        #puts(returnValue)
+
+        returnValue['StoreID'] = closestStoreId.to_s
+        returnValue['Message'] = 'Is ' + minDistance.to_s + ' miles away from your location.'
+
         return returnValue
     end
     
