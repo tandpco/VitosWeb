@@ -2,7 +2,7 @@ puts('    {')
 puts('        "id" : ' + ARGV[0] + ',')
 puts('        "coordinates" : [')
 File.readlines("store#{ARGV[0]}.kml").each do |line|
-    if(line =~ /-83/)
+    if(line =~ /-(83|84)/)
         coords = line.split(/,0 /)
         i = 0
         coords.each do |coord|
