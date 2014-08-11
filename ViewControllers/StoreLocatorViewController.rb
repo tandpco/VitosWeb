@@ -51,7 +51,7 @@ class StoreLocatorViewController
         return returnData.to_json
     end
     
-     def self.findDistanceToNearestStore(data)
+    def self.findDistanceToNearestStore(data)
         x_client = data['x'].to_f
         y_client = data['y'].to_f
         returnValue = Hash.new()
