@@ -102,46 +102,6 @@
                         "type"        : "custom"
                     }
                 ]
-            },
-            {
-                "name": "Tblorders",
-                "methods" : [
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorders",
-                        "modelMethod" : "create"
-                    },
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorders",
-                        "modelMethod" : "updatePrice"
-                    },
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorder",
-                        "modelMethod" : "get"
-                    }
-                ]
-            },
-            {
-                "name": "Tblorderlines",
-                "methods" : [
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorderlines",
-                        "modelMethod" : "create"
-                    },
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorderlines",
-                        "modelMethod" : "delete"
-                    },
-                    {
-                        "type"        : "model",
-                        "model"       : "Tblorderlines",
-                        "modelMethod" : "get"
-                    }
-                ]
             }
         ],
         "lists"     : [

@@ -78,14 +78,6 @@ get '/store-locator' do
     send_file('public/store-locator.html')
 end
 
-get '/tblorders' do
-    send_file('public/tblorders.html')
-end
-
-get '/tblorderlines' do
-    send_file('public/tblorderlines.html')
-end
-
 # View REST routes (POST)
 post '/rest/view/specialty/list-specialties' do
     request.body.rewind  # in case someone already read it
