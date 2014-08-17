@@ -3,6 +3,8 @@ require "sinatra/config_file"
 require 'json'
 require 'active_record'
 
+enable :sessions
+
 config_file 'config/settings.yml'
 Dir["./ViewControllers/*.rb"].sort.each do |file| 
     file.sub!("\.rb","");
