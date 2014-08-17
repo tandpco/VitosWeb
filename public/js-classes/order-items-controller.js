@@ -8,15 +8,17 @@ function OrderItemsController () {
     this.toppings        = new Array();
     
     this.init = function() {
-        geo = new google.maps.Geocoder();
-        delay = 100;
+        //geo = new google.maps.Geocoder();
+        //delay = 100;
         
-        var customerId = $.session.get("customerId");
-        var email      = $.session.get("email");
+        var customerId = Session.get("customerId");
+        var email      = Session.get("email");
+        alert("Email: " + email);
         
         if(!email) {
-            $.session.clear();
-            window.location.href = "/sign-in";
+            //Session.clear();
+            //window.location.href = "/sign-in";
+            alert("Email is null");
         }
         
         $('#nav-container').append(NavBar.createMarkup());
@@ -42,7 +44,7 @@ function OrderItemsController () {
         $('#modal-please-wait').modal('show');
 
         var json = {
-            "StoreID": $.session.get("storeId"),
+            "StoreID": Session.get("storeId"),
             "UnitID": unitId,
             "SizeID":"9"
         }
@@ -69,7 +71,7 @@ function OrderItemsController () {
                 pageController.listToppings(data);
 
                 if(UNIT_ID == SIDES) {
-                    $.session.set("toppings", "");
+                    Session.set("toppings", "");
                 }
                 $('#modal-please-wait').modal('hide');
                 console.log('Got all the data');
@@ -84,7 +86,7 @@ function OrderItemsController () {
     }  
 
     this.getSideDetail = function(unitId) {
-        $.session.set('specialtyId', unitId);
+        Session.set('specialtyId', unitId);
         this.getData(unitId, false);
         this.showModifyItemModal();
     }  
@@ -92,26 +94,26 @@ function OrderItemsController () {
     this.order = function() {
         $('#modal-modify-item').modal('hide');
         $('#modal-please-wait').modal('show');
-        var orderId = $.session.get("orderId");
+        var orderId = Session.get("orderId");
         this.createOrder();
     }
 
     this.cancel = function() {
-        $.session.set('toppings', "");
-        $.session.set('sauceId', "");
-        $.session.set('sauceModifierId', "");
-        $.session.set('sizeId', "");
-        $.session.set('styleId', "");
-        $.session.set('topperId', "");
-        $.session.set('quantity', "");
-        $.session.set('selectedOrderLineId',"");
+        Session.set('toppings', "");
+        Session.set('sauceId', "");
+        Session.set('sauceModifierId', "");
+        Session.set('sizeId', "");
+        Session.set('styleId', "");
+        Session.set('topperId', "");
+        Session.set('quantity', "");
+        Session.set('selectedOrderLineId',"");
     }
 
     this.getSpecialtyItems = function(unitId, specialtyId, styleId, sauceId) {
-        $.session.set('specialtyId', specialtyId);
+        Session.set('specialtyId', specialtyId);
 
         var json = {
-            "StoreID":$.session.get("storeId"),
+            "StoreID":Session.get("storeId"),
             "SpecialtyID":specialtyId,
             "UnitID":unitId,
             "SPECIALTY_ITEMS":"TRUE",
@@ -127,19 +129,18 @@ function OrderItemsController () {
                 pageController.showModifyItemModal();
                 if(styleId) {
                     $('#style-' + styleId).attr('checked', true).trigger('click');
-                    $.session.set('styleId', styleId);
+                    Session.set('styleId', styleId);
                 }
                 if(sauceId) {
                     $('#sauce-' + sauceId).attr('checked', true).trigger('click');
-                    $.session.set('sauceId', sauceId);
+                    Session.set('sauceId', sauceId);
                 }
 
                 $('#size-9').attr('checked', true).trigger('click');
                 $('#style-7').attr('checked', true).trigger('click');
 
                 // Uncheck everything
-                var toppingItemsString  = $.session.get('toppingItems');
-                var currentToppingItems = toppingItemsString.split(',');
+                var currentToppingItems = JSON.parse(Session.get('toppingItems'));
                 for(var i = 0; i < currentToppingItems.length; i++) {
                     var currentToppingItemId = currentToppingItems[i];
                     $("#topping-" + currentToppingItemId + "-whole").attr("src", "/img/checkbox_unchecked.jpg");
@@ -174,7 +175,7 @@ function OrderItemsController () {
          
                     }
                 }
-                $.session.set('toppings', toppings);
+                Session.set('toppings', toppings);
 
                 // Unset Sizes
                 for(var i = 0; i < pageController.sizes.length; i++) {
@@ -191,7 +192,7 @@ function OrderItemsController () {
     this.listOrder = function() {
         var deferred = $.Deferred();
         var json = {
-            "orderId" : $.session.get('orderId')
+            "orderId" : Session.get('orderId')
         }
 
         var URL = "/rest/view/order/get-order";
@@ -203,19 +204,19 @@ function OrderItemsController () {
             success: function(data) {
                 if(data.length > 0) {
                     var order = data[0]
-                    $.session.set('orderTax', order['Tax']);
-                    $.session.set('orderTax2', order['Tax2']);
-                    $.session.set('orderTip', order['Tip']);
-                    $.session.set('orderDriverMoney', order['DriverMoney']);
-                    $.session.set('orderDeliveryCharge', order['DeliveryCharge']);
+                    Session.set('orderTax', order['Tax']);
+                    Session.set('orderTax2', order['Tax2']);
+                    Session.set('orderTip', order['Tip']);
+                    Session.set('orderDriverMoney', order['DriverMoney']);
+                    Session.set('orderDeliveryCharge', order['DeliveryCharge']);
     
                 }
                 else {
-                    $.session.set('orderTax', 0.00);
-                    $.session.set('orderTax2', 0.00);
-                    $.session.set('orderTip', 0.00);
-                    $.session.set('orderDriverMoney', 0.00);
-                    $.session.set('orderDeliveryCharge', 0.00);
+                    Session.set('orderTax', 0.00);
+                    Session.set('orderTax2', 0.00);
+                    Session.set('orderTip', 0.00);
+                    Session.set('orderDriverMoney', 0.00);
+                    Session.set('orderDeliveryCharge', 0.00);
 
                 }
 
@@ -233,7 +234,7 @@ function OrderItemsController () {
         var orderItem = {};
 
         // Get specialty
-        var specialtyId    = $.session.get('specialtyId');
+        var specialtyId    = Session.get('specialtyId');
         for(var i = 0; i < this.items.length; i++) {
             if(specialtyId == this.items[i]['id']) {
                 orderItem['item'] = this.items[i];
@@ -242,7 +243,7 @@ function OrderItemsController () {
         }
 
         // Get size
-        var sizeId    = $.session.get('sizeId');
+        var sizeId    = Session.get('sizeId');
         for(var i = 0; i < this.sizes.length; i++) {
             if(sizeId == this.sizes[i]['id']) {
                 orderItem['size'] = this.sizes[i];
@@ -251,7 +252,7 @@ function OrderItemsController () {
         }
 
         // Get style
-        var styleId    = $.session.get('styleId');
+        var styleId    = Session.get('styleId');
         for(var i = 0; i < this.styles.length; i++) {
             if(styleId == this.styles[i]['id']) {
                 orderItem['style'] = this.styles[i];
@@ -260,7 +261,7 @@ function OrderItemsController () {
         }
 
         // Get sauce
-        var sauceId    = $.session.get('sauceId');
+        var sauceId    = Session.get('sauceId');
         for(var i = 0; i < this.sauces.length; i++) {
             if(sauceId == this.sauces[i]['id']) {
                 orderItem['sauce'] = this.sauces[i];
@@ -269,7 +270,7 @@ function OrderItemsController () {
         }
 
         // Get sauce modifier
-        var sauceModifierId    = $.session.get('sauceModifierId');
+        var sauceModifierId    = Session.get('sauceModifierId');
         if(sauceModifierId) {
             for(var i = 0; i < this.sauceModifiers.length; i++) {
                 if(sauceModifierId == this.sauceModifiers[i]['id']) {
@@ -283,7 +284,7 @@ function OrderItemsController () {
         }
 
         orderItem['toppers'] = new Array();
-        var selectedToppers  = JSON.parse($.session.get('selectedToppers'));
+        var selectedToppers  = JSON.parse(Session.get('selectedToppers'));
 
         for(var i = 0; i < selectedToppers.length; i++) {
             var topperId = selectedToppers[i];
@@ -295,9 +296,9 @@ function OrderItemsController () {
             }
         }
 
-        var toppingsString  = $.session.get('toppings');
+        var toppingsString  = Session.get('toppings');
         if(toppingsString.length > 0) {
-            var toppings        = toppingsString.split(',');
+            var toppings  = JSON.parse(toppingsString);
     
             orderItem['toppings'] = new Array();
 
@@ -324,12 +325,12 @@ function OrderItemsController () {
         var orderItemToppingsJson = orderItem['toppings'];
         
         //added quantity in session
-        orderItem['quantity']=$.session.get("quantity");
+        orderItem['quantity']=Session.get("quantity");
         
         orderItem['orderType'] =CURRENT_ORDER_LOC;
 
         //this.orderItems.push(orderItem);
-        var orderId = $.session.get("orderId");
+        var orderId = Session.get("orderId");
 
         
         var orderItemJson = {
@@ -347,7 +348,7 @@ function OrderItemsController () {
             "pQuantity"             : orderItem['quantity']//passing quantity in json    
         }
 
-        var userPromos = JSON.parse($.session.get('userPromoCodes'));
+        var userPromos = JSON.parse(Session.get('userPromoCodes'));
         var couponIds = ""
         for(var i = 0; i < userPromos.length; i++) {
             var userPromo = userPromos[i];
@@ -361,8 +362,8 @@ function OrderItemsController () {
         }
 
         var updatePriceJson = {
-            "pStoreID"       : $.session.get('storeId'),
-            "pOrderID"       : $.session.get('orderId'),
+            "pStoreID"       : Session.get('storeId'),
+            "pOrderID"       : Session.get('orderId'),
             "pCouponIDs"     : couponIds,
             "pPromoCodes"    : couponIds 
         }
@@ -370,7 +371,7 @@ function OrderItemsController () {
         var now = new Date();
         var dateString = now.toISOString();
 
-        var mode    = $.session.get("mode");
+        var mode    = Session.get("mode");
 
         var deliveryMode = 0;
 
@@ -388,14 +389,14 @@ function OrderItemsController () {
             "pEmpID"           : "1",
             "pRefID"           : "NULL",
             "pTransactionDate" : dateString,
-            "pStoreID"         : $.session.get("storeId"),
+            "pStoreID"         : Session.get("storeId"),
             "pCustomerID"      : "6063",
             "pCustomerName"    : "Vito''s Fan",
             "pCustomerPhone"   : "1111111111",
             "pAddressID"       : "1",
             "pOrderTypeID"     : deliveryMode,
-            "pDeliveryCharge"  : $.session.get("deliveryCharge"),
-            "pDriverMoney"     : $.session.get("driverMoney"),
+            "pDeliveryCharge"  : Session.get("deliveryCharge"),
+            "pDriverMoney"     : Session.get("driverMoney"),
             "pOrderNotes"      : ""
         }
 
@@ -415,17 +416,17 @@ function OrderItemsController () {
             success: function(data) {
                 if(orderId == null) {
                     console.log('Created Order Id: ' + data['order'][0]['newid']);
-                    $.session.set('orderId', data['order'][0]['newid']);
+                    Session.set('orderId', data['order'][0]['newid']);
                 }
 
                 var orderItemId = data['orderItem'][0]['newid'];
                 orderItem['id'] = orderItemId;
 
-                var orderItems       = JSON.parse($.session.get('orderItems'));
+                var orderItems       = JSON.parse(Session.get('orderItems'));
 
                 orderItems.push(orderItem);
 
-                $.session.set('orderItems', JSON.stringify(orderItems));
+                Session.set('orderItems', JSON.stringify(orderItems));
 
                 pageController.listOrderItems();
             }
@@ -433,7 +434,7 @@ function OrderItemsController () {
     }
 
     this.listOrderItems = function() {
-        var orderId = $.session.get("orderId");
+        var orderId = Session.get("orderId");
         var json = {
             "OrderID"       : orderId
         }
@@ -448,7 +449,7 @@ function OrderItemsController () {
                 $.each(data, function( index ) {
                     var orderItem = data[index];
                     var updatedOrderItems = new Array();
-                    var orderItems        = JSON.parse($.session.get('orderItems'));
+                    var orderItems        = JSON.parse(Session.get('orderItems'));
 
                     // Loop through orderItems from the backend
                     for(var i = 0; i < orderItems.length; i++) {
@@ -462,7 +463,7 @@ function OrderItemsController () {
                         updatedOrderItems.push(sessionOrderItem);
 
                     }
-                         $.session.set('orderItems', JSON.stringify(updatedOrderItems));
+                         Session.set('orderItems', JSON.stringify(updatedOrderItems));
                 });
 
                 pageController.listOrder();
@@ -471,8 +472,8 @@ function OrderItemsController () {
     }
 
     this.listSpecialties = function(data) {
-        firstName  = $.session.get("firstName");
-        lastName   = $.session.get("lastName");
+        firstName  = Session.get("firstName");
+        lastName   = Session.get("lastName");
          
         j = 0;
         html = "";
@@ -642,7 +643,7 @@ function OrderItemsController () {
             html += pageController.buildToppingItem(itemId,description,toppings.length);
         }
 
-        $.session.set('toppingItems', toppingItems);
+        Session.set('toppingItems', toppingItems);
 
         html += '       <tr>'
         html += '           <td  class="tan-highlight">&nbsp;</td>'
@@ -706,15 +707,15 @@ function OrderItemsController () {
     }
 
     this.selectTopping = function(itemId, portion,checkbxId,description) {
-        var toppingsString  = $.session.get('toppings');
+        var toppingsString  = Session.get('toppings');
 
         var select = true;
         var toppings = new Array();
         // Only process current toppings if they exist
         if(toppingsString.length > 0) {
 
-            var currentToppings = toppingsString.split(',');
-           // alert("chckbxid "+checkbxId + "itemId "+ itemId + "prtn "+portion);
+            var currentToppings = JSON.parse(toppingsString);
+
             // Uncheck item's row
             $(checkbxId + itemId + "-whole").attr("src", "/img/checkbox_unchecked.jpg");
             $(checkbxId + itemId + "-left").attr("src", "/img/checkbox_unchecked.jpg");
@@ -753,8 +754,8 @@ function OrderItemsController () {
             $(checkbxId + itemId + "-" + portion ).attr("src", "/img/checkbox_unchecked.jpg");
         }
 
-        $.session.set('toppings', toppings);
-        //alert($.session.get('toppings'));
+        Session.set('toppings', toppings);
+        //alert(Session.get('toppings'));
 
     }
 
@@ -796,7 +797,7 @@ function OrderItemsController () {
     }
 
     this.selectTopper = function(topperId, sessionKey) {
-        var sessionToppers  = JSON.parse($.session.get(sessionKey));
+        var sessionToppers  = JSON.parse(Session.get(sessionKey));
         var selectedToppers = new Array();
         var topperDeleted = false;
           console.log("before--"+topperId + " "+ sessionKey+" "+Session.get(sessionKey));
@@ -814,7 +815,7 @@ function OrderItemsController () {
             selectedToppers.push(topperId);
         }
 
-        $.session.set(sessionKey, JSON.stringify(selectedToppers));
+        Session.set(sessionKey, JSON.stringify(selectedToppers));
         console.log("after.."+topperId+" "+sessionKey+" "+Session.get(sessionKey));
     }
 
@@ -867,7 +868,7 @@ function OrderItemsController () {
             $("#styles1").show("slow");
         }
 
-        $.session.set('sizeId', sizeId);
+        Session.set('sizeId', sizeId);
     }
 
     this.listStyles = function(data) {
@@ -902,12 +903,12 @@ function OrderItemsController () {
     }
 
     this.selectStyle = function(styleId) {
-        $.session.set('styleId', styleId);
+        Session.set('styleId', styleId);
     }
 
     // This method updates the quantity in session
     this.updateQuantity = function(qntyId) {
-        $.session.set('quantity', $(qntyId).val());
+        Session.set('quantity', $(qntyId).val());
     }
     
 
@@ -928,7 +929,7 @@ function OrderItemsController () {
         console.log("promoCode: " + promoCode);
 
         var json = {
-            "storeId": $.session.get("storeId"),
+            "storeId": Session.get("storeId"),
             "promoCode": promoCode
         }
 
@@ -946,7 +947,7 @@ function OrderItemsController () {
 
                     var checkPoint = 0;
 
-                    var userPromos = JSON.parse($.session.get('userPromoCodes'));
+                    var userPromos = JSON.parse(Session.get('userPromoCodes'));
                     for(var i = 0; i < userPromos.length; i++) {
                         var userPromo = userPromos[i];
                         if(userPromo['code'] == couponId) {
@@ -959,7 +960,7 @@ function OrderItemsController () {
                     }
                     else {
                         userPromos.push({code:couponId, description:description, cost:0});
-                        $.session.set('userPromoCodes', JSON.stringify(userPromos));
+                        Session.set('userPromoCodes', JSON.stringify(userPromos));
     
                         OrderItems.buildYourOrder();
                     }
@@ -994,7 +995,7 @@ function OrderItemsController () {
         }
 
         $("#cheese-and-sauce .left-column").append(html);
-        var specialtyId = $.session.get('specialtyId');
+        var specialtyId = Session.get('specialtyId');
         if(specialtyId == 8002)
             $("a[href='#cheese-and-sauce']").text('DIPPING SAUCE')
         else
@@ -1030,7 +1031,7 @@ function OrderItemsController () {
     }
 
     this.selectSauce = function(sauceId) {
-        $.session.set('sauceId', sauceId);
+        Session.set('sauceId', sauceId);
     }
 
     this.listSauceModifiers = function(data) {
@@ -1049,7 +1050,7 @@ function OrderItemsController () {
    // this method helps to update the order. It updates one order at a time.
     this.updateOrder = function(id){
        
-        var orderItems        = JSON.parse($.session.get('orderItems'));
+        var orderItems        = JSON.parse(Session.get('orderItems'));
         var selectedOrderItem;
         var orderType ='';
                
@@ -1059,7 +1060,7 @@ function OrderItemsController () {
                 selectedOrderItem = orderItem;
             }
         }  
-        $.session.set('selectedOrderLineId',id);
+        Session.set('selectedOrderLineId',id);
         pageController.buildModifyModalItem(selectedOrderItem['orderType']);
         pageController.prePopulateSelectedValues(selectedOrderItem);
         $('#modal-modify-item1').modal();
@@ -1108,7 +1109,7 @@ function OrderItemsController () {
             toppingsSession.push(item);
             $("#topping--" + specialty['id'] +'-'+ specialty['portion']).attr("src", "/img/checkbox_checked.jpeg");
         });
-        $.session.set('toppings', toppingsSession);   
+        Session.set('toppings', toppingsSession);   
    
    $("#quantity1").val(Number(orderItemToUpdate['quantity']));
    
@@ -1289,13 +1290,13 @@ this.buildModifyModalItem = function(orderType){
     }
 
     this.selectSauceModifier = function(sauceModifierId,chckboxId) {
-        var currentSauceModifierId = $.session.get('sauceModifierId');
+        var currentSauceModifierId = Session.get('sauceModifierId');
         if(currentSauceModifierId == sauceModifierId) {
             $(chckboxId + sauceModifierId).attr("checked", false);
-            $.session.set('sauceModifierId', "");
+            Session.set('sauceModifierId', "");
         }
         else {
-            $.session.set('sauceModifierId', sauceModifierId);
+            Session.set('sauceModifierId', sauceModifierId);
         }
     }
 

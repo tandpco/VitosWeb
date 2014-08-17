@@ -1,10 +1,75 @@
 function Session () {}
-Session.set = function(name, value) {
-    $.session.set(name, value);
+Session.createSession = function() {
+    var json = { 
+    }
+
+    var returnValue = "";
+    $.ajax({
+        url: "/rest/view/session/create-session",
+        type: "POST",
+        data: JSON.stringify(json),
+        success: function(data) {
+            console.log(data);
+            if(data != '' && data != null) {
+                returnValue = data["sessionId"]
+            }
+        },
+        async:   false
+    });
+
+    return(returnValue);
 }
 Session.get = function(name) {
-    return($.session.get(name));
+    var json = { 
+        sessionId: "1",
+        key: name
+    }
+
+    var returnValue = "";
+    $.ajax({
+        url: "/rest/view/session/get",
+        type: "POST",
+        data: JSON.stringify(json),
+        success: function(data) {
+            console.log(data);
+            if(data != '' && data != null) {
+                returnValue = data[name]
+            }
+        },
+        async:   false
+    });
+
+    return(returnValue);
 }
+Session.set = function(name, value) {
+    $.session.set(name, value);
+
+    var json = {
+        sessionId: "1",
+        key: name,
+        value: value
+    }
+
+    var returnValue = {};
+    $.ajax({
+        url: "/rest/view/session/set",
+        type: "POST",
+        data: JSON.stringify(json),
+        success: function(data) {
+            console.log(data);
+            if(data != '' && data != null) {
+                returnValue = data[name]
+            }
+        },
+        async:   false
+    });
+
+    return(returnValue);
+
+}
+Session.clear = function() {
+}
+
 
 function NavBar () {}
 NavBar.createMarkup = function() {
@@ -29,7 +94,7 @@ NavBar.createMarkup = function() {
     html += '                <li><a href="/order-subs" class="white-shadow"'+(curr_loc.indexOf("subs")!=-1?'style="background-color:#006122"':'')+'>SUBS</a></li>';
     html += '                <li><a href="/order-salads" class="white-shadow"'+(curr_loc.indexOf("salads")!=-1?'style="background-color:#006122"':'')+'>SALADS</a></li>';
     html += '                <li><a href="/order-sides" class="white-shadow"'+(curr_loc.indexOf("sides")!=-1?'style="background-color:#006122"':'')+'>SIDES</a></li>';
-    html += '                <li><a href="/sign-in" onclick="$.session.clear()" class="white-shadow">Sign Out</a></li>';
+    html += '                <li><a href="/sign-in" onclick="Session.clear()" class="white-shadow">Sign Out</a></li>';
     html += '            </ul>';
     html += '        </div>';
     html += '    </div>';
@@ -87,7 +152,7 @@ ModalStoreIsClosed.createMarkup = function(name, message) {
     html += '                    <h4 class="modal-title">Store is currently closed.<br>Please try again during normal business hours.</h4>';
     html += '                </div>';
     html += '                <div class="row">';
-    html += '                    <button class="red-gradient-button" onclick="$.session.clear(); window.location.href = \'/sign-in\';">' + message + '</button>';
+    html += '                    <button class="red-gradient-button" onclick="Session.clear(); window.location.href = \'/sign-in\';">' + message + '</button>';
     html += '                </div>';
     html += '            </div>';
     html += '        </div><!-- /.modal-content -->';
@@ -188,7 +253,7 @@ ModalStores.createMarkup = function(name, message) {
 
 function CommonUtils() {}
 CommonUtils.chooseDelivery = function(isRedirect) {
-    $.session.set('mode', 'Delivery');
+    Session.set('mode', 'Delivery');
     $('#modal-delivery').modal('hide');
     $('.modal-backdrop').remove();
     if(isRedirect =="YES"){
@@ -200,7 +265,7 @@ CommonUtils.chooseDelivery = function(isRedirect) {
 }
 
 CommonUtils.choosePickup = function(isRedirect) {
-    $.session.set('mode', 'Pickup');
+    Session.set('mode', 'Pickup');
     $('#modal-delivery').modal('hide');
     $('.modal-backdrop').remove();
     if(isRedirect =="YES"){
@@ -842,19 +907,19 @@ OrderItems.buildYourOrder = function () {
         var html = "";
         html = "<tr>";
         if(Session.get('deliveryAvailable') == "true") {
-            html += '    <td>' + $.session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + $.session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
+            html += '    <td>' + Session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
         }
         else {
-            html += '    <td>' + $.session.get('email') + ' (<a href="#" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">' + $.session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + $.session.get('storeAddress') + ')</a></td>';
+            html += '    <td>' + Session.get('email') + ' (<a href="#" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
         }
 
         html += "</tr>";
 
         // Process all order items
-        var orderItems = JSON.parse($.session.get('orderItems'));
+        var orderItems = JSON.parse(Session.get('orderItems'));
         var curr_loc = window.location.pathname;
 
-        var userPromos = JSON.parse($.session.get('userPromoCodes'));
+        var userPromos = JSON.parse(Session.get('userPromoCodes'));
         var promoCost = 0.0;
 
         for (var j = 0; j < userPromos.length; j++) {
@@ -939,25 +1004,25 @@ OrderItems.buildYourOrder = function () {
         var orderDriverMoney    = 0.00;
         var orderTotal          = 0.00;
 
-        if ($.session.get('orderTax')) {
-            orderTaxes = Number($.session.get('orderTax'));
+        if (Session.get('orderTax')) {
+            orderTaxes = Number(Session.get('orderTax'));
         }
 
-        if ($.session.get('orderTax2')) {
-            orderTaxes2 = Number($.session.get('orderTax2'));
+        if (Session.get('orderTax2')) {
+            orderTaxes2 = Number(Session.get('orderTax2'));
             orderTaxes  += orderTaxes2;
         }
 
-        if ($.session.get('orderTip')) {
-            orderTip = Number($.session.get('orderTip'));
+        if (Session.get('orderTip')) {
+            orderTip = Number(Session.get('orderTip'));
         }
 
-        if ($.session.get('deliveryCharge')) {
-            orderDeliveryCharge = Number($.session.get('deliveryCharge'));
+        if (Session.get('deliveryCharge')) {
+            orderDeliveryCharge = Number(Session.get('deliveryCharge'));
         }
 
-        if ($.session.get('driverMoney')) {
-            orderDriverMoney = Number($.session.get('driverMoney'));
+        if (Session.get('driverMoney')) {
+            orderDriverMoney = Number(Session.get('driverMoney'));
         }
 
         orderTotal = orderSubTotal + orderTaxes + orderTip + orderDeliveryCharge + orderDriverMoney - promoCost; //Subtracting promocode price    
@@ -1028,7 +1093,7 @@ OrderItems.buildYourOrder = function () {
             success: function (data) {
 
                 //It updates the orderItems resides in session after deletion
-                var orderItems = JSON.parse($.session.get('orderItems'));
+                var orderItems = JSON.parse(Session.get('orderItems'));
                 var updatedOrderItems = new Array();
 
                 for (var i = 0; i < orderItems.length; i++) {
@@ -1038,7 +1103,7 @@ OrderItems.buildYourOrder = function () {
                     }
                 }
 
-                $.session.set('orderItems', JSON.stringify(updatedOrderItems));
+                Session.set('orderItems', JSON.stringify(updatedOrderItems));
 
                 //It rebuilds the accordion after deletion
                 OrderItems.buildYourOrder();
@@ -1047,24 +1112,24 @@ OrderItems.buildYourOrder = function () {
     }
 
     OrderItems.clearField = function (val) {
-        $.session.set('currentTip', val);
+        Session.set('currentTip', val);
     }
 
     OrderItems.UpdateTip = function () {
-        var tip = $.session.get('currentTip');
+        var tip = Session.get('currentTip');
 
         if (tip == null || tip == undefined || isNaN(parseFloat(tip)))
             tip = 0;
-        $.session.set('orderTip', tip);
+        Session.set('orderTip', tip);
 
         OrderItems.buildYourOrder();
     }
     OrderItems.UpdateOrderItem = function () {
         $('#modal-modify-item1').modal('hide');
         $('#modal-please-wait').modal('show');
-        var orderLineId = $.session.get('selectedOrderLineId');
+        var orderLineId = Session.get('selectedOrderLineId');
         if (orderLineId) {
-            var orderItems = JSON.parse($.session.get('orderItems'));
+            var orderItems = JSON.parse(Session.get('orderItems'));
             var selectedOrderItem;
 
             for (var i = 0; i < orderItems.length; i++) {
@@ -1075,11 +1140,11 @@ OrderItems.buildYourOrder = function () {
             }
 
             if (selectedOrderItem) {
-                selectedOrderItem['quantity'] = $.session.get('quantity');
+                selectedOrderItem['quantity'] = Session.get('quantity');
                 //size
 
-                var sizeId = $.session.get('sizeId');
-                var sizeInSsn = JSON.parse($.session.get(selectedOrderItem['orderType'] + '_SIZES'));
+                var sizeId = Session.get('sizeId');
+                var sizeInSsn = JSON.parse(Session.get(selectedOrderItem['orderType'] + '_SIZES'));
                 for (var i = 0; i < sizeInSsn.length; i++) {
                     if (sizeId == sizeInSsn[i]['id']) {
                         selectedOrderItem['size'] = sizeInSsn[i];
@@ -1088,8 +1153,8 @@ OrderItems.buildYourOrder = function () {
 
                 //style
 
-                var styleId = $.session.get('styleId');
-                var styleInSsn = JSON.parse($.session.get(selectedOrderItem['orderType'] + '_STYLES'));
+                var styleId = Session.get('styleId');
+                var styleInSsn = JSON.parse(Session.get(selectedOrderItem['orderType'] + '_STYLES'));
                 for (var i = 0; i < styleInSsn.length; i++) {
                     if (styleId == styleInSsn[i]['id']) {
                         selectedOrderItem['style'] = styleInSsn[i];
@@ -1097,8 +1162,8 @@ OrderItems.buildYourOrder = function () {
                 }
 
                 // Get sauce
-                var sauceId = $.session.get('sauceId');
-                var sauceInSsn = JSON.parse($.session.get(selectedOrderItem['orderType'] + '_SAUCES'));
+                var sauceId = Session.get('sauceId');
+                var sauceInSsn = JSON.parse(Session.get(selectedOrderItem['orderType'] + '_SAUCES'));
                 for (var i = 0; i < sauceInSsn.length; i++) {
                     if (sauceId == sauceInSsn[i]['id']) {
                         selectedOrderItem['sauce'] = sauceInSsn[i];
@@ -1106,9 +1171,9 @@ OrderItems.buildYourOrder = function () {
                 }
 
                 // Get sauce modifier
-                var sauceModifierId = $.session.get('sauceModifierId');
+                var sauceModifierId = Session.get('sauceModifierId');
                 if (sauceModifierId) {
-                    var sauceModInSsn = JSON.parse($.session.get(selectedOrderItem['orderType'] + '_SAUCEMODIFIERS'));
+                    var sauceModInSsn = JSON.parse(Session.get(selectedOrderItem['orderType'] + '_SAUCEMODIFIERS'));
                     for (var i = 0; i < sauceModInSsn.length; i++) {
                         if (sauceModifierId == sauceModInSsn[i]['id']) {
                             selectedOrderItem['sauceModifier'] = sauceModInSsn[i];
@@ -1123,8 +1188,8 @@ OrderItems.buildYourOrder = function () {
                 //topper
 
                 selectedOrderItem['toppers'] = new Array();
-                var selectedToppers = JSON.parse($.session.get('ToppersInEdit'));
-                var topperInSsn = JSON.parse($.session.get(selectedOrderItem['orderType'] + '_TOPPERS'));
+                var selectedToppers = JSON.parse(Session.get('ToppersInEdit'));
+                var topperInSsn = JSON.parse(Session.get(selectedOrderItem['orderType'] + '_TOPPERS'));
 
                 for (var i = 0; i < selectedToppers.length; i++) {
                     var topperId = selectedToppers[i];
@@ -1136,8 +1201,8 @@ OrderItems.buildYourOrder = function () {
                 }
                 //topping
 
-                var toppingsString = $.session.get('toppings');
-                var toppings = toppingsString.split(',');
+                var toppingsString = Session.get('toppings');
+                var toppings       = JSON.parse(toppingsString);
 
                 selectedOrderItem['toppings'] = new Array();
 
@@ -1155,7 +1220,7 @@ OrderItems.buildYourOrder = function () {
                     selectedOrderItem['toppings'].push(topping);
                 }
 
-                $.session.set('orderItems', JSON.stringify(orderItems));
+                Session.set('orderItems', JSON.stringify(orderItems));
                 $('#modal-please-wait').modal('hide');
                 OrderItems.buildYourOrder();
             }

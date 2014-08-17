@@ -9,10 +9,10 @@ function PaymentInformationController () {
         
         $('#applyAddr').click(function() {
         if ($(this).is(':checked')) {
-          $("#address").val($.session.get("addressLine1"));
-          $("#city").val($.session.get("city"));
-          $("#state").val($.session.get("state"));
-          $("#zipCode").val($.session.get("zip"));
+          $("#address").val(Session.get("addressLine1"));
+          $("#city").val(Session.get("city"));
+          $("#state").val(Session.get("state"));
+          $("#zipCode").val(Session.get("zip"));
         }
         else{
          $("#address").val('');

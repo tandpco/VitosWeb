@@ -1,6 +1,7 @@
 function SignInController () {
     
     this.constructSession = function(){
+        Session.createSession();
         Session.set('orderItems', JSON.stringify(new Array()));
         Session.set('userPromoCodes',JSON.stringify(new Array()));
         Session.set('PIZZA_TOPPERS',JSON.stringify(new Array()));
@@ -64,7 +65,7 @@ function SignInController () {
                     var addressLine1 = customer['AddressLine1'];
                     var postalCode   = customer['PostalCode'];
 
-                    $.session.set('email', email);
+                    Session.set('email', email);
 
                     search = addressLine1 + " " + postalCode;
                     CommonUtils.findStore(search, true);
@@ -93,8 +94,8 @@ function SignInController () {
         console.log("Email: " + email);
         console.log("Address Line 1: " + street);
 
-        $.session.set('email', email);
-        $.session.set('apt', apt);
+        Session.set('email', email);
+        Session.set('apt', apt);
 
         $('#modal-please-wait').modal('show');
         search = street + " " + zip;

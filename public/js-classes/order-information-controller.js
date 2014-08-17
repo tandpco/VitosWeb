@@ -6,14 +6,14 @@ function OrderInformationController () {
         $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
         $('#main').append(ModalDelivery.createMarkup('modal-delivery', 'HOW WOULD YOU LIKE YOUR ORDER?','YES'));
         OrderItems.buildYourOrder(); 
-        $("#email_address").val($.session.get("email")); 
-        $("#confirm_email_address").val($.session.get("email"));
-        $("#first_name").val($.session.get("firstName"));
-        $("#last_name").val($.session.get("lastName"));
-        $("#address").val($.session.get("addressLine1"));
-        $("#city").val($.session.get("city"));
-        $("#state").val($.session.get("state"));
-        $("#zipCode").val($.session.get("zip"));
+        $("#email_address").val(Session.get("email")); 
+        $("#confirm_email_address").val(Session.get("email"));
+        $("#first_name").val(Session.get("firstName"));
+        $("#last_name").val(Session.get("lastName"));
+        $("#address").val(Session.get("addressLine1"));
+        $("#city").val(Session.get("city"));
+        $("#state").val(Session.get("state"));
+        $("#zipCode").val(Session.get("zip"));
     }
 
     buildItemForGridPanel = function(name,detail) {
