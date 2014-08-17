@@ -26,7 +26,7 @@ class StoreLocatorViewController
         customerData = findContainingStore(x,y)
         
         if(customerData['StoreID'].to_i < 1)
-            customerData = findDistanceToNearestStore(data)
+            customerData = findDistanceToNearestStore(x,y)
         end
 
         # Coordinate Data
@@ -35,7 +35,7 @@ class StoreLocatorViewController
         returnData = findContainingStore(x,y)
         
         if(returnData['StoreID'].to_i < 1)
-            returnData = findDistanceToNearestStore(data)
+            returnData = findDistanceToNearestStore(x,y)
         end
 
         if((returnData['StoreID'] == customerData['StoreID']) && customerData['DeliveryAvailable'] == true)
