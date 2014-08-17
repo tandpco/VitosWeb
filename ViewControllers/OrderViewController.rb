@@ -33,22 +33,24 @@ class OrderViewController
         puts("OrderID: " + orderId.to_s)
         if(orderId == nil || orderId < 1)
 
-            order['pSessionID']       = convertToInt(order['pSessionID'])
-            order['pIPAddress']       = order['pIPAddress']
-            order['pEmpID']           = convertToInt(order['pEmpID'])
-            order['pRefID']           = convertToInt(order['pRefID'])
-            order['pTransactionDate'] = order['pTransactionDate']
-            order['pStoreID']         = convertToInt(order['pStoreID'])
-            order['pCustomerID']      = convertToInt(order['pCustomerID'])
-            order['pCustomerName']    = order['pCustomerName']
-            order['pCustomerPhone']   = order['pCustomerPhone']
-            order['pAddressID']       = convertToInt(order['pAddressID'])
-            order['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
-            order['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
-            order['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
-            order['pOrderNotes']      = order['pOrderNotes']
+            newOrder = Hash.new()
+
+            newOrder['pSessionID']       = convertToInt(order['pSessionID'])
+            newOrder['pIPAddress']       = order['pIPAddress']
+            newOrder['pEmpID']           = convertToInt(order['pEmpID'])
+            newOrder['pRefID']           = convertToInt(order['pRefID'])
+            newOrder['pTransactionDate'] = order['pTransactionDate']
+            newOrder['pStoreID']         = convertToInt(order['pStoreID'])
+            newOrder['pCustomerID']      = convertToInt(order['pCustomerID'])
+            newOrder['pCustomerName']    = order['pCustomerName']
+            newOrder['pCustomerPhone']   = order['pCustomerPhone']
+            newOrder['pAddressID']       = convertToInt(order['pAddressID'])
+            newOrder['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
+            newOrder['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
+            newOrder['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
+            newOrder['pOrderNotes']      = order['pOrderNotes']
             
-            orderResult = ActiveRecord::Base.connection.execute_procedure("AddOrder", order)
+            orderResult = ActiveRecord::Base.connection.execute_procedure("AddOrder", newOrder)
             orderId = convertToInt(orderResult[0]['newid'])
         end
 

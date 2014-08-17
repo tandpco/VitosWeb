@@ -13,12 +13,10 @@ function OrderItemsController () {
         
         var customerId = Session.get("customerId");
         var email      = Session.get("email");
-        alert("Email: " + email);
         
         if(!email) {
-            //Session.clear();
-            //window.location.href = "/sign-in";
-            alert("Email is null");
+            Session.clear();
+            window.location.href = "/sign-in";
         }
         
         $('#nav-container').append(NavBar.createMarkup());
