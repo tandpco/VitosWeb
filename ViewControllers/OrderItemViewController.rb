@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 
-class OrderItemsViewController
+class OrderItemViewController
     public
 
 

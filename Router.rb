@@ -136,39 +136,25 @@ post '/rest/view/order/create-order' do
     OrderViewController.createOrder(data)
 end
 
-post '/rest/view/tblspecialty/get-tblspecialties' do
+post '/rest/view/order-item/get-default-specialty-items' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    TblspecialtyViewController.getTblspecialties(data)
+    OrderItemViewController.getDefaultSpecialtyItems(data)
 end
 
-post '/rest/view/order-items/get-default-specialty-items' do
+post '/rest/view/order-line/delete-order-line' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    OrderItemsViewController.getDefaultSpecialtyItems(data)
+    OrderLineViewController.deleteOrderLine(data)
 end
 
-post '/rest/view/tblorderlines/create-tblorderlines' do
+post '/rest/view/order-line/get-order-lines' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    TblorderlinesViewController.createTblorderlines(data)
-end
-
-post '/rest/view/tblorderlines/delete-tblorderlines' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblorderlinesViewController.deleteTblorderlines(data)
-end
-
-post '/rest/view/tblorderlines/get-tblorderlines' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    content_type :json
-    TblorderlinesViewController.getTblorderlines(data)
+    OrderLineViewController.getOrderLines(data)
 end
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],

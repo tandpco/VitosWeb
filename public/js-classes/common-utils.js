@@ -1022,7 +1022,7 @@ OrderItems.buildYourOrder = function () {
 
         //An ajax call to cancel the order in the back end
         $.ajax({
-            url: "/rest/view/tblorderlines/delete-tblorderlines",
+            url: "/rest/view/order-line/delete-order-line",
             type: "POST",
             data: JSON.stringify(json),
             success: function (data) {

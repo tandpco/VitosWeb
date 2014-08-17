@@ -48,7 +48,7 @@ class OrderViewController
             order['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
             order['pOrderNotes']      = order['pOrderNotes']
             
-            orderResult = Tblorders.connection.execute_procedure("AddOrder", order)
+            orderResult = ActiveRecord::Base.connection.execute_procedure("AddOrder", order)
             orderId = convertToInt(orderResult[0]['newid'])
         end
 
@@ -95,7 +95,7 @@ class OrderViewController
 
         puts(JSON.pretty_generate(orderItem))
 
-        orderItemResult = Tblorderlines.connection.execute_procedure("AddOrderLine", orderItem);
+        orderItemResult = ActiveRecord::Base.connection.execute_procedure("AddOrderLine", orderItem);
 
         # OrderLineItem
         toppings = data['orderItemToppings']
@@ -121,7 +121,7 @@ class OrderViewController
                     orderLineItem['pHalfID'] = '0'
                 end
     
-                orderLineItemResult = Tblorderlineitems.connection.execute_procedure("AddOrderLineItem", orderLineItem);
+                orderLineItemResult = ActiveRecord::Base.connection.execute_procedure("AddOrderLineItem", orderLineItem);
                 result['orderLineItemResults'].push(orderLineItemResult)
             end
         end
@@ -133,7 +133,7 @@ class OrderViewController
         updatePrice['pCouponIDs']       = updatePrice['pCouponIDs']
         updatePrice['pPromoCodes']      = updatePrice['pPromoCodes']
 
-        updatePriceResult = Tblorders.connection.execute_procedure("WebRecalculateOrderPrice", updatePrice)
+        updatePriceResult = ActiveRecord::Base.connection.execute_procedure("WebRecalculateOrderPrice", updatePrice)
 
 
         result['order']             = orderResult

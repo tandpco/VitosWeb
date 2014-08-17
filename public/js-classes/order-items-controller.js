@@ -117,7 +117,7 @@ function OrderItemsController () {
             "SPECIALTY_ITEMS":"TRUE",
         }
 
-        var URL = "/rest/view/order-items/get-default-specialty-items";
+        var URL = "/rest/view/order-item/get-default-specialty-items";
 
         $.ajax({
             url: URL,
@@ -399,81 +399,34 @@ function OrderItemsController () {
             "pOrderNotes"      : ""
         }
 
-        // Don't submit side order until service call works
-        // if(UNIT_ID == PIZZA || UNIT_ID == SUBS || UNIT_ID == SALADS) {
-
-            var json = {
-                "order" : orderJson, 
-                "orderItem" : orderItemJson,
-                "updatePrice" : updatePriceJson,
-                "orderItemToppings" : orderItemToppingsJson
-            }
-    
-            var URL = "/rest/view/order/create-order";
-    
-            $.ajax({
-                url: URL,
-                type: "POST",
-                data: JSON.stringify(json),
-                success: function(data) {
-                    if(orderId == null) {
-                        console.log('Created Order Id: ' + data['order'][0]['newid']);
-                        $.session.set('orderId', data['order'][0]['newid']);
-                    }
-    
-                    var orderItemId = data['orderItem'][0]['newid'];
-                    orderItem['id'] = orderItemId;
-    
-                    var orderItems       = JSON.parse($.session.get('orderItems'));
-    
-                    orderItems.push(orderItem);
-    
-                    $.session.set('orderItems', JSON.stringify(orderItems));
-    
-                    pageController.listOrderItems();
-                }
-            });
-        //}
-        /*
-        else {
-            //orderItem['id'] = 0;
-            //$.session.set('orderId', 0);
-            //var orderItems       = JSON.parse($.session.get('orderItems'));
-            //orderItems.push(orderItem);
-            //$.session.set('orderItems', JSON.stringify(orderItems));
-            pageController.listOrderItems();
-        }
-        */
-    }
-
-    this.updatePrice = function() {
-        var userPromos = JSON.parse($.session.get('userPromoCodes'));
-        var couponIds = ""
-        for(var i = 0; i < userPromos.length; i++) {
-            var userPromo = userPromos[i];
-            var couponId = userPromo['code'];
-            if(i == 0) {
-                couponIds = couponId;
-            }
-            else {
-                couponIds += "," + couponId;
-            }
-        }
-
         var json = {
-            "pStoreID"       : $.session.get('storeId'),
-            "pOrderID"       : $.session.get('orderId'),
-            "pCouponIDs"     : couponIds,
-            "pPromoCodes"    : couponIds 
+            "order" : orderJson, 
+            "orderItem" : orderItemJson,
+            "updatePrice" : updatePriceJson,
+            "orderItemToppings" : orderItemToppingsJson
         }
 
-        var URL = "/rest/view/tblorders/update-price-tblorders";
+        var URL = "/rest/view/order/create-order";
 
         $.ajax({
-            url:  URL,
+            url: URL,
             type: "POST",
             data: JSON.stringify(json),
             success: function(data) {
+                if(orderId == null) {
+                    console.log('Created Order Id: ' + data['order'][0]['newid']);
+                    $.session.set('orderId', data['order'][0]['newid']);
+                }
+
+                var orderItemId = data['orderItem'][0]['newid'];
+                orderItem['id'] = orderItemId;
+
+                var orderItems       = JSON.parse($.session.get('orderItems'));
+
+                orderItems.push(orderItem);
+
+                $.session.set('orderItems', JSON.stringify(orderItems));
+
                 pageController.listOrderItems();
             }
         });
@@ -485,7 +438,7 @@ function OrderItemsController () {
             "OrderID"       : orderId
         }
 
-        var URL = "/rest/view/tblorderlines/get-tblorderlines";
+        var URL = "/rest/view/order-line/get-order-lines";
 
         $.ajax({
             url: URL,
