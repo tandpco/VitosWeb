@@ -1,12 +1,13 @@
 require 'sinatra'
 require 'json'
+require 'securerandom'
 
 class SessionViewController
     public
 
     def self.createSession(data)
-        id        = 1
-        sessionId = id.to_s
+        # Probably fine for now, but need to add timestamp to uuid()
+        sessionId = SecureRandom.uuid()
         $session[sessionId] = Hash.new()
 
         returnData = Hash.new()
@@ -15,8 +16,7 @@ class SessionViewController
     end
 
     def self.get(data)
-        #sessionId = data['sessionId']
-        sessionId = "1"
+        sessionId = data['sessionId']
         key       = data['key']
     
         returnData = Hash.new()
@@ -27,8 +27,7 @@ class SessionViewController
     end
 
     def self.set(data)
-        #sessionId = data['sessionId']
-        sessionId = "1"
+        sessionId = data['sessionId']
         key       = data['key'].to_s
         value     = data['value'].to_s
     

@@ -12,7 +12,9 @@ Session.createSession = function() {
         success: function(data) {
             console.log(data);
             if(data != '' && data != null) {
-                returnValue = data["sessionId"]
+                sessionId = data["sessionId"];
+                $.session.set('sessionId', sessionId);
+                returnValue = sessionId;
             }
         },
         async:   false
@@ -21,14 +23,17 @@ Session.createSession = function() {
     return(returnValue);
 }
 Session.get = function(name) {
-    var json = { 
-        sessionId: "1",
+    var sessionId = $.session.get('sessionId');
+    var json = {
+        sessionId: sessionId,
         key: name
     }
 
     // if a value is already available, we know we've already fetched or set this var. no need to re-get it
-    if(typeof $__localCache[name] != 'undefined')
+    if(typeof $__localCache[name] != 'undefined') {
         return $__localCache[name];
+    }
+
     var returnValue = "";
     $.ajax({
         url: "/rest/view/session/get",
@@ -45,12 +50,14 @@ Session.get = function(name) {
     return $__localCache[name] = returnValue
 }
 Session.set = function(name, value) {
-    if(typeof $__localCache[name] != 'undefined' && ($__localCache[name] === JSON.stringify(value) || $__localCache[name] === value))
+    if(typeof $__localCache[name] != 'undefined' && ($__localCache[name] === JSON.stringify(value) || $__localCache[name] === value)) {
         return $__localCache[name];
-    $.session.set(name, value);
+    }
+
+    var sessionId = $.session.get('sessionId');
 
     var json = {
-        sessionId: "1",
+        sessionId: sessionId,
         key: name,
         value: value
     }
@@ -76,6 +83,7 @@ Session.set = function(name, value) {
 
 }
 Session.clear = function() {
+    Session.createSession();
 }
 
 
