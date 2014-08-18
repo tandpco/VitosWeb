@@ -90,11 +90,31 @@ NavBar.createMarkup = function() {
     html += '        <div class="collapse navbar-collapse">';
     html += '            <ul class="nav navbar-nav navbar-right">';
      var curr_loc= window.location.pathname;
-    html += '                <li><a href="/order-pizza" class="white-shadow"'+(curr_loc.indexOf("pizza")!=-1?'style="background-color:#006122"':'')+'>PIZZAS</a></li>';
-    html += '                <li><a href="/order-subs" class="white-shadow"'+(curr_loc.indexOf("subs")!=-1?'style="background-color:#006122"':'')+'>SUBS</a></li>';
-    html += '                <li><a href="/order-salads" class="white-shadow"'+(curr_loc.indexOf("salads")!=-1?'style="background-color:#006122"':'')+'>SALADS</a></li>';
-    html += '                <li><a href="/order-sides" class="white-shadow"'+(curr_loc.indexOf("sides")!=-1?'style="background-color:#006122"':'')+'>SIDES</a></li>';
-    html += '                <li><a href="/sign-in" onclick="Session.clear()" class="white-shadow">Sign Out</a></li>';
+    html += '                <li><a href="/order-pizza" class="white-shadow'+(curr_loc.indexOf("pizza")!=-1 ? ' active':'')+'">MENU</a></li>';
+    html += '                <li><a href="/order-subs" class="white-shadow"'+(curr_loc.indexOf("deals")!=-1?'style="background-color:#006122"':'')+'>DEALS</a></li>';
+    html += '                <li><a href="/order-salads" class="white-shadow"'+(curr_loc.indexOf("locations")!=-1?'style="background-color:#006122"':'')+'>LOCATIONS</a></li>';
+    // html += '                <li><a href="/order-sides" class="white-shadow"'+(curr_loc.indexOf("sides")!=-1?'style="background-color:#006122"':'')+'>SIDES</a></li>';
+    // html += '                <li><a href="/sign-in" onclick="Session.clear()" class="white-shadow">Sign Out</a></li>';
+    // html += '                <li><a href="/order-pizza" class="white-shadow"'+(curr_loc.indexOf("pizza")!=-1?'style="background-color:#006122"':'')+'>PIZZAS</a></li>';
+    // html += '                <li><a href="/order-subs" class="white-shadow"'+(curr_loc.indexOf("subs")!=-1?'style="background-color:#006122"':'')+'>SUBS</a></li>';
+    // html += '                <li><a href="/order-salads" class="white-shadow"'+(curr_loc.indexOf("salads")!=-1?'style="background-color:#006122"':'')+'>SALADS</a></li>';
+    // html += '                <li><a href="/order-sides" class="white-shadow"'+(curr_loc.indexOf("sides")!=-1?'style="background-color:#006122"':'')+'>SIDES</a></li>';
+    // html += '                <li><a href="/sign-in" onclick="Session.clear()" class="white-shadow">Sign Out</a></li>';
+    html += '            </ul>';
+    html += '        </div>';
+    html += '    </div>';
+    html += '</nav>';
+    html += '<nav class="navbar-default sub-navbar" role="navigation">';
+    html += '    <div class="container">';
+    html += '';
+    html += '        <!-- Collect the nav links, forms, and other content for toggling -->';
+    html += '        <div class="collapse navbar-collapse">';
+    html += '            <ul class="nav navbar-nav navbar-right">';
+     var curr_loc= window.location.pathname;
+    html += '                <li><a href="/order-pizza" class="white-no-shadow'+(curr_loc.indexOf("pizza")!=-1 ? ' active':'')+'">PIZZAS</a></li>';
+    html += '                <li><a href="/order-subs" class="white-no-shadow'+(curr_loc.indexOf("subs")!=-1 ? ' active':'')+'">SUBS</a></li>';
+    html += '                <li><a href="/order-salads" class="white-no-shadow'+(curr_loc.indexOf("salads")!=-1 ? ' active':'')+'">SALADS</a></li>';
+    html += '                <li><a href="/order-sides" class="white-no-shadow'+(curr_loc.indexOf("sides")!=-1 ? ' active':'')+'">SIDES</a></li>';
     html += '            </ul>';
     html += '        </div>';
     html += '    </div>';
@@ -817,7 +837,6 @@ PanelOrderItemsSmall.createMarkup = function () {
         html += '                                                <span class="input-group-btn">';
         html += '                                                    <button class="btn btn-default" type="button" onclick="pageController.updatePromo()">Apply</button>';
         html += '                                                </span>';
-        html += '                                           </input>';
         html += '                                        </div>';
         html += '                                    </div>';
         html += '                                </td>';
@@ -850,43 +869,22 @@ PanelOrderItems.createMarkup = function () {
     var html = "";
     var curr_loc = window.location.pathname;
 
-    html += '<table id="order-table-right" cellspacing="10" width="90%">';
-    html += '    <thead>';
-    html += '        <tr>';
-    html += '            <th colspan="2">YOUR ORDER</td>';
-    html += '        </tr>';
-    html += '    </thead>';
+    html += '<div id="order-items-listing"><h2>Your Order</h2>'
+    html += '<table id="order-table-right" cellspacing="10" >';
     html += '    <tbody></tbody>';
-    html += '</table>';
-    html += '<br>';
+    html += '</table></div>';
+    // html += '<br>';
+    html += '<div class="order-table-total-wrapper">'
+
     if (curr_loc.indexOf("confirmation") == -1) {
-        html += '<div width="100%" style="background-color:#A49685">';
-        html += '    <table id="promo" width="100%">';
-        html += '        <tr>';
-        html += '           <td style="width:50%;text-align:center"> Enter your promo code </td>';
-        html += '                <td>';
-        html += '                  <div class="col-lg-6" style="width:100%" >';
-        html += '                     <div class="input-group" style="margin-left:-10%">';
-        html += '                        <input type="text" class="form-control" id="promoCode-lg">';
-        html += '                        <span class="input-group-btn">';
-        html += '                            <button class="btn btn-default" type="button" onclick="pageController.updatePromo()">Apply</button>';
-        html += '                        </span>';
-        html += '                      </div>';
-        html += '                    </div>';
-        html += '                 </td>';
-        html += '             </tr>';
-        html += '    </table>';
-        html += '</div>';
+        html += '                        <div class="promo-code-input">';
+        html += '                            <input type="text" id="promoCode-lg" placeholder="Promo Code">';
+        html +=                             '<button class="btn" type="button" onclick="pageController.updatePromo()">Apply</button>';
+        html += '                        </div>';
     }
-    html += '<table id="order-totals-table-right" cellspacing="10" width="100%" style="background-color:#BDAFA0">';
-    html += '    <thead>';
-    html += '        <tr>';
-    html += '            <th colspan="2">Order Total</th>';
-    html += '        </tr>';
-    html += '    </thead>';
+    html += '<h2>Order Total</h2><table id="order-totals-table-right" cellpadding="0" cellspacing="0" width="100%">';
     html += '    <tbody></tbody>';
-    html += '</table>';
-    html += '<br><br>';
+    html += '</table></div>';
     return html;
 }
 
@@ -894,7 +892,7 @@ function OrderItems() {}
 OrderItems.buildYourOrder = function () {
     var orderDivArray = new Array();
     orderDivArray.push('right', 'sm');
-
+    console.log('orderdivearray',orderDivArray.length)
 
     // Process all divs that need order data
     for (var orderDivIndex = 0; orderDivIndex < orderDivArray.length; orderDivIndex++) {
@@ -926,35 +924,40 @@ OrderItems.buildYourOrder = function () {
             promoCost += Number(userPromos[j]['cost']);
         }
 
-        for (var i = 0; i < orderItems.length; i++) {
-            var orderItem = orderItems[i];
-            //console.log(orderItem);
+            console.log(orderItems.length);
+        for (var ii = 0; ii < orderItems.length; ii++) {
+            // console.log('test');
+            var orderItem = orderItems[ii];
 
             var cost = Number(orderItem['cost']);
             orderSubTotal += (cost * Number(orderItem['quantity']));
             var orderCost = (cost * Number(orderItem['quantity']));
+            var $size = '';
 
             html += '<tr>';
             html += '    <td>';
             html += '        <div class="panel-group" id="accordion-' + divName + '-' + orderItem['id'] + '">'
             html += '            <div class="panel panel-default">'
-            html += '                <div style="height: 38px; background-color:#A49685;">'
-            html += '                    <h3 class="panel-title">'
-            html += '                       <div class="col-xs-9"> '
-            html += '                         <a class="accordion-toggle" data-toggle="collapse" style="color:#fff;font-size:14px" data-parent="#accordion-' + divName + '-' + orderItem['id'] + '" href="#order-item-detail-' + divName + '-' + orderItem['id'] + '">'
+            html += '                <div style="margin: 0 -6px -6px;"><table width="100%" cellspacing="10" class="order-item-table"><tr>'
+            html += '                    <td><span style="float:right"><b>&times; ' + orderItem['quantity'] + '</b></span>'
             if (typeof orderItem['size'] === 'object' && orderItem['size']['id'] != 'NULL') {
-                html += '       <span class="itemSize">' + orderItem['size']['description'] + '</span> '
+                $size = orderItem['size']['description'].toUpperCase().substr(0,2);
+                if($size == 'LA')
+                    $size = "LG"
+                html += '       <span class="itemSize" data-size="'+orderItem['size']['description']+'">' + $size + '</span> '
             }
-            html += '<span class="itemDescription">' + orderItem['item']['name'] + '(' + orderItem['quantity'] + ')';
-            if (curr_loc.indexOf("confirmation") == -1) {
-                // html += '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>&nbsp;&nbsp;';
-                html += '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder(' + orderItem['id'] + ');">Remove</a>';
-            }
-            html += '</div></span><div style="height:38px;font-size:15px;float:right;" class="col-sm-2"> <div class="row" style="float:right"><br>$ ' + orderCost.toFixed(2) + '</div></div>'
+            html += '                         <a class="accordion-toggle" data-toggle="collapse" style="display:block;color:#fff;font-size:14px" data-parent="#accordion-' + divName + '-' + orderItem['id'] + '" href="#order-item-detail-' + divName + '-' + orderItem['id'] + '">'
+            
+            html += '<span class="itemDescription">' + orderItem['item']['name'] +'</span>';
             html += '                         </a>'
-            html += '                    </div></h3>'
+            // if (curr_loc.indexOf("confirmation") == -1) {
+            //     // html += '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>&nbsp;&nbsp;';
+            //     html += '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder(' + orderItem['id'] + ');">Remove</a>';
+            // }
+            html += '</td><td> $' + orderCost.toFixed(2) + '</td>'
+            html += '                    </tr></table></div>'
             html += '                </div>'
-            html += '                <div id="order-item-detail-' + divName + '-' + orderItem['id'] + '" class="panel-collapse collapse">'
+            html += '                <div id="order-item-detail-' + divName + '-' + orderItem['id'] + '" class="panel-collapse collapse" style="margin-top:6px">'
             html += '                    <div class="panel-body">'
             if (typeof orderItem['style'] === 'object' && orderItem['style']['id'] != 'NULL') {
                 html += '                        <p>Style: ' + orderItem['style']['description'] + '</p>'
@@ -1051,19 +1054,19 @@ OrderItems.buildYourOrder = function () {
         if (curr_loc.indexOf("confirmation") != -1) {
             html += orderTip.toFixed(2);
         } else {
-            html += '<input type="text" class="ordrTip" value="' + orderTip + '" maxlength="4" size="4" style="text-align:right" onchange="OrderItems.clearField(this.value)"/>';
+            html += '<input type="text" class="ordrTip" value="' + orderTip + '" maxlength="4" size="4" style="text-align:right" onchange="OrderItems.clearField(this.value)" onblur="OrderItems.UpdateTip()"/>';
         }
         html += '</td>';
         html += '</tr>';
-        if (curr_loc.indexOf("confirmation") == -1) {
-            html += ' <tr><td align="right" colspan="2"> <a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onclick="OrderItems.UpdateTip()">Apply</a></td>';
-            html += '</tr>';
-        }
+        // if (curr_loc.indexOf("confirmation") == -1) {
+        //     html += ' <tr><td align="right" colspan="2"> <a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onclick="OrderItems.UpdateTip()">Apply</a></td>';
+        //     html += '</tr>';
+        // }
 
         html += '<tr>';
         html += '    <th colspan="2"><hr></th>';
         html += '</tr>';
-        html += '<tr>';
+        html += '<tr class="total-line">';
         html += '    <td>TOTAL</td>';
         html += '    <td align="right" id="total">$ ' + orderTotal.toFixed(2) + '</td>';
         html += '</tr>';
@@ -1075,6 +1078,41 @@ OrderItems.buildYourOrder = function () {
         html += '</tr>';
 
         $('#order-totals-table-' + divName + ' > tbody').html(html);
+        $(document).off('scroll.order-table')
+        $(document).off('resize.order-table')
+        var top = $("#order-items-listing").outerHeight() + $("#order-items-listing").offset().top
+        var topOffset = $("#order-items-listing").offset().top - 20
+        var topHeight = $("#order-items-listing").outerHeight() 
+        var rightSide = $(document).width()-$("#order-items-panel").offset().left-$("#order-items-panel").outerWidth();
+        var adjustOrderTotal = function(){
+            var avail = $(window).height()-$(".order-table-total-wrapper").outerHeight();
+            // console.log(top, $(window).scrollTop(), avail,$("#order-items-listing").outerHeight(),top-avail)
+            if($(window).scrollTop() > top - avail) {
+                $(".order-table-total-wrapper").css('width',$("#order-items-panel").outerWidth()).addClass('fixed').css('right',rightSide)
+            } else {
+                $(".order-table-total-wrapper").css('width','auto').removeClass('fixed').css('right','auto')
+            }
+            if($(window).scrollTop() > topOffset) {
+                if(avail > topHeight + 60 ) {
+                    $("#order-items-listing").css('width',$("#order-items-panel").outerWidth()).css('max-height',avail).addClass('fixed').css('right',rightSide)
+                }
+            } else {
+                if(avail > topHeight + 60) {
+                    $("#order-items-listing").removeClass('fixed').css('width','auto').css('max-height','none').css('right','auto')
+                }
+            }
+
+        }
+        reCheckPoints = function(){
+            top = $("#order-items-listing").outerHeight() + $("#order-items-listing").offset().top
+            topOffset = $("#order-items-listing").offset().top - 20
+            topHeight = $("#order-items-listing").outerHeight() 
+            rightSide = $(document).width()-$("#order-items-panel").offset().left-$("#order-items-panel").outerWidth();
+        }
+        $(document).on('scroll.order-table',adjustOrderTotal)
+        $(window).on('resize.order-table',adjustOrderTotal)
+        $(window).on('resize.order-table',reCheckPoints)
+        adjustOrderTotal()
 
     }
 

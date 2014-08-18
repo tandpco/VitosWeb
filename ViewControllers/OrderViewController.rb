@@ -70,7 +70,7 @@ class OrderViewController
         # Hard coded sides as 8000 and above
         # Values originate in JSON, not the database
         # Added 8000 to original unit id (i.e. Vito's bread originally was UnitID 2, changed to 8002)
-        if(itemUnitId == 8000)
+        if(itemUnitId == 8000 || itemSpecialtyId == 8001)
             itemUnitId       = itemSpecialtyId - 8000
             itemSpecialtyId  = nil
 

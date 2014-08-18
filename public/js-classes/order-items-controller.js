@@ -40,13 +40,14 @@ function OrderItemsController () {
 
     this.getData = function(unitId, isOnInit) {
         $('#modal-please-wait').modal('show');
-
+        var sizeId = Session.get('sizeId');
+        // console.log('getData',unitId,isOnInit)
         var json = {
             "StoreID": Session.get("storeId"),
             "UnitID": unitId,
-            "SizeID":"9"
+            "SizeID":String(sizeId) || "9"
         }
-        console.log(json);
+        // console.log(json);
 
         var URL = "/rest/view/specialty/list-specialties";
         
@@ -83,6 +84,30 @@ function OrderItemsController () {
         }
     }  
 
+    this.updateStyleOptions = function(unitId, sizeId) {
+        $('#modal-please-wait').modal('show');
+        var json = {
+            "StoreID": Session.get("storeId"),
+            "UnitID": unitId,
+            "SizeID":String(sizeId)
+        }
+        var URL = "/rest/view/specialty/list-specialties";
+        
+        $.ajax({
+            url:  URL,
+            type: "POST",
+            data: JSON.stringify(json),
+            success: function(data) {
+                if(UNIT_ID == PIZZA || UNIT_ID == SIDES) {
+                    pageController.listStyles(data);
+                }
+                $('#modal-please-wait').modal('hide');
+                console.log('Got all the data');
+            }
+
+        });
+    }  
+
     this.getSideDetail = function(unitId) {
         Session.set('specialtyId', unitId);
         this.getData(unitId, false);
@@ -109,6 +134,7 @@ function OrderItemsController () {
 
     this.getSpecialtyItems = function(unitId, specialtyId, styleId, sauceId) {
         Session.set('specialtyId', specialtyId);
+        // var sizeId = Session.get('sizeId');
 
         var json = {
             "StoreID":Session.get("storeId"),
@@ -134,8 +160,8 @@ function OrderItemsController () {
                     Session.set('sauceId', sauceId);
                 }
 
-                $('#size-9').attr('checked', true).trigger('click');
                 $('#style-7').attr('checked', true).trigger('click');
+                $('#size-9').attr('checked', true).trigger('click');
 
                 // Uncheck everything
                 var currentToppingItems = JSON.parse(Session.get('toppingItems'));
@@ -406,7 +432,7 @@ function OrderItemsController () {
         }
 
         var URL = "/rest/view/order/create-order";
-
+        console.log(URL,json)
         $.ajax({
             url: URL,
             type: "POST",
@@ -548,50 +574,29 @@ function OrderItemsController () {
         }
       
       
-        html  = "<div class=\"col-md-5\">";
+        html  = "<div class=\"col-md-6\"><div class='item-panel-box'>";
         html += "    <table id=\"grid-table\">";
         html += "        <tr>";
-        html += "            <td><img src=\"/img/"+imgUrl+"\" width=\"100\" height=\"100\"></td>";
-        html += "            <td valign=\"top\">";
-        html += "                <table>";
-        html += "                    <tr>";
-        html += "                        <td colspan=2>";
-        html += "                            <p class=\"header\">" + name + "</p>";
-        html += "                        </td>";
-        html += "                    </tr>";
-        html += "                    <tr>";
-        html += "                        <td colspan=2>";
-        html += "                            <p class=\"body\">" + detail + "</p>";
-        html += "                        </td>";
+        html += "            <td class='item-panel-image' style='background-image:url(/img/"+imgUrl+")'><img src=\"/img/"+imgUrl+"\" width=\"100\" height=\"100\"></td>";
+        html += "            <td valign=\"top\" class='item-panel-content'>";
+        html += "              <p class=\"header\">" + name + "</p>";
+        html += "              <p class=\"body\">" + detail + "</p>";
 
 
         if(UNIT_ID == SIDES) {
-            html += "                    <tr>";
-            html += "                        <td>";
-            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSideDetail(' + specialtyId + ')">ORDER NOW</button>';
-            html += '                        </td>';
-            html += '                        <td>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSideDetail(' + specialtyId + ')" style="margin-right:4%">ORDER NOW</button>';
             html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSideDetail(' + specialtyId + ')">SEE DETAILS</button>';
-            html += "                        </td>";
-            html += "                    </tr>";
 
         }
         else {
-            html += "                    <tr>";
-            html += "                        <td>";
-            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">ORDER NOW</button>';
-            html += '                        </td>';
-            html += '                        <td>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')" style="margin-right:4%">ORDER NOW</button>';
             html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
-            html += "                        </td>";
-            html += "                    </tr>";
         }
 
-        html += "                </table>";
         html += "            </td>";
         html += "        </tr>";
         html += "    </table>";
-        html += "</div>";
+        html += "</div></div>";
         return html;
       
     }
@@ -856,31 +861,37 @@ function OrderItemsController () {
 
     this.selectSize = function(sizeId) {
         
-        if(sizeId == 39 || sizeId == 40) {
-            // Disable style
-            $("#styles").hide("slow");
-            $("#styles1").hide("slow");
-        }
-        else {
-            $("#styles").show("slow");
-            $("#styles1").show("slow");
-        }
+        // if(sizeId == 39 || sizeId == 40) {
+        //     // Disable style
+        //     $("#styles").hide("slow");
+        //     $("#styles1").hide("slow");
+        // }
+        // else {
+        //     $("#styles").show("slow");
+        //     $("#styles1").show("slow");
+        // }
 
         Session.set('sizeId', sizeId);
+        this.updateStyleOptions(UNIT_ID,sizeId)
     }
 
     this.listStyles = function(data) {
         var styles = data['styles']
+        var currentStyle = Session.get('styleId');
         html  = "<div id='styles'>";
         html += "<li class=\"header\">Type Options:</li>";
         for(var i = 0; i < styles.length; i++) {
-            html += pageController.buildStyleRadioItem(styles[i]['StyleID'],styles[i]['StyleDescription'],styles.length);
+            html += pageController.buildStyleRadioItem(styles[i]['StyleID'],styles[i]['StyleDescription'],styles.length,styles.length === 1 ? true : currentStyle);
+        }
+        if(styles.length == 1) {
+            this.selectStyle(styles[0]['StyleID'])
         }
         html += "</div>";
+        $("#size-and-crust .left-column #styles").remove()
         $("#size-and-crust .left-column").append(html);
     }
 
-    this.buildStyleRadioItem = function(id, description,contentLength) {
+    this.buildStyleRadioItem = function(id, description,contentLength,currentStyle) {
         // Add style to pageController for later retrieval
         var style = {};
         style['id']          = id;
@@ -894,7 +905,7 @@ function OrderItemsController () {
         }
         html = "";
         html += '<li class="item">';
-        html += '<input onclick="pageController.selectStyle(' + id + ')" type="radio" name="crust" value="style-' + id + '" id="style-' + id + '"/>';
+        html += '<input onclick="pageController.selectStyle(' + id + ')" type="radio" name="crust" value="style-' + id + '" id="style-' + id + '" '+(currentStyle == id || currentStyle === true ? 'checked="checked"' : '')+' />';
         html += '<label for="style-' + id + '">' + description + '</label>';
         html += "</li>";
         return html;
