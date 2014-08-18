@@ -882,6 +882,7 @@ function OrderItemsController () {
         html += "<li class=\"header\">Type Options:</li>";
         for(var i = 0; i < styles.length; i++) {
             html += pageController.buildStyleRadioItem(styles[i]['StyleID'],styles[i]['StyleDescription'],styles.length,styles.length === 1 ? true : currentStyle);
+            console.log('listing styles',styles.length === 1 ? true : currentStyle,styles[i]['StyleID'])
         }
         if(styles.length == 1) {
             this.selectStyle(styles[0]['StyleID'])
@@ -903,9 +904,10 @@ function OrderItemsController () {
            styleArr.push(style);
            Session.set(CURRENT_ORDER_LOC+'_STYLES',JSON.stringify(styleArr));
         }
+        // console.log(currentStyle == id)
         html = "";
         html += '<li class="item">';
-        html += '<input onclick="pageController.selectStyle(' + id + ')" type="radio" name="crust" value="style-' + id + '" id="style-' + id + '" '+(currentStyle == id || currentStyle === true ? 'checked="checked"' : '')+' />';
+        html += '<input onclick="pageController.selectStyle(' + id + ')" type="radio" name="crust" value="style-' + id + '" id="style-' + id + '" '+(currentStyle == id || currentStyle === true ? 'data-checked="checked"' : '')+' />';
         html += '<label for="style-' + id + '">' + description + '</label>';
         html += "</li>";
         return html;

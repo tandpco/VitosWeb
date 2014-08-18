@@ -1,4 +1,5 @@
 function Session () {}
+var $__localCache = {}
 Session.createSession = function() {
     var json = { 
     }
@@ -25,6 +26,9 @@ Session.get = function(name) {
         key: name
     }
 
+    // if a value is already available, we know we've already fetched or set this var. no need to re-get it
+    if(typeof $__localCache[name] != 'undefined')
+        return $__localCache[name];
     var returnValue = "";
     $.ajax({
         url: "/rest/view/session/get",
@@ -38,10 +42,11 @@ Session.get = function(name) {
         },
         async:   false
     });
-
-    return(returnValue);
+    return $__localCache[name] = returnValue
 }
 Session.set = function(name, value) {
+    if(typeof $__localCache[name] != 'undefined' && ($__localCache[name] === JSON.stringify(value) || $__localCache[name] === value))
+        return $__localCache[name];
     $.session.set(name, value);
 
     var json = {
@@ -63,7 +68,10 @@ Session.set = function(name, value) {
         },
         async:   false
     });
-
+    if(typeof value == 'object')
+        $__localCache[name] = JSON.stringify(value)
+    else
+        $__localCache[name] = value
     return(returnValue);
 
 }
@@ -90,7 +98,7 @@ NavBar.createMarkup = function() {
     html += '        <div class="collapse navbar-collapse">';
     html += '            <ul class="nav navbar-nav navbar-right">';
      var curr_loc= window.location.pathname;
-    html += '                <li><a href="/order-pizza" class="white-shadow'+(curr_loc.indexOf("pizza")!=-1 ? ' active':'')+'">MENU</a></li>';
+    html += '                <li><a href="/order-pizza" class="white-shadow'+(true ? ' active':'')+'">MENU</a></li>';
     html += '                <li><a href="/order-subs" class="white-shadow"'+(curr_loc.indexOf("deals")!=-1?'style="background-color:#006122"':'')+'>DEALS</a></li>';
     html += '                <li><a href="/order-salads" class="white-shadow"'+(curr_loc.indexOf("locations")!=-1?'style="background-color:#006122"':'')+'>LOCATIONS</a></li>';
     // html += '                <li><a href="/order-sides" class="white-shadow"'+(curr_loc.indexOf("sides")!=-1?'style="background-color:#006122"':'')+'>SIDES</a></li>';
@@ -939,7 +947,8 @@ OrderItems.buildYourOrder = function () {
             html += '        <div class="panel-group" id="accordion-' + divName + '-' + orderItem['id'] + '">'
             html += '            <div class="panel panel-default">'
             html += '                <div style="margin: 0 -6px -6px;"><table width="100%" cellspacing="10" class="order-item-table"><tr>'
-            html += '                    <td><span style="float:right"><b>&times; ' + orderItem['quantity'] + '</b></span>'
+            html += '                    <td><span style="float:right" class="itemQty"><b>&times; ' + orderItem['quantity'] + '</b></span>'
+            html += '<a class="removeItem" onClick="OrderItems.cancelOrder(' + orderItem['id'] + ');">&times;</a>';
             if (typeof orderItem['size'] === 'object' && orderItem['size']['id'] != 'NULL') {
                 $size = orderItem['size']['description'].toUpperCase().substr(0,2);
                 if($size == 'LA')
@@ -950,15 +959,14 @@ OrderItems.buildYourOrder = function () {
             
             html += '<span class="itemDescription">' + orderItem['item']['name'] +'</span>';
             html += '                         </a>'
-            // if (curr_loc.indexOf("confirmation") == -1) {
-            //     // html += '<br> <span class="badge"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>&nbsp;&nbsp;';
-            //     html += '<a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="OrderItems.cancelOrder(' + orderItem['id'] + ');">Remove</a>';
-            // }
             html += '</td><td> $' + orderCost.toFixed(2) + '</td>'
             html += '                    </tr></table></div>'
             html += '                </div>'
             html += '                <div id="order-item-detail-' + divName + '-' + orderItem['id'] + '" class="panel-collapse collapse" style="margin-top:6px">'
             html += '                    <div class="panel-body">'
+            if (curr_loc.indexOf("confirmation") == -1) {
+                // html += '<span class="badge" style="float:right"><a style="font-size:80%;cursor: pointer; cursor: hand;text-decoration:underline;color:#000" onClick="pageController.updateOrder(' + orderItem['id'] + ');">Edit</a></span>';
+            }
             if (typeof orderItem['style'] === 'object' && orderItem['style']['id'] != 'NULL') {
                 html += '                        <p>Style: ' + orderItem['style']['description'] + '</p>'
             }

@@ -313,6 +313,35 @@ h1, h2, h3, h4, h5, h6 {
             .itemDescription {
                 font-weight: bold;
             }
+            &:hover {
+                .itemQty {
+                    display: none;
+                }
+                .removeItem {
+                    display: block;
+                }
+            }
+            .removeItem {
+                display: none;
+                cursor: pointer;
+                margin-top: 2px;
+                opacity: 0.3;
+                width:15px;
+                height:15px;
+                border-radius: 10px !important;
+                text-decoration: none;
+                background-color: #C00000;
+                font-weight: bold;
+                color: #fff;
+                text-align:center;
+                line-height: 18px;
+                font-size: 17px;
+                float:right;
+                &:hover {
+                    background-color: red;
+                    opacity: 1;
+                }
+            }
             .itemSize {
                 padding: 8px 10px;
                 font-weight:bold;
