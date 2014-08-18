@@ -6,12 +6,12 @@
 /* line 37, ../../sass/custom-theme.scss */
 body {
   background-color: #f0e8de !important;
-  font-family: "Proxima Nova", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Arial", sans-serif;
 }
 
 /* line 41, ../../sass/custom-theme.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Proxima Nova", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Arial", sans-serif;
 }
 
 /* line 47, ../../sass/custom-theme.scss */
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 20px;
   float: left;
   background-color: #f0e8de;
-  font-family: "Proxima Nova", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Arial", sans-serif;
   position: relative;
   padding-bottom: 50px;
 }
@@ -294,7 +294,7 @@ h1, h2, h3, h4, h5, h6 {
 #order-items-panel table.order-item-table {
   border-collapse: separate;
   border-spacing: 6px;
-  font-family: "Proxima Nova", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Arial", sans-serif;
 }
 /* line 306, ../../sass/custom-theme.scss */
 #order-items-panel table.order-item-table td {
@@ -378,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
   border-right-width: 0px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  font-family: "Proxima Nova", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Arial", sans-serif;
   font-size: 11px;
   width: 82px;
   font-weight: 400;
