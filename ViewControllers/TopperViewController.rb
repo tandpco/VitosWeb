@@ -19,7 +19,7 @@ class TopperViewController
         storeId  = data['StoreID']
         unitId   = data['UnitID']
 
-        rows = ActiveRecord::Base.connection.select_all('SELECT DISTINCT [tbltopper].* FROM [tbltopper] INNER JOIN trelUnitTopper on tblTopper.TopperID = trelUnitTopper.TopperID AND tblTopper.IsActive <> 0 INNER JOIN trelStoreUnitSize ON trelUnitTopper.UnitID = trelUnitTopper.UnitID AND trelStoreUnitSize.StoreID = ' + storeId + ' AND trelStoreUnitSize.UnitID =' + unitId + ' ORDER BY tblTopper.TopperID')
+        rows = ActiveRecord::Base.connection.select_all('SELECT DISTINCT [tbltopper].* FROM [tbltopper] INNER JOIN trelUnitTopper on tblTopper.TopperID = trelUnitTopper.TopperID AND tblTopper.IsActive <> 0 INNER JOIN trelStoreUnitSize ON trelUnitTopper.UnitID = trelUnitTopper.UnitID AND trelStoreUnitSize.StoreID = ' + storeId + ' AND trelUnitTopper.UnitID = '+unitId+' AND trelStoreUnitSize.UnitID =' + unitId + ' ORDER BY tblTopper.TopperID')
 
         return rows.to_json
     end

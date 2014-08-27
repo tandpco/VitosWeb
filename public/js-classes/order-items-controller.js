@@ -101,6 +101,7 @@ function OrderItemsController () {
                 if(UNIT_ID == PIZZA || UNIT_ID == SIDES) {
                     pageController.listStyles(data);
                 }
+                pageController.listSauces(data);
                 $('#modal-please-wait').modal('hide');
                 console.log('Got all the data');
             }
@@ -115,6 +116,9 @@ function OrderItemsController () {
     }  
     
     this.order = function() {
+        console.log(Session.get('sizeId'))
+        if(!Session.get('sizeId'))
+            return alert("You must select a size.");
         $('#modal-modify-item').modal('hide');
         $('#modal-please-wait').modal('show');
         var orderId = Session.get("orderId");
@@ -200,7 +204,7 @@ function OrderItemsController () {
                     }
                 }
                 Session.set('toppings', toppings);
-
+                // this.listSauces()
                 // Unset Sizes
                 for(var i = 0; i < pageController.sizes.length; i++) {
                     sizeId = pageController.sizes[i]['id'];
@@ -589,8 +593,8 @@ function OrderItemsController () {
 
         }
         else {
-            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')" style="margin-right:4%">ORDER NOW</button>';
-            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + sauceId + ')">SEE DETAILS</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + (sauceId || 'null') + ')" style="margin-right:4%">ORDER NOW</button>';
+            html += '                            <button class="red-gradient-button" onClick="$(\'a[href=#size-and-crust]\').tab(\'show\');pageController.getSpecialtyItems(' + UNIT_ID + ', ' + specialtyId + ', ' + styleId + ', ' + (sauceId || 'null') + ')">SEE DETAILS</button>';
         }
 
         html += "            </td>";
@@ -1007,10 +1011,17 @@ function OrderItemsController () {
 
         $("#cheese-and-sauce .left-column").append(html);
         var specialtyId = Session.get('specialtyId');
-        if(specialtyId == 8002)
+        // console.log('unitID',UNIT_ID)
+        if(specialtyId == 8002) {
             $("a[href='#cheese-and-sauce']").text('DIPPING SAUCE')
-        else
+        }
+        else if(UNIT_ID == "3") {
+            // alert('test')
+            $("a[href='#cheese-and-sauce']").parent().hide()
+        }
+        else {
             $("a[href='#cheese-and-sauce']").text('SAUCE')
+        }
         if(!sauces.length)
             $("a[href='#cheese-and-sauce']").hide()
         else

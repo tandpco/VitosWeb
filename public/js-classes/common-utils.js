@@ -913,10 +913,10 @@ OrderItems.buildYourOrder = function () {
         var html = "";
         html = "<tr>";
         if(Session.get('deliveryAvailable') == "true") {
-            html += '    <td>' + Session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onClick="+$(\'#modal-delivery\').modal()">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
+            html += '    <td>' + Session.get('email') + ' (<a id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="+$(\'#modal-delivery\').modal();return false;">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
         }
         else {
-            html += '    <td>' + Session.get('email') + ' (<a href="#" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
+            html += '    <td>' + Session.get('email') + ' (<a href="#" onclick="+$(\'#modal-delivery\').modal();return false;" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">' + Session.get('mode') + '</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">' + Session.get('storeAddress') + ')</a></td>';
         }
 
         html += "</tr>";
@@ -1028,11 +1028,11 @@ OrderItems.buildYourOrder = function () {
             orderTip = Number(Session.get('orderTip'));
         }
 
-        if (Session.get('deliveryCharge')) {
+        if (Session.get('deliveryCharge') && Session.get('mode') == 'Delivery') {
             orderDeliveryCharge = Number(Session.get('deliveryCharge'));
         }
 
-        if (Session.get('driverMoney')) {
+        if (Session.get('driverMoney') && Session.get('mode') == 'Delivery') {
             orderDriverMoney = Number(Session.get('driverMoney'));
         }
 
