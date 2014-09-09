@@ -2,6 +2,9 @@
 puma.pid
 puma.stderr.log
 puma.stdout.log
+node_modules
+sessions
+*.sublime*
 Gemfile.lock
 .sass-cache
 ## End

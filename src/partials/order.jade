@@ -1,0 +1,68 @@
+.order-items-listing
+  h2 Your Order
+  table#order-table-right(cellspacing="10")
+    tbody
+      tr
+        td ftwelter@bex.net (<a href="#" onclick="+$('#modal-delivery').modal();return false;" id="delivery-mode" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline">Pickup</a>) (<a href="#" style="font-size:80%;cursor: pointer; cursor: hand;color:#000;text-decoration:underline" onclick="CommonUtils.chooseStore()">4804 Lewis Ave. Toledo, OH, 43612)</a>
+      tr(ng-repeat="$line in $lines")
+        td
+          .panel-group
+            .panel.panel-default
+              div(style="margin: 0 -6px -6px;")
+                table(width="100%" cellspacing="10" class="order-item-table")
+                  tbody
+                    tr
+                      td
+                        span(style="float:right" class="itemQty") <b>× {{$line.Quantity}}</b>
+                        a(class="removeItem" onclick="OrderItems.cancelOrder(2264716);") ×
+                        span(class="itemSize" data-size="Large") {{$line.extra.size.SizeShortDescription}}
+                        a(class="accordion-toggle" style="display:block;color:#fff;font-size:14px")
+                          span.itemDescription {{$line.extra.specialty.SpecialtyShortDescription}}
+                      td {{$line.Cost | currency}}
+            div.panel-collapse(style="margin-top: 6px; height: auto;")
+              .panel-body
+                table.grid.mini
+                  tr
+                    td
+                      .micro-badge Style
+                      |  {{$line.extra.style.StyleDescription}} 
+                    td
+                      .micro-badge Sauce
+                      |  {{$line.extra.sauce.SauceDescription}} 
+                table.cols.mini
+                  tr
+                    td
+                      div: strong Toppings
+                      ul
+                        li(ng-repeat="$topping in $line.extra.toppings") {{$topping.ItemDescription}} 
+                        span(ng-show="$topping.HalfID").micro-badge {{halfPretty($topping.HalfID)}}
+                    td
+                      div: strong Crust Flavor
+                      ul
+                        li(ng-repeat="$topper in $line.extra.toppers") {{$topper.TopperDescription}}
+                      div: strong Sides
+                      ul
+                        li(ng-repeat="$side in $line.extra.sides") {{$side.SideDescription}}
+  .order-table-total-wrapper
+    .promo-code-input
+      input(type="text" id="promoCode-lg" placeholder="Promo Code")
+      button(class="btn" type="button" onclick="pageController.updatePromo()") Apply
+    h2 Order Total
+    table#order-totals-table-right(cellpadding="0" cellspacing="0" width="100%")
+      tr
+        td SUB TOTAL
+        td {{$order.subtotal}}
+      tr
+        td TAXES
+        td {{$order.Tax | currency}}
+      tr
+        td DELIVERY CHARGE
+        td {{$order.DeliveryCharge | currency}}
+      tr
+        td DRIVER MONEY
+        td {{$order.DriverMoney | currency}}
+      tr
+        td TIP
+        td
+          input(type="text",ng-model="$order.Tip" class="ordrTip" maxlength="4" size="4" style="text-align:right")
+

@@ -1,11 +1,15 @@
 require 'sinatra'
 require 'json'
+require 'time'
 
 class OrderViewController
     public
 
-    def self.getOrder(data)
-        orderId   = data['orderId'].to_s
+    def self.getOrder(data,session)
+        orderId = SessionViewController.get("orderId",session)
+        if !orderId
+            return nil
+        end
 
         rows = ActiveRecord::Base.connection.select_all('SELECT [tblorders].* FROM [tblorders] WHERE OrderID = ' + orderId)
 
@@ -20,38 +24,54 @@ class OrderViewController
 
         return rows.to_json
     end
+    def self.getOrderNew(data,session)
+        orderId = SessionViewController.get("orderId",session)
+        if !orderId
+            return nil
+        end
+
+        row = ActiveRecord::Base.connection.select_one('SELECT tblorders.* FROM tblorders WHERE OrderID = ' + orderId)
+        return row
+    end
     
-    def self.createOrder(data)
+    def self.createOrder(data,session)
         result = Hash.new()
 
         # Order
         order = data['order']
         orderItem = data['orderItem']
-
-        orderId = convertToInt(order['pOrderID'])
+        orderId = SessionViewController.get("orderId",session).to_i
+        storeId = SessionViewController.get("storeId",session).to_i
 
         puts("OrderID: " + orderId.to_s)
         if(orderId == nil || orderId < 1)
 
             newOrder = Hash.new()
 
-            newOrder['pSessionID']       = convertToInt(order['pSessionID'])
-            newOrder['pIPAddress']       = order['pIPAddress']
-            newOrder['pEmpID']           = convertToInt(order['pEmpID'])
-            newOrder['pRefID']           = convertToInt(order['pRefID'])
-            newOrder['pTransactionDate'] = order['pTransactionDate']
-            newOrder['pStoreID']         = convertToInt(order['pStoreID'])
+            newOrder['pSessionID']       = 0
+            newOrder['pIPAddress']       = 0
+            newOrder['pEmpID']           = 0
+            newOrder['pRefID']           = nil
+            newOrder['pTransactionDate'] = Time.now.utc.iso8601
+            newOrder['pStoreID']         = storeId
+
+            # get from session
             newOrder['pCustomerID']      = convertToInt(order['pCustomerID'])
+
             newOrder['pCustomerName']    = order['pCustomerName']
             newOrder['pCustomerPhone']   = order['pCustomerPhone']
             newOrder['pAddressID']       = convertToInt(order['pAddressID'])
             newOrder['pOrderTypeID']     = convertToInt(order['pOrderTypeID'])
+
+            # auto determine this
             newOrder['pDeliveryCharge']  = convertToFloat(order['pDeliveryCharge'])
+
             newOrder['pDriverMoney']     = convertToFloat(order['pDriverMoney'])
             newOrder['pOrderNotes']      = order['pOrderNotes']
             
             orderResult = ActiveRecord::Base.connection.execute_procedure("AddOrder", newOrder)
             orderId = convertToInt(orderResult[0]['newid'])
+            SessionViewController.set("orderId",orderId,session)
         end
 
         orderItem['pOrderID']     = orderId
@@ -101,8 +121,10 @@ class OrderViewController
 
         # OrderLineItem
         toppings = data['orderItemToppings']
+        toppers = data['orderItemToppers']
 
         result['orderLineItemResults'] = Array.new
+        result['orderLineToppers'] = Array.new
         orderLineItemResult            = Array.new
 
         if(toppings != nil && toppings.count > 0)
@@ -127,13 +149,52 @@ class OrderViewController
                 result['orderLineItemResults'].push(orderLineItemResult)
             end
         end
+        if(toppers != nil && toppers.count > 0)
+            toppers.each do |topper|
+                orderLineTopper = Hash.new
+                orderLineTopper['pOrderLineID'] = convertToInt(orderItemResult[0]['newid'])
+                orderLineTopper['pTopperID'] = topper
+                orderLineTopper['pTopperHalfID'] = 0
+                # case topper['portion']
+                # when 'whole' 
+                #     orderLineItem['pHalfID'] = '0'
+                # when 'left'
+                #     orderLineItem['pHalfID'] = '1'
+                # when 'right'
+                #     orderLineItem['pHalfID'] = '2'
+                # when '2x'
+                #     orderLineItem['pHalfID'] = '3'
+                # else
+                #     orderLineItem['pHalfID'] = '0'
+                # end
+    
+                orderLineToppperResult = ActiveRecord::Base.connection.execute_procedure("AddOrderLineTopper", orderLineTopper);
+                result['orderLineToppers'].push(orderLineToppperResult)
+            end
+        end
+
+        if(data['orderItemSides'] != nil && data['orderItemSides'].count > 0)
+            data['orderItemSides'].each do |side|
+                i = 0
+                puts(side)
+                while i < side['Quantity'] do
+                    ActiveRecord::Base.connection.execute_procedure("AddOrderLineSide", {
+                        :pOrderLineID => convertToInt(orderItemResult[0]['newid']),
+                        :pSideID => side['SideID'],
+                        :pIsFreeSide => 1
+                    });
+                    i += 1
+                end
+            end
+        end
 
         # Update Price
-        updatePrice = data['updatePrice']
-        updatePrice['pOrderID']         = orderId
-        updatePrice['pStoreID']         = convertToInt(updatePrice['pStoreID'])
-        updatePrice['pCouponIDs']       = updatePrice['pCouponIDs']
-        updatePrice['pPromoCodes']      = updatePrice['pPromoCodes']
+        updatePrice = {
+            :pOrderID => orderId,
+            :pStoreID => storeId,
+            :pCouponIDs => "",
+            :pPromoCodes => ""
+        }
 
         updatePriceResult = ActiveRecord::Base.connection.execute_procedure("WebRecalculateOrderPrice", updatePrice)
 

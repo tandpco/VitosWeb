@@ -5,37 +5,17 @@ require 'securerandom'
 class SessionViewController
     public
 
-    def self.createSession(data)
-        # Probably fine for now, but need to add timestamp to uuid()
-        sessionId = SecureRandom.uuid()
-        $session[sessionId] = Hash.new()
-
-        returnData = Hash.new()
-        returnData["sessionId"] = sessionId
-        return returnData.to_json
+    def self.createSession(data,session)
+        return {:sessionId=>session.id}
     end
 
-    def self.get(data)
-        sessionId = data['sessionId']
-        key       = data['key']
-    
-        returnData = Hash.new()
-        returnData[key] = $session[sessionId][key]
-    
-        return returnData.to_json
-
+    def self.get(key,session)
+        return $session[session.id+"--"+key.to_s].to_s
     end
 
-    def self.set(data)
-        sessionId = data['sessionId']
-        key       = data['key'].to_s
-        value     = data['value'].to_s
-    
-        $session[sessionId][key] = value
-    
-        returnData = Hash.new()
-        returnData[key] = $session[sessionId][key]
-        return returnData.to_json
+    def self.set(key,value,session)
+        $session[session.id+"--"+key.to_s] = value.to_s
+        return value.to_s
     end
     
 end

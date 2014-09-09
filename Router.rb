@@ -2,8 +2,10 @@ require 'sinatra'
 require "sinatra/config_file"
 require 'json'
 require 'active_record'
+require 'moneta'
 
 enable :sessions
+enable :raise_errors
 
 config_file 'config/settings.yml'
 Dir["./ViewControllers/*.rb"].sort.each do |file| 
@@ -27,8 +29,8 @@ $sauces         = JSON::load(File.open("./JSON-DATA/sauces.json"))
 $sauceModifiers = JSON::load(File.open("./JSON-DATA/saucemodifiers.json"))
 $specialties    = JSON::load(File.open("./JSON-DATA/specialties.json"))
 $stores         = JSON::load(File.open("./JSON-DATA/store-coordinates.json"))
-$session        = Hash.new()
-
+# $session        = Hash.new()
+$session        = Moneta.new(:File, dir: 'sessions')
 $PIZZA               = "1"
 $SUB                 = "32"
 $SALAD               = "3"
@@ -38,6 +40,8 @@ $WINGS               = "8004"
 $CINNAMONBREADSTICKS = "8005"
 $DIPPERS             = "8007"
 $BEVERAGE            = "8015"
+
+
 # HTML static routes (GET)
 get '/' do
     send_file('public/sign-in.html')
@@ -84,25 +88,51 @@ post '/rest/view/session/create-session' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    SessionViewController.createSession(data)
+    SessionViewController.createSession(data,session).to_json
 end
 post '/rest/view/session/set' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    SessionViewController.set(data)
+    SessionViewController.set(data['key'],data['value'],session).to_json
 end
 post '/rest/view/session/get' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    SessionViewController.get(data)
+    SessionViewController.get(data['key'],session).to_json
+end
+get '/rest/view/session/get' do
+    content_type :json
+    SessionViewController.get(params[:key],session).to_json
+end
+get '/rest/view/session/set' do
+    content_type :json
+    SessionViewController.set(params[:key],params[:value],session).to_json
 end
 post '/rest/view/specialty/list-specialties' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
     SpecialtyViewController.listSpecialties(data)
+end
+get '/rest/view/specialty/list-specialties' do
+    request.body.rewind  # in case someone already read it
+    data = {"StoreID"=>params[:StoreID],"UnitID"=>params[:UnitID],"SizeID"=>params[:SizeID]}
+    content_type :json
+    SpecialtyViewController.listSpecialties(data)
+end
+get '/api/item' do
+    request.body.rewind  # in case someone already read it
+    data = {"StoreID"=>params[:StoreID],"UnitID"=>params[:UnitID],"SizeID"=>params[:SizeID],"SpecialtyID"=>params[:SpecialtyID]}
+    content_type :json
+    SpecialtyViewController.specialtyItem(data)
+end
+get '/api/item-sizes' do
+    request.body.rewind  # in case someone already read it
+    data = {"StoreID"=>params[:StoreID],"UnitID"=>params[:UnitID],"StyleID"=>params[:StyleID],"SpecialtyID"=>params[:SpecialtyID]}
+    content_type :json
+    StyleViewController.listSizesForStyle(data)
 end
 post '/rest/view/topping/list-toppings' do
     request.body.rewind  # in case someone already read it
@@ -138,13 +168,13 @@ post '/rest/view/order/get-order' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    OrderViewController.getOrder(data)
+    OrderViewController.getOrder(data,session)
 end
 post '/rest/view/order/create-order' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    OrderViewController.createOrder(data)
+    OrderViewController.createOrder(data,session)
 end
 
 post '/rest/view/order-item/get-default-specialty-items' do
@@ -158,14 +188,22 @@ post '/rest/view/order-line/delete-order-line' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    OrderLineViewController.deleteOrderLine(data)
+    OrderLineViewController.deleteOrderLine(data,session)
 end
 
 post '/rest/view/order-line/get-order-lines' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     content_type :json
-    OrderLineViewController.getOrderLines(data)
+    OrderLineViewController.getOrderLines(data,session)
+end
+get '/api/order' do
+    data = {}
+    OrderViewController.getOrderNew(data,session).to_json
+end
+get '/api/order/lines' do
+    data = {}
+    OrderLineViewController.getOrderLines(data,session)
 end
 ActiveRecord::Base.establish_connection(
     :adapter => config['adapter'],

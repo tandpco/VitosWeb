@@ -1,7 +1,7 @@
 function SignInController () {
     
     this.constructSession = function(){
-        Session.createSession();
+        // Session.createSession();
         Session.set('orderItems', JSON.stringify(new Array()));
         Session.set('userPromoCodes',JSON.stringify(new Array()));
         Session.set('PIZZA_TOPPERS',JSON.stringify(new Array()));

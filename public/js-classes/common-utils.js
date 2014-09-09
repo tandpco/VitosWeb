@@ -42,7 +42,7 @@ Session.get = function(name) {
         success: function(data) {
             console.log(data);
             if(data != '' && data != null) {
-                returnValue = data[name]
+                returnValue = data
             }
         },
         async:   false
@@ -70,7 +70,7 @@ Session.set = function(name, value) {
         success: function(data) {
             console.log(data);
             if(data != '' && data != null) {
-                returnValue = data[name]
+                returnValue = data
             }
         },
         async:   false
@@ -906,6 +906,7 @@ PanelOrderItems.createMarkup = function () {
 
 function OrderItems() {}
 OrderItems.buildYourOrder = function () {
+    return false
     var orderDivArray = new Array();
     orderDivArray.push('right', 'sm');
     console.log('orderdivearray',orderDivArray.length)

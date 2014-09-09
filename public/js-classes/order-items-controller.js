@@ -32,8 +32,8 @@ function OrderItemsController () {
         $('#modal-modify-item').append(ModalModifyPizzaItem.createMarkup());
         $('#modal-modify-item1').append(ModalModifyOrderItem.createMarkup());
         
-        $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
-        $('#order-items-panel').append(PanelOrderItems.createMarkup());
+        // $('#order-items-panel-sm').append(PanelOrderItemsSmall.createMarkup());
+        // $('#order-items-panel').append(PanelOrderItems.createMarkup());
         
         this.getData(UNIT_ID, true);
     }  
@@ -137,7 +137,10 @@ function OrderItemsController () {
     }
 
     this.getSpecialtyItems = function(unitId, specialtyId, styleId, sauceId) {
-        Session.set('specialtyId', specialtyId);
+        window.__itemDetail(unitId,specialtyId,styleId,sauceId)
+        // Session.set('specialtyId', specialtyId);
+        return false
+        // return;
         // var sizeId = Session.get('sizeId');
 
         var json = {

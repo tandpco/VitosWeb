@@ -20,7 +20,7 @@ if(File.exists?("./puma.pid"))
     end
 end
 
-command = "/usr/local/bin/puma -C ./config/puma.config"
+command = "puma -C ./config/puma.config"
 puts("Starting solution: #{command}")
 system(command)
 
